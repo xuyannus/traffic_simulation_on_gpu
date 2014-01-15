@@ -26,7 +26,7 @@ public:
 };
 
 bool Vehicle::load_in_all_vehicles(vector<Vehicle*>& all_vehicles, string demand_file_path) {
-	/*
+
 	string line;
 	ifstream myfile(demand_file_path.c_str());
 
@@ -34,7 +34,7 @@ bool Vehicle::load_in_all_vehicles(vector<Vehicle*>& all_vehicles, string demand
 
 	if (myfile.is_open()) {
 		while (getline(myfile, line)) {
-			if (line.empty() || boost::starts_with(line, "#")) {
+			if (line.empty() || line.compare(0, 1, "#")==0) {
 				continue;
 			}
 
@@ -59,7 +59,7 @@ bool Vehicle::load_in_all_vehicles(vector<Vehicle*>& all_vehicles, string demand
 	cout << "Vehicle Loaded" << endl;
 	cout << "Vehicles:" << all_vehicles.size() << endl;
 	cout << "-------------------------------------" << endl;
-	*/
+
 	return true;
 }
 

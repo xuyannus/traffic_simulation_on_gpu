@@ -208,7 +208,7 @@ bool initilizeCPU() {
 
 	simulation_results_pool.clear();
 	simulation_results_output_file.open(simulation_output_file_path.c_str());
-	simulation_results_output_file << "##TIME STEP" << ":Lane ID:" << ":(" << "flow" << ":" << "density" << ":" << "speed" << ":" << "queue_length" << ")" << endl;
+	simulation_results_output_file << "##TIME STEP" << ":Lane ID:" << ":(" << "COUNTS" << ":" << "flow" << ":" << "density" << ":" << "speed" << ":" << "queue_length" << ")" << endl;
 
 	return true;
 }
@@ -392,13 +392,15 @@ bool initGPUData(GPUMemory* data_local) {
 				data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].path_code[p - 1] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
 			}
 
-			for (int p = 1; p < max_copy_length; p++)
-				std::cout << "data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].path_code:"
-						<< data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].path_code[p-1] << ",";
+//			for (int p = 1; p < max_copy_length; p++)
+//				std::cout << "data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].path_code:"
+//						<< data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].path_code[p-1] << ",";
 
 			//			data_local->new_vehicles_every_time_step[time_index].new_vehicles[index][lane_ID].path_code = all_od_paths[one_vehicle->path_id]->route_code;
-			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].next_path_index = 0;
-			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].whole_path_length = all_od_paths[one_vehicle->path_id]->link_ids.size() - 1;
+
+			//ready for the next lane, so next_path_index is set to 1, if the next_path_index == whole_path_length, it means cannot find path any more, can exit;
+			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].next_path_index = 1;
+			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].whole_path_length = all_od_paths[one_vehicle->path_id]->link_ids.size();
 
 			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_ID]++;
 		}
@@ -408,15 +410,15 @@ bool initGPUData(GPUMemory* data_local) {
 	}
 
 	//test
-	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
-		int new_size = 0;
-
-		for (int j = 0; j < LANE_SIZE; j++) {
-			new_size += data_local->new_vehicles_every_time_step[i].new_vehicle_size[j];
-		}
-
-		std::cout << "new_size: AT " << i << ", " << new_size << std::endl;
-	}
+//	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
+//		int new_size = 0;
+//
+//		for (int j = 0; j < LANE_SIZE; j++) {
+//			new_size += data_local->new_vehicles_every_time_step[i].new_vehicle_size[j];
+//		}
+//
+//		std::cout << "new_size: AT " << i << ", " << new_size << std::endl;
+//	}
 
 //	data_local->test = 126;
 
@@ -507,7 +509,8 @@ bool output_simulated_results(int time_step) {
 	assert(one != NULL);
 
 	for (int i = 0; i < LANE_SIZE; i++) {
-		simulation_results_output_file << time_step << ":lane:" << i << ":(" << one->counts[i] << ":" << one->flow[i] << ":" << one->density[i] << ":" << one->speed[i] << ":" << one->queue_length[i] << ")" << endl;
+		simulation_results_output_file << time_step << ":lane:" << i << ":(" << one->counts[i] << ":" << one->flow[i] << ":" << one->density[i] << ":" << one->speed[i] << ":" << one->queue_length[i]
+				<< ")" << endl;
 	}
 
 //	temply not deleted
@@ -617,17 +620,33 @@ __global__ void supply_simulation_vehicle_passing(GPUMemory* gpu_data, int time_
 		//Find A vehicle
 		GPUVehicle* one_v = get_next_vehicle_at_node(gpu_data, node_id, &lane_id);
 
-		if (one_v == NULL || lane_id < 0) break;
+		if (one_v == NULL || lane_id < 0) {
+//			printf("one_v == NULL\n");
+			break;
+		}
+
+//		printf("one vehicle ID=%d, on road=%d\n", one_v->vehicle_ID, node_id);
 
 		//Insert to next Lane
 		if (gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index >= gpu_data->lane_pool.vehicle_space[0][lane_id]->whole_path_length) {
 			//the vehicle has finished the trip
+
+//			printf("vehicle finish trip");
 			return;
 		}
 		else {
 			int next_lane_index = gpu_data->lane_pool.vehicle_space[0][lane_id]->path_code[gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index];
 			//		int next_lane = next_lane_bool ? 1 : 0;
-			int next_lane_id = gpu_data->node_pool.downstream[next_lane_index][i];
+
+//			printf("%d---------------------\n", node_id);
+//			for (int j = 0; j < MAX_LANE_DOWNSTREAM; j++) {
+////				data_local->node_pool.downstream[j][i];
+//				printf("time_step=%d\n", gpu_data->node_pool.downstream[j][node_id]);
+//				printf("time_step=%d\n", gpu_data->node_pool.upstream[j][node_id]);
+//			}
+//			printf("---------------------\n");
+
+			int next_lane_id = gpu_data->node_pool.downstream[next_lane_index][node_id];
 			gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index++;
 
 			//add the vehicle
@@ -636,11 +655,13 @@ __global__ void supply_simulation_vehicle_passing(GPUMemory* gpu_data, int time_
 
 			gpu_data->lane_pool.input_capacity[next_lane_id]--;
 			gpu_data->lane_pool.predicted_empty_space[next_lane_id] -= VEHICLE_LENGTH;
+
+			printf("time_step=%d,one_v->vehicle_ID=%d,lane_id=%d, next_lane_id=%d, next_lane_index=%d\n", time_step, one_v->vehicle_ID, lane_id, next_lane_id, next_lane_index);
 		}
 
 		//Remove from current Lane
-		for (int i = 1; i < gpu_data->lane_pool.vehicle_counts[lane_id]; i++) {
-			gpu_data->lane_pool.vehicle_space[i - 1][lane_id] = gpu_data->lane_pool.vehicle_space[i][lane_id];
+		for (int j = 1; j < gpu_data->lane_pool.vehicle_counts[lane_id]; j++) {
+			gpu_data->lane_pool.vehicle_space[j - 1][lane_id] = gpu_data->lane_pool.vehicle_space[j][lane_id];
 		}
 
 		gpu_data->lane_pool.vehicle_counts[lane_id]--;

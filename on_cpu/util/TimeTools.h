@@ -9,11 +9,11 @@
 #define TIMETOOLS_H_
 
 #include "shared_cpu_include.h"
-//#include <sys/time.h>
-typedef struct timeval {
-  long tv_sec;
-  long tv_usec;
-} timeval;
+#include <sys/time.h>
+//typedef struct timeval {
+//  long tv_sec;
+//  long tv_usec;
+//} timeval;
 
 class TimeTools {
 public:
@@ -24,11 +24,11 @@ public:
 
 public:
 	void start_profiling() {
-		//gettimeofday(&start_time, NULL);
+		gettimeofday(&start_time, NULL);
 	}
 
 	void end_profiling() {
-		//gettimeofday(&end_time, NULL);
+		gettimeofday(&end_time, NULL);
 	}
 
 	void output() {
