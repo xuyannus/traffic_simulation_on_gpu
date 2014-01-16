@@ -28,7 +28,12 @@ public:
 
 public:
 	GPUMemory(){
-		new_vehicles_every_time_step = (NewLaneVehicles*)malloc(sizeof(NewLaneVehicles)*TOTAL_TIME_STEPS);
+		this->new_vehicles_every_time_step = (NewLaneVehicles*)malloc(sizeof(NewLaneVehicles)*TOTAL_TIME_STEPS);
+		for (int i=0; i<TOTAL_TIME_STEPS; i++)
+			this->new_vehicles_every_time_step[i] = new NewLaneVehicles();
+		if (new_vehicles_every_time_step==NULL) 
+			printf("Error allocating memory!\n"); //print an error message
+		printf("GPUMemory: GPUMemory(): sizeof(NewLaneVehicles): %d\n", sizeof(NewLaneVehicles));
 	}
 
 	int total_size() {
