@@ -18,7 +18,7 @@ public:
 	float density[LANE_SIZE];
 	float speed[LANE_SIZE];
 	float queue_length[LANE_SIZE];
-	float counts[LANE_SIZE];
+	int counts[LANE_SIZE];
 
 };
 

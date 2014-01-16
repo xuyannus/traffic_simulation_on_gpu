@@ -382,7 +382,7 @@ bool initGPUData(GPUMemory* data_local) {
 		if (data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_ID] < VEHICLE_MAX_LOADING_ONE_TIME) {
 			int index = data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_ID];
 
-			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].vehicle_ID = i;
+			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].vehicle_ID = one_vehicle->vehicle_id;
 			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].entry_time = time_index;
 			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].current_lane_ID = lane_ID;
 
@@ -566,13 +566,10 @@ __global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int t
 
 	//update speed and density
 	gpu_data->lane_pool.density[lane_id] = 1.0 * VEHICLE_LENGTH * gpu_data->lane_pool.vehicle_counts[lane_id] / gpu_data->lane_pool.lane_length[lane_id];
-//	gpu_data->lane_pool.density[lane_id] = 0.1234;
 
 	//Speed-Density Relationship
 	gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MAX_SPEED[lane_id]
 			* (pow((1 - pow((gpu_data->lane_pool.density[lane_id] / gpu_data->lane_pool.max_density[lane_id]), gpu_data->lane_pool.beta[lane_id])), gpu_data->lane_pool.alpha[lane_id]));
-
-//			- gpu_data->lane_pool.MAX_SPEED[lane_id] * gpu_data->lane_pool.density[lane_id] / gpu_data->lane_pool.max_density[lane_id];
 
 	if (gpu_data->lane_pool.speed[lane_id] < gpu_data->lane_pool.MIN_SPEED[lane_id]) gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MIN_SPEED[lane_id];
 
@@ -625,29 +622,19 @@ __global__ void supply_simulation_vehicle_passing(GPUMemory* gpu_data, int time_
 			break;
 		}
 
-//		printf("one vehicle ID=%d, on road=%d\n", one_v->vehicle_ID, node_id);
-
 		//Insert to next Lane
 		if (gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index >= gpu_data->lane_pool.vehicle_space[0][lane_id]->whole_path_length) {
 			//the vehicle has finished the trip
 
-//			printf("vehicle finish trip");
-			return;
+//			printf("vehicle %d finish trip at node %d,\n", one_v->vehicle_ID, node_id);
 		}
 		else {
 			int next_lane_index = gpu_data->lane_pool.vehicle_space[0][lane_id]->path_code[gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index];
-			//		int next_lane = next_lane_bool ? 1 : 0;
-
-//			printf("%d---------------------\n", node_id);
-//			for (int j = 0; j < MAX_LANE_DOWNSTREAM; j++) {
-////				data_local->node_pool.downstream[j][i];
-//				printf("time_step=%d\n", gpu_data->node_pool.downstream[j][node_id]);
-//				printf("time_step=%d\n", gpu_data->node_pool.upstream[j][node_id]);
-//			}
-//			printf("---------------------\n");
-
 			int next_lane_id = gpu_data->node_pool.downstream[next_lane_index][node_id];
 			gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index++;
+
+			//it is very critical to update the entry time when passing
+			gpu_data->lane_pool.vehicle_space[0][lane_id]->entry_time = time_step;
 
 			//add the vehicle
 			gpu_data->lane_pool.vehicle_passed_space[gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[next_lane_id]][next_lane_id] = one_v;
@@ -656,7 +643,7 @@ __global__ void supply_simulation_vehicle_passing(GPUMemory* gpu_data, int time_
 			gpu_data->lane_pool.input_capacity[next_lane_id]--;
 			gpu_data->lane_pool.predicted_empty_space[next_lane_id] -= VEHICLE_LENGTH;
 
-			printf("time_step=%d,one_v->vehicle_ID=%d,lane_id=%d, next_lane_id=%d, next_lane_index=%d\n", time_step, one_v->vehicle_ID, lane_id, next_lane_id, next_lane_index);
+//			printf("time_step=%d,one_v->vehicle_ID=%d,lane_id=%d, next_lane_id=%d, next_lane_index=%d\n", time_step, one_v->vehicle_ID, lane_id, next_lane_id, next_lane_index);
 		}
 
 		//Remove from current Lane
@@ -692,7 +679,7 @@ __device__ GPUVehicle* get_next_vehicle_at_node(GPUMemory* gpu_data, int node_id
 			int time_diff = gpu_data->lane_pool.Tp[one_lane_id] - gpu_data->lane_pool.vehicle_space[0][one_lane_id]->entry_time;
 			if (time_diff >= 0) {
 
-				//if already the final move, then no need for checking
+				//if already the final move, then no need for checking next road
 				if ((gpu_data->lane_pool.vehicle_space[0][one_lane_id]->next_path_index) >= (gpu_data->lane_pool.vehicle_space[0][one_lane_id]->whole_path_length)) {
 					if (time_diff > maximum_waiting_time) {
 						maximum_waiting_time = time_diff;
