@@ -21,11 +21,16 @@ public:
 	NodePool node_pool;
 
 	//Vehicles' objects are kept in NewLaneVehicles
-	NewLaneVehicles new_vehicles_every_time_step[TOTAL_TIME_STEPS];
+	//NewLaneVehicles new_vehicles_every_time_step[TOTAL_TIME_STEPS];
+	NewLaneVehicles *new_vehicles_every_time_step;
 
 //	int test;
 
 public:
+	GPUMemory(){
+		new_vehicles_every_time_step = (NewLaneVehicles*)malloc(sizeof(NewLaneVehicles)*TOTAL_TIME_STEPS);
+	}
+
 	int total_size() {
 //		return sizeof(LanePool) + sizeof(NodePool) + sizeof(NewLaneVehicles) * TOTAL_TIME_STEPS + sizeof(int);
 		return sizeof(LanePool) + sizeof(NodePool) + sizeof(NewLaneVehicles) * TOTAL_TIME_STEPS;

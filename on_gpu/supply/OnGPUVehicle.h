@@ -16,7 +16,6 @@ public:
 	int whole_path_length;
 	int next_path_index;
 	int path_code[MAXIMUM_LANE_CODING_LENGTH];
-
 };
 
 #endif /* GPUVEHICLE_H_ */

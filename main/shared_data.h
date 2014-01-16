@@ -12,7 +12,7 @@ const int LANE_SIZE = 220;
 const int NODE_SIZE = 121;
 
 const int START_TIME_STEPS = 0;
-const int END_TIME_STEPS = 100;
+const int END_TIME_STEPS = 1000;
 const int UNIT_TIME_STEPS = 1; //sec
 const int TOTAL_TIME_STEPS = (END_TIME_STEPS - START_TIME_STEPS) / UNIT_TIME_STEPS;
 

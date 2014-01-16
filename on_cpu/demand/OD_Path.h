@@ -35,7 +35,7 @@ bool OD_Pair_PATH::load_in_all_OD_Paths(vector<OD_Pair_PATH*>& all_od_pair_paths
 	//very important, ID starts from 0
 	int od_path_id = 0;
 
-	int count=0;
+//	int count=0;
 	if (myfile.is_open()) {
 		while (getline(myfile, line)) {
 			//printf("%d ", count++);
