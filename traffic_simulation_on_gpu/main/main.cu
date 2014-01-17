@@ -4,7 +4,8 @@
  */
 
 #include <cuda.h>
-
+#include <cuda_runtime.h>
+#include <cuda_runtime_api.h>
 #include "../on_cpu/network/Network.h"
 #include "../on_cpu/demand/OD_Pair.h"
 #include "../on_cpu/demand/OD_Path.h"
@@ -15,6 +16,8 @@
 #include "../on_gpu/supply/kernel_functions.h"
 #include "../on_gpu/supply/OnGPUMemory.h"
 #include "../on_cpu/util/SimulationResults.h"
+#include "../on_gpu/supply/OnGPUVehicle.h"
+#include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 
 using namespace std;
 
@@ -47,7 +50,6 @@ std::string od_pair_paths_file_path = "data/od_pair_paths_10.dat";
  * All data in GPU
  */
 GPUMemory* gpu_data;
-NewLaneVehicles* new_vehicles_on_gpu[TOTAL_TIME_STEPS];
 
 /**
  * Simulation Results
@@ -214,43 +216,41 @@ bool initilizeCPU() {
 	return true;
 }
 
+__global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool){
+	int idx = threadIdx.x * blockIdx.x * blockDim.x;
+	int nVehiclePerTick = VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE;
+	GPUVehicle ***v = (GPUVehicle***)gpu_data->new_vehicles_every_time_step->new_vehicles;
+}
+
+GPUVehicle *vpool_h;
+size_t vpool_size = VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE * TOTAL_TIME_STEPS * sizeof(GPUVehicle);
 bool initilizeGPU() {
 	gpu_data = NULL;
 
 	GPUMemory* data_local = new GPUMemory();
-	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
-		data_local->new_vehicles_every_time_step[i] = new NewLaneVehicles();
-	}
-
 	initGPUData(data_local);
+	GPUVehicle *vpool;
+	printf("vpool size: %d", sizeof(GPUVehicle) * VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE * TOTAL_TIME_STEPS);
+	cudaMalloc((void**)&vpool,
+		sizeof(GPUVehicle) * VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE * TOTAL_TIME_STEPS);
+
 //	data_local->test = 1;
 
 	if (cudaMalloc(&gpu_data, data_local->total_size()) != cudaSuccess) {
 		cerr << "cudaMalloc(&gpu_data, sizeof(GPUMemory)) failed" << endl;
 	}
 
-	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
-		if (cudaMalloc(&(new_vehicles_on_gpu[i]), sizeof(NewLaneVehicles)) != cudaSuccess) {
-			cerr << "cudaMalloc(new_vehicles_on_gpu[i], sizeof(NewLaneVehicles)) failed" << endl;
-		}
-	}
-
 	/*
 	 * Hi, Xiaosong, the copy fucntion needs to be changed.
 	 */
-	cudaMemcpy(&(gpu_data->lane_pool), &(data_local->lane_pool), sizeof(LanePool), cudaMemcpyHostToDevice);
-	cudaMemcpy(&(gpu_data->node_pool), &(data_local->node_pool), sizeof(NodePool), cudaMemcpyHostToDevice);
+	cudaMemcpy(gpu_data, data_local, data_local->total_size(), cudaMemcpyHostToDevice);
 
-	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
-		cudaMemcpy((new_vehicles_on_gpu[i]), (data_local->new_vehicles_every_time_step[i]), sizeof(NewLaneVehicles), cudaMemcpyHostToDevice);
-	}
+	// copy vpool_h to vpool, to be linked with gpu_data later. /*xiaosong*/
+	cudaMemcpy(vpool, vpool_h, vpool_size, cudaMemcpyDeviceToHost);
 
-	//re-build the link
-	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
-		gpu_data->new_vehicles_every_time_step[i] = new_vehicles_on_gpu[i];
-	}
-
-//	cudaMemcpy(gpu_data, data_local, data_local->total_size(), cudaMemcpyHostToDevice);
+	int BLOCK_SIZE = 256;
+	int GRID_SIZE = TOTAL_TIME_STEPS;
+	linkGPUData<<<BLOCK_SIZE, GRID_SIZE>>>(gpu_data, vpool);
 	return true;
 }
 
@@ -383,12 +383,16 @@ bool initGPUData(GPUMemory* data_local) {
 	//Init VehiclePool
 	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
 		for (int j = 0; j < LANE_SIZE; j++) {
-			data_local->new_vehicles_every_time_step[i]->new_vehicle_size[j] = 0;
-			data_local->new_vehicles_every_time_step[i]->lane_ID[j] = -1;
+			data_local->new_vehicles_every_time_step[i].new_vehicle_size[j] = 0;
+			data_local->new_vehicles_every_time_step[i].lane_ID[j] = -1;
 		}
 	}
 
 	std::cout << "all_vehicles.size():" << all_vehicles.size() << std::endl;
+
+	//init host vehicle pool data /*xiaosong*/
+	vpool_h = (GPUVehicle*)malloc(sizeof(GPUVehicle) * VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE * TOTAL_TIME_STEPS);
+	int nVehiclePerTick = VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE;
 
 	//Insert Vehicles
 	for (int i = 0; i < all_vehicles.size(); i++) {
@@ -407,26 +411,25 @@ bool initGPUData(GPUMemory* data_local) {
 
 		if (data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicle_size[lane_ID] < VEHICLE_MAX_LOADING_ONE_TIME) {
 			int index = data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicle_size[lane_ID];
+			int idx_vpool = time_index_covert * nVehiclePerTick;
+			idx_vpool += index * VEHICLE_MAX_LOADING_ONE_TIME;
+			idx_vpool += lane_ID;
 
-			data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicles[index][lane_ID].vehicle_ID = one_vehicle->vehicle_id;
-			data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicles[index][lane_ID].entry_time = time_index;
-			data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicles[index][lane_ID].current_lane_ID = lane_ID;
-
-			int max_copy_length = MAX_ROUTE_LENGTH > all_od_paths[one_vehicle->path_id]->link_ids.size() ? all_od_paths[one_vehicle->path_id]->link_ids.size() : MAX_ROUTE_LENGTH;
+			vpool_h[idx_vpool].vehicle_ID = one_vehicle->vehicle_id;
+			vpool_h[idx_vpool].entry_time = time_index;
+			vpool_h[idx_vpool].current_lane_ID = lane_ID;
+			int max_copy_length =
+				MAX_ROUTE_LENGTH > all_od_paths[one_vehicle->path_id]->link_ids.size() ?
+				all_od_paths[one_vehicle->path_id]->link_ids.size() :
+				MAX_ROUTE_LENGTH;
 
 			for (int p = 1; p < max_copy_length; p++) {
-				data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicles[index][lane_ID].path_code[p - 1] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
+				vpool_h[idx_vpool].path_code[p - 1] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
 			}
 
-//			for (int p = 1; p < max_copy_length; p++)
-//				std::cout << "data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].path_code:"
-//						<< data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[index][lane_ID].path_code[p-1] << ",";
-
-			//			data_local->new_vehicles_every_time_step[time_index].new_vehicles[index][lane_ID].path_code = all_od_paths[one_vehicle->path_id]->route_code;
-
 			//ready for the next lane, so next_path_index is set to 1, if the next_path_index == whole_path_length, it means cannot find path any more, can exit;
-			data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicles[index][lane_ID].next_path_index = 1;
-			data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicles[index][lane_ID].whole_path_length = all_od_paths[one_vehicle->path_id]->link_ids.size();
+			vpool_h[idx_vpool].next_path_index = 1;
+			vpool_h[idx_vpool].whole_path_length = all_od_paths[one_vehicle->path_id]->link_ids.size();
 
 			data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicle_size[lane_ID]++;
 		}

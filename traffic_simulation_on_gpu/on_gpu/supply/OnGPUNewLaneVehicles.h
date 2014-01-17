@@ -16,7 +16,7 @@ class NewLaneVehicles {
 public:
 	int lane_ID[LANE_SIZE];
 	int new_vehicle_size[LANE_SIZE];
-	GPUVehicle new_vehicles[VEHICLE_MAX_LOADING_ONE_TIME][LANE_SIZE];
+	GPUVehicle *new_vehicles[VEHICLE_MAX_LOADING_ONE_TIME][LANE_SIZE];
 };
 
 #endif /* ONGPUNEWSEGMENTVEHICLES_H_ */
