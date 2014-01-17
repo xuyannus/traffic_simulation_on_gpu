@@ -11,5 +11,6 @@
 #include <iostream>
 #include <cuda.h>
 #include <ctime>
+#include <cuda_runtime_api.h>
 
 #endif /* SHARED_GPU_INCLUDE_H_ */

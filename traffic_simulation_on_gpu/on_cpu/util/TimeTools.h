@@ -9,11 +9,37 @@
 #define TIMETOOLS_H_
 
 #include "shared_cpu_include.h"
+#ifdef _WIN32
+class TimeTools {
+	typedef struct timeval {
+		long tv_sec;
+		long tv_usec;
+	}timeval;
+public:
+	TimeTools() {
+	}
+	~TimeTools() {
+	}
+
+public:
+	void start_profiling() {
+	}
+
+	void end_profiling() {
+	}
+
+	void output() {
+	}
+
+	double diff_ms(timeval t1, timeval t2) {
+	}
+
+private:
+	timeval start_time;
+	timeval end_time;
+};
+#else
 #include <sys/time.h>
-//typedef struct timeval {
-//  long tv_sec;
-//  long tv_usec;
-//} timeval;
 
 class TimeTools {
 public:
@@ -45,5 +71,6 @@ private:
 	timeval start_time;
 	timeval end_time;
 };
+#endif
 
 #endif /* TIMETOOLS_H_ */
