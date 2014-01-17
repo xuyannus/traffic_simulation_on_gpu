@@ -21,6 +21,7 @@ public:
 	NodePool node_pool;
 
 	//Vehicles' objects are kept in NewLaneVehicles
+
 	NewLaneVehicles* new_vehicles_every_time_step[TOTAL_TIME_STEPS];
 
 //	int test;
@@ -35,7 +36,7 @@ public:
 
 //		printf("The SIZE is: %d, %d\n", sizeof(NewLaneVehicles), sizeof(LanePool) + sizeof(NodePool));
 
-		return sizeof(LanePool) + sizeof(NodePool);
+		return sizeof(LanePool) + sizeof(NodePool) + sizeof(NewLaneVehicles*) * TOTAL_TIME_STEPS;
 	}
 };
 

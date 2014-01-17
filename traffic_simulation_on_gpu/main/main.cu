@@ -47,6 +47,7 @@ std::string od_pair_paths_file_path = "data/od_pair_paths_10.dat";
  * All data in GPU
  */
 GPUMemory* gpu_data;
+NewLaneVehicles* new_vehicles_on_gpu[TOTAL_TIME_STEPS];
 
 /**
  * Simulation Results
@@ -228,9 +229,27 @@ bool initilizeGPU() {
 		cerr << "cudaMalloc(&gpu_data, sizeof(GPUMemory)) failed" << endl;
 	}
 
+	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
+		if (cudaMalloc(&(new_vehicles_on_gpu[i]), sizeof(NewLaneVehicles)) != cudaSuccess) {
+			cerr << "cudaMalloc(new_vehicles_on_gpu[i], sizeof(NewLaneVehicles)) failed" << endl;
+		}
+	}
+
 	/*
 	 * Hi, Xiaosong, the copy fucntion needs to be changed.
 	 */
+	cudaMemcpy(&(gpu_data->lane_pool), &(data_local->lane_pool), sizeof(LanePool), cudaMemcpyHostToDevice);
+	cudaMemcpy(&(gpu_data->node_pool), &(data_local->node_pool), sizeof(NodePool), cudaMemcpyHostToDevice);
+
+	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
+		cudaMemcpy((new_vehicles_on_gpu[i]), (data_local->new_vehicles_every_time_step[i]), sizeof(NewLaneVehicles), cudaMemcpyHostToDevice);
+	}
+
+	//re-build the link
+	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
+		gpu_data->new_vehicles_every_time_step[i] = new_vehicles_on_gpu[i];
+	}
+
 //	cudaMemcpy(gpu_data, data_local, data_local->total_size(), cudaMemcpyHostToDevice);
 	return true;
 }
