@@ -20,7 +20,7 @@ public:
 	int od_id;
 
 	vector<int> link_ids;
-	std::bitset<100> route_code;
+	std::bitset<MAXIMUM_LANE_CODING_LENGTH> route_code;
 
 public:
 	static bool load_in_all_OD_Paths(vector<OD_Pair_PATH*>& all_od_pair_paths, string od_path_file_path);

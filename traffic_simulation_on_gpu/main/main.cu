@@ -435,21 +435,6 @@ bool initGPUData(GPUMemory* data_local) {
 
 			int idx_vpool = time_index_covert * nVehiclePerTick + lane_ID * VEHICLE_MAX_LOADING_ONE_TIME + index;
 
-//			std::cout << std::setbase(10);
-
-//			std::cout << "pick:" << idx_vpool << std::endl;
-//			std::cout << "pick:" << vpool_h << std::endl;
-//			std::cout << "pick:" << &(vpool_h[1]) << std::endl;
-//			std::cout << "pick:" << &(vpool_h[2]) << std::endl;
-//			std::cout << "pick:" << &(vpool_h[idx_vpool]) << std::endl;
-//			std::cout << "pick:" << idx_vpool * sizeof(GPUVehicle) << std::endl;
-//			std::cout << "pick:" << (vpool_h + (idx_vpool * sizeof(GPUVehicle))) << std::endl;
-//			std::cout << "pick:" << (GPUVehicle*) (vpool_h + idx_vpool * sizeof(GPUVehicle)) << std::endl;
-
-//			GPUVehicle* one_temp_vehicle = (GPUVehicle*) (vpool_h + idx_vpool * sizeof(GPUVehicle));
-
-//			std::cout << "vpool_h:" << (vpool_h) << ",one_temp_vehicle:" << (one_temp_vehicle) << ", size: " << sizeof(GPUVehicle) << std::endl;
-
 			vpool_cpu[idx_vpool].vehicle_ID = one_vehicle->vehicle_id;
 			vpool_cpu[idx_vpool].entry_time = time_index;
 			vpool_cpu[idx_vpool].current_lane_ID = lane_ID;
@@ -468,8 +453,6 @@ bool initGPUData(GPUMemory* data_local) {
 		else {
 			std::cout << "Loading Vehicles Exceeds The Loading Capacity: Time:" << time_index_covert << ", Lane_ID:" << lane_ID << std::endl;
 		}
-
-//		std::cout << "done vehicle:" << i << std::endl;
 	}
 
 	return true;
@@ -537,7 +520,6 @@ bool start_simulation() {
 			cout << "to_output_simulation_result_time:" << to_output_simulation_result_time << endl;
 			cout << "---------------------" << endl;
 #endif
-
 		}
 	}
 
