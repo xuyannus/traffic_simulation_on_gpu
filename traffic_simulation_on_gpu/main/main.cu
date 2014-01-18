@@ -19,6 +19,8 @@
 #include "../on_gpu/supply/OnGPUVehicle.h"
 #include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 
+//#define ENABLE_OUTPUT
+
 using namespace std;
 
 /**
@@ -50,6 +52,13 @@ std::string od_pair_paths_file_path = "data/od_pair_paths_10.dat";
  * All data in GPU
  */
 GPUMemory* gpu_data;
+
+//A large memory space is pre-defined in order to copy to GPU
+GPUVehicle *vpool_cpu;
+GPUVehicle *vpool_gpu;
+
+//the size of the memory space
+size_t vpool_size = VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE * TOTAL_TIME_STEPS * sizeof(GPUVehicle);
 
 /**
  * Simulation Results
@@ -108,11 +117,9 @@ inline int timestep_to_arrayindex(int time_step) {
 
 /*
  * Supply Function Define
- */
-__global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int time_step, int segment_length);
+ */__global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int time_step, int segment_length);
 __global__ void supply_simulation_vehicle_passing(GPUMemory* gpu_data, int time_step, int node_length);
 __global__ void supply_simulation_after_vehicle_passing(GPUMemory* gpu_data, int time_step, int segment_length);
-
 __device__ GPUVehicle* get_next_vehicle_at_node(GPUMemory* gpu_data, int node_id, int* lane_id);
 
 /*
@@ -216,41 +223,42 @@ bool initilizeCPU() {
 	return true;
 }
 
-__global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool){
-	int idx = threadIdx.x * blockIdx.x * blockDim.x;
+__global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool_gpu) {
+//	int time_index = threadIdx.x;
 	int nVehiclePerTick = VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE;
-	GPUVehicle ***v = (GPUVehicle***)gpu_data->new_vehicles_every_time_step->new_vehicles;
+
+	for (int time_index = 0; time_index < TOTAL_TIME_STEPS; time_index++) {
+		for (int i = 0; i < LANE_SIZE; i++) {
+			for (int j = 0; j < VEHICLE_MAX_LOADING_ONE_TIME; j++) {
+				size_t index_t = time_index * nVehiclePerTick + i * VEHICLE_MAX_LOADING_ONE_TIME + j;
+
+				gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[i][j] = &(vpool_gpu[index_t]);
+			}
+		}
+	}
+//	GPUVehicle ***v = (GPUVehicle***) gpu_data->new_vehicles_every_time_step->new_vehicles;
 }
 
-GPUVehicle *vpool_h;
-size_t vpool_size = VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE * TOTAL_TIME_STEPS * sizeof(GPUVehicle);
 bool initilizeGPU() {
 	gpu_data = NULL;
 
 	GPUMemory* data_local = new GPUMemory();
 	initGPUData(data_local);
-	GPUVehicle *vpool;
-	printf("vpool size: %d", sizeof(GPUVehicle) * VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE * TOTAL_TIME_STEPS);
-	cudaMalloc((void**)&vpool,
-		sizeof(GPUVehicle) * VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE * TOTAL_TIME_STEPS);
 
-//	data_local->test = 1;
+	printf("vpool_gpu size: %d", vpool_size);
+	cudaMalloc((void**) &vpool_gpu, vpool_size);
 
 	if (cudaMalloc(&gpu_data, data_local->total_size()) != cudaSuccess) {
 		cerr << "cudaMalloc(&gpu_data, sizeof(GPUMemory)) failed" << endl;
 	}
 
-	/*
-	 * Hi, Xiaosong, the copy fucntion needs to be changed.
-	 */
 	cudaMemcpy(gpu_data, data_local, data_local->total_size(), cudaMemcpyHostToDevice);
+	cudaMemcpy(vpool_gpu, vpool_cpu, vpool_size, cudaMemcpyHostToDevice);
 
-	// copy vpool_h to vpool, to be linked with gpu_data later. /*xiaosong*/
-	cudaMemcpy(vpool, vpool_h, vpool_size, cudaMemcpyDeviceToHost);
+	int BLOCK_SIZE = 1;
+	int GRID_SIZE = 1;
 
-	int BLOCK_SIZE = 256;
-	int GRID_SIZE = TOTAL_TIME_STEPS;
-	linkGPUData<<<BLOCK_SIZE, GRID_SIZE>>>(gpu_data, vpool);
+	linkGPUData<<<BLOCK_SIZE, GRID_SIZE>>>(gpu_data, vpool_gpu);
 	return true;
 }
 
@@ -340,7 +348,7 @@ bool initGPUData(GPUMemory* data_local) {
 	/**
 	 * Second Part: Node
 	 */
-	//	NodePool* the_node_pool = data_local->node_pool;
+//	NodePool* the_node_pool = data_local->node_pool;
 	for (int i = 0; i < the_network->all_nodes.size(); i++) {
 		Node* one_node = the_network->all_nodes[i];
 
@@ -380,7 +388,7 @@ bool initGPUData(GPUMemory* data_local) {
 	 * Third Part:
 	 */
 
-	//Init VehiclePool
+//Init VehiclePool
 	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
 		for (int j = 0; j < LANE_SIZE; j++) {
 			data_local->new_vehicles_every_time_step[i].new_vehicle_size[j] = 0;
@@ -390,11 +398,21 @@ bool initGPUData(GPUMemory* data_local) {
 
 	std::cout << "all_vehicles.size():" << all_vehicles.size() << std::endl;
 
-	//init host vehicle pool data /*xiaosong*/
-	vpool_h = (GPUVehicle*)malloc(sizeof(GPUVehicle) * VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE * TOTAL_TIME_STEPS);
+//init host vehicle pool data /*xiaosong*/
+	vpool_cpu = (GPUVehicle*) malloc(TOTAL_TIME_STEPS * LANE_SIZE * VEHICLE_MAX_LOADING_ONE_TIME * sizeof(GPUVehicle));
+	if (vpool_cpu == NULL) exit(1);
+
+//	std::cout << std::setbase(16);
+
+//	std::cout << "vpool_h:" << vpool_h << std::endl;
+//	std::cout << "vpool_h + END:" << (vpool_h + TOTAL_TIME_STEPS * LANE_SIZE * VEHICLE_MAX_LOADING_ONE_TIME * sizeof(GPUVehicle)) << std::endl;
+
 	int nVehiclePerTick = VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE;
 
-	//Insert Vehicles
+//	std::cout << "total array size:" << (TOTAL_TIME_STEPS * LANE_SIZE * VEHICLE_MAX_LOADING_ONE_TIME) << std::endl;
+//	std::cout << "total size:" << (TOTAL_TIME_STEPS * LANE_SIZE * VEHICLE_MAX_LOADING_ONE_TIME * sizeof(GPUVehicle)) << std::endl;
+
+//Insert Vehicles
 	for (int i = 0; i < all_vehicles.size(); i++) {
 		Vehicle* one_vehicle = all_vehicles[i];
 //		assert(one_vehicle->vehicle_id == i);
@@ -409,47 +427,47 @@ bool initGPUData(GPUMemory* data_local) {
 		//try to load vehicles beyond the simulation border
 		if (time_index_covert >= TOTAL_TIME_STEPS) continue;
 
-		if (data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicle_size[lane_ID] < VEHICLE_MAX_LOADING_ONE_TIME) {
-			int index = data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicle_size[lane_ID];
-			int idx_vpool = time_index_covert * nVehiclePerTick;
-			idx_vpool += index * VEHICLE_MAX_LOADING_ONE_TIME;
-			idx_vpool += lane_ID;
+		if (data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_ID] < VEHICLE_MAX_LOADING_ONE_TIME) {
+			int index = data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_ID];
 
-			vpool_h[idx_vpool].vehicle_ID = one_vehicle->vehicle_id;
-			vpool_h[idx_vpool].entry_time = time_index;
-			vpool_h[idx_vpool].current_lane_ID = lane_ID;
-			int max_copy_length =
-				MAX_ROUTE_LENGTH > all_od_paths[one_vehicle->path_id]->link_ids.size() ?
-				all_od_paths[one_vehicle->path_id]->link_ids.size() :
-				MAX_ROUTE_LENGTH;
+			int idx_vpool = time_index_covert * nVehiclePerTick + lane_ID * VEHICLE_MAX_LOADING_ONE_TIME + index;
+
+//			std::cout << std::setbase(10);
+
+//			std::cout << "pick:" << idx_vpool << std::endl;
+//			std::cout << "pick:" << vpool_h << std::endl;
+//			std::cout << "pick:" << &(vpool_h[1]) << std::endl;
+//			std::cout << "pick:" << &(vpool_h[2]) << std::endl;
+//			std::cout << "pick:" << &(vpool_h[idx_vpool]) << std::endl;
+//			std::cout << "pick:" << idx_vpool * sizeof(GPUVehicle) << std::endl;
+//			std::cout << "pick:" << (vpool_h + (idx_vpool * sizeof(GPUVehicle))) << std::endl;
+//			std::cout << "pick:" << (GPUVehicle*) (vpool_h + idx_vpool * sizeof(GPUVehicle)) << std::endl;
+
+//			GPUVehicle* one_temp_vehicle = (GPUVehicle*) (vpool_h + idx_vpool * sizeof(GPUVehicle));
+
+//			std::cout << "vpool_h:" << (vpool_h) << ",one_temp_vehicle:" << (one_temp_vehicle) << ", size: " << sizeof(GPUVehicle) << std::endl;
+
+			vpool_cpu[idx_vpool].vehicle_ID = one_vehicle->vehicle_id;
+			vpool_cpu[idx_vpool].entry_time = time_index;
+			vpool_cpu[idx_vpool].current_lane_ID = lane_ID;
+			int max_copy_length = MAX_ROUTE_LENGTH > all_od_paths[one_vehicle->path_id]->link_ids.size() ? all_od_paths[one_vehicle->path_id]->link_ids.size() : MAX_ROUTE_LENGTH;
 
 			for (int p = 1; p < max_copy_length; p++) {
-				vpool_h[idx_vpool].path_code[p - 1] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
+				vpool_cpu[idx_vpool].path_code[p - 1] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
 			}
 
 			//ready for the next lane, so next_path_index is set to 1, if the next_path_index == whole_path_length, it means cannot find path any more, can exit;
-			vpool_h[idx_vpool].next_path_index = 1;
-			vpool_h[idx_vpool].whole_path_length = all_od_paths[one_vehicle->path_id]->link_ids.size();
+			vpool_cpu[idx_vpool].next_path_index = 1;
+			vpool_cpu[idx_vpool].whole_path_length = all_od_paths[one_vehicle->path_id]->link_ids.size();
 
-			data_local->new_vehicles_every_time_step[time_index_covert]->new_vehicle_size[lane_ID]++;
+			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_ID]++;
 		}
 		else {
 			std::cout << "Loading Vehicles Exceeds The Loading Capacity: Time:" << time_index_covert << ", Lane_ID:" << lane_ID << std::endl;
 		}
+
+//		std::cout << "done vehicle:" << i << std::endl;
 	}
-
-	//test
-//	for (int i = 0; i < TOTAL_TIME_STEPS; i++) {
-//		int new_size = 0;
-//
-//		for (int j = 0; j < LANE_SIZE; j++) {
-//			new_size += data_local->new_vehicles_every_time_step[i]->new_vehicle_size[j];
-//		}
-//
-//		std::cout << "new_size: AT " << i << ", " << new_size << std::endl;
-//	}
-
-//	data_local->test = 126;
 
 	return true;
 }
@@ -484,12 +502,19 @@ bool start_simulation() {
 			}
 
 			//step 2
+#ifdef ENABLE_OUTPUT
 			cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
+#endif
 
 			//setp 3
 			supply_simulation_pre_vehicle_passing<<<roadBlocks, roadThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE);
+//			cout << "supply_simulation_pre_vehicle_passing done" << endl;
+
 			supply_simulation_vehicle_passing<<<nodeBlocks, nodeThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, NODE_SIZE);
+//			cout << "supply_simulation_vehicle_passing done" << endl;
+
 			supply_simulation_after_vehicle_passing<<<roadBlocks, roadThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE);
+//			cout << "supply_simulation_after_vehicle_passing done" << endl;
 
 			cudaEventRecord(GPU_supply_one_time_simulation_done_event, stream_gpu_supply);
 		}
@@ -499,11 +524,15 @@ bool start_simulation() {
 			to_output_simulation_result_time += simulation_time_step;
 		}
 		else {
+
+#ifdef ENABLE_OUTPUT
 			cout << "---------------------" << endl;
 			cout << "CPU nothing to do" << endl;
 			cout << "to_simulate_time:" << to_simulate_time << endl;
 			cout << "to_output_simulation_result_time:" << to_output_simulation_result_time << endl;
 			cout << "---------------------" << endl;
+#endif
+
 		}
 	}
 
@@ -555,8 +584,7 @@ bool output_simulated_results(int time_step) {
 
 /*
  * Supply Function Implementation
- */
-__global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int time_step, int segment_length) {
+ */__global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int time_step, int segment_length) {
 	int lane_id = blockIdx.x * blockDim.x + threadIdx.x;
 	if (lane_id >= segment_length) return;
 
@@ -564,14 +592,14 @@ __global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int t
 
 	gpu_data->lane_pool.new_vehicle_join_counts[lane_id] = 0;
 
-	//init capacity
+//init capacity
 	gpu_data->lane_pool.input_capacity[lane_id] = LANE_INPUT_CAPACITY_TIME_STEP;
 	gpu_data->lane_pool.output_capacity[lane_id] = LANE_OUTPUT_CAPACITY_TIME_STEP;
 
-	//init for next GPU kernel function
+//init for next GPU kernel function
 	gpu_data->lane_pool.blocked[lane_id] = false;
 
-	//load passed vehicles to the back of the lane
+//load passed vehicles to the back of the lane
 	for (int i = 0; i < gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id]; i++) {
 		if (gpu_data->lane_pool.vehicle_counts[lane_id] < gpu_data->lane_pool.max_vehicles[lane_id]) {
 			gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_id]][lane_id] = gpu_data->lane_pool.vehicle_passed_space[i][lane_id];
@@ -582,30 +610,30 @@ __global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int t
 	}
 	gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] = 0;
 
-	//
-	//load newly generated vehicles to the back of the lane
-	for (int i = 0; i < gpu_data->new_vehicles_every_time_step[time_index]->new_vehicle_size[lane_id]; i++) {
+//
+//load newly generated vehicles to the back of the lane
+	for (int i = 0; i < gpu_data->new_vehicles_every_time_step[time_index].new_vehicle_size[lane_id]; i++) {
 		if (gpu_data->lane_pool.vehicle_counts[lane_id] < gpu_data->lane_pool.max_vehicles[lane_id]) {
-			gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_id]][lane_id] = &(gpu_data->new_vehicles_every_time_step[time_index]->new_vehicles[i][lane_id]);
+			gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_id]][lane_id] = (gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[lane_id][i]);
 			gpu_data->lane_pool.vehicle_counts[lane_id]++;
 
 			gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
 		}
 	}
 
-	//update speed and density
+//update speed and density
 	gpu_data->lane_pool.density[lane_id] = 1.0 * VEHICLE_LENGTH * gpu_data->lane_pool.vehicle_counts[lane_id] / gpu_data->lane_pool.lane_length[lane_id];
 
-	//Speed-Density Relationship
+//Speed-Density Relationship
 	gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MAX_SPEED[lane_id]
 			* (pow((1 - pow((gpu_data->lane_pool.density[lane_id] / gpu_data->lane_pool.max_density[lane_id]), gpu_data->lane_pool.beta[lane_id])), gpu_data->lane_pool.alpha[lane_id]));
 
 	if (gpu_data->lane_pool.speed[lane_id] < gpu_data->lane_pool.MIN_SPEED[lane_id]) gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MIN_SPEED[lane_id];
 
-	//update speed history
+//update speed history
 	gpu_data->lane_pool.speed_history[time_index][lane_id] = gpu_data->lane_pool.speed[lane_id];
 
-	//estimated empty_space
+//estimated empty_space
 	if (time_step < START_TIME_STEPS + 4 * UNIT_TIME_STEPS) {
 //		gpu_data->lane_pool.predicted_empty_space[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
 		gpu_data->lane_pool.predicted_queue_length[lane_id] = 0;
@@ -627,7 +655,7 @@ __global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int t
 		gpu_data->lane_pool.predicted_empty_space[lane_id] = (ROAD_LENGTH - gpu_data->lane_pool.predicted_queue_length[lane_id]);
 	}
 
-	//update Tp
+//update Tp
 	gpu_data->lane_pool.accumulated_offset[lane_id] += gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS; //meter
 
 	while (gpu_data->lane_pool.accumulated_offset[lane_id] >= gpu_data->lane_pool.lane_length[lane_id]) {
@@ -746,7 +774,7 @@ __global__ void supply_simulation_after_vehicle_passing(GPUMemory* gpu_data, int
 	int lane_id = blockIdx.x * blockDim.x + threadIdx.x;
 	if (lane_id >= segment_length) return;
 
-	//update queue length
+//update queue length
 	bool continue_loop = true;
 	float queue_length = 0;
 	float acc_length_moving = gpu_data->lane_pool.accumulated_offset[lane_id];
@@ -772,16 +800,16 @@ __global__ void supply_simulation_after_vehicle_passing(GPUMemory* gpu_data, int
 		}
 	}
 
-	//update queue length
+//update queue length
 	gpu_data->lane_pool.queue_length[lane_id] = queue_length;
 
-	//update the queue history
+//update the queue history
 	for (int i = 3; i > 0; i--) {
 		gpu_data->lane_pool.his_queue_length[i][lane_id] = gpu_data->lane_pool.his_queue_length[i - 1][lane_id];
 	}
 	gpu_data->lane_pool.his_queue_length[0][lane_id] = queue_length;
 
-	//update the empty space
+//update the empty space
 	if (gpu_data->lane_pool.new_vehicle_join_counts[lane_id] > 0) {
 		gpu_data->lane_pool.empty_space[lane_id] = gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS - gpu_data->lane_pool.new_vehicle_join_counts[lane_id] * VEHICLE_LENGTH;
 		if (gpu_data->lane_pool.empty_space[lane_id] < 0) gpu_data->lane_pool.empty_space[lane_id] = 0;

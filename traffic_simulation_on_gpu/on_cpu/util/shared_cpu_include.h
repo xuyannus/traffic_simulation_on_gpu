@@ -23,4 +23,6 @@
 #include <bitset>
 #include <math.h>       /* pow */
 
+#include <iomanip>
+
 #endif /* SHARED_CPU_INCLUDE_H_ */
