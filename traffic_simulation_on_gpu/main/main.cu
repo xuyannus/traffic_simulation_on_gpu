@@ -167,6 +167,9 @@ int main() {
 	cout << "Simulation Succeed!" << endl;
 
 	destory_resources();
+
+	cout << "Simulation Succeed!" << endl;
+
 	return 0;
 }
 
@@ -224,18 +227,18 @@ bool initilizeCPU() {
 }
 
 __global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool_gpu) {
-//	int time_index = threadIdx.x;
+	int time_index = threadIdx.x;
 	int nVehiclePerTick = VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE;
 
-	for (int time_index = 0; time_index < TOTAL_TIME_STEPS; time_index++) {
-		for (int i = 0; i < LANE_SIZE; i++) {
-			for (int j = 0; j < VEHICLE_MAX_LOADING_ONE_TIME; j++) {
-				size_t index_t = time_index * nVehiclePerTick + i * VEHICLE_MAX_LOADING_ONE_TIME + j;
+//	for (int time_index = 0; time_index < TOTAL_TIME_STEPS; time_index++) {
+	for (int i = 0; i < LANE_SIZE; i++) {
+		for (int j = 0; j < VEHICLE_MAX_LOADING_ONE_TIME; j++) {
+			size_t index_t = time_index * nVehiclePerTick + i * VEHICLE_MAX_LOADING_ONE_TIME + j;
 
-				gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[i][j] = &(vpool_gpu[index_t]);
-			}
+			gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[i][j] = &(vpool_gpu[index_t]);
 		}
 	}
+//	}
 //	GPUVehicle ***v = (GPUVehicle***) gpu_data->new_vehicles_every_time_step->new_vehicles;
 }
 
@@ -255,10 +258,10 @@ bool initilizeGPU() {
 	cudaMemcpy(gpu_data, data_local, data_local->total_size(), cudaMemcpyHostToDevice);
 	cudaMemcpy(vpool_gpu, vpool_cpu, vpool_size, cudaMemcpyHostToDevice);
 
-	int BLOCK_SIZE = 1;
 	int GRID_SIZE = 1;
+	int BLOCK_SIZE = TOTAL_TIME_STEPS;
 
-	linkGPUData<<<BLOCK_SIZE, GRID_SIZE>>>(gpu_data, vpool_gpu);
+	linkGPUData<<<GRID_SIZE, BLOCK_SIZE>>>(gpu_data, vpool_gpu);
 	return true;
 }
 
@@ -476,8 +479,10 @@ bool destory_resources() {
 	simulation_results_output_file.flush();
 	simulation_results_output_file.close();
 
-	cudaEventDestroy(GPU_supply_one_time_simulation_done_event);
-	cudaStreamDestroy(stream_gpu_supply);
+//	cudaEventDestroy(GPU_supply_one_time_simulation_done_event);
+//	cudaStreamDestroy(stream_gpu_supply);
+
+	cudaDeviceReset();
 	return true;
 }
 
