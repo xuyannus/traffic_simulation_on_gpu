@@ -24,7 +24,7 @@ public:
 
 public:
 
-	int total_size() {
+	size_t total_size() {
 		return sizeof(LanePool) + sizeof(NodePool) + sizeof(NewLaneVehicles) * TOTAL_TIME_STEPS;
 	}
 };

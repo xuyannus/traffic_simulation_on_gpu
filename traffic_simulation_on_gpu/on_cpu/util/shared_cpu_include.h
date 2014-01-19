@@ -24,5 +24,6 @@
 #include <math.h>       /* pow */
 
 #include <iomanip>
+#include <stdlib.h>  /* atoi*/
 
 #endif /* SHARED_CPU_INCLUDE_H_ */
