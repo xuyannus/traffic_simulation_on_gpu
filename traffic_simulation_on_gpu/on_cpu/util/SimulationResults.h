@@ -22,4 +22,10 @@ public:
 
 };
 
+//class SimulationResultsBuffer {
+//public:
+//	int buffer_size;
+//	SimulationResults* buffer_space;
+//};
+
 #endif /* SIMULATIONRESULTS_H_ */

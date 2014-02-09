@@ -47,7 +47,6 @@ public:
 	 * for access vehicles
 	 */
 
-
 	GPUVehicle* vehicle_space[MAX_VEHICLE_PER_LANE][LANE_SIZE];
 
 	int vehicle_passed_to_the_lane_counts[LANE_SIZE];
@@ -61,6 +60,8 @@ public:
 	/*
 	 * For queue length prediction
 	 */
+	float last_time_empty_space[LANE_SIZE];
+
 	float his_queue_length[QUEUE_LENGTH_HISTORY][LANE_SIZE];
 	float his_queue_length_weighting[QUEUE_LENGTH_HISTORY][LANE_SIZE];
 
@@ -76,6 +77,11 @@ public:
 	 * Temp Variables
 	 */
 	bool blocked[LANE_SIZE];
+
+	/**
+	 * for debug
+	 */
+	float debug_data[LANE_SIZE];
 
 };
 

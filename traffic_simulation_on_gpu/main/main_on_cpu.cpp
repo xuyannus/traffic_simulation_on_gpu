@@ -8,6 +8,7 @@
 //#include "../on_cpu/demand/OD_Path.h"
 //#include "../on_cpu/demand/Vehicle.h"
 //#include "../on_cpu/util/TimeTools.h"
+//#include "../on_cpu/util/StringTools.h"
 //
 //#include "../on_cpu/util/shared_cpu_include.h"
 //#include "../on_gpu/supply/kernel_functions.h"
@@ -17,6 +18,7 @@
 //#include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 //
 //#define ENABLE_OUTPUT
+////#define SERIALIZED_EXECUTION
 //
 //using namespace std;
 //
@@ -31,10 +33,10 @@
 ///*
 // * Path Input Config
 // */
-//std::string network_file_path = "data/network_100.dat";
-//std::string demand_file_path = "data/demand_100_10000.dat";
-//std::string od_pair_file_path = "data/od_pair_100.dat";
-//std::string od_pair_paths_file_path = "data/od_pair_paths_100.dat";
+//std::string network_file_path = "data/exp1_network/network_10_rank.dat_121";
+//std::string demand_file_path = "data/exp1/demand_10_10000.dat";
+//std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
+//std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
 //
 ///*
 // * All data in GPU
@@ -80,6 +82,7 @@
 ///*
 // * Define Major Functions
 // */
+//bool init_params(int argc, char* argv[]);
 //bool load_in_network();
 //bool load_in_demand();
 //bool initilizeCPU();
@@ -92,9 +95,13 @@
 ///*
 // * Define Helper Functions
 // */
-//bool copy_simulated_results_to_CPU(int time_step);
+////bool copy_simulated_results_to_CPU(int time_step);
 //bool output_simulated_results(int time_step);
 //
+///*
+// * Utils
+// */
+//StringTools* str_tools;
 //inline int timestep_to_arrayindex(int time_step) {
 //	return (time_step - START_TIME_STEPS) / UNIT_TIME_STEPS;
 //}
@@ -106,12 +113,19 @@
 //void supply_simulation_vehicle_passing(int time_step);
 //void supply_simulation_after_vehicle_passing(int time_step);
 //
+////void supply_simulation_serilized(int time_step);
+//
 //GPUVehicle* get_next_vehicle_at_node(int node_id, int* lane_id);
 //
 ///*
 // * MAIN
 // */
-//int main() {
+//int main(int argc, char* argv[]) {
+//	if (init_params(argc, argv) == false) {
+//		cout << "init_params fails" << endl;
+//		return 0;
+//	}
+//
 //	if (load_in_network() == false) {
 //		cout << "Loading network fails" << endl;
 //		return 0;
@@ -147,8 +161,6 @@
 //	profile.end_profiling();
 //	profile.output();
 //
-//	cout << "Simulation Succeed!" << endl;
-//
 //	destory_resources();
 //
 //	cout << "Simulation Succeed!" << endl;
@@ -159,6 +171,15 @@
 ///**
 // *
 // */
+//bool init_params(int argc, char* argv[]) {
+//	if (argc == 5) {
+//		network_file_path = argv[2];
+//		demand_file_path = argv[3];
+//		simulation_output_file_path = argv[4];
+//		std::cout << "parameters updated" << std::endl;
+//	}
+//	return true;
+//}
 //bool load_in_network() {
 //	the_network = new Network();
 //
@@ -199,6 +220,7 @@
 //	simulation_results_pool.clear();
 //	simulation_results_output_file.open(simulation_output_file_path.c_str());
 //	simulation_results_output_file << "##TIME STEP" << ":Lane ID:" << ":(" << "COUNTS" << ":" << "flow" << ":" << "density" << ":" << "speed" << ":" << "queue_length" << ")" << endl;
+//	str_tools = new StringTools();
 //
 //	return true;
 //}
@@ -225,7 +247,7 @@
 //		//make sure assert is working
 ////		assert(1 == 0);
 //
-//		assert(one_link->link_id == i);
+////		assert(one_link->link_id == i);
 //
 //		data_local->lane_pool.from_node_id[i] = one_link->from_node->node_id;
 //		data_local->lane_pool.to_node_id[i] = one_link->to_node->node_id;
@@ -276,9 +298,9 @@
 //		//it is assumed that QUEUE_LENGTH_HISTORY = 4;
 //		assert(QUEUE_LENGTH_HISTORY == 4);
 //		float weight[QUEUE_LENGTH_HISTORY];
-//		weight[0] = 0.5;
-//		weight[1] = 0.3;
-//		weight[2] = 0.2;
+//		weight[0] = 1.0;
+//		weight[1] = 0;
+//		weight[2] = 0;
 //		weight[3] = 0;
 //
 //		//		{ 0.2, 0.3, 0.5, 0 };
@@ -290,6 +312,7 @@
 //
 //		data_local->lane_pool.predicted_empty_space[i] = 0;
 //		data_local->lane_pool.predicted_queue_length[i] = 0;
+//		data_local->lane_pool.last_time_empty_space[i] = 0;
 //	}
 //
 //	/**
@@ -304,7 +327,7 @@
 //		data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i] = 0;
 //		data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i] = 0;
 //
-//		assert(one_node->node_id == i);
+////		assert(one_node->node_id == i);
 //
 //		for (int j = 0; j < MAX_LANE_UPSTREAM; j++) {
 //			data_local->node_pool.upstream[j][i] = -1;
@@ -422,6 +445,7 @@
 //	if (vpool_cpu != NULL) delete vpool_cpu;
 ////	if (vpool_cpu_index != NULL) delete vpool_cpu_index;
 //
+//	if (str_tools != NULL) delete str_tools;
 ////	cudaDeviceReset();
 //	return true;
 //}
@@ -430,7 +454,9 @@
 //
 //	while (((to_simulate_time >= simulation_end_time) && (to_output_simulation_result_time >= simulation_end_time)) == false) {
 //
+//#ifdef ENABLE_OUTPUT
 //		std::cout << "Current Time: " << to_simulate_time << std::endl;
+//#endif
 //
 //		supply_simulation_pre_vehicle_passing(to_simulate_time);
 //
@@ -438,8 +464,9 @@
 //
 //		supply_simulation_after_vehicle_passing(to_simulate_time);
 //
+//#ifdef ENABLE_OUTPUT
 //		output_simulated_results(to_output_simulation_result_time);
-//
+//#endif
 //		to_simulate_time += simulation_time_step;
 //		to_output_simulation_result_time += simulation_time_step;
 //	}
@@ -455,7 +482,7 @@
 //
 //	for (int i = 0; i < LANE_SIZE; i++) {
 //		simulation_results_output_file << time_step << ":lane:" << i << ":(" << gpu_data->lane_pool.vehicle_counts[i] << ":" << gpu_data->lane_pool.flow[i] << ":" << gpu_data->lane_pool.density[i]
-//				<< ":" << gpu_data->lane_pool.speed[i] << ":" << gpu_data->lane_pool.queue_length[i] << ")" << endl;
+//				<< ":" << gpu_data->lane_pool.speed[i] << ":" << gpu_data->lane_pool.queue_length[i] << ":" << gpu_data->lane_pool.empty_space[i] << ")" << endl;
 //	}
 //
 //	return true;
@@ -489,9 +516,15 @@
 //				gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_id]][lane_id] = gpu_data->lane_pool.vehicle_passed_space[i][lane_id];
 //				gpu_data->lane_pool.vehicle_counts[lane_id]++;
 //
-//				gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
+////				gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
 //			}
 //		}
+//		if (gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] > 0) {
+//			gpu_data->lane_pool.empty_space[lane_id] = std::min(gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS, gpu_data->lane_pool.empty_space[lane_id])
+//					- gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] * VEHICLE_LENGTH;
+//			if (gpu_data->lane_pool.empty_space[lane_id] < 0) gpu_data->lane_pool.empty_space[lane_id] = 0;
+//		}
+//		gpu_data->lane_pool.last_time_empty_space[lane_id] = gpu_data->lane_pool.empty_space[lane_id];
 //		gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] = 0;
 //
 ////
@@ -511,8 +544,13 @@
 ////		std::cout << "gpu_data->lane_pool.speed[lane_id]:" << gpu_data->lane_pool.speed[lane_id] << std::endl;
 //
 ////Speed-Density Relationship
-//		gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MAX_SPEED[lane_id]
-//				* (pow((1 - pow((gpu_data->lane_pool.density[lane_id] / gpu_data->lane_pool.max_density[lane_id]), gpu_data->lane_pool.beta[lane_id])), gpu_data->lane_pool.alpha[lane_id]));
+//		if (gpu_data->lane_pool.density[lane_id] < gpu_data->lane_pool.min_density[lane_id]) gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MAX_SPEED[lane_id];
+//		else {
+//			gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MAX_SPEED[lane_id]
+//					- gpu_data->lane_pool.MAX_SPEED[lane_id] / (gpu_data->lane_pool.max_density[lane_id] - gpu_data->lane_pool.min_density[lane_id])
+//							* (gpu_data->lane_pool.density[lane_id] - gpu_data->lane_pool.min_density[lane_id]);
+//		}
+////		gpu_data->lane_pool.speed[lane_id] = ( gpu_data->lane_pool.MAX_SPEED[lane_id] - gpu_data->lane_pool.MIN_SPEED ) / gpu_data->lane_pool.max_density[lane_id] * ( gpu_data->lane_pool.max_density[lane_id] - 0 );
 //
 //		if (gpu_data->lane_pool.speed[lane_id] < gpu_data->lane_pool.MIN_SPEED[lane_id]) gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MIN_SPEED[lane_id];
 //
@@ -525,7 +563,8 @@
 //		if (time_step < START_TIME_STEPS + 4 * UNIT_TIME_STEPS) {
 ////		gpu_data->lane_pool.predicted_empty_space[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
 //			gpu_data->lane_pool.predicted_queue_length[lane_id] = 0;
-//			gpu_data->lane_pool.predicted_empty_space[lane_id] = ROAD_LENGTH;
+//			gpu_data->lane_pool.predicted_empty_space[lane_id] = std::min(gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS),
+//					1.0f * ROAD_LENGTH);
 //		}
 //		else {
 //			gpu_data->lane_pool.predicted_queue_length[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
@@ -540,8 +579,13 @@
 //
 //			//need improve
 //			//XUYAN, need modify
-//			gpu_data->lane_pool.predicted_empty_space[lane_id] = (ROAD_LENGTH - gpu_data->lane_pool.predicted_queue_length[lane_id]);
+//			gpu_data->lane_pool.predicted_empty_space[lane_id] = std::min(gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS),
+//					(ROAD_LENGTH - gpu_data->lane_pool.predicted_queue_length[lane_id]));
+//
 //		}
+////			gpu_data->lane_pool.debug_data[lane_id] = gpu_data->lane_pool.predicted_empty_space[lane_id];
+//
+//		gpu_data->lane_pool.debug_data[lane_id] = gpu_data->lane_pool.predicted_empty_space[lane_id];
 //
 ////		std::cout << "gpu_data->lane_pool.accumulated_offset[lane_id]:" << gpu_data->lane_pool.accumulated_offset[lane_id] << std::endl;
 //
@@ -556,6 +600,84 @@
 //			gpu_data->lane_pool.Tp[lane_id] += UNIT_TIME_STEPS;
 //		}
 //	}
+//}
+//
+//GPUVehicle* get_next_vehicle_at_node(int node_id, int* lane_id) {
+//
+//	int maximum_waiting_time = -1;
+////	int the_lane_id = -1;
+//	GPUVehicle* the_one_veh = NULL;
+//
+//	for (int j = 0; j < MAX_LANE_UPSTREAM; j++) {
+//
+//		int one_lane_id = gpu_data->node_pool.upstream[j][node_id];
+//		if (one_lane_id < 0) continue;
+//
+//		/*
+//		 * Condition 1: The Lane is not NULL
+//		 * ----      2: Has Output Capacity
+//		 * ---       3: Is not blocked
+//		 * ---       4: Has vehicles
+//		 * ---       5: The vehicle can pass
+//		 */
+//
+//		if (gpu_data->lane_pool.output_capacity[one_lane_id] > 0 && gpu_data->lane_pool.blocked[one_lane_id] == false && gpu_data->lane_pool.vehicle_counts[one_lane_id] > 0) {
+//			int time_diff = gpu_data->lane_pool.Tp[one_lane_id] - gpu_data->lane_pool.vehicle_space[0][one_lane_id]->entry_time;
+//			if (time_diff >= 0) {
+//
+//				//if already the final move, then no need for checking next road
+//				if ((gpu_data->lane_pool.vehicle_space[0][one_lane_id]->next_path_index) >= (gpu_data->lane_pool.vehicle_space[0][one_lane_id]->whole_path_length)) {
+//					if (time_diff > maximum_waiting_time) {
+//						maximum_waiting_time = time_diff;
+//						*lane_id = one_lane_id;
+//						the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+////						return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+//					}
+//				}
+//				else {
+//					int next_lane_index = gpu_data->lane_pool.vehicle_space[0][one_lane_id]->path_code[gpu_data->lane_pool.vehicle_space[0][one_lane_id]->next_path_index];
+//					int next_lane_id = gpu_data->node_pool.downstream[next_lane_index][node_id];
+//
+//					/**
+//					 * Condition 6: The Next Lane has input capacity
+//					 * ---       7: The next lane has empty space
+//					 */
+//					std::string key = str_tools->toString(one_lane_id);
+//					key.append(",");
+//					key.append(str_tools->toString(next_lane_id));
+//
+//					if (the_network->road_connect_broken[key] == false) {
+//						if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.empty_space[next_lane_id] > VEHICLE_LENGTH) {
+//							if (time_diff > maximum_waiting_time) {
+//								maximum_waiting_time = time_diff;
+//								*lane_id = one_lane_id;
+//								the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+////								return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+//							}
+//						}
+//						else {
+//							gpu_data->lane_pool.blocked[one_lane_id] = true;
+//						}
+//					}
+//					else {
+//						if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.predicted_empty_space[next_lane_id] > VEHICLE_LENGTH) {
+//							if (time_diff > maximum_waiting_time) {
+//								maximum_waiting_time = time_diff;
+//								*lane_id = one_lane_id;
+//								the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+////								return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+//							}
+//						}
+//						else {
+//							gpu_data->lane_pool.blocked[one_lane_id] = true;
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//
+//	return the_one_veh;
 //}
 //
 //void supply_simulation_vehicle_passing(int time_step) {
@@ -608,62 +730,6 @@
 //	}
 //}
 //
-//GPUVehicle* get_next_vehicle_at_node(int node_id, int* lane_id) {
-//
-//	int maximum_waiting_time = -1;
-////	int the_lane_id = -1;
-//
-//	for (int j = 0; j < MAX_LANE_UPSTREAM; j++) {
-//
-//		int one_lane_id = gpu_data->node_pool.upstream[j][node_id];
-//		if (one_lane_id < 0) continue;
-//
-//		/*
-//		 * Condition 1: The Lane is not NULL
-//		 * ----      2: Has Output Capacity
-//		 * ---       3: Is not blocked
-//		 * ---       4: Has vehicles
-//		 * ---       5: The vehicle can pass
-//		 */
-//
-//		if (gpu_data->lane_pool.output_capacity[one_lane_id] > 0 && gpu_data->lane_pool.blocked[one_lane_id] == false && gpu_data->lane_pool.vehicle_counts[one_lane_id] > 0) {
-//			int time_diff = gpu_data->lane_pool.Tp[one_lane_id] - gpu_data->lane_pool.vehicle_space[0][one_lane_id]->entry_time;
-//			if (time_diff >= 0) {
-//
-//				//if already the final move, then no need for checking next road
-//				if ((gpu_data->lane_pool.vehicle_space[0][one_lane_id]->next_path_index) >= (gpu_data->lane_pool.vehicle_space[0][one_lane_id]->whole_path_length)) {
-//					if (time_diff > maximum_waiting_time) {
-//						maximum_waiting_time = time_diff;
-//						*lane_id = one_lane_id;
-//						return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
-//					}
-//				}
-//				else {
-//					int next_lane_index = gpu_data->lane_pool.vehicle_space[0][one_lane_id]->path_code[gpu_data->lane_pool.vehicle_space[0][one_lane_id]->next_path_index];
-//					int next_lane_id = gpu_data->node_pool.downstream[next_lane_index][node_id];
-//
-//					/**
-//					 * Condition 6: The Next Lane has input capacity
-//					 * ---       7: The next lane has empty space
-//					 */
-//					if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.predicted_empty_space[next_lane_id] > VEHICLE_LENGTH) {
-//						if (time_diff > maximum_waiting_time) {
-//							maximum_waiting_time = time_diff;
-//							*lane_id = one_lane_id;
-//							return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
-//						}
-//					}
-//					else {
-//						gpu_data->lane_pool.blocked[one_lane_id] = true;
-//					}
-//				}
-//			}
-//		}
-//	}
-//
-//	return NULL;
-//}
-//
 //void supply_simulation_after_vehicle_passing(int time_step) {
 //
 //	for (unsigned int lane_id = 0; lane_id < the_network->all_links.size(); lane_id++) {
@@ -704,12 +770,13 @@
 //		gpu_data->lane_pool.his_queue_length[0][lane_id] = queue_length;
 //
 ////update the empty space
-//		if (gpu_data->lane_pool.new_vehicle_join_counts[lane_id] > 0) {
-//			gpu_data->lane_pool.empty_space[lane_id] = gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS - gpu_data->lane_pool.new_vehicle_join_counts[lane_id] * VEHICLE_LENGTH;
-//			if (gpu_data->lane_pool.empty_space[lane_id] < 0) gpu_data->lane_pool.empty_space[lane_id] = 0;
-//		}
-//		else {
-//			gpu_data->lane_pool.empty_space[lane_id] = gpu_data->lane_pool.empty_space[lane_id] + gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS;
-//		}
+////			if (gpu_data->lane_pool.new_vehicle_join_counts[lane_id] > 0) {
+////				gpu_data->lane_pool.empty_space[lane_id] = std::min(gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS, gpu_data->lane_pool.empty_space[lane_id])
+////				if (gpu_data->lane_pool.empty_space[lane_id] < 0) gpu_data->lane_pool.empty_space[lane_id] = 0;
+////			}
+////			else {
+//		gpu_data->lane_pool.empty_space[lane_id] = gpu_data->lane_pool.empty_space[lane_id] + gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS;
+//		gpu_data->lane_pool.empty_space[lane_id] = std::min(ROAD_LENGTH - gpu_data->lane_pool.queue_length[lane_id], gpu_data->lane_pool.empty_space[lane_id]);
+//
 //	}
 //}

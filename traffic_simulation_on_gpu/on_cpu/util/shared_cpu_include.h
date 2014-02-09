@@ -25,5 +25,6 @@
 
 #include <iomanip>
 #include <stdlib.h>  /* atoi*/
+#include <algorithm> /* max and min */
 
 #endif /* SHARED_CPU_INCLUDE_H_ */

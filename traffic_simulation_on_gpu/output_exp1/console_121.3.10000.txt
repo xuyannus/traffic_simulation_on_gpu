@@ -1,0 +1,5992 @@
+parameters updated
+Network Loaded
+Nodes:121
+Links:220
+road_connect_broken size:398
+-------------------------------------
+OD Pair Loaded
+ODs:80
+-------------------------------------
+OD Pair Routes Loaded
+Routes:332
+-------------------------------------
+Vehicle Loaded
+Vehicles:10000
+-------------------------------------
+all_vehicles.size():10000
+TOTAL_TIME_STEPS * LANE_SIZE * VEHICLE_MAX_LOADING_ONE_TIME * sizeof(GPUVehicle):3199680000
+TOTAL_TIME_STEPS * LANE_SIZE * VEHICLE_MAX_LOADING_ONE_TIME * sizeof(GPUVehicle):3199680000
+init all_vehicles
+Loading Vehicles Exceeds The Loading Capacity: Time:162, Lane_ID:40,i:457,ID:8942
+Loading Vehicles Exceeds The Loading Capacity: Time:166, Lane_ID:176,i:470,ID:7883
+Loading Vehicles Exceeds The Loading Capacity: Time:286, Lane_ID:60,i:798,ID:7947
+Loading Vehicles Exceeds The Loading Capacity: Time:294, Lane_ID:111,i:823,ID:5452
+Loading Vehicles Exceeds The Loading Capacity: Time:294, Lane_ID:111,i:824,ID:1697
+Loading Vehicles Exceeds The Loading Capacity: Time:604, Lane_ID:60,i:1675,ID:985
+Loading Vehicles Exceeds The Loading Capacity: Time:608, Lane_ID:119,i:1687,ID:2868
+Loading Vehicles Exceeds The Loading Capacity: Time:615, Lane_ID:0,i:1705,ID:7705
+Loading Vehicles Exceeds The Loading Capacity: Time:1323, Lane_ID:114,i:3687,ID:3499
+Loading Vehicles Exceeds The Loading Capacity: Time:1366, Lane_ID:80,i:3817,ID:2057
+Loading Vehicles Exceeds The Loading Capacity: Time:1677, Lane_ID:0,i:4695,ID:724
+Loading Vehicles Exceeds The Loading Capacity: Time:2057, Lane_ID:60,i:5696,ID:9894
+Loading Vehicles Exceeds The Loading Capacity: Time:2687, Lane_ID:114,i:7501,ID:9379
+Loading Vehicles Exceeds The Loading Capacity: Time:2930, Lane_ID:70,i:8145,ID:6074
+Loading Vehicles Exceeds The Loading Capacity: Time:3240, Lane_ID:100,i:9003,ID:9909
+Loading Vehicles Exceeds The Loading Capacity: Time:3409, Lane_ID:3,i:9469,ID:1023
+Loading Vehicles Exceeds The Loading Capacity: Time:3449, Lane_ID:176,i:9578,ID:2412
+init all_vehicles done9983
+Simulation Starts
+Current Time: 0
+Current Time: 1
+Current Time: 2
+Current Time: 3
+Current Time: 4
+Current Time: 5
+Current Time: 6
+Current Time: 7
+Current Time: 8
+Current Time: 9
+Current Time: 10
+Current Time: 11
+Current Time: 12
+Current Time: 13
+Current Time: 14
+Current Time: 15
+Current Time: 16
+Current Time: 17
+Current Time: 18
+Current Time: 19
+Current Time: 20
+Current Time: 21
+Current Time: 22
+Current Time: 23
+Current Time: 24
+Current Time: 25
+Current Time: 26
+Current Time: 27
+Current Time: 28
+Current Time: 29
+Current Time: 30
+Current Time: 31
+Current Time: 32
+Current Time: 33
+Current Time: 34
+Current Time: 35
+Current Time: 36
+Current Time: 37
+Current Time: 38
+Current Time: 39
+Current Time: 40
+Current Time: 41
+Current Time: 42
+Current Time: 43
+Current Time: 44
+Current Time: 45
+Current Time: 46
+Current Time: 47
+Current Time: 48
+Current Time: 49
+Current Time: 50
+Current Time: 51
+Current Time: 52
+Current Time: 53
+Current Time: 54
+Current Time: 55
+Current Time: 56
+Current Time: 57
+Current Time: 58
+Current Time: 59
+Current Time: 60
+Current Time: 61
+Current Time: 62
+Current Time: 63
+Current Time: 64
+Current Time: 65
+Current Time: 66
+Current Time: 67
+Current Time: 68
+Current Time: 69
+Current Time: 70
+Current Time: 71
+Current Time: 72
+Current Time: 73
+Current Time: 74
+Current Time: 75
+Current Time: 76
+Current Time: 77
+Current Time: 78
+Current Time: 79
+Current Time: 80
+Current Time: 81
+good to be here; EXECUTION_MODE:3,countDD:0
+Current Time: 82
+Current Time: 83
+Current Time: 84
+Current Time: 85
+Current Time: 86
+Current Time: 87
+Current Time: 88
+Current Time: 89
+Current Time: 90
+Current Time: 91
+Current Time: 92
+Current Time: 93
+Current Time: 94
+Current Time: 95
+Current Time: 96
+Current Time: 97
+Current Time: 98
+Current Time: 99
+Current Time: 100
+Current Time: 101
+Current Time: 102
+Current Time: 103
+Current Time: 104
+Current Time: 105
+Current Time: 106
+Current Time: 107
+Current Time: 108
+Current Time: 109
+Current Time: 110
+Current Time: 111
+Current Time: 112
+Current Time: 113
+Current Time: 114
+Current Time: 115
+Current Time: 116
+Current Time: 117
+Current Time: 118
+Current Time: 119
+Current Time: 120
+Current Time: 121
+Current Time: 122
+Current Time: 123
+Current Time: 124
+Current Time: 125
+Current Time: 126
+Current Time: 127
+Current Time: 128
+Current Time: 129
+Current Time: 130
+Current Time: 131
+Current Time: 132
+Current Time: 133
+Current Time: 134
+good to be here; EXECUTION_MODE:3,countDD:1
+Current Time: 135
+Current Time: 136
+Current Time: 137
+good to be here; EXECUTION_MODE:3,countDD:2
+Current Time: 138
+Current Time: 139
+Current Time: 140
+good to be here; EXECUTION_MODE:3,countDD:3
+Current Time: 141
+Current Time: 142
+good to be here; EXECUTION_MODE:3,countDD:4
+Current Time: 143
+Current Time: 144
+Current Time: 145
+Current Time: 146
+good to be here; EXECUTION_MODE:3,countDD:5
+Current Time: 147
+Current Time: 148
+Current Time: 149
+Current Time: 150
+Current Time: 151
+Current Time: 152
+Current Time: 153
+Current Time: 154
+Current Time: 155
+Current Time: 156
+Current Time: 157
+Current Time: 158
+Current Time: 159
+Current Time: 160
+Current Time: 161
+Current Time: 162
+good to be here; EXECUTION_MODE:3,countDD:6
+Current Time: 163
+good to be here; EXECUTION_MODE:3,countDD:7
+good to be here; EXECUTION_MODE:3,countDD:8
+Current Time: 164
+Current Time: 165
+Current Time: 166
+good to be here; EXECUTION_MODE:3,countDD:9
+Current Time: 167
+Current Time: 168
+Current Time: 169
+Current Time: 170
+Current Time: 171
+Current Time: 172
+Current Time: 173
+Current Time: 174
+Current Time: 175
+Current Time: 176
+Current Time: 177
+Current Time: 178
+good to be here; EXECUTION_MODE:3,countDD:10
+Current Time: 179
+good to be here; EXECUTION_MODE:3,countDD:11
+Current Time: 180
+good to be here; EXECUTION_MODE:3,countDD:12
+Current Time: 181
+good to be here; EXECUTION_MODE:3,countDD:13
+Current Time: 182
+Current Time: 183
+Current Time: 184
+Current Time: 185
+Current Time: 186
+Current Time: 187
+Current Time: 188
+Current Time: 189
+Current Time: 190
+Current Time: 191
+Current Time: 192
+Current Time: 193
+Current Time: 194
+Current Time: 195
+Current Time: 196
+Current Time: 197
+good to be here; EXECUTION_MODE:3,countDD:14
+Current Time: 198
+Current Time: 199
+Current Time: 200
+good to be here; EXECUTION_MODE:3,countDD:15
+Current Time: 201
+Current Time: 202
+Current Time: 203
+Current Time: 204
+Current Time: 205
+Current Time: 206
+good to be here; EXECUTION_MODE:3,countDD:16
+Current Time: 207
+Current Time: 208
+Current Time: 209
+good to be here; EXECUTION_MODE:3,countDD:17
+Current Time: 210
+Current Time: 211
+Current Time: 212
+good to be here; EXECUTION_MODE:3,countDD:18
+Current Time: 213
+good to be here; EXECUTION_MODE:3,countDD:19
+good to be here; EXECUTION_MODE:3,countDD:20
+Current Time: 214
+good to be here; EXECUTION_MODE:3,countDD:21
+Current Time: 215
+Current Time: 216
+Current Time: 217
+good to be here; EXECUTION_MODE:3,countDD:22
+Current Time: 218
+good to be here; EXECUTION_MODE:3,countDD:23
+Current Time: 219
+good to be here; EXECUTION_MODE:3,countDD:24
+Current Time: 220
+Current Time: 221
+good to be here; EXECUTION_MODE:3,countDD:25
+Current Time: 222
+Current Time: 223
+Current Time: 224
+good to be here; EXECUTION_MODE:3,countDD:26
+Current Time: 225
+Current Time: 226
+Current Time: 227
+Current Time: 228
+Current Time: 229
+Current Time: 230
+Current Time: 231
+Current Time: 232
+Current Time: 233
+Current Time: 234
+Current Time: 235
+good to be here; EXECUTION_MODE:3,countDD:27
+Current Time: 236
+good to be here; EXECUTION_MODE:3,countDD:28
+Current Time: 237
+Current Time: 238
+Current Time: 239
+Current Time: 240
+good to be here; EXECUTION_MODE:3,countDD:29
+Current Time: 241
+good to be here; EXECUTION_MODE:3,countDD:30
+Current Time: 242
+good to be here; EXECUTION_MODE:3,countDD:31
+good to be here; EXECUTION_MODE:3,countDD:32
+Current Time: 243
+good to be here; EXECUTION_MODE:3,countDD:33
+Current Time: 244
+Current Time: 245
+Current Time: 246
+good to be here; EXECUTION_MODE:3,countDD:34
+good to be here; EXECUTION_MODE:3,countDD:35
+Current Time: 247
+Current Time: 248
+good to be here; EXECUTION_MODE:3,countDD:36
+Current Time: 249
+Current Time: 250
+Current Time: 251
+good to be here; EXECUTION_MODE:3,countDD:37
+Current Time: 252
+Current Time: 253
+Current Time: 254
+good to be here; EXECUTION_MODE:3,countDD:38
+good to be here; EXECUTION_MODE:3,countDD:39
+Current Time: 255
+Current Time: 256
+good to be here; EXECUTION_MODE:3,countDD:40
+Current Time: 257
+good to be here; EXECUTION_MODE:3,countDD:41
+Current Time: 258
+Current Time: 259
+Current Time: 260
+Current Time: 261
+good to be here; EXECUTION_MODE:3,countDD:42
+Current Time: 262
+Current Time: 263
+good to be here; EXECUTION_MODE:3,countDD:43
+Current Time: 264
+Current Time: 265
+Current Time: 266
+Current Time: 267
+Current Time: 268
+Current Time: 269
+good to be here; EXECUTION_MODE:3,countDD:44
+good to be here; EXECUTION_MODE:3,countDD:45
+Current Time: 270
+Current Time: 271
+Current Time: 272
+Current Time: 273
+good to be here; EXECUTION_MODE:3,countDD:46
+good to be here; EXECUTION_MODE:3,countDD:47
+Current Time: 274
+good to be here; EXECUTION_MODE:3,countDD:48
+good to be here; EXECUTION_MODE:3,countDD:49
+Current Time: 275
+good to be here; EXECUTION_MODE:3,countDD:50
+Current Time: 276
+Current Time: 277
+good to be here; EXECUTION_MODE:3,countDD:51
+Current Time: 278
+good to be here; EXECUTION_MODE:3,countDD:52
+good to be here; EXECUTION_MODE:3,countDD:53
+Current Time: 279
+good to be here; EXECUTION_MODE:3,countDD:54
+Current Time: 280
+Current Time: 281
+good to be here; EXECUTION_MODE:3,countDD:55
+Current Time: 282
+good to be here; EXECUTION_MODE:3,countDD:56
+good to be here; EXECUTION_MODE:3,countDD:57
+good to be here; EXECUTION_MODE:3,countDD:58
+Current Time: 283
+Current Time: 284
+good to be here; EXECUTION_MODE:3,countDD:59
+Current Time: 285
+Current Time: 286
+Current Time: 287
+Current Time: 288
+good to be here; EXECUTION_MODE:3,countDD:60
+Current Time: 289
+Current Time: 290
+Current Time: 291
+good to be here; EXECUTION_MODE:3,countDD:61
+Current Time: 292
+Current Time: 293
+good to be here; EXECUTION_MODE:3,countDD:62
+Current Time: 294
+Current Time: 295
+Current Time: 296
+good to be here; EXECUTION_MODE:3,countDD:63
+Current Time: 297
+Current Time: 298
+good to be here; EXECUTION_MODE:3,countDD:64
+Current Time: 299
+Current Time: 300
+Current Time: 301
+Current Time: 302
+Current Time: 303
+good to be here; EXECUTION_MODE:3,countDD:65
+Current Time: 304
+Current Time: 305
+good to be here; EXECUTION_MODE:3,countDD:66
+Current Time: 306
+good to be here; EXECUTION_MODE:3,countDD:67
+good to be here; EXECUTION_MODE:3,countDD:68
+Current Time: 307
+good to be here; EXECUTION_MODE:3,countDD:69
+good to be here; EXECUTION_MODE:3,countDD:70
+Current Time: 308
+Current Time: 309
+Current Time: 310
+good to be here; EXECUTION_MODE:3,countDD:71
+Current Time: 311
+Current Time: 312
+good to be here; EXECUTION_MODE:3,countDD:72
+Current Time: 313
+Current Time: 314
+Current Time: 315
+Current Time: 316
+Current Time: 317
+good to be here; EXECUTION_MODE:3,countDD:73
+good to be here; EXECUTION_MODE:3,countDD:74
+good to be here; EXECUTION_MODE:3,countDD:75
+Current Time: 318
+Current Time: 319
+good to be here; EXECUTION_MODE:3,countDD:76
+Current Time: 320
+good to be here; EXECUTION_MODE:3,countDD:77
+Current Time: 321
+good to be here; EXECUTION_MODE:3,countDD:78
+Current Time: 322
+good to be here; EXECUTION_MODE:3,countDD:79
+Current Time: 323
+good to be here; EXECUTION_MODE:3,countDD:80
+Current Time: 324
+good to be here; EXECUTION_MODE:3,countDD:81
+good to be here; EXECUTION_MODE:3,countDD:82
+Current Time: 325
+good to be here; EXECUTION_MODE:3,countDD:83
+Current Time: 326
+Current Time: 327
+Current Time: 328
+good to be here; EXECUTION_MODE:3,countDD:84
+Current Time: 329
+Current Time: 330
+good to be here; EXECUTION_MODE:3,countDD:85
+Current Time: 331
+Current Time: 332
+Current Time: 333
+good to be here; EXECUTION_MODE:3,countDD:86
+Current Time: 334
+Current Time: 335
+Current Time: 336
+Current Time: 337
+Current Time: 338
+good to be here; EXECUTION_MODE:3,countDD:87
+Current Time: 339
+good to be here; EXECUTION_MODE:3,countDD:88
+Current Time: 340
+Current Time: 341
+Current Time: 342
+Current Time: 343
+Current Time: 344
+good to be here; EXECUTION_MODE:3,countDD:89
+Current Time: 345
+Current Time: 346
+Current Time: 347
+good to be here; EXECUTION_MODE:3,countDD:90
+good to be here; EXECUTION_MODE:3,countDD:91
+Current Time: 348
+good to be here; EXECUTION_MODE:3,countDD:92
+good to be here; EXECUTION_MODE:3,countDD:93
+Current Time: 349
+good to be here; EXECUTION_MODE:3,countDD:94
+good to be here; EXECUTION_MODE:3,countDD:95
+good to be here; EXECUTION_MODE:3,countDD:96
+Current Time: 350
+good to be here; EXECUTION_MODE:3,countDD:97
+Current Time: 351
+Current Time: 352
+Current Time: 353
+Current Time: 354
+Current Time: 355
+good to be here; EXECUTION_MODE:3,countDD:98
+Current Time: 356
+Current Time: 357
+Current Time: 358
+Current Time: 359
+Current Time: 360
+good to be here; EXECUTION_MODE:3,countDD:99
+Current Time: 361
+good to be here; EXECUTION_MODE:3,countDD:100
+good to be here; EXECUTION_MODE:3,countDD:101
+Current Time: 362
+good to be here; EXECUTION_MODE:3,countDD:102
+Current Time: 363
+Current Time: 364
+Current Time: 365
+Current Time: 366
+Current Time: 367
+Current Time: 368
+Current Time: 369
+Current Time: 370
+Current Time: 371
+Current Time: 372
+Current Time: 373
+good to be here; EXECUTION_MODE:3,countDD:103
+Current Time: 374
+good to be here; EXECUTION_MODE:3,countDD:104
+Current Time: 375
+Current Time: 376
+Current Time: 377
+good to be here; EXECUTION_MODE:3,countDD:105
+good to be here; EXECUTION_MODE:3,countDD:106
+Current Time: 378
+Current Time: 379
+good to be here; EXECUTION_MODE:3,countDD:107
+Current Time: 380
+good to be here; EXECUTION_MODE:3,countDD:108
+Current Time: 381
+good to be here; EXECUTION_MODE:3,countDD:109
+Current Time: 382
+good to be here; EXECUTION_MODE:3,countDD:110
+Current Time: 383
+Current Time: 384
+Current Time: 385
+good to be here; EXECUTION_MODE:3,countDD:111
+good to be here; EXECUTION_MODE:3,countDD:112
+good to be here; EXECUTION_MODE:3,countDD:113
+Current Time: 386
+Current Time: 387
+Current Time: 388
+good to be here; EXECUTION_MODE:3,countDD:114
+good to be here; EXECUTION_MODE:3,countDD:115
+Current Time: 389
+Current Time: 390
+good to be here; EXECUTION_MODE:3,countDD:116
+Current Time: 391
+good to be here; EXECUTION_MODE:3,countDD:117
+Current Time: 392
+Current Time: 393
+Current Time: 394
+good to be here; EXECUTION_MODE:3,countDD:118
+Current Time: 395
+Current Time: 396
+Current Time: 397
+good to be here; EXECUTION_MODE:3,countDD:119
+Current Time: 398
+good to be here; EXECUTION_MODE:3,countDD:120
+Current Time: 399
+good to be here; EXECUTION_MODE:3,countDD:121
+Current Time: 400
+Current Time: 401
+Current Time: 402
+Current Time: 403
+Current Time: 404
+Current Time: 405
+good to be here; EXECUTION_MODE:3,countDD:122
+Current Time: 406
+good to be here; EXECUTION_MODE:3,countDD:123
+good to be here; EXECUTION_MODE:3,countDD:124
+Current Time: 407
+Current Time: 408
+Current Time: 409
+Current Time: 410
+Current Time: 411
+good to be here; EXECUTION_MODE:3,countDD:125
+Current Time: 412
+good to be here; EXECUTION_MODE:3,countDD:126
+Current Time: 413
+Current Time: 414
+Current Time: 415
+good to be here; EXECUTION_MODE:3,countDD:127
+good to be here; EXECUTION_MODE:3,countDD:128
+Current Time: 416
+Current Time: 417
+Current Time: 418
+good to be here; EXECUTION_MODE:3,countDD:129
+Current Time: 419
+good to be here; EXECUTION_MODE:3,countDD:130
+Current Time: 420
+good to be here; EXECUTION_MODE:3,countDD:131
+Current Time: 421
+Current Time: 422
+Current Time: 423
+good to be here; EXECUTION_MODE:3,countDD:132
+Current Time: 424
+good to be here; EXECUTION_MODE:3,countDD:133
+Current Time: 425
+good to be here; EXECUTION_MODE:3,countDD:134
+good to be here; EXECUTION_MODE:3,countDD:135
+Current Time: 426
+good to be here; EXECUTION_MODE:3,countDD:136
+good to be here; EXECUTION_MODE:3,countDD:137
+Current Time: 427
+good to be here; EXECUTION_MODE:3,countDD:138
+Current Time: 428
+good to be here; EXECUTION_MODE:3,countDD:139
+Current Time: 429
+good to be here; EXECUTION_MODE:3,countDD:140
+Current Time: 430
+Current Time: 431
+good to be here; EXECUTION_MODE:3,countDD:141
+Current Time: 432
+good to be here; EXECUTION_MODE:3,countDD:142
+Current Time: 433
+good to be here; EXECUTION_MODE:3,countDD:143
+Current Time: 434
+Current Time: 435
+Current Time: 436
+Current Time: 437
+Current Time: 438
+good to be here; EXECUTION_MODE:3,countDD:144
+good to be here; EXECUTION_MODE:3,countDD:145
+Current Time: 439
+good to be here; EXECUTION_MODE:3,countDD:146
+Current Time: 440
+good to be here; EXECUTION_MODE:3,countDD:147
+Current Time: 441
+good to be here; EXECUTION_MODE:3,countDD:148
+good to be here; EXECUTION_MODE:3,countDD:149
+Current Time: 442
+good to be here; EXECUTION_MODE:3,countDD:150
+good to be here; EXECUTION_MODE:3,countDD:151
+Current Time: 443
+good to be here; EXECUTION_MODE:3,countDD:152
+good to be here; EXECUTION_MODE:3,countDD:153
+Current Time: 444
+good to be here; EXECUTION_MODE:3,countDD:154
+Current Time: 445
+good to be here; EXECUTION_MODE:3,countDD:155
+Current Time: 446
+good to be here; EXECUTION_MODE:3,countDD:156
+good to be here; EXECUTION_MODE:3,countDD:157
+Current Time: 447
+Current Time: 448
+good to be here; EXECUTION_MODE:3,countDD:158
+Current Time: 449
+Current Time: 450
+good to be here; EXECUTION_MODE:3,countDD:159
+Current Time: 451
+good to be here; EXECUTION_MODE:3,countDD:160
+Current Time: 452
+good to be here; EXECUTION_MODE:3,countDD:161
+good to be here; EXECUTION_MODE:3,countDD:162
+good to be here; EXECUTION_MODE:3,countDD:163
+Current Time: 453
+good to be here; EXECUTION_MODE:3,countDD:164
+Current Time: 454
+good to be here; EXECUTION_MODE:3,countDD:165
+good to be here; EXECUTION_MODE:3,countDD:166
+Current Time: 455
+good to be here; EXECUTION_MODE:3,countDD:167
+Current Time: 456
+Current Time: 457
+Current Time: 458
+good to be here; EXECUTION_MODE:3,countDD:168
+Current Time: 459
+good to be here; EXECUTION_MODE:3,countDD:169
+good to be here; EXECUTION_MODE:3,countDD:170
+Current Time: 460
+Current Time: 461
+good to be here; EXECUTION_MODE:3,countDD:171
+Current Time: 462
+good to be here; EXECUTION_MODE:3,countDD:172
+Current Time: 463
+Current Time: 464
+Current Time: 465
+Current Time: 466
+good to be here; EXECUTION_MODE:3,countDD:173
+Current Time: 467
+Current Time: 468
+Current Time: 469
+Current Time: 470
+good to be here; EXECUTION_MODE:3,countDD:174
+Current Time: 471
+good to be here; EXECUTION_MODE:3,countDD:175
+good to be here; EXECUTION_MODE:3,countDD:176
+Current Time: 472
+good to be here; EXECUTION_MODE:3,countDD:177
+Current Time: 473
+Current Time: 474
+good to be here; EXECUTION_MODE:3,countDD:178
+Current Time: 475
+Current Time: 476
+Current Time: 477
+Current Time: 478
+good to be here; EXECUTION_MODE:3,countDD:179
+good to be here; EXECUTION_MODE:3,countDD:180
+Current Time: 479
+good to be here; EXECUTION_MODE:3,countDD:181
+Current Time: 480
+Current Time: 481
+good to be here; EXECUTION_MODE:3,countDD:182
+good to be here; EXECUTION_MODE:3,countDD:183
+Current Time: 482
+Current Time: 483
+Current Time: 484
+Current Time: 485
+good to be here; EXECUTION_MODE:3,countDD:184
+Current Time: 486
+Current Time: 487
+Current Time: 488
+Current Time: 489
+good to be here; EXECUTION_MODE:3,countDD:185
+Current Time: 490
+Current Time: 491
+good to be here; EXECUTION_MODE:3,countDD:186
+Current Time: 492
+good to be here; EXECUTION_MODE:3,countDD:187
+Current Time: 493
+Current Time: 494
+good to be here; EXECUTION_MODE:3,countDD:188
+Current Time: 495
+Current Time: 496
+Current Time: 497
+Current Time: 498
+Current Time: 499
+Current Time: 500
+good to be here; EXECUTION_MODE:3,countDD:189
+Current Time: 501
+Current Time: 502
+Current Time: 503
+good to be here; EXECUTION_MODE:3,countDD:190
+good to be here; EXECUTION_MODE:3,countDD:191
+Current Time: 504
+Current Time: 505
+Current Time: 506
+Current Time: 507
+Current Time: 508
+good to be here; EXECUTION_MODE:3,countDD:192
+Current Time: 509
+good to be here; EXECUTION_MODE:3,countDD:193
+Current Time: 510
+Current Time: 511
+good to be here; EXECUTION_MODE:3,countDD:194
+Current Time: 512
+good to be here; EXECUTION_MODE:3,countDD:195
+Current Time: 513
+Current Time: 514
+Current Time: 515
+Current Time: 516
+good to be here; EXECUTION_MODE:3,countDD:196
+good to be here; EXECUTION_MODE:3,countDD:197
+Current Time: 517
+Current Time: 518
+good to be here; EXECUTION_MODE:3,countDD:198
+Current Time: 519
+Current Time: 520
+Current Time: 521
+Current Time: 522
+good to be here; EXECUTION_MODE:3,countDD:199
+good to be here; EXECUTION_MODE:3,countDD:200
+Current Time: 523
+Current Time: 524
+good to be here; EXECUTION_MODE:3,countDD:201
+good to be here; EXECUTION_MODE:3,countDD:202
+good to be here; EXECUTION_MODE:3,countDD:203
+Current Time: 525
+good to be here; EXECUTION_MODE:3,countDD:204
+Current Time: 526
+good to be here; EXECUTION_MODE:3,countDD:205
+Current Time: 527
+good to be here; EXECUTION_MODE:3,countDD:206
+Current Time: 528
+good to be here; EXECUTION_MODE:3,countDD:207
+Current Time: 529
+Current Time: 530
+Current Time: 531
+Current Time: 532
+good to be here; EXECUTION_MODE:3,countDD:208
+Current Time: 533
+Current Time: 534
+Current Time: 535
+Current Time: 536
+Current Time: 537
+good to be here; EXECUTION_MODE:3,countDD:209
+good to be here; EXECUTION_MODE:3,countDD:210
+Current Time: 538
+Current Time: 539
+Current Time: 540
+Current Time: 541
+Current Time: 542
+good to be here; EXECUTION_MODE:3,countDD:211
+good to be here; EXECUTION_MODE:3,countDD:212
+Current Time: 543
+good to be here; EXECUTION_MODE:3,countDD:213
+good to be here; EXECUTION_MODE:3,countDD:214
+Current Time: 544
+Current Time: 545
+good to be here; EXECUTION_MODE:3,countDD:215
+Current Time: 546
+good to be here; EXECUTION_MODE:3,countDD:216
+good to be here; EXECUTION_MODE:3,countDD:217
+Current Time: 547
+good to be here; EXECUTION_MODE:3,countDD:218
+Current Time: 548
+good to be here; EXECUTION_MODE:3,countDD:219
+Current Time: 549
+Current Time: 550
+Current Time: 551
+Current Time: 552
+good to be here; EXECUTION_MODE:3,countDD:220
+Current Time: 553
+good to be here; EXECUTION_MODE:3,countDD:221
+Current Time: 554
+Current Time: 555
+good to be here; EXECUTION_MODE:3,countDD:222
+Current Time: 556
+Current Time: 557
+good to be here; EXECUTION_MODE:3,countDD:223
+good to be here; EXECUTION_MODE:3,countDD:224
+good to be here; EXECUTION_MODE:3,countDD:225
+good to be here; EXECUTION_MODE:3,countDD:226
+Current Time: 558
+good to be here; EXECUTION_MODE:3,countDD:227
+good to be here; EXECUTION_MODE:3,countDD:228
+good to be here; EXECUTION_MODE:3,countDD:229
+good to be here; EXECUTION_MODE:3,countDD:230
+Current Time: 559
+good to be here; EXECUTION_MODE:3,countDD:231
+good to be here; EXECUTION_MODE:3,countDD:232
+Current Time: 560
+good to be here; EXECUTION_MODE:3,countDD:233
+good to be here; EXECUTION_MODE:3,countDD:234
+Current Time: 561
+good to be here; EXECUTION_MODE:3,countDD:235
+Current Time: 562
+Current Time: 563
+good to be here; EXECUTION_MODE:3,countDD:236
+Current Time: 564
+good to be here; EXECUTION_MODE:3,countDD:237
+Current Time: 565
+good to be here; EXECUTION_MODE:3,countDD:238
+Current Time: 566
+good to be here; EXECUTION_MODE:3,countDD:239
+Current Time: 567
+good to be here; EXECUTION_MODE:3,countDD:240
+good to be here; EXECUTION_MODE:3,countDD:241
+Current Time: 568
+good to be here; EXECUTION_MODE:3,countDD:242
+good to be here; EXECUTION_MODE:3,countDD:243
+Current Time: 569
+Current Time: 570
+Current Time: 571
+Current Time: 572
+Current Time: 573
+Current Time: 574
+good to be here; EXECUTION_MODE:3,countDD:244
+Current Time: 575
+Current Time: 576
+Current Time: 577
+good to be here; EXECUTION_MODE:3,countDD:245
+Current Time: 578
+good to be here; EXECUTION_MODE:3,countDD:246
+Current Time: 579
+Current Time: 580
+good to be here; EXECUTION_MODE:3,countDD:247
+Current Time: 581
+good to be here; EXECUTION_MODE:3,countDD:248
+Current Time: 582
+Current Time: 583
+good to be here; EXECUTION_MODE:3,countDD:249
+good to be here; EXECUTION_MODE:3,countDD:250
+Current Time: 584
+good to be here; EXECUTION_MODE:3,countDD:251
+Current Time: 585
+Current Time: 586
+Current Time: 587
+Current Time: 588
+good to be here; EXECUTION_MODE:3,countDD:252
+Current Time: 589
+Current Time: 590
+Current Time: 591
+good to be here; EXECUTION_MODE:3,countDD:253
+Current Time: 592
+good to be here; EXECUTION_MODE:3,countDD:254
+Current Time: 593
+good to be here; EXECUTION_MODE:3,countDD:255
+Current Time: 594
+good to be here; EXECUTION_MODE:3,countDD:256
+Current Time: 595
+good to be here; EXECUTION_MODE:3,countDD:257
+Current Time: 596
+Current Time: 597
+good to be here; EXECUTION_MODE:3,countDD:258
+Current Time: 598
+good to be here; EXECUTION_MODE:3,countDD:259
+Current Time: 599
+Current Time: 600
+Current Time: 601
+good to be here; EXECUTION_MODE:3,countDD:260
+Current Time: 602
+good to be here; EXECUTION_MODE:3,countDD:261
+Current Time: 603
+good to be here; EXECUTION_MODE:3,countDD:262
+Current Time: 604
+Current Time: 605
+good to be here; EXECUTION_MODE:3,countDD:263
+good to be here; EXECUTION_MODE:3,countDD:264
+Current Time: 606
+Current Time: 607
+Current Time: 608
+good to be here; EXECUTION_MODE:3,countDD:265
+Current Time: 609
+good to be here; EXECUTION_MODE:3,countDD:266
+Current Time: 610
+Current Time: 611
+Current Time: 612
+good to be here; EXECUTION_MODE:3,countDD:267
+Current Time: 613
+good to be here; EXECUTION_MODE:3,countDD:268
+Current Time: 614
+good to be here; EXECUTION_MODE:3,countDD:269
+Current Time: 615
+good to be here; EXECUTION_MODE:3,countDD:270
+Current Time: 616
+Current Time: 617
+Current Time: 618
+Current Time: 619
+good to be here; EXECUTION_MODE:3,countDD:271
+good to be here; EXECUTION_MODE:3,countDD:272
+Current Time: 620
+Current Time: 621
+Current Time: 622
+Current Time: 623
+Current Time: 624
+Current Time: 625
+good to be here; EXECUTION_MODE:3,countDD:273
+Current Time: 626
+good to be here; EXECUTION_MODE:3,countDD:274
+Current Time: 627
+good to be here; EXECUTION_MODE:3,countDD:275
+Current Time: 628
+good to be here; EXECUTION_MODE:3,countDD:276
+good to be here; EXECUTION_MODE:3,countDD:277
+Current Time: 629
+good to be here; EXECUTION_MODE:3,countDD:278
+Current Time: 630
+Current Time: 631
+good to be here; EXECUTION_MODE:3,countDD:279
+Current Time: 632
+Current Time: 633
+good to be here; EXECUTION_MODE:3,countDD:280
+Current Time: 634
+Current Time: 635
+good to be here; EXECUTION_MODE:3,countDD:281
+good to be here; EXECUTION_MODE:3,countDD:282
+Current Time: 636
+good to be here; EXECUTION_MODE:3,countDD:283
+Current Time: 637
+Current Time: 638
+Current Time: 639
+good to be here; EXECUTION_MODE:3,countDD:284
+good to be here; EXECUTION_MODE:3,countDD:285
+Current Time: 640
+good to be here; EXECUTION_MODE:3,countDD:286
+good to be here; EXECUTION_MODE:3,countDD:287
+Current Time: 641
+Current Time: 642
+good to be here; EXECUTION_MODE:3,countDD:288
+Current Time: 643
+good to be here; EXECUTION_MODE:3,countDD:289
+Current Time: 644
+Current Time: 645
+good to be here; EXECUTION_MODE:3,countDD:290
+Current Time: 646
+Current Time: 647
+Current Time: 648
+good to be here; EXECUTION_MODE:3,countDD:291
+good to be here; EXECUTION_MODE:3,countDD:292
+Current Time: 649
+Current Time: 650
+Current Time: 651
+good to be here; EXECUTION_MODE:3,countDD:293
+good to be here; EXECUTION_MODE:3,countDD:294
+Current Time: 652
+good to be here; EXECUTION_MODE:3,countDD:295
+Current Time: 653
+good to be here; EXECUTION_MODE:3,countDD:296
+Current Time: 654
+Current Time: 655
+Current Time: 656
+Current Time: 657
+good to be here; EXECUTION_MODE:3,countDD:297
+Current Time: 658
+good to be here; EXECUTION_MODE:3,countDD:298
+Current Time: 659
+Current Time: 660
+Current Time: 661
+Current Time: 662
+good to be here; EXECUTION_MODE:3,countDD:299
+Current Time: 663
+good to be here; EXECUTION_MODE:3,countDD:300
+Current Time: 664
+good to be here; EXECUTION_MODE:3,countDD:301
+good to be here; EXECUTION_MODE:3,countDD:302
+Current Time: 665
+Current Time: 666
+good to be here; EXECUTION_MODE:3,countDD:303
+Current Time: 667
+good to be here; EXECUTION_MODE:3,countDD:304
+Current Time: 668
+good to be here; EXECUTION_MODE:3,countDD:305
+good to be here; EXECUTION_MODE:3,countDD:306
+Current Time: 669
+Current Time: 670
+Current Time: 671
+good to be here; EXECUTION_MODE:3,countDD:307
+good to be here; EXECUTION_MODE:3,countDD:308
+Current Time: 672
+good to be here; EXECUTION_MODE:3,countDD:309
+good to be here; EXECUTION_MODE:3,countDD:310
+good to be here; EXECUTION_MODE:3,countDD:311
+Current Time: 673
+Current Time: 674
+Current Time: 675
+good to be here; EXECUTION_MODE:3,countDD:312
+good to be here; EXECUTION_MODE:3,countDD:313
+Current Time: 676
+Current Time: 677
+good to be here; EXECUTION_MODE:3,countDD:314
+Current Time: 678
+good to be here; EXECUTION_MODE:3,countDD:315
+good to be here; EXECUTION_MODE:3,countDD:316
+Current Time: 679
+Current Time: 680
+Current Time: 681
+good to be here; EXECUTION_MODE:3,countDD:317
+good to be here; EXECUTION_MODE:3,countDD:318
+Current Time: 682
+good to be here; EXECUTION_MODE:3,countDD:319
+Current Time: 683
+good to be here; EXECUTION_MODE:3,countDD:320
+Current Time: 684
+Current Time: 685
+Current Time: 686
+Current Time: 687
+Current Time: 688
+Current Time: 689
+Current Time: 690
+Current Time: 691
+Current Time: 692
+Current Time: 693
+Current Time: 694
+Current Time: 695
+Current Time: 696
+Current Time: 697
+good to be here; EXECUTION_MODE:3,countDD:321
+Current Time: 698
+Current Time: 699
+Current Time: 700
+good to be here; EXECUTION_MODE:3,countDD:322
+Current Time: 701
+Current Time: 702
+Current Time: 703
+good to be here; EXECUTION_MODE:3,countDD:323
+Current Time: 704
+good to be here; EXECUTION_MODE:3,countDD:324
+Current Time: 705
+Current Time: 706
+good to be here; EXECUTION_MODE:3,countDD:325
+good to be here; EXECUTION_MODE:3,countDD:326
+Current Time: 707
+Current Time: 708
+good to be here; EXECUTION_MODE:3,countDD:327
+Current Time: 709
+good to be here; EXECUTION_MODE:3,countDD:328
+Current Time: 710
+Current Time: 711
+good to be here; EXECUTION_MODE:3,countDD:329
+Current Time: 712
+Current Time: 713
+good to be here; EXECUTION_MODE:3,countDD:330
+good to be here; EXECUTION_MODE:3,countDD:331
+Current Time: 714
+good to be here; EXECUTION_MODE:3,countDD:332
+Current Time: 715
+Current Time: 716
+good to be here; EXECUTION_MODE:3,countDD:333
+Current Time: 717
+good to be here; EXECUTION_MODE:3,countDD:334
+Current Time: 718
+good to be here; EXECUTION_MODE:3,countDD:335
+good to be here; EXECUTION_MODE:3,countDD:336
+Current Time: 719
+Current Time: 720
+good to be here; EXECUTION_MODE:3,countDD:337
+Current Time: 721
+good to be here; EXECUTION_MODE:3,countDD:338
+good to be here; EXECUTION_MODE:3,countDD:339
+Current Time: 722
+Current Time: 723
+good to be here; EXECUTION_MODE:3,countDD:340
+good to be here; EXECUTION_MODE:3,countDD:341
+good to be here; EXECUTION_MODE:3,countDD:342
+good to be here; EXECUTION_MODE:3,countDD:343
+Current Time: 724
+Current Time: 725
+Current Time: 726
+Current Time: 727
+Current Time: 728
+good to be here; EXECUTION_MODE:3,countDD:344
+Current Time: 729
+Current Time: 730
+Current Time: 731
+Current Time: 732
+Current Time: 733
+good to be here; EXECUTION_MODE:3,countDD:345
+Current Time: 734
+good to be here; EXECUTION_MODE:3,countDD:346
+good to be here; EXECUTION_MODE:3,countDD:347
+Current Time: 735
+Current Time: 736
+good to be here; EXECUTION_MODE:3,countDD:348
+good to be here; EXECUTION_MODE:3,countDD:349
+Current Time: 737
+good to be here; EXECUTION_MODE:3,countDD:350
+Current Time: 738
+Current Time: 739
+Current Time: 740
+good to be here; EXECUTION_MODE:3,countDD:351
+good to be here; EXECUTION_MODE:3,countDD:352
+Current Time: 741
+good to be here; EXECUTION_MODE:3,countDD:353
+Current Time: 742
+good to be here; EXECUTION_MODE:3,countDD:354
+Current Time: 743
+good to be here; EXECUTION_MODE:3,countDD:355
+good to be here; EXECUTION_MODE:3,countDD:356
+Current Time: 744
+good to be here; EXECUTION_MODE:3,countDD:357
+good to be here; EXECUTION_MODE:3,countDD:358
+good to be here; EXECUTION_MODE:3,countDD:359
+good to be here; EXECUTION_MODE:3,countDD:360
+Current Time: 745
+Current Time: 746
+good to be here; EXECUTION_MODE:3,countDD:361
+Current Time: 747
+good to be here; EXECUTION_MODE:3,countDD:362
+good to be here; EXECUTION_MODE:3,countDD:363
+Current Time: 748
+good to be here; EXECUTION_MODE:3,countDD:364
+Current Time: 749
+good to be here; EXECUTION_MODE:3,countDD:365
+Current Time: 750
+good to be here; EXECUTION_MODE:3,countDD:366
+good to be here; EXECUTION_MODE:3,countDD:367
+Current Time: 751
+good to be here; EXECUTION_MODE:3,countDD:368
+Current Time: 752
+Current Time: 753
+good to be here; EXECUTION_MODE:3,countDD:369
+Current Time: 754
+Current Time: 755
+Current Time: 756
+good to be here; EXECUTION_MODE:3,countDD:370
+Current Time: 757
+good to be here; EXECUTION_MODE:3,countDD:371
+Current Time: 758
+Current Time: 759
+Current Time: 760
+good to be here; EXECUTION_MODE:3,countDD:372
+good to be here; EXECUTION_MODE:3,countDD:373
+Current Time: 761
+Current Time: 762
+good to be here; EXECUTION_MODE:3,countDD:374
+Current Time: 763
+good to be here; EXECUTION_MODE:3,countDD:375
+Current Time: 764
+good to be here; EXECUTION_MODE:3,countDD:376
+Current Time: 765
+good to be here; EXECUTION_MODE:3,countDD:377
+Current Time: 766
+Current Time: 767
+Current Time: 768
+Current Time: 769
+Current Time: 770
+good to be here; EXECUTION_MODE:3,countDD:378
+Current Time: 771
+Current Time: 772
+Current Time: 773
+Current Time: 774
+Current Time: 775
+good to be here; EXECUTION_MODE:3,countDD:379
+Current Time: 776
+good to be here; EXECUTION_MODE:3,countDD:380
+Current Time: 777
+good to be here; EXECUTION_MODE:3,countDD:381
+good to be here; EXECUTION_MODE:3,countDD:382
+good to be here; EXECUTION_MODE:3,countDD:383
+good to be here; EXECUTION_MODE:3,countDD:384
+Current Time: 778
+good to be here; EXECUTION_MODE:3,countDD:385
+good to be here; EXECUTION_MODE:3,countDD:386
+Current Time: 779
+Current Time: 780
+good to be here; EXECUTION_MODE:3,countDD:387
+good to be here; EXECUTION_MODE:3,countDD:388
+Current Time: 781
+Current Time: 782
+good to be here; EXECUTION_MODE:3,countDD:389
+Current Time: 783
+Current Time: 784
+Current Time: 785
+Current Time: 786
+good to be here; EXECUTION_MODE:3,countDD:390
+good to be here; EXECUTION_MODE:3,countDD:391
+Current Time: 787
+good to be here; EXECUTION_MODE:3,countDD:392
+good to be here; EXECUTION_MODE:3,countDD:393
+Current Time: 788
+good to be here; EXECUTION_MODE:3,countDD:394
+Current Time: 789
+Current Time: 790
+Current Time: 791
+Current Time: 792
+good to be here; EXECUTION_MODE:3,countDD:395
+Current Time: 793
+good to be here; EXECUTION_MODE:3,countDD:396
+Current Time: 794
+Current Time: 795
+good to be here; EXECUTION_MODE:3,countDD:397
+Current Time: 796
+good to be here; EXECUTION_MODE:3,countDD:398
+good to be here; EXECUTION_MODE:3,countDD:399
+Current Time: 797
+good to be here; EXECUTION_MODE:3,countDD:400
+good to be here; EXECUTION_MODE:3,countDD:401
+Current Time: 798
+Current Time: 799
+good to be here; EXECUTION_MODE:3,countDD:402
+Current Time: 800
+Current Time: 801
+good to be here; EXECUTION_MODE:3,countDD:403
+Current Time: 802
+good to be here; EXECUTION_MODE:3,countDD:404
+Current Time: 803
+good to be here; EXECUTION_MODE:3,countDD:405
+good to be here; EXECUTION_MODE:3,countDD:406
+Current Time: 804
+Current Time: 805
+Current Time: 806
+Current Time: 807
+good to be here; EXECUTION_MODE:3,countDD:407
+good to be here; EXECUTION_MODE:3,countDD:408
+good to be here; EXECUTION_MODE:3,countDD:409
+Current Time: 808
+Current Time: 809
+Current Time: 810
+good to be here; EXECUTION_MODE:3,countDD:410
+good to be here; EXECUTION_MODE:3,countDD:411
+good to be here; EXECUTION_MODE:3,countDD:412
+good to be here; EXECUTION_MODE:3,countDD:413
+Current Time: 811
+good to be here; EXECUTION_MODE:3,countDD:414
+good to be here; EXECUTION_MODE:3,countDD:415
+Current Time: 812
+good to be here; EXECUTION_MODE:3,countDD:416
+Current Time: 813
+Current Time: 814
+good to be here; EXECUTION_MODE:3,countDD:417
+Current Time: 815
+good to be here; EXECUTION_MODE:3,countDD:418
+Current Time: 816
+Current Time: 817
+good to be here; EXECUTION_MODE:3,countDD:419
+Current Time: 818
+Current Time: 819
+Current Time: 820
+Current Time: 821
+Current Time: 822
+Current Time: 823
+Current Time: 824
+good to be here; EXECUTION_MODE:3,countDD:420
+Current Time: 825
+good to be here; EXECUTION_MODE:3,countDD:421
+good to be here; EXECUTION_MODE:3,countDD:422
+good to be here; EXECUTION_MODE:3,countDD:423
+Current Time: 826
+good to be here; EXECUTION_MODE:3,countDD:424
+good to be here; EXECUTION_MODE:3,countDD:425
+Current Time: 827
+Current Time: 828
+Current Time: 829
+good to be here; EXECUTION_MODE:3,countDD:426
+good to be here; EXECUTION_MODE:3,countDD:427
+good to be here; EXECUTION_MODE:3,countDD:428
+good to be here; EXECUTION_MODE:3,countDD:429
+Current Time: 830
+good to be here; EXECUTION_MODE:3,countDD:430
+good to be here; EXECUTION_MODE:3,countDD:431
+good to be here; EXECUTION_MODE:3,countDD:432
+good to be here; EXECUTION_MODE:3,countDD:433
+Current Time: 831
+good to be here; EXECUTION_MODE:3,countDD:434
+good to be here; EXECUTION_MODE:3,countDD:435
+good to be here; EXECUTION_MODE:3,countDD:436
+Current Time: 832
+Current Time: 833
+Current Time: 834
+Current Time: 835
+good to be here; EXECUTION_MODE:3,countDD:437
+Current Time: 836
+good to be here; EXECUTION_MODE:3,countDD:438
+Current Time: 837
+good to be here; EXECUTION_MODE:3,countDD:439
+good to be here; EXECUTION_MODE:3,countDD:440
+Current Time: 838
+good to be here; EXECUTION_MODE:3,countDD:441
+good to be here; EXECUTION_MODE:3,countDD:442
+good to be here; EXECUTION_MODE:3,countDD:443
+Current Time: 839
+good to be here; EXECUTION_MODE:3,countDD:444
+Current Time: 840
+Current Time: 841
+good to be here; EXECUTION_MODE:3,countDD:445
+Current Time: 842
+Current Time: 843
+Current Time: 844
+good to be here; EXECUTION_MODE:3,countDD:446
+Current Time: 845
+good to be here; EXECUTION_MODE:3,countDD:447
+Current Time: 846
+good to be here; EXECUTION_MODE:3,countDD:448
+Current Time: 847
+good to be here; EXECUTION_MODE:3,countDD:449
+Current Time: 848
+good to be here; EXECUTION_MODE:3,countDD:450
+Current Time: 849
+good to be here; EXECUTION_MODE:3,countDD:451
+Current Time: 850
+good to be here; EXECUTION_MODE:3,countDD:452
+Current Time: 851
+good to be here; EXECUTION_MODE:3,countDD:453
+good to be here; EXECUTION_MODE:3,countDD:454
+Current Time: 852
+Current Time: 853
+Current Time: 854
+Current Time: 855
+good to be here; EXECUTION_MODE:3,countDD:455
+Current Time: 856
+Current Time: 857
+good to be here; EXECUTION_MODE:3,countDD:456
+good to be here; EXECUTION_MODE:3,countDD:457
+Current Time: 858
+Current Time: 859
+good to be here; EXECUTION_MODE:3,countDD:458
+Current Time: 860
+Current Time: 861
+good to be here; EXECUTION_MODE:3,countDD:459
+Current Time: 862
+Current Time: 863
+Current Time: 864
+Current Time: 865
+Current Time: 866
+good to be here; EXECUTION_MODE:3,countDD:460
+Current Time: 867
+good to be here; EXECUTION_MODE:3,countDD:461
+good to be here; EXECUTION_MODE:3,countDD:462
+Current Time: 868
+Current Time: 869
+good to be here; EXECUTION_MODE:3,countDD:463
+good to be here; EXECUTION_MODE:3,countDD:464
+Current Time: 870
+Current Time: 871
+Current Time: 872
+good to be here; EXECUTION_MODE:3,countDD:465
+Current Time: 873
+Current Time: 874
+good to be here; EXECUTION_MODE:3,countDD:466
+good to be here; EXECUTION_MODE:3,countDD:467
+Current Time: 875
+good to be here; EXECUTION_MODE:3,countDD:468
+Current Time: 876
+Current Time: 877
+Current Time: 878
+Current Time: 879
+good to be here; EXECUTION_MODE:3,countDD:469
+Current Time: 880
+Current Time: 881
+Current Time: 882
+Current Time: 883
+Current Time: 884
+Current Time: 885
+Current Time: 886
+good to be here; EXECUTION_MODE:3,countDD:470
+Current Time: 887
+Current Time: 888
+Current Time: 889
+good to be here; EXECUTION_MODE:3,countDD:471
+Current Time: 890
+good to be here; EXECUTION_MODE:3,countDD:472
+Current Time: 891
+good to be here; EXECUTION_MODE:3,countDD:473
+good to be here; EXECUTION_MODE:3,countDD:474
+Current Time: 892
+good to be here; EXECUTION_MODE:3,countDD:475
+Current Time: 893
+Current Time: 894
+good to be here; EXECUTION_MODE:3,countDD:476
+good to be here; EXECUTION_MODE:3,countDD:477
+Current Time: 895
+good to be here; EXECUTION_MODE:3,countDD:478
+Current Time: 896
+good to be here; EXECUTION_MODE:3,countDD:479
+Current Time: 897
+good to be here; EXECUTION_MODE:3,countDD:480
+good to be here; EXECUTION_MODE:3,countDD:481
+Current Time: 898
+good to be here; EXECUTION_MODE:3,countDD:482
+Current Time: 899
+good to be here; EXECUTION_MODE:3,countDD:483
+Current Time: 900
+good to be here; EXECUTION_MODE:3,countDD:484
+Current Time: 901
+Current Time: 902
+Current Time: 903
+good to be here; EXECUTION_MODE:3,countDD:485
+good to be here; EXECUTION_MODE:3,countDD:486
+Current Time: 904
+good to be here; EXECUTION_MODE:3,countDD:487
+Current Time: 905
+Current Time: 906
+good to be here; EXECUTION_MODE:3,countDD:488
+good to be here; EXECUTION_MODE:3,countDD:489
+Current Time: 907
+good to be here; EXECUTION_MODE:3,countDD:490
+good to be here; EXECUTION_MODE:3,countDD:491
+Current Time: 908
+good to be here; EXECUTION_MODE:3,countDD:492
+Current Time: 909
+good to be here; EXECUTION_MODE:3,countDD:493
+Current Time: 910
+Current Time: 911
+good to be here; EXECUTION_MODE:3,countDD:494
+Current Time: 912
+good to be here; EXECUTION_MODE:3,countDD:495
+Current Time: 913
+Current Time: 914
+good to be here; EXECUTION_MODE:3,countDD:496
+Current Time: 915
+Current Time: 916
+Current Time: 917
+Current Time: 918
+Current Time: 919
+good to be here; EXECUTION_MODE:3,countDD:497
+good to be here; EXECUTION_MODE:3,countDD:498
+Current Time: 920
+Current Time: 921
+good to be here; EXECUTION_MODE:3,countDD:499
+Current Time: 922
+good to be here; EXECUTION_MODE:3,countDD:500
+Current Time: 923
+Current Time: 924
+good to be here; EXECUTION_MODE:3,countDD:501
+Current Time: 925
+good to be here; EXECUTION_MODE:3,countDD:502
+Current Time: 926
+good to be here; EXECUTION_MODE:3,countDD:503
+good to be here; EXECUTION_MODE:3,countDD:504
+Current Time: 927
+good to be here; EXECUTION_MODE:3,countDD:505
+good to be here; EXECUTION_MODE:3,countDD:506
+good to be here; EXECUTION_MODE:3,countDD:507
+Current Time: 928
+good to be here; EXECUTION_MODE:3,countDD:508
+Current Time: 929
+good to be here; EXECUTION_MODE:3,countDD:509
+good to be here; EXECUTION_MODE:3,countDD:510
+Current Time: 930
+Current Time: 931
+Current Time: 932
+Current Time: 933
+good to be here; EXECUTION_MODE:3,countDD:511
+Current Time: 934
+good to be here; EXECUTION_MODE:3,countDD:512
+Current Time: 935
+Current Time: 936
+Current Time: 937
+Current Time: 938
+Current Time: 939
+good to be here; EXECUTION_MODE:3,countDD:513
+Current Time: 940
+Current Time: 941
+Current Time: 942
+Current Time: 943
+Current Time: 944
+Current Time: 945
+good to be here; EXECUTION_MODE:3,countDD:514
+good to be here; EXECUTION_MODE:3,countDD:515
+Current Time: 946
+good to be here; EXECUTION_MODE:3,countDD:516
+Current Time: 947
+good to be here; EXECUTION_MODE:3,countDD:517
+good to be here; EXECUTION_MODE:3,countDD:518
+Current Time: 948
+good to be here; EXECUTION_MODE:3,countDD:519
+good to be here; EXECUTION_MODE:3,countDD:520
+Current Time: 949
+good to be here; EXECUTION_MODE:3,countDD:521
+good to be here; EXECUTION_MODE:3,countDD:522
+Current Time: 950
+good to be here; EXECUTION_MODE:3,countDD:523
+Current Time: 951
+good to be here; EXECUTION_MODE:3,countDD:524
+Current Time: 952
+Current Time: 953
+Current Time: 954
+good to be here; EXECUTION_MODE:3,countDD:525
+Current Time: 955
+Current Time: 956
+Current Time: 957
+Current Time: 958
+good to be here; EXECUTION_MODE:3,countDD:526
+Current Time: 959
+good to be here; EXECUTION_MODE:3,countDD:527
+good to be here; EXECUTION_MODE:3,countDD:528
+Current Time: 960
+good to be here; EXECUTION_MODE:3,countDD:529
+Current Time: 961
+Current Time: 962
+good to be here; EXECUTION_MODE:3,countDD:530
+good to be here; EXECUTION_MODE:3,countDD:531
+Current Time: 963
+good to be here; EXECUTION_MODE:3,countDD:532
+good to be here; EXECUTION_MODE:3,countDD:533
+Current Time: 964
+good to be here; EXECUTION_MODE:3,countDD:534
+Current Time: 965
+good to be here; EXECUTION_MODE:3,countDD:535
+Current Time: 966
+Current Time: 967
+Current Time: 968
+good to be here; EXECUTION_MODE:3,countDD:536
+good to be here; EXECUTION_MODE:3,countDD:537
+good to be here; EXECUTION_MODE:3,countDD:538
+Current Time: 969
+Current Time: 970
+good to be here; EXECUTION_MODE:3,countDD:539
+good to be here; EXECUTION_MODE:3,countDD:540
+good to be here; EXECUTION_MODE:3,countDD:541
+Current Time: 971
+good to be here; EXECUTION_MODE:3,countDD:542
+good to be here; EXECUTION_MODE:3,countDD:543
+Current Time: 972
+Current Time: 973
+good to be here; EXECUTION_MODE:3,countDD:544
+Current Time: 974
+good to be here; EXECUTION_MODE:3,countDD:545
+Current Time: 975
+Current Time: 976
+Current Time: 977
+Current Time: 978
+good to be here; EXECUTION_MODE:3,countDD:546
+Current Time: 979
+Current Time: 980
+Current Time: 981
+Current Time: 982
+good to be here; EXECUTION_MODE:3,countDD:547
+Current Time: 983
+good to be here; EXECUTION_MODE:3,countDD:548
+Current Time: 984
+good to be here; EXECUTION_MODE:3,countDD:549
+Current Time: 985
+Current Time: 986
+good to be here; EXECUTION_MODE:3,countDD:550
+Current Time: 987
+Current Time: 988
+good to be here; EXECUTION_MODE:3,countDD:551
+Current Time: 989
+good to be here; EXECUTION_MODE:3,countDD:552
+Current Time: 990
+Current Time: 991
+Current Time: 992
+Current Time: 993
+Current Time: 994
+Current Time: 995
+Current Time: 996
+Current Time: 997
+good to be here; EXECUTION_MODE:3,countDD:553
+good to be here; EXECUTION_MODE:3,countDD:554
+Current Time: 998
+good to be here; EXECUTION_MODE:3,countDD:555
+good to be here; EXECUTION_MODE:3,countDD:556
+Current Time: 999
+good to be here; EXECUTION_MODE:3,countDD:557
+good to be here; EXECUTION_MODE:3,countDD:558
+good to be here; EXECUTION_MODE:3,countDD:559
+good to be here; EXECUTION_MODE:3,countDD:560
+good to be here; EXECUTION_MODE:3,countDD:561
+Current Time: 1000
+good to be here; EXECUTION_MODE:3,countDD:562
+good to be here; EXECUTION_MODE:3,countDD:563
+Current Time: 1001
+good to be here; EXECUTION_MODE:3,countDD:564
+good to be here; EXECUTION_MODE:3,countDD:565
+good to be here; EXECUTION_MODE:3,countDD:566
+Current Time: 1002
+good to be here; EXECUTION_MODE:3,countDD:567
+Current Time: 1003
+Current Time: 1004
+Current Time: 1005
+good to be here; EXECUTION_MODE:3,countDD:568
+Current Time: 1006
+Current Time: 1007
+Current Time: 1008
+Current Time: 1009
+Current Time: 1010
+good to be here; EXECUTION_MODE:3,countDD:569
+Current Time: 1011
+good to be here; EXECUTION_MODE:3,countDD:570
+Current Time: 1012
+Current Time: 1013
+Current Time: 1014
+Current Time: 1015
+Current Time: 1016
+Current Time: 1017
+Current Time: 1018
+Current Time: 1019
+good to be here; EXECUTION_MODE:3,countDD:571
+Current Time: 1020
+Current Time: 1021
+good to be here; EXECUTION_MODE:3,countDD:572
+Current Time: 1022
+good to be here; EXECUTION_MODE:3,countDD:573
+Current Time: 1023
+Current Time: 1024
+good to be here; EXECUTION_MODE:3,countDD:574
+Current Time: 1025
+Current Time: 1026
+Current Time: 1027
+Current Time: 1028
+Current Time: 1029
+good to be here; EXECUTION_MODE:3,countDD:575
+good to be here; EXECUTION_MODE:3,countDD:576
+Current Time: 1030
+good to be here; EXECUTION_MODE:3,countDD:577
+good to be here; EXECUTION_MODE:3,countDD:578
+Current Time: 1031
+good to be here; EXECUTION_MODE:3,countDD:579
+Current Time: 1032
+good to be here; EXECUTION_MODE:3,countDD:580
+good to be here; EXECUTION_MODE:3,countDD:581
+good to be here; EXECUTION_MODE:3,countDD:582
+Current Time: 1033
+good to be here; EXECUTION_MODE:3,countDD:583
+good to be here; EXECUTION_MODE:3,countDD:584
+Current Time: 1034
+good to be here; EXECUTION_MODE:3,countDD:585
+good to be here; EXECUTION_MODE:3,countDD:586
+Current Time: 1035
+Current Time: 1036
+good to be here; EXECUTION_MODE:3,countDD:587
+Current Time: 1037
+Current Time: 1038
+Current Time: 1039
+Current Time: 1040
+Current Time: 1041
+Current Time: 1042
+Current Time: 1043
+Current Time: 1044
+Current Time: 1045
+good to be here; EXECUTION_MODE:3,countDD:588
+good to be here; EXECUTION_MODE:3,countDD:589
+Current Time: 1046
+Current Time: 1047
+Current Time: 1048
+good to be here; EXECUTION_MODE:3,countDD:590
+good to be here; EXECUTION_MODE:3,countDD:591
+good to be here; EXECUTION_MODE:3,countDD:592
+Current Time: 1049
+Current Time: 1050
+Current Time: 1051
+Current Time: 1052
+good to be here; EXECUTION_MODE:3,countDD:593
+Current Time: 1053
+Current Time: 1054
+Current Time: 1055
+Current Time: 1056
+good to be here; EXECUTION_MODE:3,countDD:594
+Current Time: 1057
+good to be here; EXECUTION_MODE:3,countDD:595
+Current Time: 1058
+good to be here; EXECUTION_MODE:3,countDD:596
+Current Time: 1059
+good to be here; EXECUTION_MODE:3,countDD:597
+Current Time: 1060
+good to be here; EXECUTION_MODE:3,countDD:598
+Current Time: 1061
+good to be here; EXECUTION_MODE:3,countDD:599
+Current Time: 1062
+good to be here; EXECUTION_MODE:3,countDD:600
+good to be here; EXECUTION_MODE:3,countDD:601
+Current Time: 1063
+good to be here; EXECUTION_MODE:3,countDD:602
+Current Time: 1064
+good to be here; EXECUTION_MODE:3,countDD:603
+Current Time: 1065
+Current Time: 1066
+Current Time: 1067
+Current Time: 1068
+Current Time: 1069
+Current Time: 1070
+Current Time: 1071
+Current Time: 1072
+Current Time: 1073
+good to be here; EXECUTION_MODE:3,countDD:604
+Current Time: 1074
+good to be here; EXECUTION_MODE:3,countDD:605
+good to be here; EXECUTION_MODE:3,countDD:606
+Current Time: 1075
+Current Time: 1076
+good to be here; EXECUTION_MODE:3,countDD:607
+Current Time: 1077
+good to be here; EXECUTION_MODE:3,countDD:608
+good to be here; EXECUTION_MODE:3,countDD:609
+good to be here; EXECUTION_MODE:3,countDD:610
+Current Time: 1078
+Current Time: 1079
+good to be here; EXECUTION_MODE:3,countDD:611
+Current Time: 1080
+Current Time: 1081
+Current Time: 1082
+good to be here; EXECUTION_MODE:3,countDD:612
+Current Time: 1083
+good to be here; EXECUTION_MODE:3,countDD:613
+Current Time: 1084
+Current Time: 1085
+good to be here; EXECUTION_MODE:3,countDD:614
+Current Time: 1086
+good to be here; EXECUTION_MODE:3,countDD:615
+Current Time: 1087
+Current Time: 1088
+good to be here; EXECUTION_MODE:3,countDD:616
+Current Time: 1089
+Current Time: 1090
+Current Time: 1091
+good to be here; EXECUTION_MODE:3,countDD:617
+Current Time: 1092
+Current Time: 1093
+Current Time: 1094
+good to be here; EXECUTION_MODE:3,countDD:618
+Current Time: 1095
+good to be here; EXECUTION_MODE:3,countDD:619
+Current Time: 1096
+Current Time: 1097
+good to be here; EXECUTION_MODE:3,countDD:620
+Current Time: 1098
+good to be here; EXECUTION_MODE:3,countDD:621
+good to be here; EXECUTION_MODE:3,countDD:622
+Current Time: 1099
+Current Time: 1100
+good to be here; EXECUTION_MODE:3,countDD:623
+good to be here; EXECUTION_MODE:3,countDD:624
+Current Time: 1101
+Current Time: 1102
+Current Time: 1103
+good to be here; EXECUTION_MODE:3,countDD:625
+Current Time: 1104
+Current Time: 1105
+good to be here; EXECUTION_MODE:3,countDD:626
+Current Time: 1106
+Current Time: 1107
+Current Time: 1108
+Current Time: 1109
+Current Time: 1110
+good to be here; EXECUTION_MODE:3,countDD:627
+Current Time: 1111
+good to be here; EXECUTION_MODE:3,countDD:628
+Current Time: 1112
+Current Time: 1113
+Current Time: 1114
+Current Time: 1115
+Current Time: 1116
+Current Time: 1117
+good to be here; EXECUTION_MODE:3,countDD:629
+Current Time: 1118
+good to be here; EXECUTION_MODE:3,countDD:630
+good to be here; EXECUTION_MODE:3,countDD:631
+good to be here; EXECUTION_MODE:3,countDD:632
+Current Time: 1119
+good to be here; EXECUTION_MODE:3,countDD:633
+Current Time: 1120
+Current Time: 1121
+good to be here; EXECUTION_MODE:3,countDD:634
+Current Time: 1122
+Current Time: 1123
+Current Time: 1124
+Current Time: 1125
+good to be here; EXECUTION_MODE:3,countDD:635
+good to be here; EXECUTION_MODE:3,countDD:636
+Current Time: 1126
+good to be here; EXECUTION_MODE:3,countDD:637
+good to be here; EXECUTION_MODE:3,countDD:638
+Current Time: 1127
+Current Time: 1128
+Current Time: 1129
+good to be here; EXECUTION_MODE:3,countDD:639
+Current Time: 1130
+good to be here; EXECUTION_MODE:3,countDD:640
+good to be here; EXECUTION_MODE:3,countDD:641
+Current Time: 1131
+good to be here; EXECUTION_MODE:3,countDD:642
+good to be here; EXECUTION_MODE:3,countDD:643
+good to be here; EXECUTION_MODE:3,countDD:644
+Current Time: 1132
+good to be here; EXECUTION_MODE:3,countDD:645
+Current Time: 1133
+Current Time: 1134
+good to be here; EXECUTION_MODE:3,countDD:646
+good to be here; EXECUTION_MODE:3,countDD:647
+Current Time: 1135
+Current Time: 1136
+Current Time: 1137
+Current Time: 1138
+good to be here; EXECUTION_MODE:3,countDD:648
+Current Time: 1139
+good to be here; EXECUTION_MODE:3,countDD:649
+good to be here; EXECUTION_MODE:3,countDD:650
+good to be here; EXECUTION_MODE:3,countDD:651
+Current Time: 1140
+good to be here; EXECUTION_MODE:3,countDD:652
+Current Time: 1141
+good to be here; EXECUTION_MODE:3,countDD:653
+Current Time: 1142
+good to be here; EXECUTION_MODE:3,countDD:654
+good to be here; EXECUTION_MODE:3,countDD:655
+Current Time: 1143
+Current Time: 1144
+Current Time: 1145
+Current Time: 1146
+Current Time: 1147
+Current Time: 1148
+good to be here; EXECUTION_MODE:3,countDD:656
+Current Time: 1149
+good to be here; EXECUTION_MODE:3,countDD:657
+Current Time: 1150
+Current Time: 1151
+Current Time: 1152
+Current Time: 1153
+good to be here; EXECUTION_MODE:3,countDD:658
+Current Time: 1154
+Current Time: 1155
+Current Time: 1156
+Current Time: 1157
+good to be here; EXECUTION_MODE:3,countDD:659
+Current Time: 1158
+good to be here; EXECUTION_MODE:3,countDD:660
+good to be here; EXECUTION_MODE:3,countDD:661
+Current Time: 1159
+good to be here; EXECUTION_MODE:3,countDD:662
+good to be here; EXECUTION_MODE:3,countDD:663
+good to be here; EXECUTION_MODE:3,countDD:664
+Current Time: 1160
+Current Time: 1161
+good to be here; EXECUTION_MODE:3,countDD:665
+Current Time: 1162
+Current Time: 1163
+good to be here; EXECUTION_MODE:3,countDD:666
+Current Time: 1164
+good to be here; EXECUTION_MODE:3,countDD:667
+Current Time: 1165
+good to be here; EXECUTION_MODE:3,countDD:668
+Current Time: 1166
+Current Time: 1167
+good to be here; EXECUTION_MODE:3,countDD:669
+Current Time: 1168
+Current Time: 1169
+Current Time: 1170
+good to be here; EXECUTION_MODE:3,countDD:670
+Current Time: 1171
+good to be here; EXECUTION_MODE:3,countDD:671
+Current Time: 1172
+Current Time: 1173
+Current Time: 1174
+Current Time: 1175
+good to be here; EXECUTION_MODE:3,countDD:672
+Current Time: 1176
+good to be here; EXECUTION_MODE:3,countDD:673
+good to be here; EXECUTION_MODE:3,countDD:674
+Current Time: 1177
+Current Time: 1178
+Current Time: 1179
+Current Time: 1180
+Current Time: 1181
+good to be here; EXECUTION_MODE:3,countDD:675
+Current Time: 1182
+good to be here; EXECUTION_MODE:3,countDD:676
+Current Time: 1183
+good to be here; EXECUTION_MODE:3,countDD:677
+Current Time: 1184
+good to be here; EXECUTION_MODE:3,countDD:678
+good to be here; EXECUTION_MODE:3,countDD:679
+Current Time: 1185
+good to be here; EXECUTION_MODE:3,countDD:680
+good to be here; EXECUTION_MODE:3,countDD:681
+Current Time: 1186
+Current Time: 1187
+Current Time: 1188
+Current Time: 1189
+good to be here; EXECUTION_MODE:3,countDD:682
+Current Time: 1190
+good to be here; EXECUTION_MODE:3,countDD:683
+good to be here; EXECUTION_MODE:3,countDD:684
+good to be here; EXECUTION_MODE:3,countDD:685
+Current Time: 1191
+Current Time: 1192
+Current Time: 1193
+good to be here; EXECUTION_MODE:3,countDD:686
+Current Time: 1194
+good to be here; EXECUTION_MODE:3,countDD:687
+Current Time: 1195
+Current Time: 1196
+good to be here; EXECUTION_MODE:3,countDD:688
+good to be here; EXECUTION_MODE:3,countDD:689
+Current Time: 1197
+good to be here; EXECUTION_MODE:3,countDD:690
+Current Time: 1198
+Current Time: 1199
+good to be here; EXECUTION_MODE:3,countDD:691
+Current Time: 1200
+good to be here; EXECUTION_MODE:3,countDD:692
+Current Time: 1201
+Current Time: 1202
+Current Time: 1203
+good to be here; EXECUTION_MODE:3,countDD:693
+Current Time: 1204
+Current Time: 1205
+good to be here; EXECUTION_MODE:3,countDD:694
+Current Time: 1206
+Current Time: 1207
+good to be here; EXECUTION_MODE:3,countDD:695
+good to be here; EXECUTION_MODE:3,countDD:696
+good to be here; EXECUTION_MODE:3,countDD:697
+Current Time: 1208
+good to be here; EXECUTION_MODE:3,countDD:698
+Current Time: 1209
+Current Time: 1210
+Current Time: 1211
+good to be here; EXECUTION_MODE:3,countDD:699
+Current Time: 1212
+Current Time: 1213
+good to be here; EXECUTION_MODE:3,countDD:700
+Current Time: 1214
+good to be here; EXECUTION_MODE:3,countDD:701
+Current Time: 1215
+Current Time: 1216
+Current Time: 1217
+Current Time: 1218
+good to be here; EXECUTION_MODE:3,countDD:702
+good to be here; EXECUTION_MODE:3,countDD:703
+good to be here; EXECUTION_MODE:3,countDD:704
+Current Time: 1219
+good to be here; EXECUTION_MODE:3,countDD:705
+Current Time: 1220
+good to be here; EXECUTION_MODE:3,countDD:706
+Current Time: 1221
+good to be here; EXECUTION_MODE:3,countDD:707
+Current Time: 1222
+good to be here; EXECUTION_MODE:3,countDD:708
+Current Time: 1223
+good to be here; EXECUTION_MODE:3,countDD:709
+Current Time: 1224
+good to be here; EXECUTION_MODE:3,countDD:710
+Current Time: 1225
+good to be here; EXECUTION_MODE:3,countDD:711
+Current Time: 1226
+good to be here; EXECUTION_MODE:3,countDD:712
+Current Time: 1227
+good to be here; EXECUTION_MODE:3,countDD:713
+Current Time: 1228
+good to be here; EXECUTION_MODE:3,countDD:714
+good to be here; EXECUTION_MODE:3,countDD:715
+Current Time: 1229
+good to be here; EXECUTION_MODE:3,countDD:716
+Current Time: 1230
+good to be here; EXECUTION_MODE:3,countDD:717
+good to be here; EXECUTION_MODE:3,countDD:718
+good to be here; EXECUTION_MODE:3,countDD:719
+Current Time: 1231
+good to be here; EXECUTION_MODE:3,countDD:720
+Current Time: 1232
+good to be here; EXECUTION_MODE:3,countDD:721
+good to be here; EXECUTION_MODE:3,countDD:722
+Current Time: 1233
+good to be here; EXECUTION_MODE:3,countDD:723
+Current Time: 1234
+Current Time: 1235
+Current Time: 1236
+Current Time: 1237
+good to be here; EXECUTION_MODE:3,countDD:724
+good to be here; EXECUTION_MODE:3,countDD:725
+Current Time: 1238
+Current Time: 1239
+good to be here; EXECUTION_MODE:3,countDD:726
+Current Time: 1240
+good to be here; EXECUTION_MODE:3,countDD:727
+Current Time: 1241
+Current Time: 1242
+good to be here; EXECUTION_MODE:3,countDD:728
+Current Time: 1243
+good to be here; EXECUTION_MODE:3,countDD:729
+Current Time: 1244
+good to be here; EXECUTION_MODE:3,countDD:730
+good to be here; EXECUTION_MODE:3,countDD:731
+Current Time: 1245
+good to be here; EXECUTION_MODE:3,countDD:732
+Current Time: 1246
+good to be here; EXECUTION_MODE:3,countDD:733
+Current Time: 1247
+good to be here; EXECUTION_MODE:3,countDD:734
+Current Time: 1248
+good to be here; EXECUTION_MODE:3,countDD:735
+good to be here; EXECUTION_MODE:3,countDD:736
+good to be here; EXECUTION_MODE:3,countDD:737
+Current Time: 1249
+good to be here; EXECUTION_MODE:3,countDD:738
+Current Time: 1250
+Current Time: 1251
+Current Time: 1252
+good to be here; EXECUTION_MODE:3,countDD:739
+Current Time: 1253
+Current Time: 1254
+Current Time: 1255
+good to be here; EXECUTION_MODE:3,countDD:740
+Current Time: 1256
+good to be here; EXECUTION_MODE:3,countDD:741
+good to be here; EXECUTION_MODE:3,countDD:742
+Current Time: 1257
+good to be here; EXECUTION_MODE:3,countDD:743
+Current Time: 1258
+good to be here; EXECUTION_MODE:3,countDD:744
+Current Time: 1259
+good to be here; EXECUTION_MODE:3,countDD:745
+Current Time: 1260
+good to be here; EXECUTION_MODE:3,countDD:746
+Current Time: 1261
+Current Time: 1262
+Current Time: 1263
+good to be here; EXECUTION_MODE:3,countDD:747
+Current Time: 1264
+good to be here; EXECUTION_MODE:3,countDD:748
+Current Time: 1265
+Current Time: 1266
+good to be here; EXECUTION_MODE:3,countDD:749
+good to be here; EXECUTION_MODE:3,countDD:750
+Current Time: 1267
+good to be here; EXECUTION_MODE:3,countDD:751
+Current Time: 1268
+good to be here; EXECUTION_MODE:3,countDD:752
+good to be here; EXECUTION_MODE:3,countDD:753
+Current Time: 1269
+good to be here; EXECUTION_MODE:3,countDD:754
+Current Time: 1270
+good to be here; EXECUTION_MODE:3,countDD:755
+Current Time: 1271
+good to be here; EXECUTION_MODE:3,countDD:756
+Current Time: 1272
+Current Time: 1273
+Current Time: 1274
+Current Time: 1275
+good to be here; EXECUTION_MODE:3,countDD:757
+Current Time: 1276
+good to be here; EXECUTION_MODE:3,countDD:758
+Current Time: 1277
+good to be here; EXECUTION_MODE:3,countDD:759
+good to be here; EXECUTION_MODE:3,countDD:760
+good to be here; EXECUTION_MODE:3,countDD:761
+Current Time: 1278
+good to be here; EXECUTION_MODE:3,countDD:762
+Current Time: 1279
+good to be here; EXECUTION_MODE:3,countDD:763
+Current Time: 1280
+good to be here; EXECUTION_MODE:3,countDD:764
+good to be here; EXECUTION_MODE:3,countDD:765
+Current Time: 1281
+Current Time: 1282
+good to be here; EXECUTION_MODE:3,countDD:766
+Current Time: 1283
+good to be here; EXECUTION_MODE:3,countDD:767
+good to be here; EXECUTION_MODE:3,countDD:768
+Current Time: 1284
+Current Time: 1285
+Current Time: 1286
+good to be here; EXECUTION_MODE:3,countDD:769
+Current Time: 1287
+Current Time: 1288
+Current Time: 1289
+good to be here; EXECUTION_MODE:3,countDD:770
+Current Time: 1290
+good to be here; EXECUTION_MODE:3,countDD:771
+good to be here; EXECUTION_MODE:3,countDD:772
+Current Time: 1291
+Current Time: 1292
+good to be here; EXECUTION_MODE:3,countDD:773
+Current Time: 1293
+Current Time: 1294
+good to be here; EXECUTION_MODE:3,countDD:774
+Current Time: 1295
+Current Time: 1296
+good to be here; EXECUTION_MODE:3,countDD:775
+Current Time: 1297
+Current Time: 1298
+good to be here; EXECUTION_MODE:3,countDD:776
+good to be here; EXECUTION_MODE:3,countDD:777
+Current Time: 1299
+good to be here; EXECUTION_MODE:3,countDD:778
+good to be here; EXECUTION_MODE:3,countDD:779
+Current Time: 1300
+good to be here; EXECUTION_MODE:3,countDD:780
+Current Time: 1301
+good to be here; EXECUTION_MODE:3,countDD:781
+good to be here; EXECUTION_MODE:3,countDD:782
+Current Time: 1302
+Current Time: 1303
+Current Time: 1304
+Current Time: 1305
+Current Time: 1306
+good to be here; EXECUTION_MODE:3,countDD:783
+Current Time: 1307
+Current Time: 1308
+Current Time: 1309
+good to be here; EXECUTION_MODE:3,countDD:784
+Current Time: 1310
+good to be here; EXECUTION_MODE:3,countDD:785
+good to be here; EXECUTION_MODE:3,countDD:786
+good to be here; EXECUTION_MODE:3,countDD:787
+Current Time: 1311
+Current Time: 1312
+Current Time: 1313
+good to be here; EXECUTION_MODE:3,countDD:788
+good to be here; EXECUTION_MODE:3,countDD:789
+Current Time: 1314
+good to be here; EXECUTION_MODE:3,countDD:790
+good to be here; EXECUTION_MODE:3,countDD:791
+Current Time: 1315
+Current Time: 1316
+Current Time: 1317
+Current Time: 1318
+good to be here; EXECUTION_MODE:3,countDD:792
+good to be here; EXECUTION_MODE:3,countDD:793
+good to be here; EXECUTION_MODE:3,countDD:794
+Current Time: 1319
+good to be here; EXECUTION_MODE:3,countDD:795
+Current Time: 1320
+good to be here; EXECUTION_MODE:3,countDD:796
+Current Time: 1321
+good to be here; EXECUTION_MODE:3,countDD:797
+Current Time: 1322
+Current Time: 1323
+Current Time: 1324
+good to be here; EXECUTION_MODE:3,countDD:798
+Current Time: 1325
+Current Time: 1326
+good to be here; EXECUTION_MODE:3,countDD:799
+Current Time: 1327
+Current Time: 1328
+good to be here; EXECUTION_MODE:3,countDD:800
+Current Time: 1329
+good to be here; EXECUTION_MODE:3,countDD:801
+good to be here; EXECUTION_MODE:3,countDD:802
+Current Time: 1330
+Current Time: 1331
+Current Time: 1332
+good to be here; EXECUTION_MODE:3,countDD:803
+Current Time: 1333
+Current Time: 1334
+Current Time: 1335
+Current Time: 1336
+good to be here; EXECUTION_MODE:3,countDD:804
+Current Time: 1337
+Current Time: 1338
+Current Time: 1339
+good to be here; EXECUTION_MODE:3,countDD:805
+Current Time: 1340
+Current Time: 1341
+Current Time: 1342
+good to be here; EXECUTION_MODE:3,countDD:806
+Current Time: 1343
+Current Time: 1344
+Current Time: 1345
+good to be here; EXECUTION_MODE:3,countDD:807
+Current Time: 1346
+Current Time: 1347
+Current Time: 1348
+good to be here; EXECUTION_MODE:3,countDD:808
+Current Time: 1349
+Current Time: 1350
+Current Time: 1351
+Current Time: 1352
+Current Time: 1353
+Current Time: 1354
+Current Time: 1355
+Current Time: 1356
+Current Time: 1357
+good to be here; EXECUTION_MODE:3,countDD:809
+Current Time: 1358
+Current Time: 1359
+good to be here; EXECUTION_MODE:3,countDD:810
+good to be here; EXECUTION_MODE:3,countDD:811
+Current Time: 1360
+Current Time: 1361
+Current Time: 1362
+good to be here; EXECUTION_MODE:3,countDD:812
+Current Time: 1363
+Current Time: 1364
+good to be here; EXECUTION_MODE:3,countDD:813
+Current Time: 1365
+Current Time: 1366
+good to be here; EXECUTION_MODE:3,countDD:814
+Current Time: 1367
+Current Time: 1368
+Current Time: 1369
+Current Time: 1370
+Current Time: 1371
+Current Time: 1372
+good to be here; EXECUTION_MODE:3,countDD:815
+Current Time: 1373
+good to be here; EXECUTION_MODE:3,countDD:816
+Current Time: 1374
+good to be here; EXECUTION_MODE:3,countDD:817
+Current Time: 1375
+good to be here; EXECUTION_MODE:3,countDD:818
+good to be here; EXECUTION_MODE:3,countDD:819
+Current Time: 1376
+good to be here; EXECUTION_MODE:3,countDD:820
+good to be here; EXECUTION_MODE:3,countDD:821
+good to be here; EXECUTION_MODE:3,countDD:822
+Current Time: 1377
+good to be here; EXECUTION_MODE:3,countDD:823
+good to be here; EXECUTION_MODE:3,countDD:824
+Current Time: 1378
+good to be here; EXECUTION_MODE:3,countDD:825
+Current Time: 1379
+good to be here; EXECUTION_MODE:3,countDD:826
+Current Time: 1380
+Current Time: 1381
+Current Time: 1382
+Current Time: 1383
+Current Time: 1384
+Current Time: 1385
+good to be here; EXECUTION_MODE:3,countDD:827
+Current Time: 1386
+good to be here; EXECUTION_MODE:3,countDD:828
+good to be here; EXECUTION_MODE:3,countDD:829
+Current Time: 1387
+good to be here; EXECUTION_MODE:3,countDD:830
+good to be here; EXECUTION_MODE:3,countDD:831
+Current Time: 1388
+Current Time: 1389
+good to be here; EXECUTION_MODE:3,countDD:832
+good to be here; EXECUTION_MODE:3,countDD:833
+Current Time: 1390
+good to be here; EXECUTION_MODE:3,countDD:834
+good to be here; EXECUTION_MODE:3,countDD:835
+Current Time: 1391
+good to be here; EXECUTION_MODE:3,countDD:836
+Current Time: 1392
+good to be here; EXECUTION_MODE:3,countDD:837
+Current Time: 1393
+Current Time: 1394
+Current Time: 1395
+Current Time: 1396
+Current Time: 1397
+good to be here; EXECUTION_MODE:3,countDD:838
+Current Time: 1398
+Current Time: 1399
+Current Time: 1400
+Current Time: 1401
+Current Time: 1402
+Current Time: 1403
+good to be here; EXECUTION_MODE:3,countDD:839
+good to be here; EXECUTION_MODE:3,countDD:840
+Current Time: 1404
+Current Time: 1405
+good to be here; EXECUTION_MODE:3,countDD:841
+Current Time: 1406
+good to be here; EXECUTION_MODE:3,countDD:842
+Current Time: 1407
+Current Time: 1408
+good to be here; EXECUTION_MODE:3,countDD:843
+Current Time: 1409
+good to be here; EXECUTION_MODE:3,countDD:844
+Current Time: 1410
+good to be here; EXECUTION_MODE:3,countDD:845
+Current Time: 1411
+Current Time: 1412
+Current Time: 1413
+good to be here; EXECUTION_MODE:3,countDD:846
+Current Time: 1414
+good to be here; EXECUTION_MODE:3,countDD:847
+Current Time: 1415
+good to be here; EXECUTION_MODE:3,countDD:848
+Current Time: 1416
+Current Time: 1417
+good to be here; EXECUTION_MODE:3,countDD:849
+good to be here; EXECUTION_MODE:3,countDD:850
+Current Time: 1418
+good to be here; EXECUTION_MODE:3,countDD:851
+good to be here; EXECUTION_MODE:3,countDD:852
+Current Time: 1419
+good to be here; EXECUTION_MODE:3,countDD:853
+Current Time: 1420
+good to be here; EXECUTION_MODE:3,countDD:854
+Current Time: 1421
+good to be here; EXECUTION_MODE:3,countDD:855
+good to be here; EXECUTION_MODE:3,countDD:856
+Current Time: 1422
+good to be here; EXECUTION_MODE:3,countDD:857
+Current Time: 1423
+good to be here; EXECUTION_MODE:3,countDD:858
+Current Time: 1424
+good to be here; EXECUTION_MODE:3,countDD:859
+Current Time: 1425
+good to be here; EXECUTION_MODE:3,countDD:860
+Current Time: 1426
+Current Time: 1427
+Current Time: 1428
+Current Time: 1429
+Current Time: 1430
+Current Time: 1431
+Current Time: 1432
+Current Time: 1433
+good to be here; EXECUTION_MODE:3,countDD:861
+Current Time: 1434
+good to be here; EXECUTION_MODE:3,countDD:862
+Current Time: 1435
+good to be here; EXECUTION_MODE:3,countDD:863
+Current Time: 1436
+good to be here; EXECUTION_MODE:3,countDD:864
+Current Time: 1437
+good to be here; EXECUTION_MODE:3,countDD:865
+good to be here; EXECUTION_MODE:3,countDD:866
+Current Time: 1438
+good to be here; EXECUTION_MODE:3,countDD:867
+good to be here; EXECUTION_MODE:3,countDD:868
+Current Time: 1439
+good to be here; EXECUTION_MODE:3,countDD:869
+Current Time: 1440
+Current Time: 1441
+good to be here; EXECUTION_MODE:3,countDD:870
+good to be here; EXECUTION_MODE:3,countDD:871
+Current Time: 1442
+Current Time: 1443
+Current Time: 1444
+Current Time: 1445
+Current Time: 1446
+good to be here; EXECUTION_MODE:3,countDD:872
+Current Time: 1447
+good to be here; EXECUTION_MODE:3,countDD:873
+Current Time: 1448
+good to be here; EXECUTION_MODE:3,countDD:874
+good to be here; EXECUTION_MODE:3,countDD:875
+Current Time: 1449
+Current Time: 1450
+good to be here; EXECUTION_MODE:3,countDD:876
+good to be here; EXECUTION_MODE:3,countDD:877
+Current Time: 1451
+Current Time: 1452
+Current Time: 1453
+Current Time: 1454
+Current Time: 1455
+good to be here; EXECUTION_MODE:3,countDD:878
+good to be here; EXECUTION_MODE:3,countDD:879
+Current Time: 1456
+good to be here; EXECUTION_MODE:3,countDD:880
+Current Time: 1457
+good to be here; EXECUTION_MODE:3,countDD:881
+Current Time: 1458
+Current Time: 1459
+Current Time: 1460
+good to be here; EXECUTION_MODE:3,countDD:882
+Current Time: 1461
+good to be here; EXECUTION_MODE:3,countDD:883
+Current Time: 1462
+good to be here; EXECUTION_MODE:3,countDD:884
+Current Time: 1463
+good to be here; EXECUTION_MODE:3,countDD:885
+Current Time: 1464
+Current Time: 1465
+Current Time: 1466
+Current Time: 1467
+good to be here; EXECUTION_MODE:3,countDD:886
+good to be here; EXECUTION_MODE:3,countDD:887
+Current Time: 1468
+good to be here; EXECUTION_MODE:3,countDD:888
+Current Time: 1469
+Current Time: 1470
+good to be here; EXECUTION_MODE:3,countDD:889
+good to be here; EXECUTION_MODE:3,countDD:890
+Current Time: 1471
+good to be here; EXECUTION_MODE:3,countDD:891
+Current Time: 1472
+good to be here; EXECUTION_MODE:3,countDD:892
+Current Time: 1473
+good to be here; EXECUTION_MODE:3,countDD:893
+Current Time: 1474
+good to be here; EXECUTION_MODE:3,countDD:894
+good to be here; EXECUTION_MODE:3,countDD:895
+Current Time: 1475
+good to be here; EXECUTION_MODE:3,countDD:896
+good to be here; EXECUTION_MODE:3,countDD:897
+Current Time: 1476
+good to be here; EXECUTION_MODE:3,countDD:898
+good to be here; EXECUTION_MODE:3,countDD:899
+Current Time: 1477
+good to be here; EXECUTION_MODE:3,countDD:900
+good to be here; EXECUTION_MODE:3,countDD:901
+good to be here; EXECUTION_MODE:3,countDD:902
+Current Time: 1478
+Current Time: 1479
+Current Time: 1480
+Current Time: 1481
+good to be here; EXECUTION_MODE:3,countDD:903
+Current Time: 1482
+good to be here; EXECUTION_MODE:3,countDD:904
+Current Time: 1483
+good to be here; EXECUTION_MODE:3,countDD:905
+good to be here; EXECUTION_MODE:3,countDD:906
+Current Time: 1484
+good to be here; EXECUTION_MODE:3,countDD:907
+good to be here; EXECUTION_MODE:3,countDD:908
+good to be here; EXECUTION_MODE:3,countDD:909
+Current Time: 1485
+good to be here; EXECUTION_MODE:3,countDD:910
+Current Time: 1486
+good to be here; EXECUTION_MODE:3,countDD:911
+Current Time: 1487
+good to be here; EXECUTION_MODE:3,countDD:912
+Current Time: 1488
+Current Time: 1489
+good to be here; EXECUTION_MODE:3,countDD:913
+good to be here; EXECUTION_MODE:3,countDD:914
+Current Time: 1490
+good to be here; EXECUTION_MODE:3,countDD:915
+Current Time: 1491
+good to be here; EXECUTION_MODE:3,countDD:916
+Current Time: 1492
+Current Time: 1493
+good to be here; EXECUTION_MODE:3,countDD:917
+good to be here; EXECUTION_MODE:3,countDD:918
+good to be here; EXECUTION_MODE:3,countDD:919
+good to be here; EXECUTION_MODE:3,countDD:920
+Current Time: 1494
+Current Time: 1495
+good to be here; EXECUTION_MODE:3,countDD:921
+Current Time: 1496
+Current Time: 1497
+good to be here; EXECUTION_MODE:3,countDD:922
+Current Time: 1498
+Current Time: 1499
+good to be here; EXECUTION_MODE:3,countDD:923
+good to be here; EXECUTION_MODE:3,countDD:924
+Current Time: 1500
+good to be here; EXECUTION_MODE:3,countDD:925
+good to be here; EXECUTION_MODE:3,countDD:926
+Current Time: 1501
+Current Time: 1502
+Current Time: 1503
+good to be here; EXECUTION_MODE:3,countDD:927
+good to be here; EXECUTION_MODE:3,countDD:928
+Current Time: 1504
+Current Time: 1505
+Current Time: 1506
+good to be here; EXECUTION_MODE:3,countDD:929
+good to be here; EXECUTION_MODE:3,countDD:930
+Current Time: 1507
+good to be here; EXECUTION_MODE:3,countDD:931
+Current Time: 1508
+good to be here; EXECUTION_MODE:3,countDD:932
+Current Time: 1509
+Current Time: 1510
+good to be here; EXECUTION_MODE:3,countDD:933
+Current Time: 1511
+Current Time: 1512
+Current Time: 1513
+Current Time: 1514
+good to be here; EXECUTION_MODE:3,countDD:934
+Current Time: 1515
+good to be here; EXECUTION_MODE:3,countDD:935
+Current Time: 1516
+good to be here; EXECUTION_MODE:3,countDD:936
+Current Time: 1517
+good to be here; EXECUTION_MODE:3,countDD:937
+Current Time: 1518
+Current Time: 1519
+Current Time: 1520
+good to be here; EXECUTION_MODE:3,countDD:938
+Current Time: 1521
+good to be here; EXECUTION_MODE:3,countDD:939
+Current Time: 1522
+Current Time: 1523
+good to be here; EXECUTION_MODE:3,countDD:940
+good to be here; EXECUTION_MODE:3,countDD:941
+Current Time: 1524
+good to be here; EXECUTION_MODE:3,countDD:942
+Current Time: 1525
+Current Time: 1526
+good to be here; EXECUTION_MODE:3,countDD:943
+Current Time: 1527
+good to be here; EXECUTION_MODE:3,countDD:944
+Current Time: 1528
+good to be here; EXECUTION_MODE:3,countDD:945
+Current Time: 1529
+good to be here; EXECUTION_MODE:3,countDD:946
+Current Time: 1530
+Current Time: 1531
+good to be here; EXECUTION_MODE:3,countDD:947
+Current Time: 1532
+good to be here; EXECUTION_MODE:3,countDD:948
+Current Time: 1533
+good to be here; EXECUTION_MODE:3,countDD:949
+Current Time: 1534
+good to be here; EXECUTION_MODE:3,countDD:950
+good to be here; EXECUTION_MODE:3,countDD:951
+Current Time: 1535
+Current Time: 1536
+good to be here; EXECUTION_MODE:3,countDD:952
+Current Time: 1537
+Current Time: 1538
+Current Time: 1539
+good to be here; EXECUTION_MODE:3,countDD:953
+Current Time: 1540
+good to be here; EXECUTION_MODE:3,countDD:954
+Current Time: 1541
+Current Time: 1542
+good to be here; EXECUTION_MODE:3,countDD:955
+Current Time: 1543
+Current Time: 1544
+Current Time: 1545
+good to be here; EXECUTION_MODE:3,countDD:956
+Current Time: 1546
+good to be here; EXECUTION_MODE:3,countDD:957
+good to be here; EXECUTION_MODE:3,countDD:958
+Current Time: 1547
+good to be here; EXECUTION_MODE:3,countDD:959
+Current Time: 1548
+good to be here; EXECUTION_MODE:3,countDD:960
+good to be here; EXECUTION_MODE:3,countDD:961
+good to be here; EXECUTION_MODE:3,countDD:962
+Current Time: 1549
+good to be here; EXECUTION_MODE:3,countDD:963
+Current Time: 1550
+good to be here; EXECUTION_MODE:3,countDD:964
+good to be here; EXECUTION_MODE:3,countDD:965
+Current Time: 1551
+good to be here; EXECUTION_MODE:3,countDD:966
+Current Time: 1552
+good to be here; EXECUTION_MODE:3,countDD:967
+good to be here; EXECUTION_MODE:3,countDD:968
+Current Time: 1553
+Current Time: 1554
+good to be here; EXECUTION_MODE:3,countDD:969
+Current Time: 1555
+good to be here; EXECUTION_MODE:3,countDD:970
+good to be here; EXECUTION_MODE:3,countDD:971
+Current Time: 1556
+Current Time: 1557
+good to be here; EXECUTION_MODE:3,countDD:972
+Current Time: 1558
+Current Time: 1559
+Current Time: 1560
+good to be here; EXECUTION_MODE:3,countDD:973
+Current Time: 1561
+good to be here; EXECUTION_MODE:3,countDD:974
+Current Time: 1562
+good to be here; EXECUTION_MODE:3,countDD:975
+Current Time: 1563
+good to be here; EXECUTION_MODE:3,countDD:976
+Current Time: 1564
+Current Time: 1565
+Current Time: 1566
+good to be here; EXECUTION_MODE:3,countDD:977
+good to be here; EXECUTION_MODE:3,countDD:978
+Current Time: 1567
+good to be here; EXECUTION_MODE:3,countDD:979
+Current Time: 1568
+good to be here; EXECUTION_MODE:3,countDD:980
+Current Time: 1569
+good to be here; EXECUTION_MODE:3,countDD:981
+Current Time: 1570
+Current Time: 1571
+Current Time: 1572
+Current Time: 1573
+good to be here; EXECUTION_MODE:3,countDD:982
+good to be here; EXECUTION_MODE:3,countDD:983
+Current Time: 1574
+Current Time: 1575
+good to be here; EXECUTION_MODE:3,countDD:984
+Current Time: 1576
+good to be here; EXECUTION_MODE:3,countDD:985
+Current Time: 1577
+Current Time: 1578
+Current Time: 1579
+Current Time: 1580
+Current Time: 1581
+good to be here; EXECUTION_MODE:3,countDD:986
+Current Time: 1582
+Current Time: 1583
+good to be here; EXECUTION_MODE:3,countDD:987
+Current Time: 1584
+good to be here; EXECUTION_MODE:3,countDD:988
+Current Time: 1585
+good to be here; EXECUTION_MODE:3,countDD:989
+Current Time: 1586
+Current Time: 1587
+good to be here; EXECUTION_MODE:3,countDD:990
+Current Time: 1588
+Current Time: 1589
+Current Time: 1590
+Current Time: 1591
+good to be here; EXECUTION_MODE:3,countDD:991
+Current Time: 1592
+good to be here; EXECUTION_MODE:3,countDD:992
+Current Time: 1593
+good to be here; EXECUTION_MODE:3,countDD:993
+good to be here; EXECUTION_MODE:3,countDD:994
+good to be here; EXECUTION_MODE:3,countDD:995
+Current Time: 1594
+good to be here; EXECUTION_MODE:3,countDD:996
+Current Time: 1595
+good to be here; EXECUTION_MODE:3,countDD:997
+good to be here; EXECUTION_MODE:3,countDD:998
+Current Time: 1596
+Current Time: 1597
+good to be here; EXECUTION_MODE:3,countDD:999
+Current Time: 1598
+good to be here; EXECUTION_MODE:3,countDD:1000
+Current Time: 1599
+good to be here; EXECUTION_MODE:3,countDD:1001
+Current Time: 1600
+Current Time: 1601
+good to be here; EXECUTION_MODE:3,countDD:1002
+Current Time: 1602
+good to be here; EXECUTION_MODE:3,countDD:1003
+Current Time: 1603
+good to be here; EXECUTION_MODE:3,countDD:1004
+Current Time: 1604
+good to be here; EXECUTION_MODE:3,countDD:1005
+Current Time: 1605
+Current Time: 1606
+good to be here; EXECUTION_MODE:3,countDD:1006
+Current Time: 1607
+good to be here; EXECUTION_MODE:3,countDD:1007
+Current Time: 1608
+good to be here; EXECUTION_MODE:3,countDD:1008
+Current Time: 1609
+Current Time: 1610
+Current Time: 1611
+Current Time: 1612
+Current Time: 1613
+Current Time: 1614
+good to be here; EXECUTION_MODE:3,countDD:1009
+good to be here; EXECUTION_MODE:3,countDD:1010
+Current Time: 1615
+good to be here; EXECUTION_MODE:3,countDD:1011
+Current Time: 1616
+good to be here; EXECUTION_MODE:3,countDD:1012
+Current Time: 1617
+Current Time: 1618
+Current Time: 1619
+Current Time: 1620
+Current Time: 1621
+good to be here; EXECUTION_MODE:3,countDD:1013
+good to be here; EXECUTION_MODE:3,countDD:1014
+Current Time: 1622
+good to be here; EXECUTION_MODE:3,countDD:1015
+Current Time: 1623
+good to be here; EXECUTION_MODE:3,countDD:1016
+good to be here; EXECUTION_MODE:3,countDD:1017
+Current Time: 1624
+Current Time: 1625
+good to be here; EXECUTION_MODE:3,countDD:1018
+Current Time: 1626
+good to be here; EXECUTION_MODE:3,countDD:1019
+Current Time: 1627
+Current Time: 1628
+good to be here; EXECUTION_MODE:3,countDD:1020
+Current Time: 1629
+Current Time: 1630
+Current Time: 1631
+good to be here; EXECUTION_MODE:3,countDD:1021
+Current Time: 1632
+Current Time: 1633
+good to be here; EXECUTION_MODE:3,countDD:1022
+Current Time: 1634
+Current Time: 1635
+Current Time: 1636
+good to be here; EXECUTION_MODE:3,countDD:1023
+Current Time: 1637
+good to be here; EXECUTION_MODE:3,countDD:1024
+Current Time: 1638
+good to be here; EXECUTION_MODE:3,countDD:1025
+good to be here; EXECUTION_MODE:3,countDD:1026
+Current Time: 1639
+Current Time: 1640
+Current Time: 1641
+good to be here; EXECUTION_MODE:3,countDD:1027
+good to be here; EXECUTION_MODE:3,countDD:1028
+Current Time: 1642
+Current Time: 1643
+Current Time: 1644
+Current Time: 1645
+Current Time: 1646
+good to be here; EXECUTION_MODE:3,countDD:1029
+Current Time: 1647
+good to be here; EXECUTION_MODE:3,countDD:1030
+Current Time: 1648
+Current Time: 1649
+good to be here; EXECUTION_MODE:3,countDD:1031
+Current Time: 1650
+Current Time: 1651
+Current Time: 1652
+good to be here; EXECUTION_MODE:3,countDD:1032
+Current Time: 1653
+good to be here; EXECUTION_MODE:3,countDD:1033
+Current Time: 1654
+Current Time: 1655
+Current Time: 1656
+good to be here; EXECUTION_MODE:3,countDD:1034
+Current Time: 1657
+Current Time: 1658
+Current Time: 1659
+good to be here; EXECUTION_MODE:3,countDD:1035
+Current Time: 1660
+good to be here; EXECUTION_MODE:3,countDD:1036
+Current Time: 1661
+Current Time: 1662
+Current Time: 1663
+good to be here; EXECUTION_MODE:3,countDD:1037
+Current Time: 1664
+Current Time: 1665
+good to be here; EXECUTION_MODE:3,countDD:1038
+Current Time: 1666
+good to be here; EXECUTION_MODE:3,countDD:1039
+Current Time: 1667
+Current Time: 1668
+Current Time: 1669
+Current Time: 1670
+Current Time: 1671
+good to be here; EXECUTION_MODE:3,countDD:1040
+good to be here; EXECUTION_MODE:3,countDD:1041
+Current Time: 1672
+Current Time: 1673
+Current Time: 1674
+good to be here; EXECUTION_MODE:3,countDD:1042
+good to be here; EXECUTION_MODE:3,countDD:1043
+Current Time: 1675
+Current Time: 1676
+Current Time: 1677
+good to be here; EXECUTION_MODE:3,countDD:1044
+Current Time: 1678
+good to be here; EXECUTION_MODE:3,countDD:1045
+Current Time: 1679
+good to be here; EXECUTION_MODE:3,countDD:1046
+Current Time: 1680
+good to be here; EXECUTION_MODE:3,countDD:1047
+good to be here; EXECUTION_MODE:3,countDD:1048
+Current Time: 1681
+Current Time: 1682
+good to be here; EXECUTION_MODE:3,countDD:1049
+Current Time: 1683
+good to be here; EXECUTION_MODE:3,countDD:1050
+Current Time: 1684
+good to be here; EXECUTION_MODE:3,countDD:1051
+Current Time: 1685
+Current Time: 1686
+Current Time: 1687
+good to be here; EXECUTION_MODE:3,countDD:1052
+Current Time: 1688
+good to be here; EXECUTION_MODE:3,countDD:1053
+good to be here; EXECUTION_MODE:3,countDD:1054
+good to be here; EXECUTION_MODE:3,countDD:1055
+Current Time: 1689
+Current Time: 1690
+Current Time: 1691
+Current Time: 1692
+good to be here; EXECUTION_MODE:3,countDD:1056
+good to be here; EXECUTION_MODE:3,countDD:1057
+good to be here; EXECUTION_MODE:3,countDD:1058
+Current Time: 1693
+good to be here; EXECUTION_MODE:3,countDD:1059
+Current Time: 1694
+Current Time: 1695
+good to be here; EXECUTION_MODE:3,countDD:1060
+Current Time: 1696
+good to be here; EXECUTION_MODE:3,countDD:1061
+Current Time: 1697
+Current Time: 1698
+Current Time: 1699
+Current Time: 1700
+Current Time: 1701
+good to be here; EXECUTION_MODE:3,countDD:1062
+Current Time: 1702
+Current Time: 1703
+good to be here; EXECUTION_MODE:3,countDD:1063
+Current Time: 1704
+Current Time: 1705
+Current Time: 1706
+Current Time: 1707
+Current Time: 1708
+Current Time: 1709
+Current Time: 1710
+Current Time: 1711
+Current Time: 1712
+Current Time: 1713
+Current Time: 1714
+good to be here; EXECUTION_MODE:3,countDD:1064
+good to be here; EXECUTION_MODE:3,countDD:1065
+Current Time: 1715
+Current Time: 1716
+good to be here; EXECUTION_MODE:3,countDD:1066
+Current Time: 1717
+Current Time: 1718
+good to be here; EXECUTION_MODE:3,countDD:1067
+Current Time: 1719
+Current Time: 1720
+Current Time: 1721
+good to be here; EXECUTION_MODE:3,countDD:1068
+good to be here; EXECUTION_MODE:3,countDD:1069
+Current Time: 1722
+Current Time: 1723
+Current Time: 1724
+good to be here; EXECUTION_MODE:3,countDD:1070
+Current Time: 1725
+good to be here; EXECUTION_MODE:3,countDD:1071
+good to be here; EXECUTION_MODE:3,countDD:1072
+Current Time: 1726
+Current Time: 1727
+Current Time: 1728
+good to be here; EXECUTION_MODE:3,countDD:1073
+Current Time: 1729
+Current Time: 1730
+Current Time: 1731
+Current Time: 1732
+good to be here; EXECUTION_MODE:3,countDD:1074
+Current Time: 1733
+Current Time: 1734
+good to be here; EXECUTION_MODE:3,countDD:1075
+Current Time: 1735
+good to be here; EXECUTION_MODE:3,countDD:1076
+Current Time: 1736
+Current Time: 1737
+good to be here; EXECUTION_MODE:3,countDD:1077
+good to be here; EXECUTION_MODE:3,countDD:1078
+Current Time: 1738
+Current Time: 1739
+good to be here; EXECUTION_MODE:3,countDD:1079
+Current Time: 1740
+good to be here; EXECUTION_MODE:3,countDD:1080
+Current Time: 1741
+good to be here; EXECUTION_MODE:3,countDD:1081
+Current Time: 1742
+Current Time: 1743
+good to be here; EXECUTION_MODE:3,countDD:1082
+Current Time: 1744
+good to be here; EXECUTION_MODE:3,countDD:1083
+Current Time: 1745
+good to be here; EXECUTION_MODE:3,countDD:1084
+Current Time: 1746
+good to be here; EXECUTION_MODE:3,countDD:1085
+good to be here; EXECUTION_MODE:3,countDD:1086
+good to be here; EXECUTION_MODE:3,countDD:1087
+Current Time: 1747
+Current Time: 1748
+Current Time: 1749
+good to be here; EXECUTION_MODE:3,countDD:1088
+Current Time: 1750
+Current Time: 1751
+good to be here; EXECUTION_MODE:3,countDD:1089
+good to be here; EXECUTION_MODE:3,countDD:1090
+Current Time: 1752
+Current Time: 1753
+Current Time: 1754
+Current Time: 1755
+good to be here; EXECUTION_MODE:3,countDD:1091
+Current Time: 1756
+good to be here; EXECUTION_MODE:3,countDD:1092
+Current Time: 1757
+good to be here; EXECUTION_MODE:3,countDD:1093
+Current Time: 1758
+Current Time: 1759
+good to be here; EXECUTION_MODE:3,countDD:1094
+good to be here; EXECUTION_MODE:3,countDD:1095
+Current Time: 1760
+good to be here; EXECUTION_MODE:3,countDD:1096
+Current Time: 1761
+Current Time: 1762
+good to be here; EXECUTION_MODE:3,countDD:1097
+Current Time: 1763
+Current Time: 1764
+good to be here; EXECUTION_MODE:3,countDD:1098
+Current Time: 1765
+Current Time: 1766
+good to be here; EXECUTION_MODE:3,countDD:1099
+Current Time: 1767
+good to be here; EXECUTION_MODE:3,countDD:1100
+good to be here; EXECUTION_MODE:3,countDD:1101
+good to be here; EXECUTION_MODE:3,countDD:1102
+Current Time: 1768
+Current Time: 1769
+Current Time: 1770
+Current Time: 1771
+good to be here; EXECUTION_MODE:3,countDD:1103
+Current Time: 1772
+good to be here; EXECUTION_MODE:3,countDD:1104
+Current Time: 1773
+Current Time: 1774
+Current Time: 1775
+good to be here; EXECUTION_MODE:3,countDD:1105
+Current Time: 1776
+Current Time: 1777
+good to be here; EXECUTION_MODE:3,countDD:1106
+Current Time: 1778
+Current Time: 1779
+good to be here; EXECUTION_MODE:3,countDD:1107
+Current Time: 1780
+Current Time: 1781
+Current Time: 1782
+good to be here; EXECUTION_MODE:3,countDD:1108
+Current Time: 1783
+Current Time: 1784
+Current Time: 1785
+Current Time: 1786
+Current Time: 1787
+Current Time: 1788
+good to be here; EXECUTION_MODE:3,countDD:1109
+Current Time: 1789
+Current Time: 1790
+good to be here; EXECUTION_MODE:3,countDD:1110
+good to be here; EXECUTION_MODE:3,countDD:1111
+Current Time: 1791
+good to be here; EXECUTION_MODE:3,countDD:1112
+good to be here; EXECUTION_MODE:3,countDD:1113
+Current Time: 1792
+good to be here; EXECUTION_MODE:3,countDD:1114
+Current Time: 1793
+good to be here; EXECUTION_MODE:3,countDD:1115
+good to be here; EXECUTION_MODE:3,countDD:1116
+good to be here; EXECUTION_MODE:3,countDD:1117
+Current Time: 1794
+good to be here; EXECUTION_MODE:3,countDD:1118
+Current Time: 1795
+good to be here; EXECUTION_MODE:3,countDD:1119
+good to be here; EXECUTION_MODE:3,countDD:1120
+Current Time: 1796
+Current Time: 1797
+Current Time: 1798
+good to be here; EXECUTION_MODE:3,countDD:1121
+Current Time: 1799
+good to be here; EXECUTION_MODE:3,countDD:1122
+Current Time: 1800
+good to be here; EXECUTION_MODE:3,countDD:1123
+Current Time: 1801
+good to be here; EXECUTION_MODE:3,countDD:1124
+Current Time: 1802
+Current Time: 1803
+Current Time: 1804
+good to be here; EXECUTION_MODE:3,countDD:1125
+good to be here; EXECUTION_MODE:3,countDD:1126
+good to be here; EXECUTION_MODE:3,countDD:1127
+Current Time: 1805
+good to be here; EXECUTION_MODE:3,countDD:1128
+good to be here; EXECUTION_MODE:3,countDD:1129
+good to be here; EXECUTION_MODE:3,countDD:1130
+Current Time: 1806
+good to be here; EXECUTION_MODE:3,countDD:1131
+good to be here; EXECUTION_MODE:3,countDD:1132
+good to be here; EXECUTION_MODE:3,countDD:1133
+Current Time: 1807
+Current Time: 1808
+Current Time: 1809
+Current Time: 1810
+Current Time: 1811
+good to be here; EXECUTION_MODE:3,countDD:1134
+Current Time: 1812
+good to be here; EXECUTION_MODE:3,countDD:1135
+Current Time: 1813
+Current Time: 1814
+good to be here; EXECUTION_MODE:3,countDD:1136
+Current Time: 1815
+good to be here; EXECUTION_MODE:3,countDD:1137
+good to be here; EXECUTION_MODE:3,countDD:1138
+Current Time: 1816
+good to be here; EXECUTION_MODE:3,countDD:1139
+Current Time: 1817
+good to be here; EXECUTION_MODE:3,countDD:1140
+Current Time: 1818
+good to be here; EXECUTION_MODE:3,countDD:1141
+Current Time: 1819
+Current Time: 1820
+good to be here; EXECUTION_MODE:3,countDD:1142
+good to be here; EXECUTION_MODE:3,countDD:1143
+Current Time: 1821
+Current Time: 1822
+Current Time: 1823
+Current Time: 1824
+good to be here; EXECUTION_MODE:3,countDD:1144
+Current Time: 1825
+Current Time: 1826
+good to be here; EXECUTION_MODE:3,countDD:1145
+Current Time: 1827
+Current Time: 1828
+Current Time: 1829
+Current Time: 1830
+good to be here; EXECUTION_MODE:3,countDD:1146
+Current Time: 1831
+Current Time: 1832
+Current Time: 1833
+good to be here; EXECUTION_MODE:3,countDD:1147
+Current Time: 1834
+Current Time: 1835
+good to be here; EXECUTION_MODE:3,countDD:1148
+good to be here; EXECUTION_MODE:3,countDD:1149
+Current Time: 1836
+good to be here; EXECUTION_MODE:3,countDD:1150
+good to be here; EXECUTION_MODE:3,countDD:1151
+Current Time: 1837
+good to be here; EXECUTION_MODE:3,countDD:1152
+good to be here; EXECUTION_MODE:3,countDD:1153
+good to be here; EXECUTION_MODE:3,countDD:1154
+Current Time: 1838
+good to be here; EXECUTION_MODE:3,countDD:1155
+Current Time: 1839
+good to be here; EXECUTION_MODE:3,countDD:1156
+Current Time: 1840
+Current Time: 1841
+Current Time: 1842
+Current Time: 1843
+Current Time: 1844
+good to be here; EXECUTION_MODE:3,countDD:1157
+Current Time: 1845
+good to be here; EXECUTION_MODE:3,countDD:1158
+Current Time: 1846
+good to be here; EXECUTION_MODE:3,countDD:1159
+Current Time: 1847
+Current Time: 1848
+good to be here; EXECUTION_MODE:3,countDD:1160
+Current Time: 1849
+Current Time: 1850
+good to be here; EXECUTION_MODE:3,countDD:1161
+Current Time: 1851
+good to be here; EXECUTION_MODE:3,countDD:1162
+Current Time: 1852
+good to be here; EXECUTION_MODE:3,countDD:1163
+Current Time: 1853
+Current Time: 1854
+Current Time: 1855
+good to be here; EXECUTION_MODE:3,countDD:1164
+Current Time: 1856
+Current Time: 1857
+Current Time: 1858
+Current Time: 1859
+Current Time: 1860
+Current Time: 1861
+good to be here; EXECUTION_MODE:3,countDD:1165
+Current Time: 1862
+Current Time: 1863
+Current Time: 1864
+good to be here; EXECUTION_MODE:3,countDD:1166
+Current Time: 1865
+Current Time: 1866
+Current Time: 1867
+good to be here; EXECUTION_MODE:3,countDD:1167
+Current Time: 1868
+Current Time: 1869
+good to be here; EXECUTION_MODE:3,countDD:1168
+good to be here; EXECUTION_MODE:3,countDD:1169
+Current Time: 1870
+good to be here; EXECUTION_MODE:3,countDD:1170
+good to be here; EXECUTION_MODE:3,countDD:1171
+good to be here; EXECUTION_MODE:3,countDD:1172
+Current Time: 1871
+Current Time: 1872
+Current Time: 1873
+good to be here; EXECUTION_MODE:3,countDD:1173
+Current Time: 1874
+Current Time: 1875
+Current Time: 1876
+good to be here; EXECUTION_MODE:3,countDD:1174
+Current Time: 1877
+good to be here; EXECUTION_MODE:3,countDD:1175
+Current Time: 1878
+good to be here; EXECUTION_MODE:3,countDD:1176
+Current Time: 1879
+good to be here; EXECUTION_MODE:3,countDD:1177
+good to be here; EXECUTION_MODE:3,countDD:1178
+Current Time: 1880
+Current Time: 1881
+good to be here; EXECUTION_MODE:3,countDD:1179
+Current Time: 1882
+Current Time: 1883
+Current Time: 1884
+good to be here; EXECUTION_MODE:3,countDD:1180
+Current Time: 1885
+Current Time: 1886
+good to be here; EXECUTION_MODE:3,countDD:1181
+Current Time: 1887
+good to be here; EXECUTION_MODE:3,countDD:1182
+Current Time: 1888
+good to be here; EXECUTION_MODE:3,countDD:1183
+good to be here; EXECUTION_MODE:3,countDD:1184
+Current Time: 1889
+Current Time: 1890
+good to be here; EXECUTION_MODE:3,countDD:1185
+Current Time: 1891
+Current Time: 1892
+good to be here; EXECUTION_MODE:3,countDD:1186
+Current Time: 1893
+good to be here; EXECUTION_MODE:3,countDD:1187
+good to be here; EXECUTION_MODE:3,countDD:1188
+Current Time: 1894
+Current Time: 1895
+Current Time: 1896
+good to be here; EXECUTION_MODE:3,countDD:1189
+Current Time: 1897
+good to be here; EXECUTION_MODE:3,countDD:1190
+good to be here; EXECUTION_MODE:3,countDD:1191
+Current Time: 1898
+Current Time: 1899
+Current Time: 1900
+Current Time: 1901
+Current Time: 1902
+Current Time: 1903
+Current Time: 1904
+Current Time: 1905
+Current Time: 1906
+Current Time: 1907
+Current Time: 1908
+good to be here; EXECUTION_MODE:3,countDD:1192
+Current Time: 1909
+Current Time: 1910
+Current Time: 1911
+Current Time: 1912
+Current Time: 1913
+good to be here; EXECUTION_MODE:3,countDD:1193
+Current Time: 1914
+good to be here; EXECUTION_MODE:3,countDD:1194
+good to be here; EXECUTION_MODE:3,countDD:1195
+Current Time: 1915
+Current Time: 1916
+Current Time: 1917
+good to be here; EXECUTION_MODE:3,countDD:1196
+Current Time: 1918
+good to be here; EXECUTION_MODE:3,countDD:1197
+Current Time: 1919
+Current Time: 1920
+Current Time: 1921
+good to be here; EXECUTION_MODE:3,countDD:1198
+Current Time: 1922
+Current Time: 1923
+Current Time: 1924
+Current Time: 1925
+Current Time: 1926
+good to be here; EXECUTION_MODE:3,countDD:1199
+Current Time: 1927
+Current Time: 1928
+Current Time: 1929
+Current Time: 1930
+Current Time: 1931
+good to be here; EXECUTION_MODE:3,countDD:1200
+Current Time: 1932
+good to be here; EXECUTION_MODE:3,countDD:1201
+Current Time: 1933
+good to be here; EXECUTION_MODE:3,countDD:1202
+good to be here; EXECUTION_MODE:3,countDD:1203
+good to be here; EXECUTION_MODE:3,countDD:1204
+Current Time: 1934
+good to be here; EXECUTION_MODE:3,countDD:1205
+good to be here; EXECUTION_MODE:3,countDD:1206
+Current Time: 1935
+good to be here; EXECUTION_MODE:3,countDD:1207
+good to be here; EXECUTION_MODE:3,countDD:1208
+Current Time: 1936
+good to be here; EXECUTION_MODE:3,countDD:1209
+good to be here; EXECUTION_MODE:3,countDD:1210
+good to be here; EXECUTION_MODE:3,countDD:1211
+Current Time: 1937
+good to be here; EXECUTION_MODE:3,countDD:1212
+good to be here; EXECUTION_MODE:3,countDD:1213
+Current Time: 1938
+Current Time: 1939
+good to be here; EXECUTION_MODE:3,countDD:1214
+good to be here; EXECUTION_MODE:3,countDD:1215
+Current Time: 1940
+good to be here; EXECUTION_MODE:3,countDD:1216
+Current Time: 1941
+Current Time: 1942
+Current Time: 1943
+Current Time: 1944
+Current Time: 1945
+Current Time: 1946
+Current Time: 1947
+Current Time: 1948
+Current Time: 1949
+good to be here; EXECUTION_MODE:3,countDD:1217
+Current Time: 1950
+good to be here; EXECUTION_MODE:3,countDD:1218
+Current Time: 1951
+Current Time: 1952
+good to be here; EXECUTION_MODE:3,countDD:1219
+good to be here; EXECUTION_MODE:3,countDD:1220
+good to be here; EXECUTION_MODE:3,countDD:1221
+Current Time: 1953
+good to be here; EXECUTION_MODE:3,countDD:1222
+good to be here; EXECUTION_MODE:3,countDD:1223
+Current Time: 1954
+Current Time: 1955
+good to be here; EXECUTION_MODE:3,countDD:1224
+good to be here; EXECUTION_MODE:3,countDD:1225
+Current Time: 1956
+Current Time: 1957
+good to be here; EXECUTION_MODE:3,countDD:1226
+Current Time: 1958
+good to be here; EXECUTION_MODE:3,countDD:1227
+good to be here; EXECUTION_MODE:3,countDD:1228
+Current Time: 1959
+good to be here; EXECUTION_MODE:3,countDD:1229
+good to be here; EXECUTION_MODE:3,countDD:1230
+good to be here; EXECUTION_MODE:3,countDD:1231
+good to be here; EXECUTION_MODE:3,countDD:1232
+Current Time: 1960
+Current Time: 1961
+Current Time: 1962
+Current Time: 1963
+Current Time: 1964
+good to be here; EXECUTION_MODE:3,countDD:1233
+Current Time: 1965
+good to be here; EXECUTION_MODE:3,countDD:1234
+Current Time: 1966
+Current Time: 1967
+Current Time: 1968
+good to be here; EXECUTION_MODE:3,countDD:1235
+Current Time: 1969
+Current Time: 1970
+good to be here; EXECUTION_MODE:3,countDD:1236
+Current Time: 1971
+Current Time: 1972
+good to be here; EXECUTION_MODE:3,countDD:1237
+Current Time: 1973
+good to be here; EXECUTION_MODE:3,countDD:1238
+Current Time: 1974
+good to be here; EXECUTION_MODE:3,countDD:1239
+Current Time: 1975
+good to be here; EXECUTION_MODE:3,countDD:1240
+Current Time: 1976
+good to be here; EXECUTION_MODE:3,countDD:1241
+Current Time: 1977
+Current Time: 1978
+Current Time: 1979
+good to be here; EXECUTION_MODE:3,countDD:1242
+Current Time: 1980
+Current Time: 1981
+Current Time: 1982
+Current Time: 1983
+Current Time: 1984
+Current Time: 1985
+Current Time: 1986
+good to be here; EXECUTION_MODE:3,countDD:1243
+Current Time: 1987
+Current Time: 1988
+Current Time: 1989
+Current Time: 1990
+Current Time: 1991
+Current Time: 1992
+Current Time: 1993
+Current Time: 1994
+Current Time: 1995
+good to be here; EXECUTION_MODE:3,countDD:1244
+Current Time: 1996
+good to be here; EXECUTION_MODE:3,countDD:1245
+Current Time: 1997
+good to be here; EXECUTION_MODE:3,countDD:1246
+Current Time: 1998
+Current Time: 1999
+Current Time: 2000
+Current Time: 2001
+good to be here; EXECUTION_MODE:3,countDD:1247
+Current Time: 2002
+good to be here; EXECUTION_MODE:3,countDD:1248
+Current Time: 2003
+Current Time: 2004
+good to be here; EXECUTION_MODE:3,countDD:1249
+good to be here; EXECUTION_MODE:3,countDD:1250
+Current Time: 2005
+Current Time: 2006
+good to be here; EXECUTION_MODE:3,countDD:1251
+Current Time: 2007
+good to be here; EXECUTION_MODE:3,countDD:1252
+good to be here; EXECUTION_MODE:3,countDD:1253
+Current Time: 2008
+Current Time: 2009
+good to be here; EXECUTION_MODE:3,countDD:1254
+Current Time: 2010
+good to be here; EXECUTION_MODE:3,countDD:1255
+good to be here; EXECUTION_MODE:3,countDD:1256
+Current Time: 2011
+Current Time: 2012
+Current Time: 2013
+good to be here; EXECUTION_MODE:3,countDD:1257
+Current Time: 2014
+good to be here; EXECUTION_MODE:3,countDD:1258
+Current Time: 2015
+Current Time: 2016
+good to be here; EXECUTION_MODE:3,countDD:1259
+Current Time: 2017
+Current Time: 2018
+Current Time: 2019
+Current Time: 2020
+Current Time: 2021
+good to be here; EXECUTION_MODE:3,countDD:1260
+Current Time: 2022
+good to be here; EXECUTION_MODE:3,countDD:1261
+Current Time: 2023
+good to be here; EXECUTION_MODE:3,countDD:1262
+good to be here; EXECUTION_MODE:3,countDD:1263
+Current Time: 2024
+Current Time: 2025
+Current Time: 2026
+Current Time: 2027
+good to be here; EXECUTION_MODE:3,countDD:1264
+good to be here; EXECUTION_MODE:3,countDD:1265
+Current Time: 2028
+good to be here; EXECUTION_MODE:3,countDD:1266
+Current Time: 2029
+Current Time: 2030
+good to be here; EXECUTION_MODE:3,countDD:1267
+good to be here; EXECUTION_MODE:3,countDD:1268
+Current Time: 2031
+Current Time: 2032
+Current Time: 2033
+good to be here; EXECUTION_MODE:3,countDD:1269
+good to be here; EXECUTION_MODE:3,countDD:1270
+Current Time: 2034
+good to be here; EXECUTION_MODE:3,countDD:1271
+good to be here; EXECUTION_MODE:3,countDD:1272
+Current Time: 2035
+good to be here; EXECUTION_MODE:3,countDD:1273
+good to be here; EXECUTION_MODE:3,countDD:1274
+Current Time: 2036
+Current Time: 2037
+good to be here; EXECUTION_MODE:3,countDD:1275
+Current Time: 2038
+Current Time: 2039
+Current Time: 2040
+good to be here; EXECUTION_MODE:3,countDD:1276
+good to be here; EXECUTION_MODE:3,countDD:1277
+Current Time: 2041
+Current Time: 2042
+Current Time: 2043
+Current Time: 2044
+Current Time: 2045
+Current Time: 2046
+good to be here; EXECUTION_MODE:3,countDD:1278
+Current Time: 2047
+Current Time: 2048
+good to be here; EXECUTION_MODE:3,countDD:1279
+Current Time: 2049
+good to be here; EXECUTION_MODE:3,countDD:1280
+good to be here; EXECUTION_MODE:3,countDD:1281
+good to be here; EXECUTION_MODE:3,countDD:1282
+Current Time: 2050
+good to be here; EXECUTION_MODE:3,countDD:1283
+good to be here; EXECUTION_MODE:3,countDD:1284
+Current Time: 2051
+Current Time: 2052
+good to be here; EXECUTION_MODE:3,countDD:1285
+Current Time: 2053
+Current Time: 2054
+Current Time: 2055
+good to be here; EXECUTION_MODE:3,countDD:1286
+Current Time: 2056
+Current Time: 2057
+good to be here; EXECUTION_MODE:3,countDD:1287
+Current Time: 2058
+Current Time: 2059
+good to be here; EXECUTION_MODE:3,countDD:1288
+good to be here; EXECUTION_MODE:3,countDD:1289
+Current Time: 2060
+Current Time: 2061
+good to be here; EXECUTION_MODE:3,countDD:1290
+good to be here; EXECUTION_MODE:3,countDD:1291
+Current Time: 2062
+good to be here; EXECUTION_MODE:3,countDD:1292
+good to be here; EXECUTION_MODE:3,countDD:1293
+Current Time: 2063
+Current Time: 2064
+Current Time: 2065
+Current Time: 2066
+good to be here; EXECUTION_MODE:3,countDD:1294
+Current Time: 2067
+Current Time: 2068
+Current Time: 2069
+Current Time: 2070
+good to be here; EXECUTION_MODE:3,countDD:1295
+Current Time: 2071
+good to be here; EXECUTION_MODE:3,countDD:1296
+Current Time: 2072
+Current Time: 2073
+Current Time: 2074
+Current Time: 2075
+Current Time: 2076
+Current Time: 2077
+good to be here; EXECUTION_MODE:3,countDD:1297
+Current Time: 2078
+good to be here; EXECUTION_MODE:3,countDD:1298
+Current Time: 2079
+good to be here; EXECUTION_MODE:3,countDD:1299
+Current Time: 2080
+Current Time: 2081
+Current Time: 2082
+Current Time: 2083
+good to be here; EXECUTION_MODE:3,countDD:1300
+Current Time: 2084
+good to be here; EXECUTION_MODE:3,countDD:1301
+good to be here; EXECUTION_MODE:3,countDD:1302
+Current Time: 2085
+good to be here; EXECUTION_MODE:3,countDD:1303
+Current Time: 2086
+Current Time: 2087
+good to be here; EXECUTION_MODE:3,countDD:1304
+Current Time: 2088
+good to be here; EXECUTION_MODE:3,countDD:1305
+Current Time: 2089
+good to be here; EXECUTION_MODE:3,countDD:1306
+Current Time: 2090
+Current Time: 2091
+Current Time: 2092
+good to be here; EXECUTION_MODE:3,countDD:1307
+Current Time: 2093
+Current Time: 2094
+Current Time: 2095
+good to be here; EXECUTION_MODE:3,countDD:1308
+Current Time: 2096
+Current Time: 2097
+Current Time: 2098
+Current Time: 2099
+Current Time: 2100
+good to be here; EXECUTION_MODE:3,countDD:1309
+Current Time: 2101
+good to be here; EXECUTION_MODE:3,countDD:1310
+Current Time: 2102
+good to be here; EXECUTION_MODE:3,countDD:1311
+Current Time: 2103
+good to be here; EXECUTION_MODE:3,countDD:1312
+good to be here; EXECUTION_MODE:3,countDD:1313
+Current Time: 2104
+Current Time: 2105
+Current Time: 2106
+good to be here; EXECUTION_MODE:3,countDD:1314
+Current Time: 2107
+good to be here; EXECUTION_MODE:3,countDD:1315
+good to be here; EXECUTION_MODE:3,countDD:1316
+Current Time: 2108
+good to be here; EXECUTION_MODE:3,countDD:1317
+good to be here; EXECUTION_MODE:3,countDD:1318
+Current Time: 2109
+Current Time: 2110
+Current Time: 2111
+good to be here; EXECUTION_MODE:3,countDD:1319
+Current Time: 2112
+good to be here; EXECUTION_MODE:3,countDD:1320
+Current Time: 2113
+Current Time: 2114
+good to be here; EXECUTION_MODE:3,countDD:1321
+Current Time: 2115
+Current Time: 2116
+Current Time: 2117
+Current Time: 2118
+good to be here; EXECUTION_MODE:3,countDD:1322
+Current Time: 2119
+Current Time: 2120
+Current Time: 2121
+good to be here; EXECUTION_MODE:3,countDD:1323
+Current Time: 2122
+good to be here; EXECUTION_MODE:3,countDD:1324
+Current Time: 2123
+Current Time: 2124
+Current Time: 2125
+Current Time: 2126
+Current Time: 2127
+Current Time: 2128
+good to be here; EXECUTION_MODE:3,countDD:1325
+good to be here; EXECUTION_MODE:3,countDD:1326
+Current Time: 2129
+Current Time: 2130
+Current Time: 2131
+Current Time: 2132
+Current Time: 2133
+Current Time: 2134
+Current Time: 2135
+good to be here; EXECUTION_MODE:3,countDD:1327
+Current Time: 2136
+Current Time: 2137
+Current Time: 2138
+Current Time: 2139
+Current Time: 2140
+Current Time: 2141
+Current Time: 2142
+Current Time: 2143
+good to be here; EXECUTION_MODE:3,countDD:1328
+Current Time: 2144
+Current Time: 2145
+good to be here; EXECUTION_MODE:3,countDD:1329
+Current Time: 2146
+good to be here; EXECUTION_MODE:3,countDD:1330
+Current Time: 2147
+good to be here; EXECUTION_MODE:3,countDD:1331
+Current Time: 2148
+good to be here; EXECUTION_MODE:3,countDD:1332
+Current Time: 2149
+Current Time: 2150
+Current Time: 2151
+good to be here; EXECUTION_MODE:3,countDD:1333
+good to be here; EXECUTION_MODE:3,countDD:1334
+Current Time: 2152
+Current Time: 2153
+good to be here; EXECUTION_MODE:3,countDD:1335
+Current Time: 2154
+Current Time: 2155
+good to be here; EXECUTION_MODE:3,countDD:1336
+Current Time: 2156
+Current Time: 2157
+good to be here; EXECUTION_MODE:3,countDD:1337
+Current Time: 2158
+Current Time: 2159
+Current Time: 2160
+good to be here; EXECUTION_MODE:3,countDD:1338
+Current Time: 2161
+good to be here; EXECUTION_MODE:3,countDD:1339
+Current Time: 2162
+good to be here; EXECUTION_MODE:3,countDD:1340
+Current Time: 2163
+Current Time: 2164
+Current Time: 2165
+good to be here; EXECUTION_MODE:3,countDD:1341
+Current Time: 2166
+Current Time: 2167
+Current Time: 2168
+Current Time: 2169
+good to be here; EXECUTION_MODE:3,countDD:1342
+good to be here; EXECUTION_MODE:3,countDD:1343
+Current Time: 2170
+good to be here; EXECUTION_MODE:3,countDD:1344
+Current Time: 2171
+Current Time: 2172
+Current Time: 2173
+Current Time: 2174
+Current Time: 2175
+good to be here; EXECUTION_MODE:3,countDD:1345
+Current Time: 2176
+Current Time: 2177
+Current Time: 2178
+Current Time: 2179
+Current Time: 2180
+Current Time: 2181
+Current Time: 2182
+Current Time: 2183
+Current Time: 2184
+good to be here; EXECUTION_MODE:3,countDD:1346
+good to be here; EXECUTION_MODE:3,countDD:1347
+Current Time: 2185
+Current Time: 2186
+Current Time: 2187
+good to be here; EXECUTION_MODE:3,countDD:1348
+Current Time: 2188
+good to be here; EXECUTION_MODE:3,countDD:1349
+Current Time: 2189
+Current Time: 2190
+good to be here; EXECUTION_MODE:3,countDD:1350
+Current Time: 2191
+Current Time: 2192
+Current Time: 2193
+Current Time: 2194
+Current Time: 2195
+Current Time: 2196
+Current Time: 2197
+Current Time: 2198
+good to be here; EXECUTION_MODE:3,countDD:1351
+Current Time: 2199
+Current Time: 2200
+Current Time: 2201
+good to be here; EXECUTION_MODE:3,countDD:1352
+good to be here; EXECUTION_MODE:3,countDD:1353
+Current Time: 2202
+good to be here; EXECUTION_MODE:3,countDD:1354
+Current Time: 2203
+Current Time: 2204
+good to be here; EXECUTION_MODE:3,countDD:1355
+good to be here; EXECUTION_MODE:3,countDD:1356
+good to be here; EXECUTION_MODE:3,countDD:1357
+Current Time: 2205
+Current Time: 2206
+Current Time: 2207
+good to be here; EXECUTION_MODE:3,countDD:1358
+Current Time: 2208
+good to be here; EXECUTION_MODE:3,countDD:1359
+Current Time: 2209
+Current Time: 2210
+good to be here; EXECUTION_MODE:3,countDD:1360
+good to be here; EXECUTION_MODE:3,countDD:1361
+Current Time: 2211
+Current Time: 2212
+Current Time: 2213
+Current Time: 2214
+Current Time: 2215
+Current Time: 2216
+Current Time: 2217
+Current Time: 2218
+good to be here; EXECUTION_MODE:3,countDD:1362
+Current Time: 2219
+good to be here; EXECUTION_MODE:3,countDD:1363
+good to be here; EXECUTION_MODE:3,countDD:1364
+Current Time: 2220
+Current Time: 2221
+Current Time: 2222
+good to be here; EXECUTION_MODE:3,countDD:1365
+Current Time: 2223
+good to be here; EXECUTION_MODE:3,countDD:1366
+Current Time: 2224
+Current Time: 2225
+good to be here; EXECUTION_MODE:3,countDD:1367
+good to be here; EXECUTION_MODE:3,countDD:1368
+Current Time: 2226
+Current Time: 2227
+good to be here; EXECUTION_MODE:3,countDD:1369
+Current Time: 2228
+Current Time: 2229
+Current Time: 2230
+Current Time: 2231
+good to be here; EXECUTION_MODE:3,countDD:1370
+Current Time: 2232
+Current Time: 2233
+Current Time: 2234
+good to be here; EXECUTION_MODE:3,countDD:1371
+Current Time: 2235
+good to be here; EXECUTION_MODE:3,countDD:1372
+Current Time: 2236
+Current Time: 2237
+good to be here; EXECUTION_MODE:3,countDD:1373
+good to be here; EXECUTION_MODE:3,countDD:1374
+Current Time: 2238
+Current Time: 2239
+good to be here; EXECUTION_MODE:3,countDD:1375
+Current Time: 2240
+Current Time: 2241
+Current Time: 2242
+good to be here; EXECUTION_MODE:3,countDD:1376
+Current Time: 2243
+good to be here; EXECUTION_MODE:3,countDD:1377
+Current Time: 2244
+Current Time: 2245
+good to be here; EXECUTION_MODE:3,countDD:1378
+Current Time: 2246
+Current Time: 2247
+Current Time: 2248
+Current Time: 2249
+Current Time: 2250
+good to be here; EXECUTION_MODE:3,countDD:1379
+good to be here; EXECUTION_MODE:3,countDD:1380
+good to be here; EXECUTION_MODE:3,countDD:1381
+Current Time: 2251
+good to be here; EXECUTION_MODE:3,countDD:1382
+good to be here; EXECUTION_MODE:3,countDD:1383
+good to be here; EXECUTION_MODE:3,countDD:1384
+Current Time: 2252
+good to be here; EXECUTION_MODE:3,countDD:1385
+Current Time: 2253
+Current Time: 2254
+Current Time: 2255
+good to be here; EXECUTION_MODE:3,countDD:1386
+Current Time: 2256
+Current Time: 2257
+good to be here; EXECUTION_MODE:3,countDD:1387
+good to be here; EXECUTION_MODE:3,countDD:1388
+Current Time: 2258
+Current Time: 2259
+good to be here; EXECUTION_MODE:3,countDD:1389
+good to be here; EXECUTION_MODE:3,countDD:1390
+Current Time: 2260
+good to be here; EXECUTION_MODE:3,countDD:1391
+Current Time: 2261
+good to be here; EXECUTION_MODE:3,countDD:1392
+Current Time: 2262
+Current Time: 2263
+Current Time: 2264
+good to be here; EXECUTION_MODE:3,countDD:1393
+good to be here; EXECUTION_MODE:3,countDD:1394
+Current Time: 2265
+good to be here; EXECUTION_MODE:3,countDD:1395
+good to be here; EXECUTION_MODE:3,countDD:1396
+Current Time: 2266
+good to be here; EXECUTION_MODE:3,countDD:1397
+Current Time: 2267
+Current Time: 2268
+Current Time: 2269
+Current Time: 2270
+Current Time: 2271
+Current Time: 2272
+Current Time: 2273
+good to be here; EXECUTION_MODE:3,countDD:1398
+Current Time: 2274
+Current Time: 2275
+good to be here; EXECUTION_MODE:3,countDD:1399
+Current Time: 2276
+good to be here; EXECUTION_MODE:3,countDD:1400
+Current Time: 2277
+Current Time: 2278
+Current Time: 2279
+good to be here; EXECUTION_MODE:3,countDD:1401
+Current Time: 2280
+Current Time: 2281
+good to be here; EXECUTION_MODE:3,countDD:1402
+Current Time: 2282
+Current Time: 2283
+Current Time: 2284
+good to be here; EXECUTION_MODE:3,countDD:1403
+good to be here; EXECUTION_MODE:3,countDD:1404
+good to be here; EXECUTION_MODE:3,countDD:1405
+Current Time: 2285
+Current Time: 2286
+good to be here; EXECUTION_MODE:3,countDD:1406
+Current Time: 2287
+good to be here; EXECUTION_MODE:3,countDD:1407
+good to be here; EXECUTION_MODE:3,countDD:1408
+Current Time: 2288
+good to be here; EXECUTION_MODE:3,countDD:1409
+Current Time: 2289
+Current Time: 2290
+Current Time: 2291
+Current Time: 2292
+good to be here; EXECUTION_MODE:3,countDD:1410
+good to be here; EXECUTION_MODE:3,countDD:1411
+Current Time: 2293
+good to be here; EXECUTION_MODE:3,countDD:1412
+good to be here; EXECUTION_MODE:3,countDD:1413
+Current Time: 2294
+good to be here; EXECUTION_MODE:3,countDD:1414
+good to be here; EXECUTION_MODE:3,countDD:1415
+good to be here; EXECUTION_MODE:3,countDD:1416
+Current Time: 2295
+Current Time: 2296
+Current Time: 2297
+Current Time: 2298
+Current Time: 2299
+good to be here; EXECUTION_MODE:3,countDD:1417
+good to be here; EXECUTION_MODE:3,countDD:1418
+Current Time: 2300
+good to be here; EXECUTION_MODE:3,countDD:1419
+Current Time: 2301
+good to be here; EXECUTION_MODE:3,countDD:1420
+Current Time: 2302
+Current Time: 2303
+good to be here; EXECUTION_MODE:3,countDD:1421
+good to be here; EXECUTION_MODE:3,countDD:1422
+Current Time: 2304
+Current Time: 2305
+Current Time: 2306
+Current Time: 2307
+Current Time: 2308
+good to be here; EXECUTION_MODE:3,countDD:1423
+Current Time: 2309
+good to be here; EXECUTION_MODE:3,countDD:1424
+Current Time: 2310
+Current Time: 2311
+good to be here; EXECUTION_MODE:3,countDD:1425
+Current Time: 2312
+good to be here; EXECUTION_MODE:3,countDD:1426
+Current Time: 2313
+good to be here; EXECUTION_MODE:3,countDD:1427
+Current Time: 2314
+good to be here; EXECUTION_MODE:3,countDD:1428
+Current Time: 2315
+good to be here; EXECUTION_MODE:3,countDD:1429
+Current Time: 2316
+Current Time: 2317
+good to be here; EXECUTION_MODE:3,countDD:1430
+Current Time: 2318
+Current Time: 2319
+good to be here; EXECUTION_MODE:3,countDD:1431
+Current Time: 2320
+good to be here; EXECUTION_MODE:3,countDD:1432
+Current Time: 2321
+Current Time: 2322
+good to be here; EXECUTION_MODE:3,countDD:1433
+Current Time: 2323
+good to be here; EXECUTION_MODE:3,countDD:1434
+Current Time: 2324
+good to be here; EXECUTION_MODE:3,countDD:1435
+Current Time: 2325
+good to be here; EXECUTION_MODE:3,countDD:1436
+good to be here; EXECUTION_MODE:3,countDD:1437
+Current Time: 2326
+Current Time: 2327
+Current Time: 2328
+Current Time: 2329
+good to be here; EXECUTION_MODE:3,countDD:1438
+Current Time: 2330
+good to be here; EXECUTION_MODE:3,countDD:1439
+Current Time: 2331
+Current Time: 2332
+Current Time: 2333
+Current Time: 2334
+good to be here; EXECUTION_MODE:3,countDD:1440
+Current Time: 2335
+good to be here; EXECUTION_MODE:3,countDD:1441
+Current Time: 2336
+Current Time: 2337
+Current Time: 2338
+good to be here; EXECUTION_MODE:3,countDD:1442
+good to be here; EXECUTION_MODE:3,countDD:1443
+Current Time: 2339
+Current Time: 2340
+Current Time: 2341
+good to be here; EXECUTION_MODE:3,countDD:1444
+Current Time: 2342
+good to be here; EXECUTION_MODE:3,countDD:1445
+good to be here; EXECUTION_MODE:3,countDD:1446
+Current Time: 2343
+Current Time: 2344
+good to be here; EXECUTION_MODE:3,countDD:1447
+Current Time: 2345
+Current Time: 2346
+good to be here; EXECUTION_MODE:3,countDD:1448
+Current Time: 2347
+Current Time: 2348
+good to be here; EXECUTION_MODE:3,countDD:1449
+Current Time: 2349
+good to be here; EXECUTION_MODE:3,countDD:1450
+Current Time: 2350
+Current Time: 2351
+Current Time: 2352
+Current Time: 2353
+good to be here; EXECUTION_MODE:3,countDD:1451
+good to be here; EXECUTION_MODE:3,countDD:1452
+Current Time: 2354
+Current Time: 2355
+Current Time: 2356
+good to be here; EXECUTION_MODE:3,countDD:1453
+Current Time: 2357
+good to be here; EXECUTION_MODE:3,countDD:1454
+good to be here; EXECUTION_MODE:3,countDD:1455
+Current Time: 2358
+Current Time: 2359
+Current Time: 2360
+good to be here; EXECUTION_MODE:3,countDD:1456
+Current Time: 2361
+Current Time: 2362
+Current Time: 2363
+good to be here; EXECUTION_MODE:3,countDD:1457
+good to be here; EXECUTION_MODE:3,countDD:1458
+Current Time: 2364
+Current Time: 2365
+good to be here; EXECUTION_MODE:3,countDD:1459
+good to be here; EXECUTION_MODE:3,countDD:1460
+good to be here; EXECUTION_MODE:3,countDD:1461
+Current Time: 2366
+Current Time: 2367
+good to be here; EXECUTION_MODE:3,countDD:1462
+good to be here; EXECUTION_MODE:3,countDD:1463
+Current Time: 2368
+Current Time: 2369
+good to be here; EXECUTION_MODE:3,countDD:1464
+Current Time: 2370
+Current Time: 2371
+good to be here; EXECUTION_MODE:3,countDD:1465
+Current Time: 2372
+good to be here; EXECUTION_MODE:3,countDD:1466
+Current Time: 2373
+good to be here; EXECUTION_MODE:3,countDD:1467
+Current Time: 2374
+good to be here; EXECUTION_MODE:3,countDD:1468
+good to be here; EXECUTION_MODE:3,countDD:1469
+good to be here; EXECUTION_MODE:3,countDD:1470
+Current Time: 2375
+good to be here; EXECUTION_MODE:3,countDD:1471
+Current Time: 2376
+good to be here; EXECUTION_MODE:3,countDD:1472
+Current Time: 2377
+Current Time: 2378
+good to be here; EXECUTION_MODE:3,countDD:1473
+Current Time: 2379
+good to be here; EXECUTION_MODE:3,countDD:1474
+Current Time: 2380
+good to be here; EXECUTION_MODE:3,countDD:1475
+Current Time: 2381
+Current Time: 2382
+good to be here; EXECUTION_MODE:3,countDD:1476
+Current Time: 2383
+Current Time: 2384
+good to be here; EXECUTION_MODE:3,countDD:1477
+Current Time: 2385
+good to be here; EXECUTION_MODE:3,countDD:1478
+Current Time: 2386
+good to be here; EXECUTION_MODE:3,countDD:1479
+Current Time: 2387
+Current Time: 2388
+Current Time: 2389
+good to be here; EXECUTION_MODE:3,countDD:1480
+Current Time: 2390
+good to be here; EXECUTION_MODE:3,countDD:1481
+Current Time: 2391
+good to be here; EXECUTION_MODE:3,countDD:1482
+Current Time: 2392
+Current Time: 2393
+Current Time: 2394
+Current Time: 2395
+Current Time: 2396
+good to be here; EXECUTION_MODE:3,countDD:1483
+Current Time: 2397
+good to be here; EXECUTION_MODE:3,countDD:1484
+good to be here; EXECUTION_MODE:3,countDD:1485
+Current Time: 2398
+good to be here; EXECUTION_MODE:3,countDD:1486
+Current Time: 2399
+good to be here; EXECUTION_MODE:3,countDD:1487
+good to be here; EXECUTION_MODE:3,countDD:1488
+Current Time: 2400
+good to be here; EXECUTION_MODE:3,countDD:1489
+good to be here; EXECUTION_MODE:3,countDD:1490
+Current Time: 2401
+Current Time: 2402
+Current Time: 2403
+Current Time: 2404
+good to be here; EXECUTION_MODE:3,countDD:1491
+Current Time: 2405
+Current Time: 2406
+Current Time: 2407
+good to be here; EXECUTION_MODE:3,countDD:1492
+Current Time: 2408
+Current Time: 2409
+good to be here; EXECUTION_MODE:3,countDD:1493
+Current Time: 2410
+good to be here; EXECUTION_MODE:3,countDD:1494
+good to be here; EXECUTION_MODE:3,countDD:1495
+Current Time: 2411
+good to be here; EXECUTION_MODE:3,countDD:1496
+Current Time: 2412
+Current Time: 2413
+good to be here; EXECUTION_MODE:3,countDD:1497
+Current Time: 2414
+Current Time: 2415
+Current Time: 2416
+good to be here; EXECUTION_MODE:3,countDD:1498
+Current Time: 2417
+good to be here; EXECUTION_MODE:3,countDD:1499
+Current Time: 2418
+Current Time: 2419
+good to be here; EXECUTION_MODE:3,countDD:1500
+Current Time: 2420
+Current Time: 2421
+Current Time: 2422
+good to be here; EXECUTION_MODE:3,countDD:1501
+good to be here; EXECUTION_MODE:3,countDD:1502
+Current Time: 2423
+good to be here; EXECUTION_MODE:3,countDD:1503
+good to be here; EXECUTION_MODE:3,countDD:1504
+good to be here; EXECUTION_MODE:3,countDD:1505
+good to be here; EXECUTION_MODE:3,countDD:1506
+Current Time: 2424
+good to be here; EXECUTION_MODE:3,countDD:1507
+Current Time: 2425
+good to be here; EXECUTION_MODE:3,countDD:1508
+Current Time: 2426
+Current Time: 2427
+Current Time: 2428
+good to be here; EXECUTION_MODE:3,countDD:1509
+good to be here; EXECUTION_MODE:3,countDD:1510
+Current Time: 2429
+good to be here; EXECUTION_MODE:3,countDD:1511
+good to be here; EXECUTION_MODE:3,countDD:1512
+Current Time: 2430
+good to be here; EXECUTION_MODE:3,countDD:1513
+Current Time: 2431
+Current Time: 2432
+Current Time: 2433
+Current Time: 2434
+Current Time: 2435
+Current Time: 2436
+Current Time: 2437
+Current Time: 2438
+Current Time: 2439
+good to be here; EXECUTION_MODE:3,countDD:1514
+Current Time: 2440
+good to be here; EXECUTION_MODE:3,countDD:1515
+Current Time: 2441
+Current Time: 2442
+good to be here; EXECUTION_MODE:3,countDD:1516
+Current Time: 2443
+Current Time: 2444
+Current Time: 2445
+Current Time: 2446
+good to be here; EXECUTION_MODE:3,countDD:1517
+Current Time: 2447
+Current Time: 2448
+good to be here; EXECUTION_MODE:3,countDD:1518
+Current Time: 2449
+Current Time: 2450
+Current Time: 2451
+good to be here; EXECUTION_MODE:3,countDD:1519
+good to be here; EXECUTION_MODE:3,countDD:1520
+Current Time: 2452
+good to be here; EXECUTION_MODE:3,countDD:1521
+Current Time: 2453
+Current Time: 2454
+Current Time: 2455
+Current Time: 2456
+good to be here; EXECUTION_MODE:3,countDD:1522
+Current Time: 2457
+good to be here; EXECUTION_MODE:3,countDD:1523
+Current Time: 2458
+good to be here; EXECUTION_MODE:3,countDD:1524
+good to be here; EXECUTION_MODE:3,countDD:1525
+Current Time: 2459
+Current Time: 2460
+good to be here; EXECUTION_MODE:3,countDD:1526
+Current Time: 2461
+good to be here; EXECUTION_MODE:3,countDD:1527
+good to be here; EXECUTION_MODE:3,countDD:1528
+Current Time: 2462
+good to be here; EXECUTION_MODE:3,countDD:1529
+Current Time: 2463
+Current Time: 2464
+Current Time: 2465
+Current Time: 2466
+Current Time: 2467
+Current Time: 2468
+Current Time: 2469
+Current Time: 2470
+Current Time: 2471
+Current Time: 2472
+Current Time: 2473
+Current Time: 2474
+Current Time: 2475
+good to be here; EXECUTION_MODE:3,countDD:1530
+Current Time: 2476
+good to be here; EXECUTION_MODE:3,countDD:1531
+Current Time: 2477
+Current Time: 2478
+Current Time: 2479
+Current Time: 2480
+good to be here; EXECUTION_MODE:3,countDD:1532
+Current Time: 2481
+Current Time: 2482
+good to be here; EXECUTION_MODE:3,countDD:1533
+Current Time: 2483
+Current Time: 2484
+Current Time: 2485
+Current Time: 2486
+good to be here; EXECUTION_MODE:3,countDD:1534
+good to be here; EXECUTION_MODE:3,countDD:1535
+Current Time: 2487
+good to be here; EXECUTION_MODE:3,countDD:1536
+good to be here; EXECUTION_MODE:3,countDD:1537
+Current Time: 2488
+Current Time: 2489
+good to be here; EXECUTION_MODE:3,countDD:1538
+good to be here; EXECUTION_MODE:3,countDD:1539
+Current Time: 2490
+Current Time: 2491
+Current Time: 2492
+Current Time: 2493
+good to be here; EXECUTION_MODE:3,countDD:1540
+good to be here; EXECUTION_MODE:3,countDD:1541
+Current Time: 2494
+Current Time: 2495
+Current Time: 2496
+Current Time: 2497
+Current Time: 2498
+good to be here; EXECUTION_MODE:3,countDD:1542
+Current Time: 2499
+Current Time: 2500
+good to be here; EXECUTION_MODE:3,countDD:1543
+Current Time: 2501
+Current Time: 2502
+Current Time: 2503
+Current Time: 2504
+Current Time: 2505
+Current Time: 2506
+good to be here; EXECUTION_MODE:3,countDD:1544
+Current Time: 2507
+good to be here; EXECUTION_MODE:3,countDD:1545
+good to be here; EXECUTION_MODE:3,countDD:1546
+Current Time: 2508
+good to be here; EXECUTION_MODE:3,countDD:1547
+Current Time: 2509
+good to be here; EXECUTION_MODE:3,countDD:1548
+good to be here; EXECUTION_MODE:3,countDD:1549
+Current Time: 2510
+Current Time: 2511
+Current Time: 2512
+Current Time: 2513
+good to be here; EXECUTION_MODE:3,countDD:1550
+good to be here; EXECUTION_MODE:3,countDD:1551
+Current Time: 2514
+good to be here; EXECUTION_MODE:3,countDD:1552
+Current Time: 2515
+good to be here; EXECUTION_MODE:3,countDD:1553
+Current Time: 2516
+good to be here; EXECUTION_MODE:3,countDD:1554
+Current Time: 2517
+good to be here; EXECUTION_MODE:3,countDD:1555
+Current Time: 2518
+Current Time: 2519
+Current Time: 2520
+good to be here; EXECUTION_MODE:3,countDD:1556
+good to be here; EXECUTION_MODE:3,countDD:1557
+good to be here; EXECUTION_MODE:3,countDD:1558
+Current Time: 2521
+good to be here; EXECUTION_MODE:3,countDD:1559
+good to be here; EXECUTION_MODE:3,countDD:1560
+Current Time: 2522
+Current Time: 2523
+Current Time: 2524
+good to be here; EXECUTION_MODE:3,countDD:1561
+good to be here; EXECUTION_MODE:3,countDD:1562
+Current Time: 2525
+good to be here; EXECUTION_MODE:3,countDD:1563
+Current Time: 2526
+good to be here; EXECUTION_MODE:3,countDD:1564
+Current Time: 2527
+good to be here; EXECUTION_MODE:3,countDD:1565
+good to be here; EXECUTION_MODE:3,countDD:1566
+Current Time: 2528
+Current Time: 2529
+Current Time: 2530
+Current Time: 2531
+good to be here; EXECUTION_MODE:3,countDD:1567
+Current Time: 2532
+good to be here; EXECUTION_MODE:3,countDD:1568
+Current Time: 2533
+good to be here; EXECUTION_MODE:3,countDD:1569
+Current Time: 2534
+Current Time: 2535
+Current Time: 2536
+Current Time: 2537
+good to be here; EXECUTION_MODE:3,countDD:1570
+Current Time: 2538
+good to be here; EXECUTION_MODE:3,countDD:1571
+good to be here; EXECUTION_MODE:3,countDD:1572
+Current Time: 2539
+good to be here; EXECUTION_MODE:3,countDD:1573
+good to be here; EXECUTION_MODE:3,countDD:1574
+Current Time: 2540
+good to be here; EXECUTION_MODE:3,countDD:1575
+Current Time: 2541
+Current Time: 2542
+Current Time: 2543
+good to be here; EXECUTION_MODE:3,countDD:1576
+Current Time: 2544
+Current Time: 2545
+Current Time: 2546
+good to be here; EXECUTION_MODE:3,countDD:1577
+Current Time: 2547
+good to be here; EXECUTION_MODE:3,countDD:1578
+good to be here; EXECUTION_MODE:3,countDD:1579
+Current Time: 2548
+good to be here; EXECUTION_MODE:3,countDD:1580
+Current Time: 2549
+Current Time: 2550
+good to be here; EXECUTION_MODE:3,countDD:1581
+Current Time: 2551
+Current Time: 2552
+good to be here; EXECUTION_MODE:3,countDD:1582
+Current Time: 2553
+good to be here; EXECUTION_MODE:3,countDD:1583
+good to be here; EXECUTION_MODE:3,countDD:1584
+Current Time: 2554
+Current Time: 2555
+good to be here; EXECUTION_MODE:3,countDD:1585
+Current Time: 2556
+good to be here; EXECUTION_MODE:3,countDD:1586
+Current Time: 2557
+good to be here; EXECUTION_MODE:3,countDD:1587
+Current Time: 2558
+good to be here; EXECUTION_MODE:3,countDD:1588
+Current Time: 2559
+good to be here; EXECUTION_MODE:3,countDD:1589
+Current Time: 2560
+Current Time: 2561
+Current Time: 2562
+good to be here; EXECUTION_MODE:3,countDD:1590
+Current Time: 2563
+good to be here; EXECUTION_MODE:3,countDD:1591
+good to be here; EXECUTION_MODE:3,countDD:1592
+Current Time: 2564
+Current Time: 2565
+Current Time: 2566
+Current Time: 2567
+Current Time: 2568
+good to be here; EXECUTION_MODE:3,countDD:1593
+Current Time: 2569
+Current Time: 2570
+good to be here; EXECUTION_MODE:3,countDD:1594
+Current Time: 2571
+Current Time: 2572
+Current Time: 2573
+good to be here; EXECUTION_MODE:3,countDD:1595
+Current Time: 2574
+good to be here; EXECUTION_MODE:3,countDD:1596
+good to be here; EXECUTION_MODE:3,countDD:1597
+Current Time: 2575
+Current Time: 2576
+good to be here; EXECUTION_MODE:3,countDD:1598
+Current Time: 2577
+Current Time: 2578
+Current Time: 2579
+good to be here; EXECUTION_MODE:3,countDD:1599
+Current Time: 2580
+good to be here; EXECUTION_MODE:3,countDD:1600
+Current Time: 2581
+Current Time: 2582
+Current Time: 2583
+Current Time: 2584
+Current Time: 2585
+Current Time: 2586
+good to be here; EXECUTION_MODE:3,countDD:1601
+Current Time: 2587
+Current Time: 2588
+Current Time: 2589
+Current Time: 2590
+good to be here; EXECUTION_MODE:3,countDD:1602
+Current Time: 2591
+Current Time: 2592
+Current Time: 2593
+good to be here; EXECUTION_MODE:3,countDD:1603
+Current Time: 2594
+Current Time: 2595
+Current Time: 2596
+good to be here; EXECUTION_MODE:3,countDD:1604
+Current Time: 2597
+Current Time: 2598
+good to be here; EXECUTION_MODE:3,countDD:1605
+Current Time: 2599
+Current Time: 2600
+Current Time: 2601
+good to be here; EXECUTION_MODE:3,countDD:1606
+good to be here; EXECUTION_MODE:3,countDD:1607
+Current Time: 2602
+good to be here; EXECUTION_MODE:3,countDD:1608
+Current Time: 2603
+good to be here; EXECUTION_MODE:3,countDD:1609
+Current Time: 2604
+Current Time: 2605
+Current Time: 2606
+good to be here; EXECUTION_MODE:3,countDD:1610
+Current Time: 2607
+good to be here; EXECUTION_MODE:3,countDD:1611
+Current Time: 2608
+good to be here; EXECUTION_MODE:3,countDD:1612
+Current Time: 2609
+good to be here; EXECUTION_MODE:3,countDD:1613
+Current Time: 2610
+Current Time: 2611
+good to be here; EXECUTION_MODE:3,countDD:1614
+good to be here; EXECUTION_MODE:3,countDD:1615
+Current Time: 2612
+good to be here; EXECUTION_MODE:3,countDD:1616
+Current Time: 2613
+good to be here; EXECUTION_MODE:3,countDD:1617
+good to be here; EXECUTION_MODE:3,countDD:1618
+good to be here; EXECUTION_MODE:3,countDD:1619
+Current Time: 2614
+Current Time: 2615
+good to be here; EXECUTION_MODE:3,countDD:1620
+Current Time: 2616
+Current Time: 2617
+good to be here; EXECUTION_MODE:3,countDD:1621
+good to be here; EXECUTION_MODE:3,countDD:1622
+good to be here; EXECUTION_MODE:3,countDD:1623
+Current Time: 2618
+good to be here; EXECUTION_MODE:3,countDD:1624
+Current Time: 2619
+Current Time: 2620
+good to be here; EXECUTION_MODE:3,countDD:1625
+Current Time: 2621
+good to be here; EXECUTION_MODE:3,countDD:1626
+Current Time: 2622
+good to be here; EXECUTION_MODE:3,countDD:1627
+Current Time: 2623
+Current Time: 2624
+good to be here; EXECUTION_MODE:3,countDD:1628
+Current Time: 2625
+Current Time: 2626
+good to be here; EXECUTION_MODE:3,countDD:1629
+Current Time: 2627
+Current Time: 2628
+good to be here; EXECUTION_MODE:3,countDD:1630
+Current Time: 2629
+Current Time: 2630
+Current Time: 2631
+Current Time: 2632
+Current Time: 2633
+good to be here; EXECUTION_MODE:3,countDD:1631
+good to be here; EXECUTION_MODE:3,countDD:1632
+Current Time: 2634
+Current Time: 2635
+Current Time: 2636
+good to be here; EXECUTION_MODE:3,countDD:1633
+good to be here; EXECUTION_MODE:3,countDD:1634
+Current Time: 2637
+Current Time: 2638
+Current Time: 2639
+Current Time: 2640
+Current Time: 2641
+Current Time: 2642
+good to be here; EXECUTION_MODE:3,countDD:1635
+Current Time: 2643
+Current Time: 2644
+good to be here; EXECUTION_MODE:3,countDD:1636
+good to be here; EXECUTION_MODE:3,countDD:1637
+good to be here; EXECUTION_MODE:3,countDD:1638
+Current Time: 2645
+good to be here; EXECUTION_MODE:3,countDD:1639
+Current Time: 2646
+good to be here; EXECUTION_MODE:3,countDD:1640
+good to be here; EXECUTION_MODE:3,countDD:1641
+Current Time: 2647
+good to be here; EXECUTION_MODE:3,countDD:1642
+good to be here; EXECUTION_MODE:3,countDD:1643
+Current Time: 2648
+Current Time: 2649
+Current Time: 2650
+good to be here; EXECUTION_MODE:3,countDD:1644
+Current Time: 2651
+good to be here; EXECUTION_MODE:3,countDD:1645
+good to be here; EXECUTION_MODE:3,countDD:1646
+Current Time: 2652
+Current Time: 2653
+good to be here; EXECUTION_MODE:3,countDD:1647
+Current Time: 2654
+good to be here; EXECUTION_MODE:3,countDD:1648
+Current Time: 2655
+Current Time: 2656
+good to be here; EXECUTION_MODE:3,countDD:1649
+Current Time: 2657
+Current Time: 2658
+Current Time: 2659
+Current Time: 2660
+good to be here; EXECUTION_MODE:3,countDD:1650
+Current Time: 2661
+good to be here; EXECUTION_MODE:3,countDD:1651
+Current Time: 2662
+Current Time: 2663
+Current Time: 2664
+Current Time: 2665
+Current Time: 2666
+Current Time: 2667
+Current Time: 2668
+Current Time: 2669
+good to be here; EXECUTION_MODE:3,countDD:1652
+Current Time: 2670
+Current Time: 2671
+good to be here; EXECUTION_MODE:3,countDD:1653
+good to be here; EXECUTION_MODE:3,countDD:1654
+Current Time: 2672
+Current Time: 2673
+good to be here; EXECUTION_MODE:3,countDD:1655
+good to be here; EXECUTION_MODE:3,countDD:1656
+Current Time: 2674
+good to be here; EXECUTION_MODE:3,countDD:1657
+Current Time: 2675
+Current Time: 2676
+Current Time: 2677
+Current Time: 2678
+good to be here; EXECUTION_MODE:3,countDD:1658
+good to be here; EXECUTION_MODE:3,countDD:1659
+Current Time: 2679
+good to be here; EXECUTION_MODE:3,countDD:1660
+Current Time: 2680
+good to be here; EXECUTION_MODE:3,countDD:1661
+good to be here; EXECUTION_MODE:3,countDD:1662
+Current Time: 2681
+good to be here; EXECUTION_MODE:3,countDD:1663
+Current Time: 2682
+good to be here; EXECUTION_MODE:3,countDD:1664
+good to be here; EXECUTION_MODE:3,countDD:1665
+Current Time: 2683
+good to be here; EXECUTION_MODE:3,countDD:1666
+good to be here; EXECUTION_MODE:3,countDD:1667
+Current Time: 2684
+good to be here; EXECUTION_MODE:3,countDD:1668
+good to be here; EXECUTION_MODE:3,countDD:1669
+Current Time: 2685
+Current Time: 2686
+good to be here; EXECUTION_MODE:3,countDD:1670
+good to be here; EXECUTION_MODE:3,countDD:1671
+Current Time: 2687
+good to be here; EXECUTION_MODE:3,countDD:1672
+good to be here; EXECUTION_MODE:3,countDD:1673
+Current Time: 2688
+good to be here; EXECUTION_MODE:3,countDD:1674
+Current Time: 2689
+good to be here; EXECUTION_MODE:3,countDD:1675
+good to be here; EXECUTION_MODE:3,countDD:1676
+Current Time: 2690
+Current Time: 2691
+Current Time: 2692
+good to be here; EXECUTION_MODE:3,countDD:1677
+Current Time: 2693
+Current Time: 2694
+Current Time: 2695
+good to be here; EXECUTION_MODE:3,countDD:1678
+Current Time: 2696
+Current Time: 2697
+good to be here; EXECUTION_MODE:3,countDD:1679
+Current Time: 2698
+Current Time: 2699
+good to be here; EXECUTION_MODE:3,countDD:1680
+good to be here; EXECUTION_MODE:3,countDD:1681
+Current Time: 2700
+good to be here; EXECUTION_MODE:3,countDD:1682
+Current Time: 2701
+Current Time: 2702
+good to be here; EXECUTION_MODE:3,countDD:1683
+Current Time: 2703
+good to be here; EXECUTION_MODE:3,countDD:1684
+Current Time: 2704
+Current Time: 2705
+Current Time: 2706
+Current Time: 2707
+Current Time: 2708
+good to be here; EXECUTION_MODE:3,countDD:1685
+Current Time: 2709
+good to be here; EXECUTION_MODE:3,countDD:1686
+Current Time: 2710
+good to be here; EXECUTION_MODE:3,countDD:1687
+good to be here; EXECUTION_MODE:3,countDD:1688
+Current Time: 2711
+good to be here; EXECUTION_MODE:3,countDD:1689
+good to be here; EXECUTION_MODE:3,countDD:1690
+Current Time: 2712
+good to be here; EXECUTION_MODE:3,countDD:1691
+Current Time: 2713
+good to be here; EXECUTION_MODE:3,countDD:1692
+Current Time: 2714
+good to be here; EXECUTION_MODE:3,countDD:1693
+good to be here; EXECUTION_MODE:3,countDD:1694
+Current Time: 2715
+good to be here; EXECUTION_MODE:3,countDD:1695
+good to be here; EXECUTION_MODE:3,countDD:1696
+good to be here; EXECUTION_MODE:3,countDD:1697
+Current Time: 2716
+Current Time: 2717
+good to be here; EXECUTION_MODE:3,countDD:1698
+Current Time: 2718
+good to be here; EXECUTION_MODE:3,countDD:1699
+Current Time: 2719
+Current Time: 2720
+Current Time: 2721
+good to be here; EXECUTION_MODE:3,countDD:1700
+Current Time: 2722
+good to be here; EXECUTION_MODE:3,countDD:1701
+Current Time: 2723
+good to be here; EXECUTION_MODE:3,countDD:1702
+good to be here; EXECUTION_MODE:3,countDD:1703
+Current Time: 2724
+good to be here; EXECUTION_MODE:3,countDD:1704
+Current Time: 2725
+good to be here; EXECUTION_MODE:3,countDD:1705
+good to be here; EXECUTION_MODE:3,countDD:1706
+Current Time: 2726
+good to be here; EXECUTION_MODE:3,countDD:1707
+good to be here; EXECUTION_MODE:3,countDD:1708
+Current Time: 2727
+good to be here; EXECUTION_MODE:3,countDD:1709
+Current Time: 2728
+Current Time: 2729
+good to be here; EXECUTION_MODE:3,countDD:1710
+Current Time: 2730
+Current Time: 2731
+Current Time: 2732
+Current Time: 2733
+good to be here; EXECUTION_MODE:3,countDD:1711
+Current Time: 2734
+Current Time: 2735
+good to be here; EXECUTION_MODE:3,countDD:1712
+Current Time: 2736
+Current Time: 2737
+Current Time: 2738
+Current Time: 2739
+good to be here; EXECUTION_MODE:3,countDD:1713
+Current Time: 2740
+good to be here; EXECUTION_MODE:3,countDD:1714
+Current Time: 2741
+good to be here; EXECUTION_MODE:3,countDD:1715
+Current Time: 2742
+good to be here; EXECUTION_MODE:3,countDD:1716
+good to be here; EXECUTION_MODE:3,countDD:1717
+Current Time: 2743
+good to be here; EXECUTION_MODE:3,countDD:1718
+good to be here; EXECUTION_MODE:3,countDD:1719
+Current Time: 2744
+good to be here; EXECUTION_MODE:3,countDD:1720
+Current Time: 2745
+good to be here; EXECUTION_MODE:3,countDD:1721
+good to be here; EXECUTION_MODE:3,countDD:1722
+good to be here; EXECUTION_MODE:3,countDD:1723
+Current Time: 2746
+Current Time: 2747
+good to be here; EXECUTION_MODE:3,countDD:1724
+Current Time: 2748
+good to be here; EXECUTION_MODE:3,countDD:1725
+Current Time: 2749
+Current Time: 2750
+Current Time: 2751
+good to be here; EXECUTION_MODE:3,countDD:1726
+Current Time: 2752
+Current Time: 2753
+Current Time: 2754
+good to be here; EXECUTION_MODE:3,countDD:1727
+Current Time: 2755
+good to be here; EXECUTION_MODE:3,countDD:1728
+Current Time: 2756
+good to be here; EXECUTION_MODE:3,countDD:1729
+Current Time: 2757
+good to be here; EXECUTION_MODE:3,countDD:1730
+Current Time: 2758
+Current Time: 2759
+good to be here; EXECUTION_MODE:3,countDD:1731
+good to be here; EXECUTION_MODE:3,countDD:1732
+Current Time: 2760
+Current Time: 2761
+Current Time: 2762
+Current Time: 2763
+good to be here; EXECUTION_MODE:3,countDD:1733
+Current Time: 2764
+Current Time: 2765
+Current Time: 2766
+good to be here; EXECUTION_MODE:3,countDD:1734
+Current Time: 2767
+Current Time: 2768
+good to be here; EXECUTION_MODE:3,countDD:1735
+Current Time: 2769
+good to be here; EXECUTION_MODE:3,countDD:1736
+Current Time: 2770
+good to be here; EXECUTION_MODE:3,countDD:1737
+good to be here; EXECUTION_MODE:3,countDD:1738
+Current Time: 2771
+good to be here; EXECUTION_MODE:3,countDD:1739
+Current Time: 2772
+Current Time: 2773
+Current Time: 2774
+good to be here; EXECUTION_MODE:3,countDD:1740
+Current Time: 2775
+good to be here; EXECUTION_MODE:3,countDD:1741
+good to be here; EXECUTION_MODE:3,countDD:1742
+good to be here; EXECUTION_MODE:3,countDD:1743
+Current Time: 2776
+Current Time: 2777
+good to be here; EXECUTION_MODE:3,countDD:1744
+Current Time: 2778
+Current Time: 2779
+good to be here; EXECUTION_MODE:3,countDD:1745
+Current Time: 2780
+Current Time: 2781
+Current Time: 2782
+good to be here; EXECUTION_MODE:3,countDD:1746
+good to be here; EXECUTION_MODE:3,countDD:1747
+Current Time: 2783
+good to be here; EXECUTION_MODE:3,countDD:1748
+Current Time: 2784
+good to be here; EXECUTION_MODE:3,countDD:1749
+good to be here; EXECUTION_MODE:3,countDD:1750
+Current Time: 2785
+Current Time: 2786
+good to be here; EXECUTION_MODE:3,countDD:1751
+good to be here; EXECUTION_MODE:3,countDD:1752
+Current Time: 2787
+Current Time: 2788
+Current Time: 2789
+good to be here; EXECUTION_MODE:3,countDD:1753
+Current Time: 2790
+good to be here; EXECUTION_MODE:3,countDD:1754
+Current Time: 2791
+Current Time: 2792
+good to be here; EXECUTION_MODE:3,countDD:1755
+Current Time: 2793
+good to be here; EXECUTION_MODE:3,countDD:1756
+Current Time: 2794
+good to be here; EXECUTION_MODE:3,countDD:1757
+good to be here; EXECUTION_MODE:3,countDD:1758
+Current Time: 2795
+Current Time: 2796
+good to be here; EXECUTION_MODE:3,countDD:1759
+Current Time: 2797
+good to be here; EXECUTION_MODE:3,countDD:1760
+Current Time: 2798
+good to be here; EXECUTION_MODE:3,countDD:1761
+good to be here; EXECUTION_MODE:3,countDD:1762
+Current Time: 2799
+good to be here; EXECUTION_MODE:3,countDD:1763
+Current Time: 2800
+Current Time: 2801
+Current Time: 2802
+Current Time: 2803
+good to be here; EXECUTION_MODE:3,countDD:1764
+Current Time: 2804
+good to be here; EXECUTION_MODE:3,countDD:1765
+Current Time: 2805
+good to be here; EXECUTION_MODE:3,countDD:1766
+Current Time: 2806
+Current Time: 2807
+Current Time: 2808
+good to be here; EXECUTION_MODE:3,countDD:1767
+Current Time: 2809
+Current Time: 2810
+good to be here; EXECUTION_MODE:3,countDD:1768
+Current Time: 2811
+good to be here; EXECUTION_MODE:3,countDD:1769
+Current Time: 2812
+good to be here; EXECUTION_MODE:3,countDD:1770
+Current Time: 2813
+Current Time: 2814
+Current Time: 2815
+good to be here; EXECUTION_MODE:3,countDD:1771
+Current Time: 2816
+good to be here; EXECUTION_MODE:3,countDD:1772
+good to be here; EXECUTION_MODE:3,countDD:1773
+Current Time: 2817
+good to be here; EXECUTION_MODE:3,countDD:1774
+Current Time: 2818
+good to be here; EXECUTION_MODE:3,countDD:1775
+good to be here; EXECUTION_MODE:3,countDD:1776
+Current Time: 2819
+Current Time: 2820
+Current Time: 2821
+good to be here; EXECUTION_MODE:3,countDD:1777
+Current Time: 2822
+Current Time: 2823
+Current Time: 2824
+Current Time: 2825
+good to be here; EXECUTION_MODE:3,countDD:1778
+Current Time: 2826
+good to be here; EXECUTION_MODE:3,countDD:1779
+Current Time: 2827
+Current Time: 2828
+Current Time: 2829
+good to be here; EXECUTION_MODE:3,countDD:1780
+Current Time: 2830
+Current Time: 2831
+Current Time: 2832
+Current Time: 2833
+Current Time: 2834
+Current Time: 2835
+Current Time: 2836
+Current Time: 2837
+Current Time: 2838
+good to be here; EXECUTION_MODE:3,countDD:1781
+Current Time: 2839
+good to be here; EXECUTION_MODE:3,countDD:1782
+Current Time: 2840
+good to be here; EXECUTION_MODE:3,countDD:1783
+Current Time: 2841
+Current Time: 2842
+Current Time: 2843
+Current Time: 2844
+good to be here; EXECUTION_MODE:3,countDD:1784
+good to be here; EXECUTION_MODE:3,countDD:1785
+Current Time: 2845
+good to be here; EXECUTION_MODE:3,countDD:1786
+Current Time: 2846
+Current Time: 2847
+Current Time: 2848
+good to be here; EXECUTION_MODE:3,countDD:1787
+Current Time: 2849
+good to be here; EXECUTION_MODE:3,countDD:1788
+good to be here; EXECUTION_MODE:3,countDD:1789
+Current Time: 2850
+Current Time: 2851
+good to be here; EXECUTION_MODE:3,countDD:1790
+Current Time: 2852
+good to be here; EXECUTION_MODE:3,countDD:1791
+good to be here; EXECUTION_MODE:3,countDD:1792
+Current Time: 2853
+Current Time: 2854
+Current Time: 2855
+Current Time: 2856
+Current Time: 2857
+Current Time: 2858
+Current Time: 2859
+Current Time: 2860
+Current Time: 2861
+good to be here; EXECUTION_MODE:3,countDD:1793
+Current Time: 2862
+good to be here; EXECUTION_MODE:3,countDD:1794
+Current Time: 2863
+good to be here; EXECUTION_MODE:3,countDD:1795
+good to be here; EXECUTION_MODE:3,countDD:1796
+Current Time: 2864
+Current Time: 2865
+Current Time: 2866
+good to be here; EXECUTION_MODE:3,countDD:1797
+good to be here; EXECUTION_MODE:3,countDD:1798
+Current Time: 2867
+Current Time: 2868
+good to be here; EXECUTION_MODE:3,countDD:1799
+good to be here; EXECUTION_MODE:3,countDD:1800
+Current Time: 2869
+Current Time: 2870
+good to be here; EXECUTION_MODE:3,countDD:1801
+Current Time: 2871
+Current Time: 2872
+Current Time: 2873
+Current Time: 2874
+good to be here; EXECUTION_MODE:3,countDD:1802
+Current Time: 2875
+Current Time: 2876
+good to be here; EXECUTION_MODE:3,countDD:1803
+Current Time: 2877
+Current Time: 2878
+good to be here; EXECUTION_MODE:3,countDD:1804
+Current Time: 2879
+good to be here; EXECUTION_MODE:3,countDD:1805
+Current Time: 2880
+good to be here; EXECUTION_MODE:3,countDD:1806
+Current Time: 2881
+good to be here; EXECUTION_MODE:3,countDD:1807
+Current Time: 2882
+Current Time: 2883
+Current Time: 2884
+Current Time: 2885
+Current Time: 2886
+good to be here; EXECUTION_MODE:3,countDD:1808
+Current Time: 2887
+good to be here; EXECUTION_MODE:3,countDD:1809
+Current Time: 2888
+Current Time: 2889
+Current Time: 2890
+good to be here; EXECUTION_MODE:3,countDD:1810
+good to be here; EXECUTION_MODE:3,countDD:1811
+Current Time: 2891
+good to be here; EXECUTION_MODE:3,countDD:1812
+good to be here; EXECUTION_MODE:3,countDD:1813
+Current Time: 2892
+Current Time: 2893
+good to be here; EXECUTION_MODE:3,countDD:1814
+Current Time: 2894
+good to be here; EXECUTION_MODE:3,countDD:1815
+good to be here; EXECUTION_MODE:3,countDD:1816
+Current Time: 2895
+good to be here; EXECUTION_MODE:3,countDD:1817
+Current Time: 2896
+Current Time: 2897
+Current Time: 2898
+Current Time: 2899
+good to be here; EXECUTION_MODE:3,countDD:1818
+Current Time: 2900
+good to be here; EXECUTION_MODE:3,countDD:1819
+Current Time: 2901
+Current Time: 2902
+good to be here; EXECUTION_MODE:3,countDD:1820
+Current Time: 2903
+good to be here; EXECUTION_MODE:3,countDD:1821
+Current Time: 2904
+Current Time: 2905
+good to be here; EXECUTION_MODE:3,countDD:1822
+Current Time: 2906
+Current Time: 2907
+Current Time: 2908
+good to be here; EXECUTION_MODE:3,countDD:1823
+Current Time: 2909
+Current Time: 2910
+Current Time: 2911
+good to be here; EXECUTION_MODE:3,countDD:1824
+Current Time: 2912
+good to be here; EXECUTION_MODE:3,countDD:1825
+good to be here; EXECUTION_MODE:3,countDD:1826
+Current Time: 2913
+good to be here; EXECUTION_MODE:3,countDD:1827
+Current Time: 2914
+good to be here; EXECUTION_MODE:3,countDD:1828
+good to be here; EXECUTION_MODE:3,countDD:1829
+good to be here; EXECUTION_MODE:3,countDD:1830
+Current Time: 2915
+Current Time: 2916
+Current Time: 2917
+good to be here; EXECUTION_MODE:3,countDD:1831
+good to be here; EXECUTION_MODE:3,countDD:1832
+Current Time: 2918
+good to be here; EXECUTION_MODE:3,countDD:1833
+good to be here; EXECUTION_MODE:3,countDD:1834
+Current Time: 2919
+Current Time: 2920
+good to be here; EXECUTION_MODE:3,countDD:1835
+Current Time: 2921
+good to be here; EXECUTION_MODE:3,countDD:1836
+Current Time: 2922
+good to be here; EXECUTION_MODE:3,countDD:1837
+Current Time: 2923
+good to be here; EXECUTION_MODE:3,countDD:1838
+Current Time: 2924
+Current Time: 2925
+Current Time: 2926
+Current Time: 2927
+Current Time: 2928
+good to be here; EXECUTION_MODE:3,countDD:1839
+Current Time: 2929
+good to be here; EXECUTION_MODE:3,countDD:1840
+Current Time: 2930
+Current Time: 2931
+good to be here; EXECUTION_MODE:3,countDD:1841
+Current Time: 2932
+Current Time: 2933
+Current Time: 2934
+Current Time: 2935
+good to be here; EXECUTION_MODE:3,countDD:1842
+Current Time: 2936
+good to be here; EXECUTION_MODE:3,countDD:1843
+Current Time: 2937
+Current Time: 2938
+good to be here; EXECUTION_MODE:3,countDD:1844
+Current Time: 2939
+Current Time: 2940
+Current Time: 2941
+Current Time: 2942
+Current Time: 2943
+good to be here; EXECUTION_MODE:3,countDD:1845
+Current Time: 2944
+Current Time: 2945
+Current Time: 2946
+good to be here; EXECUTION_MODE:3,countDD:1846
+Current Time: 2947
+good to be here; EXECUTION_MODE:3,countDD:1847
+good to be here; EXECUTION_MODE:3,countDD:1848
+Current Time: 2948
+good to be here; EXECUTION_MODE:3,countDD:1849
+Current Time: 2949
+good to be here; EXECUTION_MODE:3,countDD:1850
+good to be here; EXECUTION_MODE:3,countDD:1851
+Current Time: 2950
+good to be here; EXECUTION_MODE:3,countDD:1852
+Current Time: 2951
+good to be here; EXECUTION_MODE:3,countDD:1853
+Current Time: 2952
+Current Time: 2953
+Current Time: 2954
+good to be here; EXECUTION_MODE:3,countDD:1854
+Current Time: 2955
+good to be here; EXECUTION_MODE:3,countDD:1855
+Current Time: 2956
+Current Time: 2957
+Current Time: 2958
+Current Time: 2959
+good to be here; EXECUTION_MODE:3,countDD:1856
+Current Time: 2960
+good to be here; EXECUTION_MODE:3,countDD:1857
+good to be here; EXECUTION_MODE:3,countDD:1858
+Current Time: 2961
+good to be here; EXECUTION_MODE:3,countDD:1859
+Current Time: 2962
+good to be here; EXECUTION_MODE:3,countDD:1860
+good to be here; EXECUTION_MODE:3,countDD:1861
+Current Time: 2963
+Current Time: 2964
+Current Time: 2965
+good to be here; EXECUTION_MODE:3,countDD:1862
+Current Time: 2966
+good to be here; EXECUTION_MODE:3,countDD:1863
+good to be here; EXECUTION_MODE:3,countDD:1864
+Current Time: 2967
+good to be here; EXECUTION_MODE:3,countDD:1865
+Current Time: 2968
+Current Time: 2969
+good to be here; EXECUTION_MODE:3,countDD:1866
+Current Time: 2970
+Current Time: 2971
+good to be here; EXECUTION_MODE:3,countDD:1867
+good to be here; EXECUTION_MODE:3,countDD:1868
+Current Time: 2972
+good to be here; EXECUTION_MODE:3,countDD:1869
+good to be here; EXECUTION_MODE:3,countDD:1870
+good to be here; EXECUTION_MODE:3,countDD:1871
+Current Time: 2973
+good to be here; EXECUTION_MODE:3,countDD:1872
+Current Time: 2974
+Current Time: 2975
+Current Time: 2976
+Current Time: 2977
+Current Time: 2978
+Current Time: 2979
+Current Time: 2980
+Current Time: 2981
+good to be here; EXECUTION_MODE:3,countDD:1873
+Current Time: 2982
+Current Time: 2983
+good to be here; EXECUTION_MODE:3,countDD:1874
+Current Time: 2984
+good to be here; EXECUTION_MODE:3,countDD:1875
+Current Time: 2985
+Current Time: 2986
+good to be here; EXECUTION_MODE:3,countDD:1876
+Current Time: 2987
+good to be here; EXECUTION_MODE:3,countDD:1877
+Current Time: 2988
+good to be here; EXECUTION_MODE:3,countDD:1878
+good to be here; EXECUTION_MODE:3,countDD:1879
+Current Time: 2989
+good to be here; EXECUTION_MODE:3,countDD:1880
+Current Time: 2990
+good to be here; EXECUTION_MODE:3,countDD:1881
+good to be here; EXECUTION_MODE:3,countDD:1882
+Current Time: 2991
+good to be here; EXECUTION_MODE:3,countDD:1883
+good to be here; EXECUTION_MODE:3,countDD:1884
+good to be here; EXECUTION_MODE:3,countDD:1885
+Current Time: 2992
+Current Time: 2993
+Current Time: 2994
+Current Time: 2995
+Current Time: 2996
+Current Time: 2997
+Current Time: 2998
+good to be here; EXECUTION_MODE:3,countDD:1886
+Current Time: 2999
+good to be here; EXECUTION_MODE:3,countDD:1887
+Current Time: 3000
+good to be here; EXECUTION_MODE:3,countDD:1888
+good to be here; EXECUTION_MODE:3,countDD:1889
+Current Time: 3001
+good to be here; EXECUTION_MODE:3,countDD:1890
+Current Time: 3002
+good to be here; EXECUTION_MODE:3,countDD:1891
+Current Time: 3003
+Current Time: 3004
+Current Time: 3005
+good to be here; EXECUTION_MODE:3,countDD:1892
+good to be here; EXECUTION_MODE:3,countDD:1893
+Current Time: 3006
+good to be here; EXECUTION_MODE:3,countDD:1894
+good to be here; EXECUTION_MODE:3,countDD:1895
+Current Time: 3007
+good to be here; EXECUTION_MODE:3,countDD:1896
+good to be here; EXECUTION_MODE:3,countDD:1897
+Current Time: 3008
+good to be here; EXECUTION_MODE:3,countDD:1898
+Current Time: 3009
+Current Time: 3010
+Current Time: 3011
+good to be here; EXECUTION_MODE:3,countDD:1899
+Current Time: 3012
+good to be here; EXECUTION_MODE:3,countDD:1900
+Current Time: 3013
+Current Time: 3014
+Current Time: 3015
+good to be here; EXECUTION_MODE:3,countDD:1901
+Current Time: 3016
+Current Time: 3017
+Current Time: 3018
+good to be here; EXECUTION_MODE:3,countDD:1902
+Current Time: 3019
+good to be here; EXECUTION_MODE:3,countDD:1903
+good to be here; EXECUTION_MODE:3,countDD:1904
+Current Time: 3020
+Current Time: 3021
+Current Time: 3022
+good to be here; EXECUTION_MODE:3,countDD:1905
+Current Time: 3023
+good to be here; EXECUTION_MODE:3,countDD:1906
+good to be here; EXECUTION_MODE:3,countDD:1907
+Current Time: 3024
+Current Time: 3025
+Current Time: 3026
+good to be here; EXECUTION_MODE:3,countDD:1908
+Current Time: 3027
+Current Time: 3028
+Current Time: 3029
+Current Time: 3030
+good to be here; EXECUTION_MODE:3,countDD:1909
+Current Time: 3031
+Current Time: 3032
+Current Time: 3033
+Current Time: 3034
+Current Time: 3035
+good to be here; EXECUTION_MODE:3,countDD:1910
+Current Time: 3036
+Current Time: 3037
+good to be here; EXECUTION_MODE:3,countDD:1911
+good to be here; EXECUTION_MODE:3,countDD:1912
+Current Time: 3038
+good to be here; EXECUTION_MODE:3,countDD:1913
+Current Time: 3039
+good to be here; EXECUTION_MODE:3,countDD:1914
+Current Time: 3040
+good to be here; EXECUTION_MODE:3,countDD:1915
+good to be here; EXECUTION_MODE:3,countDD:1916
+good to be here; EXECUTION_MODE:3,countDD:1917
+Current Time: 3041
+good to be here; EXECUTION_MODE:3,countDD:1918
+Current Time: 3042
+Current Time: 3043
+good to be here; EXECUTION_MODE:3,countDD:1919
+Current Time: 3044
+good to be here; EXECUTION_MODE:3,countDD:1920
+Current Time: 3045
+Current Time: 3046
+good to be here; EXECUTION_MODE:3,countDD:1921
+good to be here; EXECUTION_MODE:3,countDD:1922
+Current Time: 3047
+good to be here; EXECUTION_MODE:3,countDD:1923
+Current Time: 3048
+good to be here; EXECUTION_MODE:3,countDD:1924
+Current Time: 3049
+good to be here; EXECUTION_MODE:3,countDD:1925
+good to be here; EXECUTION_MODE:3,countDD:1926
+good to be here; EXECUTION_MODE:3,countDD:1927
+Current Time: 3050
+Current Time: 3051
+Current Time: 3052
+Current Time: 3053
+Current Time: 3054
+Current Time: 3055
+Current Time: 3056
+good to be here; EXECUTION_MODE:3,countDD:1928
+Current Time: 3057
+Current Time: 3058
+good to be here; EXECUTION_MODE:3,countDD:1929
+good to be here; EXECUTION_MODE:3,countDD:1930
+good to be here; EXECUTION_MODE:3,countDD:1931
+Current Time: 3059
+good to be here; EXECUTION_MODE:3,countDD:1932
+good to be here; EXECUTION_MODE:3,countDD:1933
+Current Time: 3060
+Current Time: 3061
+Current Time: 3062
+good to be here; EXECUTION_MODE:3,countDD:1934
+Current Time: 3063
+good to be here; EXECUTION_MODE:3,countDD:1935
+good to be here; EXECUTION_MODE:3,countDD:1936
+Current Time: 3064
+good to be here; EXECUTION_MODE:3,countDD:1937
+Current Time: 3065
+Current Time: 3066
+good to be here; EXECUTION_MODE:3,countDD:1938
+Current Time: 3067
+good to be here; EXECUTION_MODE:3,countDD:1939
+Current Time: 3068
+Current Time: 3069
+Current Time: 3070
+good to be here; EXECUTION_MODE:3,countDD:1940
+Current Time: 3071
+Current Time: 3072
+good to be here; EXECUTION_MODE:3,countDD:1941
+Current Time: 3073
+good to be here; EXECUTION_MODE:3,countDD:1942
+Current Time: 3074
+good to be here; EXECUTION_MODE:3,countDD:1943
+good to be here; EXECUTION_MODE:3,countDD:1944
+good to be here; EXECUTION_MODE:3,countDD:1945
+Current Time: 3075
+Current Time: 3076
+Current Time: 3077
+Current Time: 3078
+Current Time: 3079
+good to be here; EXECUTION_MODE:3,countDD:1946
+Current Time: 3080
+good to be here; EXECUTION_MODE:3,countDD:1947
+Current Time: 3081
+good to be here; EXECUTION_MODE:3,countDD:1948
+Current Time: 3082
+Current Time: 3083
+Current Time: 3084
+Current Time: 3085
+Current Time: 3086
+good to be here; EXECUTION_MODE:3,countDD:1949
+good to be here; EXECUTION_MODE:3,countDD:1950
+Current Time: 3087
+Current Time: 3088
+good to be here; EXECUTION_MODE:3,countDD:1951
+Current Time: 3089
+Current Time: 3090
+Current Time: 3091
+Current Time: 3092
+Current Time: 3093
+Current Time: 3094
+Current Time: 3095
+Current Time: 3096
+good to be here; EXECUTION_MODE:3,countDD:1952
+Current Time: 3097
+Current Time: 3098
+good to be here; EXECUTION_MODE:3,countDD:1953
+good to be here; EXECUTION_MODE:3,countDD:1954
+Current Time: 3099
+Current Time: 3100
+Current Time: 3101
+Current Time: 3102
+Current Time: 3103
+Current Time: 3104
+Current Time: 3105
+good to be here; EXECUTION_MODE:3,countDD:1955
+Current Time: 3106
+good to be here; EXECUTION_MODE:3,countDD:1956
+good to be here; EXECUTION_MODE:3,countDD:1957
+good to be here; EXECUTION_MODE:3,countDD:1958
+Current Time: 3107
+good to be here; EXECUTION_MODE:3,countDD:1959
+good to be here; EXECUTION_MODE:3,countDD:1960
+Current Time: 3108
+Current Time: 3109
+good to be here; EXECUTION_MODE:3,countDD:1961
+Current Time: 3110
+Current Time: 3111
+Current Time: 3112
+Current Time: 3113
+Current Time: 3114
+Current Time: 3115
+Current Time: 3116
+good to be here; EXECUTION_MODE:3,countDD:1962
+Current Time: 3117
+good to be here; EXECUTION_MODE:3,countDD:1963
+Current Time: 3118
+Current Time: 3119
+Current Time: 3120
+Current Time: 3121
+good to be here; EXECUTION_MODE:3,countDD:1964
+Current Time: 3122
+good to be here; EXECUTION_MODE:3,countDD:1965
+good to be here; EXECUTION_MODE:3,countDD:1966
+good to be here; EXECUTION_MODE:3,countDD:1967
+Current Time: 3123
+good to be here; EXECUTION_MODE:3,countDD:1968
+good to be here; EXECUTION_MODE:3,countDD:1969
+Current Time: 3124
+Current Time: 3125
+Current Time: 3126
+good to be here; EXECUTION_MODE:3,countDD:1970
+good to be here; EXECUTION_MODE:3,countDD:1971
+Current Time: 3127
+good to be here; EXECUTION_MODE:3,countDD:1972
+Current Time: 3128
+good to be here; EXECUTION_MODE:3,countDD:1973
+Current Time: 3129
+good to be here; EXECUTION_MODE:3,countDD:1974
+good to be here; EXECUTION_MODE:3,countDD:1975
+Current Time: 3130
+good to be here; EXECUTION_MODE:3,countDD:1976
+good to be here; EXECUTION_MODE:3,countDD:1977
+good to be here; EXECUTION_MODE:3,countDD:1978
+Current Time: 3131
+good to be here; EXECUTION_MODE:3,countDD:1979
+good to be here; EXECUTION_MODE:3,countDD:1980
+Current Time: 3132
+Current Time: 3133
+good to be here; EXECUTION_MODE:3,countDD:1981
+Current Time: 3134
+Current Time: 3135
+good to be here; EXECUTION_MODE:3,countDD:1982
+Current Time: 3136
+Current Time: 3137
+Current Time: 3138
+Current Time: 3139
+good to be here; EXECUTION_MODE:3,countDD:1983
+Current Time: 3140
+good to be here; EXECUTION_MODE:3,countDD:1984
+good to be here; EXECUTION_MODE:3,countDD:1985
+Current Time: 3141
+good to be here; EXECUTION_MODE:3,countDD:1986
+Current Time: 3142
+Current Time: 3143
+Current Time: 3144
+good to be here; EXECUTION_MODE:3,countDD:1987
+Current Time: 3145
+Current Time: 3146
+Current Time: 3147
+good to be here; EXECUTION_MODE:3,countDD:1988
+Current Time: 3148
+Current Time: 3149
+good to be here; EXECUTION_MODE:3,countDD:1989
+Current Time: 3150
+good to be here; EXECUTION_MODE:3,countDD:1990
+good to be here; EXECUTION_MODE:3,countDD:1991
+Current Time: 3151
+good to be here; EXECUTION_MODE:3,countDD:1992
+Current Time: 3152
+Current Time: 3153
+Current Time: 3154
+Current Time: 3155
+Current Time: 3156
+good to be here; EXECUTION_MODE:3,countDD:1993
+Current Time: 3157
+Current Time: 3158
+good to be here; EXECUTION_MODE:3,countDD:1994
+Current Time: 3159
+good to be here; EXECUTION_MODE:3,countDD:1995
+good to be here; EXECUTION_MODE:3,countDD:1996
+Current Time: 3160
+Current Time: 3161
+Current Time: 3162
+good to be here; EXECUTION_MODE:3,countDD:1997
+good to be here; EXECUTION_MODE:3,countDD:1998
+Current Time: 3163
+Current Time: 3164
+good to be here; EXECUTION_MODE:3,countDD:1999
+good to be here; EXECUTION_MODE:3,countDD:2000
+good to be here; EXECUTION_MODE:3,countDD:2001
+good to be here; EXECUTION_MODE:3,countDD:2002
+Current Time: 3165
+good to be here; EXECUTION_MODE:3,countDD:2003
+Current Time: 3166
+good to be here; EXECUTION_MODE:3,countDD:2004
+Current Time: 3167
+good to be here; EXECUTION_MODE:3,countDD:2005
+Current Time: 3168
+Current Time: 3169
+Current Time: 3170
+Current Time: 3171
+good to be here; EXECUTION_MODE:3,countDD:2006
+Current Time: 3172
+good to be here; EXECUTION_MODE:3,countDD:2007
+good to be here; EXECUTION_MODE:3,countDD:2008
+Current Time: 3173
+Current Time: 3174
+good to be here; EXECUTION_MODE:3,countDD:2009
+good to be here; EXECUTION_MODE:3,countDD:2010
+Current Time: 3175
+Current Time: 3176
+Current Time: 3177
+Current Time: 3178
+Current Time: 3179
+good to be here; EXECUTION_MODE:3,countDD:2011
+Current Time: 3180
+Current Time: 3181
+good to be here; EXECUTION_MODE:3,countDD:2012
+Current Time: 3182
+Current Time: 3183
+Current Time: 3184
+Current Time: 3185
+good to be here; EXECUTION_MODE:3,countDD:2013
+Current Time: 3186
+Current Time: 3187
+Current Time: 3188
+good to be here; EXECUTION_MODE:3,countDD:2014
+good to be here; EXECUTION_MODE:3,countDD:2015
+Current Time: 3189
+good to be here; EXECUTION_MODE:3,countDD:2016
+Current Time: 3190
+good to be here; EXECUTION_MODE:3,countDD:2017
+good to be here; EXECUTION_MODE:3,countDD:2018
+good to be here; EXECUTION_MODE:3,countDD:2019
+Current Time: 3191
+Current Time: 3192
+good to be here; EXECUTION_MODE:3,countDD:2020
+Current Time: 3193
+good to be here; EXECUTION_MODE:3,countDD:2021
+Current Time: 3194
+Current Time: 3195
+good to be here; EXECUTION_MODE:3,countDD:2022
+Current Time: 3196
+good to be here; EXECUTION_MODE:3,countDD:2023
+Current Time: 3197
+good to be here; EXECUTION_MODE:3,countDD:2024
+good to be here; EXECUTION_MODE:3,countDD:2025
+Current Time: 3198
+Current Time: 3199
+good to be here; EXECUTION_MODE:3,countDD:2026
+Current Time: 3200
+good to be here; EXECUTION_MODE:3,countDD:2027
+Current Time: 3201
+good to be here; EXECUTION_MODE:3,countDD:2028
+Current Time: 3202
+good to be here; EXECUTION_MODE:3,countDD:2029
+Current Time: 3203
+Current Time: 3204
+good to be here; EXECUTION_MODE:3,countDD:2030
+Current Time: 3205
+Current Time: 3206
+Current Time: 3207
+good to be here; EXECUTION_MODE:3,countDD:2031
+Current Time: 3208
+good to be here; EXECUTION_MODE:3,countDD:2032
+Current Time: 3209
+Current Time: 3210
+Current Time: 3211
+Current Time: 3212
+Current Time: 3213
+Current Time: 3214
+good to be here; EXECUTION_MODE:3,countDD:2033
+Current Time: 3215
+Current Time: 3216
+good to be here; EXECUTION_MODE:3,countDD:2034
+good to be here; EXECUTION_MODE:3,countDD:2035
+Current Time: 3217
+Current Time: 3218
+Current Time: 3219
+good to be here; EXECUTION_MODE:3,countDD:2036
+Current Time: 3220
+Current Time: 3221
+Current Time: 3222
+Current Time: 3223
+good to be here; EXECUTION_MODE:3,countDD:2037
+Current Time: 3224
+good to be here; EXECUTION_MODE:3,countDD:2038
+Current Time: 3225
+Current Time: 3226
+good to be here; EXECUTION_MODE:3,countDD:2039
+Current Time: 3227
+good to be here; EXECUTION_MODE:3,countDD:2040
+Current Time: 3228
+good to be here; EXECUTION_MODE:3,countDD:2041
+Current Time: 3229
+good to be here; EXECUTION_MODE:3,countDD:2042
+Current Time: 3230
+good to be here; EXECUTION_MODE:3,countDD:2043
+good to be here; EXECUTION_MODE:3,countDD:2044
+good to be here; EXECUTION_MODE:3,countDD:2045
+good to be here; EXECUTION_MODE:3,countDD:2046
+Current Time: 3231
+good to be here; EXECUTION_MODE:3,countDD:2047
+Current Time: 3232
+good to be here; EXECUTION_MODE:3,countDD:2048
+good to be here; EXECUTION_MODE:3,countDD:2049
+Current Time: 3233
+good to be here; EXECUTION_MODE:3,countDD:2050
+good to be here; EXECUTION_MODE:3,countDD:2051
+Current Time: 3234
+good to be here; EXECUTION_MODE:3,countDD:2052
+Current Time: 3235
+good to be here; EXECUTION_MODE:3,countDD:2053
+Current Time: 3236
+good to be here; EXECUTION_MODE:3,countDD:2054
+Current Time: 3237
+Current Time: 3238
+Current Time: 3239
+good to be here; EXECUTION_MODE:3,countDD:2055
+good to be here; EXECUTION_MODE:3,countDD:2056
+good to be here; EXECUTION_MODE:3,countDD:2057
+Current Time: 3240
+Current Time: 3241
+good to be here; EXECUTION_MODE:3,countDD:2058
+Current Time: 3242
+Current Time: 3243
+Current Time: 3244
+good to be here; EXECUTION_MODE:3,countDD:2059
+Current Time: 3245
+good to be here; EXECUTION_MODE:3,countDD:2060
+Current Time: 3246
+good to be here; EXECUTION_MODE:3,countDD:2061
+good to be here; EXECUTION_MODE:3,countDD:2062
+Current Time: 3247
+good to be here; EXECUTION_MODE:3,countDD:2063
+good to be here; EXECUTION_MODE:3,countDD:2064
+Current Time: 3248
+Current Time: 3249
+good to be here; EXECUTION_MODE:3,countDD:2065
+Current Time: 3250
+good to be here; EXECUTION_MODE:3,countDD:2066
+Current Time: 3251
+Current Time: 3252
+Current Time: 3253
+Current Time: 3254
+good to be here; EXECUTION_MODE:3,countDD:2067
+Current Time: 3255
+good to be here; EXECUTION_MODE:3,countDD:2068
+Current Time: 3256
+good to be here; EXECUTION_MODE:3,countDD:2069
+Current Time: 3257
+good to be here; EXECUTION_MODE:3,countDD:2070
+Current Time: 3258
+good to be here; EXECUTION_MODE:3,countDD:2071
+good to be here; EXECUTION_MODE:3,countDD:2072
+Current Time: 3259
+Current Time: 3260
+Current Time: 3261
+good to be here; EXECUTION_MODE:3,countDD:2073
+Current Time: 3262
+good to be here; EXECUTION_MODE:3,countDD:2074
+good to be here; EXECUTION_MODE:3,countDD:2075
+Current Time: 3263
+good to be here; EXECUTION_MODE:3,countDD:2076
+good to be here; EXECUTION_MODE:3,countDD:2077
+Current Time: 3264
+good to be here; EXECUTION_MODE:3,countDD:2078
+Current Time: 3265
+good to be here; EXECUTION_MODE:3,countDD:2079
+Current Time: 3266
+Current Time: 3267
+good to be here; EXECUTION_MODE:3,countDD:2080
+good to be here; EXECUTION_MODE:3,countDD:2081
+good to be here; EXECUTION_MODE:3,countDD:2082
+Current Time: 3268
+Current Time: 3269
+good to be here; EXECUTION_MODE:3,countDD:2083
+Current Time: 3270
+Current Time: 3271
+Current Time: 3272
+Current Time: 3273
+good to be here; EXECUTION_MODE:3,countDD:2084
+good to be here; EXECUTION_MODE:3,countDD:2085
+Current Time: 3274
+good to be here; EXECUTION_MODE:3,countDD:2086
+Current Time: 3275
+good to be here; EXECUTION_MODE:3,countDD:2087
+Current Time: 3276
+good to be here; EXECUTION_MODE:3,countDD:2088
+good to be here; EXECUTION_MODE:3,countDD:2089
+Current Time: 3277
+Current Time: 3278
+Current Time: 3279
+Current Time: 3280
+Current Time: 3281
+Current Time: 3282
+Current Time: 3283
+Current Time: 3284
+Current Time: 3285
+good to be here; EXECUTION_MODE:3,countDD:2090
+Current Time: 3286
+Current Time: 3287
+good to be here; EXECUTION_MODE:3,countDD:2091
+good to be here; EXECUTION_MODE:3,countDD:2092
+Current Time: 3288
+good to be here; EXECUTION_MODE:3,countDD:2093
+Current Time: 3289
+good to be here; EXECUTION_MODE:3,countDD:2094
+Current Time: 3290
+Current Time: 3291
+good to be here; EXECUTION_MODE:3,countDD:2095
+Current Time: 3292
+good to be here; EXECUTION_MODE:3,countDD:2096
+good to be here; EXECUTION_MODE:3,countDD:2097
+Current Time: 3293
+Current Time: 3294
+Current Time: 3295
+Current Time: 3296
+good to be here; EXECUTION_MODE:3,countDD:2098
+Current Time: 3297
+good to be here; EXECUTION_MODE:3,countDD:2099
+Current Time: 3298
+good to be here; EXECUTION_MODE:3,countDD:2100
+good to be here; EXECUTION_MODE:3,countDD:2101
+Current Time: 3299
+Current Time: 3300
+Current Time: 3301
+good to be here; EXECUTION_MODE:3,countDD:2102
+good to be here; EXECUTION_MODE:3,countDD:2103
+Current Time: 3302
+Current Time: 3303
+Current Time: 3304
+Current Time: 3305
+Current Time: 3306
+Current Time: 3307
+good to be here; EXECUTION_MODE:3,countDD:2104
+Current Time: 3308
+good to be here; EXECUTION_MODE:3,countDD:2105
+Current Time: 3309
+Current Time: 3310
+Current Time: 3311
+Current Time: 3312
+Current Time: 3313
+Current Time: 3314
+good to be here; EXECUTION_MODE:3,countDD:2106
+good to be here; EXECUTION_MODE:3,countDD:2107
+Current Time: 3315
+good to be here; EXECUTION_MODE:3,countDD:2108
+Current Time: 3316
+good to be here; EXECUTION_MODE:3,countDD:2109
+good to be here; EXECUTION_MODE:3,countDD:2110
+Current Time: 3317
+Current Time: 3318
+good to be here; EXECUTION_MODE:3,countDD:2111
+Current Time: 3319
+good to be here; EXECUTION_MODE:3,countDD:2112
+Current Time: 3320
+Current Time: 3321
+good to be here; EXECUTION_MODE:3,countDD:2113
+good to be here; EXECUTION_MODE:3,countDD:2114
+Current Time: 3322
+Current Time: 3323
+good to be here; EXECUTION_MODE:3,countDD:2115
+good to be here; EXECUTION_MODE:3,countDD:2116
+good to be here; EXECUTION_MODE:3,countDD:2117
+Current Time: 3324
+good to be here; EXECUTION_MODE:3,countDD:2118
+Current Time: 3325
+good to be here; EXECUTION_MODE:3,countDD:2119
+Current Time: 3326
+Current Time: 3327
+Current Time: 3328
+good to be here; EXECUTION_MODE:3,countDD:2120
+good to be here; EXECUTION_MODE:3,countDD:2121
+good to be here; EXECUTION_MODE:3,countDD:2122
+good to be here; EXECUTION_MODE:3,countDD:2123
+Current Time: 3329
+good to be here; EXECUTION_MODE:3,countDD:2124
+Current Time: 3330
+good to be here; EXECUTION_MODE:3,countDD:2125
+Current Time: 3331
+good to be here; EXECUTION_MODE:3,countDD:2126
+Current Time: 3332
+good to be here; EXECUTION_MODE:3,countDD:2127
+Current Time: 3333
+good to be here; EXECUTION_MODE:3,countDD:2128
+Current Time: 3334
+good to be here; EXECUTION_MODE:3,countDD:2129
+Current Time: 3335
+Current Time: 3336
+Current Time: 3337
+Current Time: 3338
+good to be here; EXECUTION_MODE:3,countDD:2130
+Current Time: 3339
+good to be here; EXECUTION_MODE:3,countDD:2131
+good to be here; EXECUTION_MODE:3,countDD:2132
+Current Time: 3340
+Current Time: 3341
+good to be here; EXECUTION_MODE:3,countDD:2133
+good to be here; EXECUTION_MODE:3,countDD:2134
+Current Time: 3342
+Current Time: 3343
+Current Time: 3344
+Current Time: 3345
+good to be here; EXECUTION_MODE:3,countDD:2135
+Current Time: 3346
+good to be here; EXECUTION_MODE:3,countDD:2136
+Current Time: 3347
+good to be here; EXECUTION_MODE:3,countDD:2137
+Current Time: 3348
+good to be here; EXECUTION_MODE:3,countDD:2138
+good to be here; EXECUTION_MODE:3,countDD:2139
+Current Time: 3349
+good to be here; EXECUTION_MODE:3,countDD:2140
+Current Time: 3350
+Current Time: 3351
+Current Time: 3352
+Current Time: 3353
+good to be here; EXECUTION_MODE:3,countDD:2141
+good to be here; EXECUTION_MODE:3,countDD:2142
+Current Time: 3354
+good to be here; EXECUTION_MODE:3,countDD:2143
+good to be here; EXECUTION_MODE:3,countDD:2144
+Current Time: 3355
+Current Time: 3356
+good to be here; EXECUTION_MODE:3,countDD:2145
+Current Time: 3357
+good to be here; EXECUTION_MODE:3,countDD:2146
+Current Time: 3358
+good to be here; EXECUTION_MODE:3,countDD:2147
+Current Time: 3359
+Current Time: 3360
+good to be here; EXECUTION_MODE:3,countDD:2148
+Current Time: 3361
+good to be here; EXECUTION_MODE:3,countDD:2149
+good to be here; EXECUTION_MODE:3,countDD:2150
+good to be here; EXECUTION_MODE:3,countDD:2151
+good to be here; EXECUTION_MODE:3,countDD:2152
+Current Time: 3362
+good to be here; EXECUTION_MODE:3,countDD:2153
+good to be here; EXECUTION_MODE:3,countDD:2154
+Current Time: 3363
+Current Time: 3364
+Current Time: 3365
+good to be here; EXECUTION_MODE:3,countDD:2155
+Current Time: 3366
+good to be here; EXECUTION_MODE:3,countDD:2156
+good to be here; EXECUTION_MODE:3,countDD:2157
+Current Time: 3367
+Current Time: 3368
+Current Time: 3369
+good to be here; EXECUTION_MODE:3,countDD:2158
+good to be here; EXECUTION_MODE:3,countDD:2159
+Current Time: 3370
+Current Time: 3371
+good to be here; EXECUTION_MODE:3,countDD:2160
+Current Time: 3372
+good to be here; EXECUTION_MODE:3,countDD:2161
+Current Time: 3373
+good to be here; EXECUTION_MODE:3,countDD:2162
+good to be here; EXECUTION_MODE:3,countDD:2163
+good to be here; EXECUTION_MODE:3,countDD:2164
+Current Time: 3374
+Current Time: 3375
+good to be here; EXECUTION_MODE:3,countDD:2165
+good to be here; EXECUTION_MODE:3,countDD:2166
+Current Time: 3376
+Current Time: 3377
+good to be here; EXECUTION_MODE:3,countDD:2167
+Current Time: 3378
+Current Time: 3379
+Current Time: 3380
+Current Time: 3381
+Current Time: 3382
+good to be here; EXECUTION_MODE:3,countDD:2168
+good to be here; EXECUTION_MODE:3,countDD:2169
+good to be here; EXECUTION_MODE:3,countDD:2170
+Current Time: 3383
+good to be here; EXECUTION_MODE:3,countDD:2171
+Current Time: 3384
+Current Time: 3385
+good to be here; EXECUTION_MODE:3,countDD:2172
+Current Time: 3386
+Current Time: 3387
+good to be here; EXECUTION_MODE:3,countDD:2173
+Current Time: 3388
+good to be here; EXECUTION_MODE:3,countDD:2174
+Current Time: 3389
+Current Time: 3390
+good to be here; EXECUTION_MODE:3,countDD:2175
+Current Time: 3391
+Current Time: 3392
+good to be here; EXECUTION_MODE:3,countDD:2176
+good to be here; EXECUTION_MODE:3,countDD:2177
+Current Time: 3393
+good to be here; EXECUTION_MODE:3,countDD:2178
+Current Time: 3394
+good to be here; EXECUTION_MODE:3,countDD:2179
+Current Time: 3395
+Current Time: 3396
+good to be here; EXECUTION_MODE:3,countDD:2180
+Current Time: 3397
+Current Time: 3398
+Current Time: 3399
+Current Time: 3400
+Current Time: 3401
+Current Time: 3402
+Current Time: 3403
+good to be here; EXECUTION_MODE:3,countDD:2181
+good to be here; EXECUTION_MODE:3,countDD:2182
+Current Time: 3404
+good to be here; EXECUTION_MODE:3,countDD:2183
+Current Time: 3405
+Current Time: 3406
+Current Time: 3407
+Current Time: 3408
+good to be here; EXECUTION_MODE:3,countDD:2184
+Current Time: 3409
+good to be here; EXECUTION_MODE:3,countDD:2185
+good to be here; EXECUTION_MODE:3,countDD:2186
+Current Time: 3410
+Current Time: 3411
+Current Time: 3412
+Current Time: 3413
+Current Time: 3414
+good to be here; EXECUTION_MODE:3,countDD:2187
+Current Time: 3415
+Current Time: 3416
+good to be here; EXECUTION_MODE:3,countDD:2188
+Current Time: 3417
+Current Time: 3418
+Current Time: 3419
+good to be here; EXECUTION_MODE:3,countDD:2189
+Current Time: 3420
+good to be here; EXECUTION_MODE:3,countDD:2190
+good to be here; EXECUTION_MODE:3,countDD:2191
+good to be here; EXECUTION_MODE:3,countDD:2192
+Current Time: 3421
+good to be here; EXECUTION_MODE:3,countDD:2193
+good to be here; EXECUTION_MODE:3,countDD:2194
+good to be here; EXECUTION_MODE:3,countDD:2195
+Current Time: 3422
+good to be here; EXECUTION_MODE:3,countDD:2196
+good to be here; EXECUTION_MODE:3,countDD:2197
+Current Time: 3423
+good to be here; EXECUTION_MODE:3,countDD:2198
+good to be here; EXECUTION_MODE:3,countDD:2199
+Current Time: 3424
+good to be here; EXECUTION_MODE:3,countDD:2200
+good to be here; EXECUTION_MODE:3,countDD:2201
+good to be here; EXECUTION_MODE:3,countDD:2202
+Current Time: 3425
+good to be here; EXECUTION_MODE:3,countDD:2203
+Current Time: 3426
+Current Time: 3427
+Current Time: 3428
+Current Time: 3429
+good to be here; EXECUTION_MODE:3,countDD:2204
+Current Time: 3430
+good to be here; EXECUTION_MODE:3,countDD:2205
+Current Time: 3431
+good to be here; EXECUTION_MODE:3,countDD:2206
+good to be here; EXECUTION_MODE:3,countDD:2207
+Current Time: 3432
+good to be here; EXECUTION_MODE:3,countDD:2208
+Current Time: 3433
+Current Time: 3434
+good to be here; EXECUTION_MODE:3,countDD:2209
+Current Time: 3435
+Current Time: 3436
+good to be here; EXECUTION_MODE:3,countDD:2210
+Current Time: 3437
+Current Time: 3438
+good to be here; EXECUTION_MODE:3,countDD:2211
+Current Time: 3439
+good to be here; EXECUTION_MODE:3,countDD:2212
+Current Time: 3440
+good to be here; EXECUTION_MODE:3,countDD:2213
+good to be here; EXECUTION_MODE:3,countDD:2214
+Current Time: 3441
+Current Time: 3442
+good to be here; EXECUTION_MODE:3,countDD:2215
+Current Time: 3443
+good to be here; EXECUTION_MODE:3,countDD:2216
+Current Time: 3444
+Current Time: 3445
+good to be here; EXECUTION_MODE:3,countDD:2217
+Current Time: 3446
+Current Time: 3447
+good to be here; EXECUTION_MODE:3,countDD:2218
+Current Time: 3448
+good to be here; EXECUTION_MODE:3,countDD:2219
+good to be here; EXECUTION_MODE:3,countDD:2220
+Current Time: 3449
+good to be here; EXECUTION_MODE:3,countDD:2221
+good to be here; EXECUTION_MODE:3,countDD:2222
+good to be here; EXECUTION_MODE:3,countDD:2223
+Current Time: 3450
+good to be here; EXECUTION_MODE:3,countDD:2224
+good to be here; EXECUTION_MODE:3,countDD:2225
+good to be here; EXECUTION_MODE:3,countDD:2226
+Current Time: 3451
+good to be here; EXECUTION_MODE:3,countDD:2227
+Current Time: 3452
+good to be here; EXECUTION_MODE:3,countDD:2228
+Current Time: 3453
+good to be here; EXECUTION_MODE:3,countDD:2229
+Current Time: 3454
+Current Time: 3455
+good to be here; EXECUTION_MODE:3,countDD:2230
+good to be here; EXECUTION_MODE:3,countDD:2231
+Current Time: 3456
+good to be here; EXECUTION_MODE:3,countDD:2232
+Current Time: 3457
+good to be here; EXECUTION_MODE:3,countDD:2233
+good to be here; EXECUTION_MODE:3,countDD:2234
+Current Time: 3458
+good to be here; EXECUTION_MODE:3,countDD:2235
+Current Time: 3459
+good to be here; EXECUTION_MODE:3,countDD:2236
+good to be here; EXECUTION_MODE:3,countDD:2237
+Current Time: 3460
+good to be here; EXECUTION_MODE:3,countDD:2238
+good to be here; EXECUTION_MODE:3,countDD:2239
+Current Time: 3461
+good to be here; EXECUTION_MODE:3,countDD:2240
+Current Time: 3462
+good to be here; EXECUTION_MODE:3,countDD:2241
+Current Time: 3463
+good to be here; EXECUTION_MODE:3,countDD:2242
+Current Time: 3464
+good to be here; EXECUTION_MODE:3,countDD:2243
+Current Time: 3465
+Current Time: 3466
+Current Time: 3467
+Current Time: 3468
+good to be here; EXECUTION_MODE:3,countDD:2244
+Current Time: 3469
+good to be here; EXECUTION_MODE:3,countDD:2245
+Current Time: 3470
+Current Time: 3471
+Current Time: 3472
+good to be here; EXECUTION_MODE:3,countDD:2246
+Current Time: 3473
+good to be here; EXECUTION_MODE:3,countDD:2247
+Current Time: 3474
+Current Time: 3475
+Current Time: 3476
+good to be here; EXECUTION_MODE:3,countDD:2248
+Current Time: 3477
+Current Time: 3478
+good to be here; EXECUTION_MODE:3,countDD:2249
+good to be here; EXECUTION_MODE:3,countDD:2250
+Current Time: 3479
+good to be here; EXECUTION_MODE:3,countDD:2251
+good to be here; EXECUTION_MODE:3,countDD:2252
+Current Time: 3480
+Current Time: 3481
+Current Time: 3482
+good to be here; EXECUTION_MODE:3,countDD:2253
+good to be here; EXECUTION_MODE:3,countDD:2254
+Current Time: 3483
+good to be here; EXECUTION_MODE:3,countDD:2255
+good to be here; EXECUTION_MODE:3,countDD:2256
+Current Time: 3484
+Current Time: 3485
+Current Time: 3486
+good to be here; EXECUTION_MODE:3,countDD:2257
+Current Time: 3487
+Current Time: 3488
+Current Time: 3489
+good to be here; EXECUTION_MODE:3,countDD:2258
+Current Time: 3490
+good to be here; EXECUTION_MODE:3,countDD:2259
+good to be here; EXECUTION_MODE:3,countDD:2260
+good to be here; EXECUTION_MODE:3,countDD:2261
+good to be here; EXECUTION_MODE:3,countDD:2262
+Current Time: 3491
+good to be here; EXECUTION_MODE:3,countDD:2263
+good to be here; EXECUTION_MODE:3,countDD:2264
+Current Time: 3492
+good to be here; EXECUTION_MODE:3,countDD:2265
+Current Time: 3493
+good to be here; EXECUTION_MODE:3,countDD:2266
+Current Time: 3494
+good to be here; EXECUTION_MODE:3,countDD:2267
+Current Time: 3495
+good to be here; EXECUTION_MODE:3,countDD:2268
+Current Time: 3496
+good to be here; EXECUTION_MODE:3,countDD:2269
+Current Time: 3497
+Current Time: 3498
+good to be here; EXECUTION_MODE:3,countDD:2270
+good to be here; EXECUTION_MODE:3,countDD:2271
+Current Time: 3499
+good to be here; EXECUTION_MODE:3,countDD:2272
+Current Time: 3500
+good to be here; EXECUTION_MODE:3,countDD:2273
+Current Time: 3501
+Current Time: 3502
+good to be here; EXECUTION_MODE:3,countDD:2274
+Current Time: 3503
+Current Time: 3504
+good to be here; EXECUTION_MODE:3,countDD:2275
+good to be here; EXECUTION_MODE:3,countDD:2276
+good to be here; EXECUTION_MODE:3,countDD:2277
+Current Time: 3505
+good to be here; EXECUTION_MODE:3,countDD:2278
+Current Time: 3506
+good to be here; EXECUTION_MODE:3,countDD:2279
+good to be here; EXECUTION_MODE:3,countDD:2280
+Current Time: 3507
+good to be here; EXECUTION_MODE:3,countDD:2281
+good to be here; EXECUTION_MODE:3,countDD:2282
+Current Time: 3508
+Current Time: 3509
+Current Time: 3510
+Current Time: 3511
+good to be here; EXECUTION_MODE:3,countDD:2283
+Current Time: 3512
+Current Time: 3513
+good to be here; EXECUTION_MODE:3,countDD:2284
+Current Time: 3514
+good to be here; EXECUTION_MODE:3,countDD:2285
+good to be here; EXECUTION_MODE:3,countDD:2286
+Current Time: 3515
+good to be here; EXECUTION_MODE:3,countDD:2287
+Current Time: 3516
+good to be here; EXECUTION_MODE:3,countDD:2288
+good to be here; EXECUTION_MODE:3,countDD:2289
+good to be here; EXECUTION_MODE:3,countDD:2290
+good to be here; EXECUTION_MODE:3,countDD:2291
+Current Time: 3517
+good to be here; EXECUTION_MODE:3,countDD:2292
+good to be here; EXECUTION_MODE:3,countDD:2293
+Current Time: 3518
+good to be here; EXECUTION_MODE:3,countDD:2294
+Current Time: 3519
+good to be here; EXECUTION_MODE:3,countDD:2295
+Current Time: 3520
+good to be here; EXECUTION_MODE:3,countDD:2296
+good to be here; EXECUTION_MODE:3,countDD:2297
+good to be here; EXECUTION_MODE:3,countDD:2298
+Current Time: 3521
+Current Time: 3522
+good to be here; EXECUTION_MODE:3,countDD:2299
+good to be here; EXECUTION_MODE:3,countDD:2300
+Current Time: 3523
+Current Time: 3524
+good to be here; EXECUTION_MODE:3,countDD:2301
+Current Time: 3525
+Current Time: 3526
+Current Time: 3527
+good to be here; EXECUTION_MODE:3,countDD:2302
+Current Time: 3528
+Current Time: 3529
+Current Time: 3530
+Current Time: 3531
+Current Time: 3532
+Current Time: 3533
+good to be here; EXECUTION_MODE:3,countDD:2303
+Current Time: 3534
+Current Time: 3535
+Current Time: 3536
+Current Time: 3537
+good to be here; EXECUTION_MODE:3,countDD:2304
+Current Time: 3538
+good to be here; EXECUTION_MODE:3,countDD:2305
+good to be here; EXECUTION_MODE:3,countDD:2306
+Current Time: 3539
+Current Time: 3540
+good to be here; EXECUTION_MODE:3,countDD:2307
+Current Time: 3541
+Current Time: 3542
+good to be here; EXECUTION_MODE:3,countDD:2308
+Current Time: 3543
+good to be here; EXECUTION_MODE:3,countDD:2309
+good to be here; EXECUTION_MODE:3,countDD:2310
+Current Time: 3544
+good to be here; EXECUTION_MODE:3,countDD:2311
+Current Time: 3545
+good to be here; EXECUTION_MODE:3,countDD:2312
+good to be here; EXECUTION_MODE:3,countDD:2313
+good to be here; EXECUTION_MODE:3,countDD:2314
+Current Time: 3546
+good to be here; EXECUTION_MODE:3,countDD:2315
+Current Time: 3547
+good to be here; EXECUTION_MODE:3,countDD:2316
+Current Time: 3548
+Current Time: 3549
+good to be here; EXECUTION_MODE:3,countDD:2317
+good to be here; EXECUTION_MODE:3,countDD:2318
+Current Time: 3550
+good to be here; EXECUTION_MODE:3,countDD:2319
+Current Time: 3551
+good to be here; EXECUTION_MODE:3,countDD:2320
+Current Time: 3552
+good to be here; EXECUTION_MODE:3,countDD:2321
+good to be here; EXECUTION_MODE:3,countDD:2322
+Current Time: 3553
+good to be here; EXECUTION_MODE:3,countDD:2323
+good to be here; EXECUTION_MODE:3,countDD:2324
+Current Time: 3554
+good to be here; EXECUTION_MODE:3,countDD:2325
+Current Time: 3555
+good to be here; EXECUTION_MODE:3,countDD:2326
+Current Time: 3556
+good to be here; EXECUTION_MODE:3,countDD:2327
+Current Time: 3557
+Current Time: 3558
+Current Time: 3559
+Current Time: 3560
+Current Time: 3561
+good to be here; EXECUTION_MODE:3,countDD:2328
+good to be here; EXECUTION_MODE:3,countDD:2329
+Current Time: 3562
+good to be here; EXECUTION_MODE:3,countDD:2330
+Current Time: 3563
+Current Time: 3564
+good to be here; EXECUTION_MODE:3,countDD:2331
+Current Time: 3565
+Current Time: 3566
+good to be here; EXECUTION_MODE:3,countDD:2332
+Current Time: 3567
+Current Time: 3568
+Current Time: 3569
+good to be here; EXECUTION_MODE:3,countDD:2333
+good to be here; EXECUTION_MODE:3,countDD:2334
+Current Time: 3570
+good to be here; EXECUTION_MODE:3,countDD:2335
+Current Time: 3571
+good to be here; EXECUTION_MODE:3,countDD:2336
+Current Time: 3572
+Current Time: 3573
+good to be here; EXECUTION_MODE:3,countDD:2337
+Current Time: 3574
+good to be here; EXECUTION_MODE:3,countDD:2338
+Current Time: 3575
+good to be here; EXECUTION_MODE:3,countDD:2339
+Current Time: 3576
+Current Time: 3577
+Current Time: 3578
+Current Time: 3579
+good to be here; EXECUTION_MODE:3,countDD:2340
+Current Time: 3580
+good to be here; EXECUTION_MODE:3,countDD:2341
+Current Time: 3581
+good to be here; EXECUTION_MODE:3,countDD:2342
+Current Time: 3582
+good to be here; EXECUTION_MODE:3,countDD:2343
+Current Time: 3583
+good to be here; EXECUTION_MODE:3,countDD:2344
+Current Time: 3584
+good to be here; EXECUTION_MODE:3,countDD:2345
+Current Time: 3585
+Current Time: 3586
+good to be here; EXECUTION_MODE:3,countDD:2346
+Current Time: 3587
+Current Time: 3588
+good to be here; EXECUTION_MODE:3,countDD:2347
+Current Time: 3589
+Current Time: 3590
+good to be here; EXECUTION_MODE:3,countDD:2348
+Current Time: 3591
+good to be here; EXECUTION_MODE:3,countDD:2349
+Current Time: 3592
+Current Time: 3593
+Current Time: 3594
+good to be here; EXECUTION_MODE:3,countDD:2350
+Current Time: 3595
+Current Time: 3596
+Current Time: 3597
+good to be here; EXECUTION_MODE:3,countDD:2351
+Current Time: 3598
+Current Time: 3599
+===================================
+Simulation Time (ms10E-3)8377.88

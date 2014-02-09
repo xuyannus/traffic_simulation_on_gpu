@@ -1,0 +1,7 @@
+1: Traffic Simulation is not narually parallelable.
+2: Upper Stream - Down Stream Depdence & Partitions.
+3: Optimistic and Premistic Protocal
+4: Empty_Space_Prediction_Protocal
+4:1: Time Step divided into 2 phases: Pre-Corss Phase and Corss Phase
+4:2: Queue Length Prediction (Queue(t) = Queue(t-1) + (Queue(t-1) - Queue(t-2))
+5: Empty_Space_Prediction_Protocal greatly improve the massive parallelability of traffic simulation
