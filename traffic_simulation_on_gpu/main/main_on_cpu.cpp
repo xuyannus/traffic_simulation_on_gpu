@@ -17,7 +17,7 @@
 //#include "../on_gpu/supply/OnGPUVehicle.h"
 //#include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 //
-//#define ENABLE_OUTPUT
+////#define ENABLE_OUTPUT
 ////#define SERIALIZED_EXECUTION
 //
 //using namespace std;
@@ -33,11 +33,15 @@
 ///*
 // * Path Input Config
 // */
-//std::string network_file_path = "data/exp1_network/network_10_rank.dat_121";
-//std::string demand_file_path = "data/exp1/demand_10_10000.dat";
-//std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
-//std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
+////std::string network_file_path = "data/exp1_network/network_10_rank.dat_121";
+////std::string demand_file_path = "data/exp1/demand_10_10000.dat";
+////std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
+////std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
 //
+//std::string network_file_path = "data/data_large_network/network_100_rank.dat";
+//std::string demand_file_path = "data/exp1/demand_100.dat";
+//std::string od_pair_file_path = "data/exp1/od_pair_100.dat";
+//std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_100.dat";
 ///*
 // * All data in GPU
 // */
@@ -49,7 +53,7 @@
 ///**
 // * Simulation Results
 // */
-//std::string simulation_output_file_path = "output/simulated_outputs.txt";
+//std::string simulation_output_file_path = "output/simulated_outputs_100.txt";
 //std::map<int, SimulationResults*> simulation_results_pool;
 //ofstream simulation_results_output_file;
 //
@@ -146,10 +150,10 @@
 //		return 0;
 //	}
 //
+//	std::cout << "Simulation Starts" << std::endl;
+//
 //	TimeTools profile;
 //	profile.start_profiling();
-//
-//	std::cout << "Simulation Starts" << std::endl;
 //
 //	//Start Simulation
 //	if (start_simulation() == false) {

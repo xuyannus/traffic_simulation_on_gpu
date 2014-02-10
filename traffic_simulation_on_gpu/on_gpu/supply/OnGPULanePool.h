@@ -79,7 +79,7 @@ public:
 	bool blocked[LANE_SIZE];
 
 	/**
-	 * for debug
+	 * for debug, not used on GPU
 	 */
 	float debug_data[LANE_SIZE];
 

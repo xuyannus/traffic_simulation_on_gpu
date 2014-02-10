@@ -21,7 +21,7 @@
 #include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 #include "../on_gpu/util/OnGPUData.h"
 
-#define ENABLE_OUTPUT
+//#define ENABLE_OUTPUT
 
 using namespace std;
 
@@ -45,10 +45,15 @@ vector<Vehicle*> all_vehicles;
 /*
  * Path Input Config
  */
-std::string network_file_path = "data/exp1_network/network_10_rank.dat";
-std::string demand_file_path = "data/exp1/demand_10_10000.dat";
-std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
-std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
+//std::string network_file_path = "data/exp1_network/network_10_rank.dat";
+//std::string demand_file_path = "data/exp1/demand_10_10000.dat";
+//std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
+//std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
+
+std::string network_file_path = "data/data_large_network/network_100_rank.dat";
+std::string demand_file_path = "data/exp1/demand_100.dat";
+std::string od_pair_file_path = "data/exp1/od_pair_100.dat";
+std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_100.dat";
 
 /*
  * All data in GPU
@@ -140,6 +145,8 @@ __device__ GPUVehicle* get_next_vehicle_at_node(GPUMemory* gpu_data, int node_id
  * Utility Function
  */
 
+__global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool_gpu, int *vpool_gpu_index, GPUSharedParameter* data_setting_gpu);
+
 __device__ float min_device(float one_value, float the_other);
 __device__ float max_device(float one_value, float the_other);
 
@@ -151,6 +158,7 @@ int main(int argc, char* argv[]) {
 		cout << "init_params fails" << endl;
 		return 0;
 	}
+
 	if (load_in_network() == false) {
 		cout << "Loading network fails" << endl;
 		return 0;
@@ -176,10 +184,10 @@ int main(int argc, char* argv[]) {
 	//create a event
 	cudaEventCreate(&GPU_supply_one_time_simulation_done_event);
 
+	std::cout << "Simulation Starts" << std::endl;
+
 	TimeTools profile;
 	profile.start_profiling();
-
-	std::cout << "Simulation Starts" << std::endl;
 
 	//Start Simulation
 	if (start_simulation() == false) {
@@ -263,21 +271,21 @@ bool initilizeCPU() {
 	return true;
 }
 
-__global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool_gpu, int *vpool_gpu_index) {
+__global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool_gpu, int *vpool_gpu_index, GPUSharedParameter* data_setting_gpu) {
 	int time_index = threadIdx.x;
 //	printf("time_index: %d\n", time_index);
 
-	int nVehiclePerTick = VEHICLE_MAX_LOADING_ONE_TIME * LANE_SIZE;
+	int nVehiclePerTick = data_setting_gpu->ON_GPU_VEHICLE_MAX_LOADING_ONE_TIME * data_setting_gpu->ON_GPU_LANE_SIZE;
 
 //	printf("START Rebuild Vehicles on GPU\n");
 	int counts = 0;
 //	int sum = 0;
 
 //	for (int time_index = 0; time_index < TOTAL_TIME_STEPS; time_index++) {
-	for (int i = 0; i < LANE_SIZE; i++) {
-		for (int j = 0; j < VEHICLE_MAX_LOADING_ONE_TIME; j++) {
+	for (int i = 0; i < data_setting_gpu->ON_GPU_LANE_SIZE; i++) {
+		for (int j = 0; j < data_setting_gpu->ON_GPU_VEHICLE_MAX_LOADING_ONE_TIME; j++) {
 
-			int index_t = time_index * nVehiclePerTick + i * VEHICLE_MAX_LOADING_ONE_TIME + j;
+			int index_t = time_index * nVehiclePerTick + i * data_setting_gpu->ON_GPU_VEHICLE_MAX_LOADING_ONE_TIME + j;
 
 //				printf("START Rebuild Vehicles on GPU Done : %d vehciles rebuild\n", counts);
 
@@ -286,7 +294,7 @@ __global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool_gpu, int *vpo
 			if (index_vehicle >= 0) {
 				gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[i][j] = &(vpool_gpu[index_vehicle]);
 				counts++;
-				printf("START Rebuild Vehicles on GPU Done : %d vehciles rebuild\n", counts);
+//				printf("START Rebuild Vehicles on GPU Done : %d vehciles rebuild\n", counts);
 			}
 			else {
 				gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[i][j] = NULL;
@@ -347,11 +355,11 @@ bool initilizeGPU() {
 	int BLOCK_SIZE = TOTAL_TIME_STEPS;
 //	int BLOCK_SIZE = 1;
 
-	std::cout << "linkGPUData starts" << std::endl;
+//	std::cout << "linkGPUData starts" << std::endl;
 //	cudaEvent_t GPU_memory_rebuild_done;
 //	cudaEventCreate(&GPU_memory_rebuild_done);
 
-	linkGPUData<<<GRID_SIZE, BLOCK_SIZE>>>(gpu_data, vpool_gpu, vpool_gpu_index);
+	linkGPUData<<<GRID_SIZE, BLOCK_SIZE>>>(gpu_data, vpool_gpu, vpool_gpu_index, parameter_seeting_on_gpu);
 //	cudaEventRecord(GPU_memory_rebuild_done);
 //	cudaStreamWaitEvent(NULL, GPU_memory_rebuild_done, 0);
 
@@ -359,6 +367,7 @@ bool initilizeGPU() {
 //	cudaMemcpy(data_local, gpu_data, data_local->total_size(), cudaMemcpyDeviceToHost);
 
 	//wait for all CUDA related operations to finish;
+	std::cout << "linkGPUData begins" << std::endl;
 	cudaDeviceSynchronize();
 	std::cout << "linkGPUData ends" << std::endl;
 
@@ -514,9 +523,7 @@ bool initGPUData(GPUMemory* data_local) {
 			data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i] += LANE_OUTPUT_CAPACITY_TIME_STEP;
 		}
 
-		data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] =
-				(data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i] < data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i]) ?
-						data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i] : data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i];
+		data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] = std::min(data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i], data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i]);
 
 //		std::cout << "MAXIMUM_ACCUMULATED_FLOW:" << i << ", " << data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] << std::endl;
 	}
@@ -605,7 +612,7 @@ bool initGPUData(GPUMemory* data_local) {
 			total_inserted_vehicles++;
 		}
 		else {
-//			std::cout << "Loading Vehicles Exceeds The Loading Capacity: Time:" << time_index_covert << ", Lane_ID:" << lane_ID << ",i:" << i << ",ID:" << one_vehicle->vehicle_id << std::endl;
+			std::cout << "Loading Vehicles Exceeds The Loading Capacity: Time:" << time_index_covert << ", Lane_ID:" << lane_ID << ",i:" << i << ",ID:" << one_vehicle->vehicle_id << std::endl;
 		}
 	}
 
@@ -640,6 +647,8 @@ bool start_simulation() {
 		//GPU has done simulation at current time
 		if (to_simulate_time < simulation_end_time && (cudaEventQuery(GPU_supply_one_time_simulation_done_event) == cudaSuccess)) {
 			//step 1
+//			cout << "cudaEventQuery return true, to_simulate_time:" << to_simulate_time << endl;
+
 			if (first_time_step == true) {
 				first_time_step = false;
 			}
@@ -673,6 +682,8 @@ bool start_simulation() {
 			}
 
 			cudaEventRecord(GPU_supply_one_time_simulation_done_event, stream_gpu_supply);
+
+//			cout << "cudaEventRecord done" << endl;
 		}
 		//GPU is busy, so CPU does something else (I/O)
 		else if (to_output_simulation_result_time < to_simulate_time) {
@@ -714,13 +725,19 @@ bool copy_simulated_results_to_CPU(int time_step) {
 	int index = timestep_to_arrayindex(time_step);
 	SimulationResults* one = new SimulationResults();
 
+//	cout << "copy_simulated_results_to_CPU starts" << endl;
+
 	cudaMemcpy(one->flow, gpu_data->lane_pool.flow, sizeof(float) * LANE_SIZE, cudaMemcpyDeviceToHost);
 	cudaMemcpy(one->density, gpu_data->lane_pool.density, sizeof(float) * LANE_SIZE, cudaMemcpyDeviceToHost);
 	cudaMemcpy(one->speed, gpu_data->lane_pool.speed, sizeof(float) * LANE_SIZE, cudaMemcpyDeviceToHost);
 	cudaMemcpy(one->queue_length, gpu_data->lane_pool.queue_length, sizeof(float) * LANE_SIZE, cudaMemcpyDeviceToHost);
 	cudaMemcpy(one->counts, gpu_data->lane_pool.vehicle_counts, sizeof(int) * LANE_SIZE, cudaMemcpyDeviceToHost);
 
+//	cout << "copy_simulated_results_to_CPU ends" << endl;
+
 	simulation_results_pool[index] = one;
+
+//	cout << "copy_simulated_results_to_CPU done" << endl;
 	return true;
 }
 
@@ -782,7 +799,7 @@ bool output_buffered_simulated_results(int time_step) {
 
 	int time_index = time_step;
 
-	gpu_data->lane_pool.new_vehicle_join_counts[lane_id] = 0;
+//	gpu_data->lane_pool.new_vehicle_join_counts[lane_id] = 0;
 
 //init capacity
 	gpu_data->lane_pool.input_capacity[lane_id] = data_setting_gpu->ON_GPU_LANE_INPUT_CAPACITY_TIME_STEP;
@@ -816,7 +833,7 @@ bool output_buffered_simulated_results(int time_step) {
 			gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_id]][lane_id] = (gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[lane_id][i]);
 			gpu_data->lane_pool.vehicle_counts[lane_id]++;
 
-			gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
+//			gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
 		}
 	}
 
@@ -841,8 +858,8 @@ bool output_buffered_simulated_results(int time_step) {
 	if (time_step < START_TIME_STEPS + 4 * UNIT_TIME_STEPS) {
 //		gpu_data->lane_pool.predicted_empty_space[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
 		gpu_data->lane_pool.predicted_queue_length[lane_id] = 0;
-		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS),
-				1.0f * data_setting_gpu->ON_GPU_ROAD_LENGTH);
+		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(
+				gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS), 1.0f * data_setting_gpu->ON_GPU_ROAD_LENGTH);
 	}
 	else {
 		gpu_data->lane_pool.predicted_queue_length[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
@@ -857,7 +874,8 @@ bool output_buffered_simulated_results(int time_step) {
 
 		//need improve
 		//XUYAN, need modify
-		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS),
+		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(
+				gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS),
 				(data_setting_gpu->ON_GPU_ROAD_LENGTH - gpu_data->lane_pool.predicted_queue_length[lane_id]));
 	}
 
