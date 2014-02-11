@@ -50,10 +50,10 @@ vector<Vehicle*> all_vehicles;
 //std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
 //std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
 
-std::string network_file_path = "data/data_large_network/network_100_rank.dat";
-std::string demand_file_path = "data/exp1/demand_100.dat";
-std::string od_pair_file_path = "data/exp1/od_pair_100.dat";
-std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_100.dat";
+std::string network_file_path = "data/exp2/network_100_rank.dat";
+std::string demand_file_path = "data/exp2/demand_100_50000.dat";
+std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
+std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
 
 /*
  * All data in GPU
@@ -71,7 +71,7 @@ int *vpool_gpu_index;
 /**
  * Simulation Results
  */
-std::string simulation_output_file_path = "output/simulated_outputs_gpu.txt";
+std::string simulation_output_file_path = "output/simulated_outputs_gpu_100.txt";
 std::map<int, SimulationResults*> simulation_results_pool;
 ofstream simulation_results_output_file;
 
@@ -679,6 +679,7 @@ bool start_simulation() {
 #ifdef ENABLE_OUTPUT
 				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
 #endif
+				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
 
 				//setp 3
 				supply_simulation_pre_vehicle_passing<<<roadBlocks, roadThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, parameter_seeting_on_gpu);

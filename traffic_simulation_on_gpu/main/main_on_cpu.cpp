@@ -17,7 +17,7 @@
 //#include "../on_gpu/supply/OnGPUVehicle.h"
 //#include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 //
-////#define ENABLE_OUTPUT
+//#define ENABLE_OUTPUT
 ////#define SERIALIZED_EXECUTION
 //
 //using namespace std;
@@ -38,10 +38,10 @@
 ////std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
 ////std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
 //
-//std::string network_file_path = "data/data_large_network/network_100_rank.dat";
-//std::string demand_file_path = "data/exp1/demand_100.dat";
-//std::string od_pair_file_path = "data/exp1/od_pair_100.dat";
-//std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_100.dat";
+//std::string network_file_path = "data/exp2/network_100_rank.dat";
+//std::string demand_file_path = "data/exp2/demand_100_50000.dat";
+//std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
+//std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
 //
 ///*
 // * All data in GPU
@@ -54,7 +54,7 @@
 ///**
 // * Simulation Results
 // */
-//std::string simulation_output_file_path = "output/simulated_outputs_100.txt";
+//std::string simulation_output_file_path = "output/simulated_outputs_cpu_100.txt";
 //std::map<int, SimulationResults*> simulation_results_pool;
 //ofstream simulation_results_output_file;
 //
@@ -493,7 +493,8 @@
 //
 //	for (int i = 0; i < LANE_SIZE; i++) {
 //		simulation_results_output_file << time_step << ":lane:" << i << ":(" << gpu_data->lane_pool.vehicle_counts[i] << ":" << gpu_data->lane_pool.flow[i] << ":" << gpu_data->lane_pool.density[i]
-//				<< ":" << gpu_data->lane_pool.speed[i] << ":" << gpu_data->lane_pool.queue_length[i] << ":" << gpu_data->lane_pool.empty_space[i] << ")" << endl;
+////				<< ":" << gpu_data->lane_pool.speed[i] << ":" << gpu_data->lane_pool.queue_length[i] << ":" << gpu_data->lane_pool.empty_space[i] << ")" << endl;
+//                << ":" << gpu_data->lane_pool.speed[i] << ":" << gpu_data->lane_pool.queue_length[i] << ")" << endl;
 //	}
 //
 //	return true;
@@ -657,20 +658,20 @@
 //					key.append(",");
 //					key.append(str_tools->toString(next_lane_id));
 //
-//					if (the_network->road_connect_broken[key] == false) {
-//						if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.empty_space[next_lane_id] > VEHICLE_LENGTH) {
-//							if (time_diff > maximum_waiting_time) {
-//								maximum_waiting_time = time_diff;
-//								*lane_id = one_lane_id;
-//								the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_id];
-////								return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
-//							}
-//						}
-//						else {
-//							gpu_data->lane_pool.blocked[one_lane_id] = true;
-//						}
-//					}
-//					else {
+////					if (the_network->road_connect_broken[key] == false) {
+////						if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.empty_space[next_lane_id] > VEHICLE_LENGTH) {
+////							if (time_diff > maximum_waiting_time) {
+////								maximum_waiting_time = time_diff;
+////								*lane_id = one_lane_id;
+////								the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+//////								return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+////							}
+////						}
+////						else {
+////							gpu_data->lane_pool.blocked[one_lane_id] = true;
+////						}
+////					}
+////					else {
 //						if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.predicted_empty_space[next_lane_id] > VEHICLE_LENGTH) {
 //							if (time_diff > maximum_waiting_time) {
 //								maximum_waiting_time = time_diff;
@@ -682,7 +683,7 @@
 //						else {
 //							gpu_data->lane_pool.blocked[one_lane_id] = true;
 //						}
-//					}
+////					}
 //				}
 //			}
 //		}
