@@ -42,6 +42,7 @@
 //std::string demand_file_path = "data/exp1/demand_100.dat";
 //std::string od_pair_file_path = "data/exp1/od_pair_100.dat";
 //std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_100.dat";
+//
 ///*
 // * All data in GPU
 // */
@@ -351,9 +352,15 @@
 //			data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i] += LANE_OUTPUT_CAPACITY_TIME_STEP;
 //		}
 //
-//		data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] =
-//				(data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i] < data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i]) ?
-//						data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i] : data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i];
+//		if (data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i] <= 0) {
+//			data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] = data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i];
+//		}
+//		else if (data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i] <= 0) {
+//			data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] = data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i];
+//		}
+//		else {
+//			data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] = std::min(data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i], data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i]);
+//		}
 //
 ////		std::cout << "MAXIMUM_ACCUMULATED_FLOW:" << i << ", " << data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] << std::endl;
 //	}
@@ -416,8 +423,8 @@
 //			vpool_cpu[i].current_lane_ID = lane_ID;
 //			int max_copy_length = MAX_ROUTE_LENGTH > all_od_paths[one_vehicle->path_id]->link_ids.size() ? all_od_paths[one_vehicle->path_id]->link_ids.size() : MAX_ROUTE_LENGTH;
 //
-//			for (int p = 1; p < max_copy_length; p++) {
-//				vpool_cpu[i].path_code[p - 1] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
+//			for (int p = 0; p < max_copy_length; p++) {
+//				vpool_cpu[i].path_code[p] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
 //			}
 //
 //			//ready for the next lane, so next_path_index is set to 1, if the next_path_index == whole_path_length, it means cannot find path any more, can exit;

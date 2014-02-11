@@ -8,6 +8,7 @@
 #ifndef SHARED_GPU_INCLUDE_H_
 #define SHARED_GPU_INCLUDE_H_
 
+#include <stdio.h>
 #include <iostream>
 #include <cuda.h>
 #include <ctime>

@@ -203,6 +203,10 @@ int main(int argc, char* argv[]) {
 
 	cout << "Simulation Succeed!" << endl;
 
+#ifdef _WIN32
+	system("pause");
+#endif
+
 	return 0;
 }
 
@@ -523,7 +527,15 @@ bool initGPUData(GPUMemory* data_local) {
 			data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i] += LANE_OUTPUT_CAPACITY_TIME_STEP;
 		}
 
-		data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] = std::min(data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i], data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i]);
+		if (data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i] <= 0) {
+			data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] = data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i];
+		}
+		else if (data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i] <= 0) {
+			data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] = data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i];
+		}
+		else {
+			data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] = std::min(data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i], data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i]);
+		}
 
 //		std::cout << "MAXIMUM_ACCUMULATED_FLOW:" << i << ", " << data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] << std::endl;
 	}
@@ -597,8 +609,8 @@ bool initGPUData(GPUMemory* data_local) {
 			vpool_cpu[i].current_lane_ID = lane_ID;
 			int max_copy_length = MAX_ROUTE_LENGTH > all_od_paths[one_vehicle->path_id]->link_ids.size() ? all_od_paths[one_vehicle->path_id]->link_ids.size() : MAX_ROUTE_LENGTH;
 
-			for (int p = 1; p < max_copy_length; p++) {
-				vpool_cpu[i].path_code[p - 1] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
+			for (int p = 0; p < max_copy_length; p++) {
+				vpool_cpu[i].path_code[p] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
 			}
 
 			//ready for the next lane, so next_path_index is set to 1, if the next_path_index == whole_path_length, it means cannot find path any more, can exit;
@@ -662,27 +674,28 @@ bool start_simulation() {
 				to_simulate_time += simulation_time_step;
 			}
 
-			//step 2
+			if (to_simulate_time < simulation_end_time) {
+				//step 2
 #ifdef ENABLE_OUTPUT
-			cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
+				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
 #endif
 
-			//setp 3
-			supply_simulation_pre_vehicle_passing<<<roadBlocks, roadThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, parameter_seeting_on_gpu);
+				//setp 3
+				supply_simulation_pre_vehicle_passing<<<roadBlocks, roadThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, parameter_seeting_on_gpu);
 //			cout << "supply_simulation_pre_vehicle_passing done" << endl;
 
-			supply_simulation_vehicle_passing<<<nodeBlocks, nodeThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, NODE_SIZE, parameter_seeting_on_gpu);
+				supply_simulation_vehicle_passing<<<nodeBlocks, nodeThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, NODE_SIZE, parameter_seeting_on_gpu);
 //			cout << "supply_simulation_vehicle_passing done" << endl;
 
-			supply_simulation_after_vehicle_passing<<<roadBlocks, roadThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, parameter_seeting_on_gpu);
+				supply_simulation_after_vehicle_passing<<<roadBlocks, roadThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, parameter_seeting_on_gpu);
 //			cout << "supply_simulation_after_vehicle_passing done" << endl;
 
-			if (GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE > 1) {
-				supply_simulated_results_to_buffer<<<1, 1, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, simulation_results_buffer_on_gpu, parameter_seeting_on_gpu);
+				if (GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE > 1) {
+					supply_simulated_results_to_buffer<<<1, 1, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, simulation_results_buffer_on_gpu, parameter_seeting_on_gpu);
+				}
+
+				cudaEventRecord(GPU_supply_one_time_simulation_done_event, stream_gpu_supply);
 			}
-
-			cudaEventRecord(GPU_supply_one_time_simulation_done_event, stream_gpu_supply);
-
 //			cout << "cudaEventRecord done" << endl;
 		}
 		//GPU is busy, so CPU does something else (I/O)
