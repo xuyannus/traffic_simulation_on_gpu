@@ -17,7 +17,7 @@
 //#include "../on_gpu/supply/OnGPUVehicle.h"
 //#include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 //
-//#define ENABLE_OUTPUT
+////#define ENABLE_OUTPUT
 ////#define SERIALIZED_EXECUTION
 //
 //using namespace std;
