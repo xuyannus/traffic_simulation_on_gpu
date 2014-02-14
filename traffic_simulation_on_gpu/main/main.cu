@@ -88,6 +88,9 @@ ofstream simulation_results_output_file;
 //buffer is only used when GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE > 1
 SimulationResults* simulation_results_buffer_on_gpu;
 
+//Used for buffer at CPU side
+SimulationResults* one_buffer = NULL;
+
 /*
  * GPU Streams
  * stream1: GPU Supply Simulation
@@ -402,6 +405,10 @@ bool initilizeGPU() {
 	std::cout << "linkGPUData begins" << std::endl;
 	cudaDeviceSynchronize();
 	std::cout << "linkGPUData ends" << std::endl;
+
+#ifdef ENABLE_OUTPUT_GPU_BUFFER
+	cudaMallocHost((void **)&one_buffer, sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE);
+#endif
 
 	return true;
 }
@@ -788,12 +795,9 @@ bool copy_simulated_results_to_CPU(int time_step) {
 
 bool copy_buffer_simulated_results_to_CPU(int time_step) {
 //	std::cout << "copy_buffer_simulated_results_to_CPU AT time " << time_step << std::endl;
-
-	SimulationResults* one_buffer = NULL;
-	cudaMallocHost((void **)&one_buffer, sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE);
-
 //	SimulationResults* one_buffer = (SimulationResults*) malloc(sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE);
 //	cudaMemcpy(one_buffer, simulation_results_buffer_on_gpu, sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE, cudaMemcpyDeviceToHost);
+
 	cudaMemcpyAsync(one_buffer, simulation_results_buffer_on_gpu, sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE, cudaMemcpyDeviceToHost, stream_gpu_io);
 
 	for (int i = 0; i < GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE; i++) {
