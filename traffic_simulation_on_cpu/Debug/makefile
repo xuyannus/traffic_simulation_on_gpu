@@ -44,7 +44,7 @@ all: ETS_CPU_Source_Code
 ETS_CPU_Source_Code: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "ETS_CPU_Source_Code" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -pg -o "ETS_CPU_Source_Code" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

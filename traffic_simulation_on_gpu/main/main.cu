@@ -23,6 +23,8 @@
 
 //#define ENABLE_OUTPUT
 //#define ENABLE_CONSTANT
+//#define ENABLE_MORE_REGISTER
+#define ENABLE_OUTPUT_GPU_BUFFER
 
 using namespace std;
 
@@ -51,8 +53,11 @@ vector<Vehicle*> all_vehicles;
 //std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
 //std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
 
-std::string network_file_path = "data/exp2/network_100_rank.dat";
-std::string demand_file_path = "data/exp2/demand_100_50000.dat";
+std::string network_file_path = "data/exp2/network_100.dat";
+//std::string network_file_path = "data/exp2/network_100_rank.dat";
+//std::string network_file_path = "data/exp2/network_100_congestion_rank.dat";
+
+std::string demand_file_path = "data/exp2/demand_100_100000.dat";
 std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
 std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
 
@@ -61,6 +66,7 @@ std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
  */
 GPUMemory* gpu_data;
 GPUSharedParameter* parameter_seeting_on_gpu;
+
 #ifdef ENABLE_CONSTANT
 __constant__ GPUSharedParameter data_setting_gpu_constant;
 #endif
@@ -88,6 +94,8 @@ SimulationResults* simulation_results_buffer_on_gpu;
  */
 cudaStream_t stream_gpu_supply;
 cudaEvent_t GPU_supply_one_time_simulation_done_event;
+
+cudaStream_t stream_gpu_io;
 
 /*
  * Time Management
@@ -159,7 +167,7 @@ __device__ float max_device(float one_value, float the_other);
  */
 int main(int argc, char* argv[]) {
 
-	cudaDeviceSetCacheConfig(cudaFuncCachePreferL1);
+	cudaDeviceSetCacheConfig (cudaFuncCachePreferL1);
 
 	if (init_params(argc, argv) == false) {
 		cout << "init_params fails" << endl;
@@ -188,6 +196,8 @@ int main(int argc, char* argv[]) {
 
 	//create streams
 	cudaStreamCreate(&stream_gpu_supply);
+	cudaStreamCreate(&stream_gpu_io);
+
 	//create a event
 	cudaEventCreate(&GPU_supply_one_time_simulation_done_event);
 
@@ -683,19 +693,21 @@ bool start_simulation() {
 				first_time_step = false;
 			}
 			else {
-				if (GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE > 1 && (to_simulate_time + 1) % GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE == 0) {
+#ifdef ENABLE_OUTPUT_GPU_BUFFER
+				if ((to_simulate_time + 1) % GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE == 0) {
 					copy_buffer_simulated_results_to_CPU(to_simulate_time);
 				}
-				else {
-					copy_simulated_results_to_CPU(to_simulate_time);
-				}
+#else
+				copy_simulated_results_to_CPU(to_simulate_time);
+#endif
+
 				to_simulate_time += simulation_time_step;
 			}
 
 			if (to_simulate_time < simulation_end_time) {
 				//step 2
 #ifdef ENABLE_OUTPUT
-				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
+//				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
 #endif
 //				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
 
@@ -709,9 +721,10 @@ bool start_simulation() {
 				supply_simulation_after_vehicle_passing<<<roadBlocks, roadThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, parameter_seeting_on_gpu);
 //			cout << "supply_simulation_after_vehicle_passing done" << endl;
 
-				if (GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE > 1) {
-					supply_simulated_results_to_buffer<<<1, 1, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, simulation_results_buffer_on_gpu, parameter_seeting_on_gpu);
-				}
+#ifdef ENABLE_OUTPUT_GPU_BUFFER
+				supply_simulated_results_to_buffer<<<roadBlocks, roadThreadsInABlock, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, LANE_SIZE, simulation_results_buffer_on_gpu,
+						parameter_seeting_on_gpu);
+#endif
 
 				cudaEventRecord(GPU_supply_one_time_simulation_done_event, stream_gpu_supply);
 			}
@@ -719,21 +732,21 @@ bool start_simulation() {
 		}
 		//GPU is busy, so CPU does something else (I/O)
 		else if (to_output_simulation_result_time < to_simulate_time) {
-			if (GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE > 1) {
-				if (to_output_simulation_result_time <= to_simulate_time - GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE) {
+
+#ifdef ENABLE_OUTPUT_GPU_BUFFER
+			if (to_output_simulation_result_time <= to_simulate_time - GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE) {
 
 #ifdef ENABLE_OUTPUT
-					output_buffered_simulated_results(to_output_simulation_result_time);
+				output_buffered_simulated_results(to_output_simulation_result_time);
 #endif
-					to_output_simulation_result_time += simulation_time_step * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE;
-				}
+				to_output_simulation_result_time += simulation_time_step * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE;
 			}
-			else {
+#else
 #ifdef ENABLE_OUTPUT
-				output_simulated_results(to_output_simulation_result_time);
+			output_simulated_results(to_output_simulation_result_time);
 #endif
-				to_output_simulation_result_time += simulation_time_step;
-			}
+			to_output_simulation_result_time += simulation_time_step;
+#endif
 		}
 		else {
 
@@ -774,10 +787,14 @@ bool copy_simulated_results_to_CPU(int time_step) {
 }
 
 bool copy_buffer_simulated_results_to_CPU(int time_step) {
-	std::cout << "copy_buffer_simulated_results_to_CPU AT time " << time_step << std::endl;
+//	std::cout << "copy_buffer_simulated_results_to_CPU AT time " << time_step << std::endl;
 
-	SimulationResults* one_buffer = (SimulationResults*) malloc(sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE);
-	cudaMemcpy(one_buffer, simulation_results_buffer_on_gpu, sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE, cudaMemcpyDeviceToHost);
+	SimulationResults* one_buffer = NULL;
+	cudaMallocHost((void **)&one_buffer, sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE);
+
+//	SimulationResults* one_buffer = (SimulationResults*) malloc(sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE);
+//	cudaMemcpy(one_buffer, simulation_results_buffer_on_gpu, sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE, cudaMemcpyDeviceToHost);
+	cudaMemcpyAsync(one_buffer, simulation_results_buffer_on_gpu, sizeof(SimulationResults) * GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE, cudaMemcpyDeviceToHost, stream_gpu_io);
 
 	for (int i = 0; i < GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE; i++) {
 		int time_index = time_step - (GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE - 1) + i;
@@ -823,6 +840,7 @@ bool output_buffered_simulated_results(int time_step) {
  * Kernel Functions, not sure how to move to other folder
  */
 
+#ifdef ENABLE_MORE_REGISTER
 /*
  * Supply Function Implementation
  */__global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int time_step, int segment_length, GPUSharedParameter* data_setting_gpu) {
@@ -854,6 +872,7 @@ bool output_buffered_simulated_results(int time_step) {
 //				gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
 		}
 	}
+
 	if (gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] > 0) {
 #ifdef ENABLE_CONSTANT
 		gpu_data->lane_pool.empty_space[lane_id] = min_device(gpu_data->lane_pool.speed[lane_id] * data_setting_gpu_constant.ON_GPU_UNIT_TIME_STEPS, gpu_data->lane_pool.empty_space[lane_id])
@@ -864,6 +883,162 @@ bool output_buffered_simulated_results(int time_step) {
 #endif
 		if (gpu_data->lane_pool.empty_space[lane_id] < 0) gpu_data->lane_pool.empty_space[lane_id] = 0;
 	}
+
+	gpu_data->lane_pool.last_time_empty_space[lane_id] = gpu_data->lane_pool.empty_space[lane_id];
+	gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] = 0;
+
+//
+//load newly generated vehicles to the back of the lane
+	for (int i = 0; i < gpu_data->new_vehicles_every_time_step[time_index].new_vehicle_size[lane_id]; i++) {
+		if (gpu_data->lane_pool.vehicle_counts[lane_id] < gpu_data->lane_pool.max_vehicles[lane_id]) {
+
+			gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_id]][lane_id] = (gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[lane_id][i]);
+			gpu_data->lane_pool.vehicle_counts[lane_id]++;
+
+//			gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
+		}
+	}
+
+	float density_ = 0.0f;
+	float speed_ = 0.0f;
+
+//update speed and density
+#ifdef ENABLE_CONSTANT
+	density_ = 1.0 * data_setting_gpu_constant.ON_GPU_VEHICLE_LENGTH * gpu_data->lane_pool.vehicle_counts[lane_id] / data_setting_gpu_constant.ON_GPU_ROAD_LENGTH;
+#else
+	density_ = 1.0 * data_setting_gpu->ON_GPU_VEHICLE_LENGTH * gpu_data->lane_pool.vehicle_counts[lane_id] / gpu_data->lane_pool.lane_length[lane_id];
+#endif
+
+//Speed-Density Relationship
+	if (density_ < data_setting_gpu_constant.ON_GPU_Min_Density) speed_ = data_setting_gpu_constant.ON_GPU_MAX_SPEED;
+	else {
+		speed_ = data_setting_gpu_constant.ON_GPU_MAX_SPEED
+				- data_setting_gpu_constant.ON_GPU_MAX_SPEED / (data_setting_gpu_constant.ON_GPU_Max_Density - data_setting_gpu_constant.ON_GPU_Min_Density)
+						* (density_ - data_setting_gpu_constant.ON_GPU_Min_Density);
+	}
+//		gpu_data->lane_pool.speed[lane_id] = ( gpu_data->lane_pool.MAX_SPEED[lane_id] - gpu_data->lane_pool.MIN_SPEED ) / gpu_data->lane_pool.max_density[lane_id] * ( gpu_data->lane_pool.max_density[lane_id] - 0 );
+
+	if (speed_ < data_setting_gpu_constant.ON_GPU_MIN_SPEED) speed_ = data_setting_gpu_constant.ON_GPU_MIN_SPEED;
+
+//update speed history
+	gpu_data->lane_pool.speed_history[time_index][lane_id] = speed_;
+
+	gpu_data->lane_pool.density[lane_id] = density_;
+	gpu_data->lane_pool.speed[lane_id] = speed_;
+//estimated empty_space
+
+	float prediction_queue_length_ = 0.0f;
+
+	if (time_step < START_TIME_STEPS + 4 * UNIT_TIME_STEPS) {
+//		gpu_data->lane_pool.predicted_empty_space[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
+//		gpu_data->lane_pool.predicted_queue_length[lane_id] = 0;
+
+#ifdef ENABLE_CONSTANT
+		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(gpu_data->lane_pool.last_time_empty_space[lane_id] + (speed_ * data_setting_gpu_constant.ON_GPU_UNIT_TIME_STEPS),
+				1.0f * data_setting_gpu_constant.ON_GPU_ROAD_LENGTH);
+#else
+		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(
+				gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS), 1.0f * data_setting_gpu->ON_GPU_ROAD_LENGTH);
+#endif
+	}
+	else {
+		prediction_queue_length_ = gpu_data->lane_pool.his_queue_length[0][lane_id];
+		prediction_queue_length_ += (gpu_data->lane_pool.his_queue_length[0][lane_id] - gpu_data->lane_pool.his_queue_length[1][lane_id]) * gpu_data->lane_pool.his_queue_length_weighting[0][lane_id];
+
+//		prediction_empty_space_ += (gpu_data->lane_pool.his_queue_length[1][lane_id] - gpu_data->lane_pool.his_queue_length[2][lane_id])
+//				* gpu_data->lane_pool.his_queue_length_weighting[1][lane_id];
+//
+//		prediction_empty_space_ += (gpu_data->lane_pool.his_queue_length[2][lane_id] - gpu_data->lane_pool.his_queue_length[3][lane_id])
+//				* gpu_data->lane_pool.his_queue_length_weighting[2][lane_id];
+
+		//need improve
+		//XUYAN, need modify
+#ifdef ENABLE_CONSTANT
+		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(gpu_data->lane_pool.last_time_empty_space[lane_id] + (speed_ * data_setting_gpu_constant.ON_GPU_UNIT_TIME_STEPS),
+				(data_setting_gpu_constant.ON_GPU_ROAD_LENGTH - prediction_queue_length_));
+#else
+		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(
+				gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS),
+				(data_setting_gpu->ON_GPU_ROAD_LENGTH - prediction_empty_space_));
+#endif
+	}
+
+//	gpu_data->lane_pool.debug_data[lane_id] = gpu_data->lane_pool.predicted_empty_space[lane_id];
+//update Tp
+
+#ifdef ENABLE_CONSTANT
+	gpu_data->lane_pool.accumulated_offset[lane_id] += speed_ * data_setting_gpu_constant.ON_GPU_UNIT_TIME_STEPS; //meter
+
+	while (gpu_data->lane_pool.accumulated_offset[lane_id] >= data_setting_gpu_constant.ON_GPU_ROAD_LENGTH) {
+		gpu_data->lane_pool.accumulated_offset[lane_id] -= gpu_data->lane_pool.speed_history[gpu_data->lane_pool.Tp[lane_id]][lane_id] * data_setting_gpu_constant.ON_GPU_UNIT_TIME_STEPS;
+		gpu_data->lane_pool.Tp[lane_id] += data_setting_gpu_constant.ON_GPU_UNIT_TIME_STEPS;
+	}
+#else
+
+	gpu_data->lane_pool.accumulated_offset[lane_id] += gpu_data->lane_pool.speed[lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS; //meter
+
+	while (gpu_data->lane_pool.accumulated_offset[lane_id] >= gpu_data->lane_pool.lane_length[lane_id]) {
+		gpu_data->lane_pool.accumulated_offset[lane_id] -= gpu_data->lane_pool.speed_history[gpu_data->lane_pool.Tp[lane_id]][lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS;
+		gpu_data->lane_pool.Tp[lane_id] += data_setting_gpu->ON_GPU_UNIT_TIME_STEPS;
+	}
+#endif
+
+	//update queue length
+	int queue_start = gpu_data->lane_pool.queue_length[lane_id] / data_setting_gpu_constant.ON_GPU_VEHICLE_LENGTH;
+	for (int queue_index = queue_start; queue_index < gpu_data->lane_pool.vehicle_counts[lane_id]; queue_index++) {
+		if (gpu_data->lane_pool.vehicle_space[queue_index][lane_id]->entry_time <= gpu_data->lane_pool.Tp[lane_id]) {
+			gpu_data->lane_pool.queue_length[lane_id] += data_setting_gpu_constant.ON_GPU_VEHICLE_LENGTH;
+		}
+		else {
+			break;
+		}
+	}
+}
+
+#else
+/*
+ * Supply Function Implementation
+ */__global__ void supply_simulation_pre_vehicle_passing(GPUMemory* gpu_data, int time_step, int segment_length, GPUSharedParameter* data_setting_gpu) {
+	int lane_id = blockIdx.x * blockDim.x + threadIdx.x;
+	if (lane_id >= segment_length) return;
+
+	int time_index = time_step;
+
+//	gpu_data->lane_pool.new_vehicle_join_counts[lane_id] = 0;
+
+//init capacity
+#ifdef ENABLE_CONSTANT
+	gpu_data->lane_pool.input_capacity[lane_id] = data_setting_gpu_constant.ON_GPU_LANE_INPUT_CAPACITY_TIME_STEP;
+	gpu_data->lane_pool.output_capacity[lane_id] = data_setting_gpu_constant.ON_GPU_LANE_OUTPUT_CAPACITY_TIME_STEP;
+#else
+	gpu_data->lane_pool.input_capacity[lane_id] = data_setting_gpu->ON_GPU_LANE_INPUT_CAPACITY_TIME_STEP;
+	gpu_data->lane_pool.output_capacity[lane_id] = data_setting_gpu->ON_GPU_LANE_OUTPUT_CAPACITY_TIME_STEP;
+#endif
+
+//init for next GPU kernel function
+	gpu_data->lane_pool.blocked[lane_id] = false;
+
+//load passed vehicles to the back of the lane
+	for (int i = 0; i < gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id]; i++) {
+		if (gpu_data->lane_pool.vehicle_counts[lane_id] < gpu_data->lane_pool.max_vehicles[lane_id]) {
+			gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_id]][lane_id] = gpu_data->lane_pool.vehicle_passed_space[i][lane_id];
+			gpu_data->lane_pool.vehicle_counts[lane_id]++;
+
+//				gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
+		}
+	}
+
+	if (gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] > 0) {
+#ifdef ENABLE_CONSTANT
+		gpu_data->lane_pool.empty_space[lane_id] = min_device(gpu_data->lane_pool.speed[lane_id] * data_setting_gpu_constant.ON_GPU_UNIT_TIME_STEPS, gpu_data->lane_pool.empty_space[lane_id])
+		- gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] * data_setting_gpu_constant.ON_GPU_VEHICLE_LENGTH;
+#else
+		gpu_data->lane_pool.empty_space[lane_id] = min_device(gpu_data->lane_pool.speed[lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS, gpu_data->lane_pool.empty_space[lane_id])
+		- gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] * data_setting_gpu->ON_GPU_VEHICLE_LENGTH;
+#endif
+		if (gpu_data->lane_pool.empty_space[lane_id] < 0) gpu_data->lane_pool.empty_space[lane_id] = 0;
+	}
+
 	gpu_data->lane_pool.last_time_empty_space[lane_id] = gpu_data->lane_pool.empty_space[lane_id];
 	gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] = 0;
 
@@ -890,8 +1065,8 @@ bool output_buffered_simulated_results(int time_step) {
 	if (gpu_data->lane_pool.density[lane_id] < gpu_data->lane_pool.min_density[lane_id]) gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MAX_SPEED[lane_id];
 	else {
 		gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MAX_SPEED[lane_id]
-				- gpu_data->lane_pool.MAX_SPEED[lane_id] / (gpu_data->lane_pool.max_density[lane_id] - gpu_data->lane_pool.min_density[lane_id])
-						* (gpu_data->lane_pool.density[lane_id] - gpu_data->lane_pool.min_density[lane_id]);
+		- gpu_data->lane_pool.MAX_SPEED[lane_id] / (gpu_data->lane_pool.max_density[lane_id] - gpu_data->lane_pool.min_density[lane_id])
+		* (gpu_data->lane_pool.density[lane_id] - gpu_data->lane_pool.min_density[lane_id]);
 	}
 //		gpu_data->lane_pool.speed[lane_id] = ( gpu_data->lane_pool.MAX_SPEED[lane_id] - gpu_data->lane_pool.MIN_SPEED ) / gpu_data->lane_pool.max_density[lane_id] * ( gpu_data->lane_pool.max_density[lane_id] - 0 );
 
@@ -901,13 +1076,15 @@ bool output_buffered_simulated_results(int time_step) {
 	gpu_data->lane_pool.speed_history[time_index][lane_id] = gpu_data->lane_pool.speed[lane_id];
 
 //estimated empty_space
+
 	if (time_step < START_TIME_STEPS + 4 * UNIT_TIME_STEPS) {
 //		gpu_data->lane_pool.predicted_empty_space[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
 		gpu_data->lane_pool.predicted_queue_length[lane_id] = 0;
 
 #ifdef ENABLE_CONSTANT
 		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(
-				gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * data_setting_gpu_constant.ON_GPU_UNIT_TIME_STEPS), 1.0f * data_setting_gpu_constant.ON_GPU_ROAD_LENGTH);
+				gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * data_setting_gpu_constant.ON_GPU_UNIT_TIME_STEPS),
+				1.0f * data_setting_gpu_constant.ON_GPU_ROAD_LENGTH);
 #else
 		gpu_data->lane_pool.predicted_empty_space[lane_id] = min_device(
 				gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS), 1.0f * data_setting_gpu->ON_GPU_ROAD_LENGTH);
@@ -916,13 +1093,13 @@ bool output_buffered_simulated_results(int time_step) {
 	else {
 		gpu_data->lane_pool.predicted_queue_length[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
 		gpu_data->lane_pool.predicted_queue_length[lane_id] += (gpu_data->lane_pool.his_queue_length[0][lane_id] - gpu_data->lane_pool.his_queue_length[1][lane_id])
-				* gpu_data->lane_pool.his_queue_length_weighting[0][lane_id];
+		* gpu_data->lane_pool.his_queue_length_weighting[0][lane_id];
 
 		gpu_data->lane_pool.predicted_queue_length[lane_id] += (gpu_data->lane_pool.his_queue_length[1][lane_id] - gpu_data->lane_pool.his_queue_length[2][lane_id])
-				* gpu_data->lane_pool.his_queue_length_weighting[1][lane_id];
+		* gpu_data->lane_pool.his_queue_length_weighting[1][lane_id];
 
 		gpu_data->lane_pool.predicted_queue_length[lane_id] += (gpu_data->lane_pool.his_queue_length[2][lane_id] - gpu_data->lane_pool.his_queue_length[3][lane_id])
-				* gpu_data->lane_pool.his_queue_length_weighting[2][lane_id];
+		* gpu_data->lane_pool.his_queue_length_weighting[2][lane_id];
 
 		//need improve
 		//XUYAN, need modify
@@ -957,7 +1134,19 @@ bool output_buffered_simulated_results(int time_step) {
 	}
 #endif
 
+	//update queue length
+	int queue_start = gpu_data->lane_pool.queue_length[lane_id] / data_setting_gpu->ON_GPU_VEHICLE_LENGTH;
+	for (int queue_index = queue_start; queue_index < gpu_data->lane_pool.vehicle_counts[lane_id]; queue_index++) {
+		if (gpu_data->lane_pool.vehicle_space[queue_index][lane_id]->entry_time <= gpu_data->lane_pool.Tp[lane_id]) {
+			gpu_data->lane_pool.queue_length[lane_id] += data_setting_gpu->ON_GPU_VEHICLE_LENGTH;
+		}
+		else {
+			break;
+		}
+	}
 }
+
+#endif
 
 __device__ GPUVehicle* get_next_vehicle_at_node(GPUMemory* gpu_data, int node_id, int* lane_id, GPUSharedParameter* data_setting_gpu) {
 
@@ -968,7 +1157,7 @@ __device__ GPUVehicle* get_next_vehicle_at_node(GPUMemory* gpu_data, int node_id
 #ifdef ENABLE_CONSTANT
 	for (int j = 0; j < data_setting_gpu_constant.ON_GPU_MAX_LANE_UPSTREAM; j++) {
 #else
-	for (int j = 0; j < data_setting_gpu->ON_GPU_MAX_LANE_UPSTREAM; j++) {
+		for (int j = 0; j < data_setting_gpu->ON_GPU_MAX_LANE_UPSTREAM; j++) {
 #endif
 		int one_lane_id = gpu_data->node_pool.upstream[j][node_id];
 		if (one_lane_id < 0) continue;
@@ -1005,7 +1194,7 @@ __device__ GPUVehicle* get_next_vehicle_at_node(GPUMemory* gpu_data, int node_id
 #ifdef ENABLE_CONSTANT
 					if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.predicted_empty_space[next_lane_id] > data_setting_gpu_constant.ON_GPU_VEHICLE_LENGTH) {
 #else
-					if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.predicted_empty_space[next_lane_id] > data_setting_gpu->ON_GPU_VEHICLE_LENGTH) {
+						if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.predicted_empty_space[next_lane_id] > data_setting_gpu->ON_GPU_VEHICLE_LENGTH) {
 #endif
 						if (time_diff > maximum_waiting_time) {
 							maximum_waiting_time = time_diff;
@@ -1025,6 +1214,7 @@ __device__ GPUVehicle* get_next_vehicle_at_node(GPUMemory* gpu_data, int node_id
 	return the_one_veh;
 }
 
+
 __global__ void supply_simulation_vehicle_passing(GPUMemory* gpu_data, int time_step, int node_length, GPUSharedParameter* data_setting_gpu) {
 	int node_id = blockIdx.x * blockDim.x + threadIdx.x;
 	if (node_id >= node_length) return;
@@ -1033,19 +1223,22 @@ __global__ void supply_simulation_vehicle_passing(GPUMemory* gpu_data, int time_
 		int lane_id = -1;
 
 		//Find A vehicle
-
 		GPUVehicle* one_v = get_next_vehicle_at_node(gpu_data, node_id, &lane_id, data_setting_gpu);
 
 		if (one_v == NULL || lane_id < 0) {
-//			printf("one_v == NULL\n");
+			//			printf("one_v == NULL\n");
 			break;
+		}
+
+		if (one_v->entry_time <= gpu_data->lane_pool.Tp[lane_id]) {
+			gpu_data->lane_pool.queue_length[lane_id] -= data_setting_gpu->ON_GPU_VEHICLE_LENGTH;
 		}
 
 		//Insert to next Lane
 		if (gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index >= gpu_data->lane_pool.vehicle_space[0][lane_id]->whole_path_length) {
 			//the vehicle has finished the trip
 
-//			printf("vehicle %d finish trip at node %d,\n", one_v->vehicle_ID, node_id);
+			//			printf("vehicle %d finish trip at node %d,\n", one_v->vehicle_ID, node_id);
 		}
 		else {
 			int next_lane_index = gpu_data->lane_pool.vehicle_space[0][lane_id]->path_code[gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index];
@@ -1067,7 +1260,7 @@ __global__ void supply_simulation_vehicle_passing(GPUMemory* gpu_data, int time_
 			gpu_data->lane_pool.predicted_empty_space[next_lane_id] -= data_setting_gpu->ON_GPU_VEHICLE_LENGTH;
 #endif
 
-//			printf("time_step=%d,one_v->vehicle_ID=%d,lane_id=%d, next_lane_id=%d, next_lane_index=%d\n", time_step, one_v->vehicle_ID, lane_id, next_lane_id, next_lane_index);
+			//			printf("time_step=%d,one_v->vehicle_ID=%d,lane_id=%d, next_lane_id=%d, next_lane_index=%d\n", time_step, one_v->vehicle_ID, lane_id, next_lane_id, next_lane_index);
 		}
 
 		//Remove from current Lane
@@ -1086,39 +1279,39 @@ __global__ void supply_simulation_after_vehicle_passing(GPUMemory* gpu_data, int
 	if (lane_id >= segment_length) return;
 
 //update queue length
-	bool continue_loop = true;
-	float queue_length = 0;
-	float acc_length_moving = gpu_data->lane_pool.accumulated_offset[lane_id];
-	int to_time_step = gpu_data->lane_pool.Tp[lane_id];
-
-	for (int i = 0; continue_loop && i < gpu_data->lane_pool.vehicle_counts[lane_id]; i++) {
-		if (gpu_data->lane_pool.vehicle_space[i][lane_id]->entry_time <= gpu_data->lane_pool.Tp[lane_id]) {
-			queue_length += data_setting_gpu->ON_GPU_VEHICLE_LENGTH;
-		}
-		else {
-			int entry_time = gpu_data->lane_pool.vehicle_space[i][lane_id]->entry_time;
-			for (int j = entry_time; i < to_time_step; i++) {
-				acc_length_moving -= gpu_data->lane_pool.speed_history[j][lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS;
-			}
-
-			if (acc_length_moving + queue_length >= gpu_data->lane_pool.lane_length[lane_id]) {
-				to_time_step = entry_time;
-				queue_length += data_setting_gpu->ON_GPU_VEHICLE_LENGTH;
-			}
-			else {
-				continue_loop = false;
-			}
-		}
-	}
-
-//update queue length
-	gpu_data->lane_pool.queue_length[lane_id] = queue_length;
+//	bool continue_loop = true;
+//	float queue_length = 0;
+//	float acc_length_moving = gpu_data->lane_pool.accumulated_offset[lane_id];
+//	int to_time_step = gpu_data->lane_pool.Tp[lane_id];
+//
+//	for (int i = 0; continue_loop && i < gpu_data->lane_pool.vehicle_counts[lane_id]; i++) {
+//		if (gpu_data->lane_pool.vehicle_space[i][lane_id]->entry_time <= gpu_data->lane_pool.Tp[lane_id]) {
+//			queue_length += data_setting_gpu->ON_GPU_VEHICLE_LENGTH;
+//		}
+//		else {
+//			int entry_time = gpu_data->lane_pool.vehicle_space[i][lane_id]->entry_time;
+//			for (int j = entry_time; i < to_time_step; i++) {
+//				acc_length_moving -= gpu_data->lane_pool.speed_history[j][lane_id] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS;
+//			}
+//
+//			if (acc_length_moving + queue_length >= gpu_data->lane_pool.lane_length[lane_id]) {
+//				to_time_step = entry_time;
+//				queue_length += data_setting_gpu->ON_GPU_VEHICLE_LENGTH;
+//			}
+//			else {
+//				continue_loop = false;
+//			}
+//		}
+//	}
+//
+////update queue length
+//	gpu_data->lane_pool.queue_length[lane_id] = queue_length;
 
 //update the queue history
 	for (int i = 3; i > 0; i--) {
 		gpu_data->lane_pool.his_queue_length[i][lane_id] = gpu_data->lane_pool.his_queue_length[i - 1][lane_id];
 	}
-	gpu_data->lane_pool.his_queue_length[0][lane_id] = queue_length;
+	gpu_data->lane_pool.his_queue_length[0][lane_id] = gpu_data->lane_pool.queue_length[lane_id];
 
 //update the empty space
 //			if (gpu_data->lane_pool.new_vehicle_join_counts[lane_id] > 0) {
@@ -1134,14 +1327,20 @@ __global__ void supply_simulation_after_vehicle_passing(GPUMemory* gpu_data, int
 __global__ void supply_simulated_results_to_buffer(GPUMemory* gpu_data, int time_step, int segment_length, SimulationResults* buffer, GPUSharedParameter* data_setting_gpu) {
 	int buffer_index = time_step % data_setting_gpu->ON_GPU_GPU_TO_CPU_SIMULATION_RESULTS_COPY_BUFFER_SIZE;
 
-//	int lane_id = blockIdx.x * blockDim.x + threadIdx.x;
-//	if (lane_id >= segment_length) return;
+	int lane_id = blockIdx.x * blockDim.x + threadIdx.x;
+	if (lane_id >= segment_length) return;
 
-	memcpy(buffer[buffer_index].flow, gpu_data->lane_pool.flow, sizeof(float) * data_setting_gpu->ON_GPU_LANE_SIZE);
-	memcpy(buffer[buffer_index].density, gpu_data->lane_pool.density, sizeof(float) * data_setting_gpu->ON_GPU_LANE_SIZE);
-	memcpy(buffer[buffer_index].speed, gpu_data->lane_pool.speed, sizeof(float) * data_setting_gpu->ON_GPU_LANE_SIZE);
-	memcpy(buffer[buffer_index].queue_length, gpu_data->lane_pool.queue_length, sizeof(float) * data_setting_gpu->ON_GPU_LANE_SIZE);
-	memcpy(buffer[buffer_index].counts, gpu_data->lane_pool.vehicle_counts, sizeof(int) * data_setting_gpu->ON_GPU_LANE_SIZE);
+	buffer[buffer_index].flow[lane_id] = gpu_data->lane_pool.flow[lane_id];
+	buffer[buffer_index].density[lane_id] = gpu_data->lane_pool.density[lane_id];
+	buffer[buffer_index].speed[lane_id] = gpu_data->lane_pool.speed[lane_id];
+	buffer[buffer_index].queue_length[lane_id] = gpu_data->lane_pool.queue_length[lane_id];
+	buffer[buffer_index].counts[lane_id] = gpu_data->lane_pool.vehicle_counts[lane_id];
+
+//	memcpy(buffer[buffer_index].flow, gpu_data->lane_pool.flow, sizeof(float) * data_setting_gpu->ON_GPU_LANE_SIZE);
+//	memcpy(buffer[buffer_index].density, gpu_data->lane_pool.density, sizeof(float) * data_setting_gpu->ON_GPU_LANE_SIZE);
+//	memcpy(buffer[buffer_index].speed, gpu_data->lane_pool.speed, sizeof(float) * data_setting_gpu->ON_GPU_LANE_SIZE);
+//	memcpy(buffer[buffer_index].queue_length, gpu_data->lane_pool.queue_length, sizeof(float) * data_setting_gpu->ON_GPU_LANE_SIZE);
+//	memcpy(buffer[buffer_index].counts, gpu_data->lane_pool.vehicle_counts, sizeof(int) * data_setting_gpu->ON_GPU_LANE_SIZE);
 
 }
 
