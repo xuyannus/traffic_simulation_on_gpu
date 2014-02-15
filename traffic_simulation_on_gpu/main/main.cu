@@ -53,13 +53,18 @@ vector<Vehicle*> all_vehicles;
 //std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
 //std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
 
-std::string network_file_path = "data/exp2/network_100.dat";
+//std::string network_file_path = "data/exp2/network_100.dat";
 //std::string network_file_path = "data/exp2/network_100_rank.dat";
 //std::string network_file_path = "data/exp2/network_100_congestion_rank.dat";
 
-std::string demand_file_path = "data/exp2/demand_100_100000.dat";
-std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
-std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
+//std::string demand_file_path = "data/exp2/demand_100_100000.dat";
+//std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
+//std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
+
+std::string network_file_path = "data/exp2_rank/network_100_GPU_reform.dat";
+std::string demand_file_path = "data/exp2_rank/demand_100_100000.dat";
+std::string od_pair_file_path = "data/exp2_rank/od_pair_100.dat";
+std::string od_pair_paths_file_path = "data/exp2_rank/od_pair_cleaned_paths_100.dat";
 
 /*
  * All data in GPU
