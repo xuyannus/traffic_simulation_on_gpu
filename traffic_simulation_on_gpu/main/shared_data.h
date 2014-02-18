@@ -17,7 +17,7 @@ const int LANE_SIZE = 20200;
 const int NODE_SIZE = 10201;
 
 const int START_TIME_STEPS = 0;
-const int END_TIME_STEPS = 1000;
+const int END_TIME_STEPS = 300;
 
 //for exp 1
 //const int END_TIME_STEPS = 3600;

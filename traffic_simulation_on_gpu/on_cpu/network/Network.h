@@ -50,6 +50,7 @@ bool Network::load_network(Network* network, string network_file_path) {
 	ifstream myfile(network_file_path.c_str());
 	if (myfile.is_open()) {
 		while (getline(myfile, line)) {
+
 			if (line.empty() || line.compare(0, 1, "#") == 0) {
 				continue;
 			}
