@@ -49,13 +49,13 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="data|main|output_exp1|exp_1|output|util|cpu|testing_idea|special_networks|demand|on_cpu|exp2|on_gpu" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="exp2|exp_1" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="data"/>
+						<entry excluding="data|main|output_exp1|exp_1|util|cpu|testing_idea|special_networks|output_for_debugging|demand|on_cpu|exp2|on_gpu" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="exp_1|exp2" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="data"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="main"/>
-						<entry excluding="main_function|util" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_cpu"/>
+						<entry excluding="util|main_function" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_cpu"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_gpu"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="output"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="output_exp1"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="output_for_debugging"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="special_networks"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="testing_idea"/>
 					</sourceEntries>
@@ -112,15 +112,15 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="exp2|output|data|output_exp1|main|exp_1|util|cpu|testing_idea|special_networks|demand|on_cpu|on_gpu" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="exp2|exp_1" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="data"/>
+						<entry excluding="data|output_exp1|main|exp_1|util|cpu|testing_idea|special_networks|output_for_debugging|demand|on_cpu|exp2|on_gpu" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="exp_1|exp2" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="data"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="main"/>
 						<entry excluding="network|util|demand|main_function" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_cpu"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_cpu/demand"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_cpu/network"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_gpu"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="output"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="output_exp1"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="output_for_debugging"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="special_networks"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="testing_idea"/>
 					</sourceEntries>

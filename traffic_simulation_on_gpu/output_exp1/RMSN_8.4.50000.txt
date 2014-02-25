@@ -23392,8 +23392,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------2599---------
 ------------------------
-Counts RMSN:0.0010670793318704296
-Flow RMSN:7.35493817678241E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -23403,7 +23403,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.0010620803730729995
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -23905,55 +23905,55 @@ Queue Length RMSN:0.0
 ------------------------
 ----------2656---------
 ------------------------
-Counts RMSN:0.0010462419483577897
-Flow RMSN:7.230002218186435E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013503759305065637
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2657---------
 ------------------------
-Counts RMSN:0.0010439921684881003
-Flow RMSN:7.227721347964302E-5
-Density RMSN:0.0010416748681903506
-Speed RMSN:4.953301443716584E-4
-Queue Length RMSN:0.0013429789023544025
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2658---------
 ------------------------
-Counts RMSN:0.0014731277730377164
-Flow RMSN:7.225121486631803E-5
-Density RMSN:0.0014689120701566563
-Speed RMSN:7.00621145624752E-4
-Queue Length RMSN:0.0013300523585390272
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2659---------
 ------------------------
-Counts RMSN:0.0014717289956621056
-Flow RMSN:7.222843694362844E-5
-Density RMSN:0.0014648812562420867
-Speed RMSN:7.007853542032714E-4
-Queue Length RMSN:0.0013305806462492902
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2660---------
 ------------------------
-Counts RMSN:0.0014710843016434172
-Flow RMSN:7.220745126518068E-5
-Density RMSN:0.001464774765891967
-Speed RMSN:7.008479046901596E-4
-Queue Length RMSN:0.0013680836440667374
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2661---------
 ------------------------
-Counts RMSN:0.0010416319178154683
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.001467098335032261
-Speed RMSN:7.011296755747379E-4
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
@@ -24026,7 +24026,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013512705746900186
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2670---------
@@ -24044,7 +24044,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.003979835500132661
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2672---------
@@ -24215,7 +24215,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.00137408614226251
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2691---------
@@ -24233,7 +24233,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013728213686930377
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2693---------
@@ -24242,7 +24242,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013605261650386166
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2694---------
@@ -24251,7 +24251,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013675884781436062
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2695---------
@@ -24260,7 +24260,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001380011642329147
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2696---------
@@ -24427,64 +24427,64 @@ Queue Length RMSN:0.0
 ------------------------
 ----------2714---------
 ------------------------
-Counts RMSN:0.001012539244199252
-Flow RMSN:7.10731012453052E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0019262042538268768
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2715---------
 ------------------------
-Counts RMSN:0.0014279534280480998
-Flow RMSN:7.10548473474277E-5
-Density RMSN:0.001426126640045636
-Speed RMSN:7.07002155293233E-4
-Queue Length RMSN:0.0013597154056539662
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2716---------
 ------------------------
-Counts RMSN:0.0014314342971657604
-Flow RMSN:7.103522625856969E-5
-Density RMSN:0.0014256183619645027
-Speed RMSN:7.071932626484275E-4
-Queue Length RMSN:0.001358648822775953
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2717---------
 ------------------------
-Counts RMSN:0.001432151808091658
-Flow RMSN:7.101183281407938E-5
-Density RMSN:0.0014252120002850417
-Speed RMSN:5.001456537399809E-4
-Queue Length RMSN:0.001388472546072969
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2718---------
 ------------------------
-Counts RMSN:0.0014311270125223615
-Flow RMSN:7.099120433133302E-5
-Density RMSN:0.0014250089063056624
-Speed RMSN:5.001456730090762E-4
-Queue Length RMSN:0.0014053144068722609
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2719---------
 ------------------------
-Counts RMSN:0.0014316392269148176
-Flow RMSN:7.096852683843154E-5
-Density RMSN:0.001424907381020232
-Speed RMSN:5.001794829241096E-4
-Queue Length RMSN:0.001370275474484128
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2720---------
 ------------------------
-Counts RMSN:0.0010113083254956344
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.0014247043738424279
-Speed RMSN:5.002809261773317E-4
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
@@ -24494,7 +24494,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001361187289297334
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2722---------
@@ -24715,65 +24715,65 @@ Queue Length RMSN:0.0
 ------------------------
 ----------2746---------
 ------------------------
-Counts RMSN:0.0010094089159599722
-Flow RMSN:7.042283008959705E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013440642583307377
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2747---------
 ------------------------
-Counts RMSN:0.0014276209210436364
-Flow RMSN:7.040321841175004E-5
-Density RMSN:0.0014217782726227714
-Speed RMSN:5.019154143527444E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2748---------
 ------------------------
-Counts RMSN:0.001427216438561403
-Flow RMSN:7.038327980557282E-5
-Density RMSN:0.0014212768342815763
-Speed RMSN:5.019835171264868E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2749---------
 ------------------------
-Counts RMSN:0.0014277220774895406
-Flow RMSN:7.03609889806146E-5
-Density RMSN:0.0014210763579667043
-Speed RMSN:5.020686594512298E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2750---------
 ------------------------
-Counts RMSN:0.0014268121852152589
-Flow RMSN:7.033938711504506E-5
-Density RMSN:0.0014203751360221274
-Speed RMSN:5.021652113109293E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2751---------
 ------------------------
-Counts RMSN:0.001425499941960374
-Flow RMSN:7.032049636052648E-5
-Density RMSN:0.0014198746867458189
-Speed RMSN:5.021992743216736E-4
-Queue Length RMSN:0.0013371355264721564
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2752---------
 ------------------------
-Counts RMSN:0.0010054237693514357
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.0014190747010078115
-Speed RMSN:5.022333376360315E-4
-Queue Length RMSN:0.0013310446206835165
+Density RMSN:0.0
+Speed RMSN:0.0
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2753---------
@@ -24890,7 +24890,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013080154098585152
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2766---------
@@ -25052,7 +25052,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.00272583054685507
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2784---------
@@ -25268,7 +25268,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.002599099750401927
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2808---------
@@ -25286,7 +25286,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013215577859380444
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2810---------
@@ -25295,7 +25295,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013392818582964264
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2811---------
@@ -25304,7 +25304,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013271021740733286
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2812---------
@@ -25313,7 +25313,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013276061369242424
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2813---------
@@ -25322,7 +25322,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013100405816601573
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2814---------
@@ -25331,7 +25331,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013496496336785882
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2815---------
@@ -25376,7 +25376,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013124911398602252
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2820---------
@@ -25430,7 +25430,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013118284328974077
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2826---------
@@ -25484,7 +25484,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.00132707567109872
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2832---------
@@ -25529,7 +25529,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013467041686253433
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2837---------
@@ -25682,7 +25682,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013179334052625606
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2854---------
@@ -25835,7 +25835,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001282271034187257
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2871---------
@@ -25934,7 +25934,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013096157956018267
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2882---------
@@ -26294,7 +26294,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013011306668329649
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2922---------
@@ -26339,7 +26339,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0013146151952348041
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2927---------
@@ -26825,7 +26825,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012709753370942216
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2981---------
@@ -26924,7 +26924,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001283524005401431
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------2992---------
@@ -27167,7 +27167,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012604360631776849
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3019---------
@@ -27419,7 +27419,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012852487911587415
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3047---------
@@ -27518,7 +27518,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012923483135452807
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3058---------
@@ -27761,7 +27761,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012599935724078965
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3085---------
@@ -27806,7 +27806,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012796143242974445
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3090---------
@@ -28085,7 +28085,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012253609854446079
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3121---------
@@ -28175,7 +28175,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001229629359483476
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3131---------
@@ -28310,7 +28310,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012417235479729042
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3146---------
@@ -28400,7 +28400,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0024732259806543888
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3156---------
@@ -28535,7 +28535,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.00124073520784951
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3171---------
@@ -28661,7 +28661,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012115106427749165
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3185---------
@@ -29057,7 +29057,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001205515760264749
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3229---------
@@ -29102,7 +29102,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0012083003695238608
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3234---------
@@ -29192,7 +29192,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001168019537713949
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3244---------
@@ -29237,7 +29237,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0011758558437240797
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3249---------
@@ -29318,7 +29318,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001191688017766628
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3258---------
@@ -29525,7 +29525,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.002315656509342174
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3281---------
@@ -29665,18 +29665,18 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3296---------
 ------------------------
-Counts RMSN:8.519891251437537E-4
-Flow RMSN:6.18558960325299E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001172225912263598
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3297---------
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.490000512713654E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -29719,8 +29719,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3302---------
 ------------------------
-Counts RMSN:8.521830958981521E-4
-Flow RMSN:6.178135672621054E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -29730,7 +29730,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.498669613740588E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -29741,7 +29741,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0023156641422298475
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3305---------
@@ -29773,18 +29773,18 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3308---------
 ------------------------
-Counts RMSN:8.486407187628151E-4
-Flow RMSN:6.171322995919638E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0011580789436247563
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3309---------
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.46082877064212E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -29827,8 +29827,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3314---------
 ------------------------
-Counts RMSN:8.480254273227116E-4
-Flow RMSN:6.164499410836282E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -29836,7 +29836,7 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3315---------
 ------------------------
-Counts RMSN:8.477181160607718E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
@@ -30304,8 +30304,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3367---------
 ------------------------
-Counts RMSN:8.415314442599299E-4
-Flow RMSN:6.105919955116215E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -30315,7 +30315,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.392227160177909E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -30511,8 +30511,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3390---------
 ------------------------
-Counts RMSN:8.32294674202464E-4
-Flow RMSN:6.0811034657207474E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -30520,10 +30520,10 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3391---------
 ------------------------
-Counts RMSN:8.339786739739083E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.0011764804725903704
-Speed RMSN:5.520145701099483E-4
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
@@ -30583,28 +30583,28 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3398---------
 ------------------------
-Counts RMSN:8.305126706178744E-4
-Flow RMSN:6.0727419295663683E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0011314244112893331
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3399---------
 ------------------------
-Counts RMSN:8.30019023048558E-4
-Flow RMSN:6.0717612098964276E-5
-Density RMSN:8.280993917908408E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3400---------
 ------------------------
-Counts RMSN:8.30167055690443E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.001170762251489893
-Speed RMSN:5.529358231941879E-4
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
@@ -30623,7 +30623,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001135542479611851
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3403---------
@@ -30637,8 +30637,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3404---------
 ------------------------
-Counts RMSN:8.27445391622653E-4
-Flow RMSN:6.065632608419555E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -30648,7 +30648,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.293838862559253E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -30812,13 +30812,13 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0011144296132693148
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3424---------
 ------------------------
-Counts RMSN:8.263841900679927E-4
-Flow RMSN:6.044204843736935E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -30826,7 +30826,7 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3425---------
 ------------------------
-Counts RMSN:8.257489234089611E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
@@ -30893,7 +30893,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0011282780049545085
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3433---------
@@ -30997,8 +30997,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3444---------
 ------------------------
-Counts RMSN:8.238003683422182E-4
-Flow RMSN:6.021567558341552E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31008,7 +31008,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.216192070939601E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31069,8 +31069,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3452---------
 ------------------------
-Counts RMSN:8.277700429121372E-4
-Flow RMSN:6.0122592794968E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31080,7 +31080,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.251422015060678E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31177,8 +31177,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3464---------
 ------------------------
-Counts RMSN:8.238201718253501E-4
-Flow RMSN:5.9995164907734336E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31188,7 +31188,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.212588725288913E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31231,36 +31231,36 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3470---------
 ------------------------
-Counts RMSN:8.204606371192092E-4
-Flow RMSN:5.9929448759815016E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0011083772749658745
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3471---------
 ------------------------
-Counts RMSN:8.201233360996617E-4
-Flow RMSN:5.991818359567325E-5
-Density RMSN:8.179136674145697E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3472---------
 ------------------------
-Counts RMSN:0.0011592848639936308
-Flow RMSN:5.990741218347509E-5
-Density RMSN:0.0011562982410054155
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3473---------
 ------------------------
-Counts RMSN:8.194976551507595E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.0011561628510117384
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31366,8 +31366,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3485---------
 ------------------------
-Counts RMSN:8.170044490854752E-4
-Flow RMSN:5.977114630708504E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31375,10 +31375,10 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3486---------
 ------------------------
-Counts RMSN:8.166699832603627E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.0011519142357752862
-Speed RMSN:5.591052390664328E-4
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
@@ -31456,8 +31456,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3495---------
 ------------------------
-Counts RMSN:8.157158738109083E-4
-Flow RMSN:5.966097692401505E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31467,7 +31467,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.155656530350702E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31528,8 +31528,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3503---------
 ------------------------
-Counts RMSN:8.212950025955926E-4
-Flow RMSN:5.957686099950503E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31537,63 +31537,63 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3504---------
 ------------------------
-Counts RMSN:8.233663678086666E-4
-Flow RMSN:5.956572798761463E-5
-Density RMSN:8.21161649669123E-4
-Speed RMSN:5.591616386421461E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3505---------
 ------------------------
-Counts RMSN:8.211033015971458E-4
-Flow RMSN:5.955459913575531E-5
-Density RMSN:8.209704929096122E-4
-Speed RMSN:5.591827524432159E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3506---------
 ------------------------
-Counts RMSN:0.001158076618511039
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.001417890232934312
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3507---------
 ------------------------
-Counts RMSN:8.162789341729346E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.163120185889379E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3508---------
 ------------------------
-Counts RMSN:8.160410352063418E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.138588536216724E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3509---------
 ------------------------
-Counts RMSN:0.0011567942911171517
-Flow RMSN:5.950988375778298E-5
-Density RMSN:8.157426971764617E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3510---------
 ------------------------
-Counts RMSN:8.195251764397373E-4
-Flow RMSN:5.9500707288887726E-5
-Density RMSN:8.177154392997603E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31602,7 +31602,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.174779108505359E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31654,8 +31654,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3517---------
 ------------------------
-Counts RMSN:8.196683916508585E-4
-Flow RMSN:5.943028768427546E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31663,17 +31663,17 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3518---------
 ------------------------
-Counts RMSN:8.195729092824444E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.0011555512886668833
-Speed RMSN:5.599443661918286E-4
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3519---------
 ------------------------
-Counts RMSN:8.190004818968796E-4
-Flow RMSN:5.940789450732802E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31683,7 +31683,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.171456027566953E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31744,8 +31744,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3527---------
 ------------------------
-Counts RMSN:8.143796172415798E-4
-Flow RMSN:5.932113011115544E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31753,9 +31753,9 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3528---------
 ------------------------
-Counts RMSN:8.162170765072226E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.0011513592367331325
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31780,8 +31780,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3531---------
 ------------------------
-Counts RMSN:8.114498253105317E-4
-Flow RMSN:5.9281317916000305E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31791,7 +31791,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.092396872837823E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31838,7 +31838,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001031710709420016
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3538---------
@@ -31915,8 +31915,8 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3546---------
 ------------------------
-Counts RMSN:8.148269893723023E-4
-Flow RMSN:5.912975465007049E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
@@ -31924,9 +31924,9 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3547---------
 ------------------------
-Counts RMSN:8.150157706035498E-4
+Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:0.0011495435701075855
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -31955,7 +31955,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001068028233673233
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3551---------
@@ -32036,7 +32036,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.001076279565730889
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3560---------
@@ -32077,19 +32077,19 @@ Queue Length RMSN:0.0
 ------------------------
 ----------3564---------
 ------------------------
-Counts RMSN:8.089722678742478E-4
-Flow RMSN:5.893818854353648E-5
+Counts RMSN:0.0
+Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0010701332496520913
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3565---------
 ------------------------
-Counts RMSN:0.0011416127471154548
-Flow RMSN:5.892516164514075E-5
-Density RMSN:0.0011409031636555479
-Speed RMSN:5.634405789449327E-4
+Counts RMSN:0.0
+Flow RMSN:0.0
+Density RMSN:0.0
+Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
 ------------------------
@@ -32097,7 +32097,7 @@ Queue Length RMSN:0.0
 ------------------------
 Counts RMSN:0.0
 Flow RMSN:0.0
-Density RMSN:8.087388516276968E-4
+Density RMSN:0.0
 Speed RMSN:0.0
 Queue Length RMSN:0.0
 ------------------------
@@ -32207,7 +32207,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0010837186682531009
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3579---------
@@ -32369,7 +32369,7 @@ Counts RMSN:0.0
 Flow RMSN:0.0
 Density RMSN:0.0
 Speed RMSN:0.0
-Queue Length RMSN:0.0010632366939087455
+Queue Length RMSN:0.0
 ------------------------
 ------------------------
 ----------3597---------
