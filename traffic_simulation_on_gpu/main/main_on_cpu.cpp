@@ -17,7 +17,7 @@
 //#include "../on_gpu/supply/OnGPUVehicle.h"
 //#include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 //
-////#define ENABLE_OUTPUT
+//#define ENABLE_OUTPUT
 ////#define SERIALIZED_EXECUTION
 //
 //using namespace std;
@@ -33,15 +33,16 @@
 ///*
 // * Path Input Config
 // */
-////std::string network_file_path = "data/exp1_network/network_10_rank.dat_121";
-////std::string demand_file_path = "data/exp1/demand_10_10000.dat";
-////std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
-////std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
+////std::string network_file_path = "data/exp1_network/network_10_rank.dat";
+//std::string network_file_path = "data/exp1_network/network_10_rank.dat_2";
+//std::string demand_file_path = "data/exp1/demand_10_1.dat";
+//std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
+//std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
 //
-//std::string network_file_path = "data/exp2/network_100.dat";
-//std::string demand_file_path = "data/exp2/demand_100_100000.dat";
-//std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
-//std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
+////std::string network_file_path = "data/exp2/network_100.dat";
+////std::string demand_file_path = "data/exp2/demand_100_100000.dat";
+////std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
+////std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
 //
 ///*
 // * All data in GPU
@@ -54,7 +55,7 @@
 ///**
 // * Simulation Results
 // */
-//std::string simulation_output_file_path = "output/simulated_outputs_cpu_100.txt.compare";
+//std::string simulation_output_file_path = "output/test.txt.compare.2";
 //std::map<int, SimulationResults*> simulation_results_pool;
 //ofstream simulation_results_output_file;
 //
@@ -83,6 +84,14 @@
 // * simulation_results_outputed_time + 1 might be the outputing time on CPU
 // */
 //long to_output_simulation_result_time;
+//
+///*
+// *
+// */
+//std::map<int, int> link_ID_to_link_Index;
+//std::map<int, int> link_Index_to_link_ID;
+//std::map<int, int> node_ID_to_node_Index;
+//std::map<int, int> node_index_to_node_ID;
 //
 ///*
 // * Define Major Functions
@@ -241,6 +250,10 @@
 // */
 //bool initGPUData(GPUMemory* data_local) {
 //
+//	node_ID_to_node_Index.clear();
+//	link_ID_to_link_Index.clear();
+//	node_index_to_node_ID.clear();
+//	link_Index_to_link_ID.clear();
 //	/**
 //	 * First Part: Lane
 //	 */
@@ -249,6 +262,8 @@
 //		Link* one_link = the_network->all_links[i];
 //
 //		data_local->lane_pool.lane_ID[i] = one_link->link_id;
+//		link_ID_to_link_Index[one_link->link_id] = i;
+//		link_Index_to_link_ID[i] = one_link->link_id;
 //		//make sure assert is working
 ////		assert(1 == 0);
 //
@@ -326,6 +341,8 @@
 ////	NodePool* the_node_pool = data_local->node_pool;
 //	for (int i = 0; i < the_network->all_nodes.size(); i++) {
 //		Node* one_node = the_network->all_nodes[i];
+//		node_ID_to_node_Index[one_node->node_id] = i;
+//		node_index_to_node_ID[i] = one_node->node_id;
 //
 //		data_local->node_pool.node_ID[i] = one_node->node_id;
 //		data_local->node_pool.MAXIMUM_ACCUMULATED_FLOW[i] = 0;
@@ -339,7 +356,8 @@
 //		}
 //
 //		for (int j = 0; j < one_node->upstream_links.size(); j++) {
-//			data_local->node_pool.upstream[j][i] = one_node->upstream_links[j]->link_id;
+//			int link_index = link_ID_to_link_Index[one_node->upstream_links[j]->link_id];
+//			data_local->node_pool.upstream[j][i] = link_index;
 //			data_local->node_pool.ACCUMULATYED_UPSTREAM_CAPACITY[i] += LANE_OUTPUT_CAPACITY_TIME_STEP;
 //		}
 //
@@ -348,7 +366,8 @@
 //		}
 //
 //		for (int j = 0; j < one_node->downstream_links.size(); j++) {
-//			data_local->node_pool.downstream[j][i] = one_node->downstream_links[j]->link_id;
+//			int link_index = link_ID_to_link_Index[one_node->downstream_links[j]->link_id];
+//			data_local->node_pool.downstream[j][i] = link_index;
 //			data_local->node_pool.ACCUMULATYED_DOWNSTREAM_CAPACITY[i] += LANE_OUTPUT_CAPACITY_TIME_STEP;
 //		}
 //
@@ -409,10 +428,11 @@
 //		if (time_index_covert >= TOTAL_TIME_STEPS) continue;
 //
 //		int lane_ID = all_od_paths[one_vehicle->path_id]->link_ids[0];
+//		int lane_Index = link_ID_to_link_Index[lane_ID];
 //
-//		if (data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_ID] < VEHICLE_MAX_LOADING_ONE_TIME) {
-//			int last_vehicle_index = data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_ID];
-//			int idx_vpool = time_index_covert * nVehiclePerTick + lane_ID * VEHICLE_MAX_LOADING_ONE_TIME + last_vehicle_index;
+//		if (data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_Index] < VEHICLE_MAX_LOADING_ONE_TIME) {
+//			int last_vehicle_index = data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_Index];
+//			int idx_vpool = time_index_covert * nVehiclePerTick + lane_Index * VEHICLE_MAX_LOADING_ONE_TIME + last_vehicle_index;
 //
 //			//for gpu to rebuild
 ////			vpool_cpu_index[idx_vpool] = i;
@@ -420,19 +440,20 @@
 //
 //			vpool_cpu[i].vehicle_ID = one_vehicle->vehicle_id;
 //			vpool_cpu[i].entry_time = time_index;
-//			vpool_cpu[i].current_lane_ID = lane_ID;
+//			vpool_cpu[i].current_lane_ID = lane_Index;
 //			int max_copy_length = MAX_ROUTE_LENGTH > all_od_paths[one_vehicle->path_id]->link_ids.size() ? all_od_paths[one_vehicle->path_id]->link_ids.size() : MAX_ROUTE_LENGTH;
 //
 //			for (int p = 0; p < max_copy_length; p++) {
-//				vpool_cpu[i].path_code[p] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
+////				vpool_cpu[i].path_code[p] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
+//				vpool_cpu[i].path_code[p] = link_ID_to_link_Index[all_od_paths[one_vehicle->path_id]->link_ids[p]];
 //			}
 //
 //			//ready for the next lane, so next_path_index is set to 1, if the next_path_index == whole_path_length, it means cannot find path any more, can exit;
 //			vpool_cpu[i].next_path_index = 1;
 //			vpool_cpu[i].whole_path_length = all_od_paths[one_vehicle->path_id]->link_ids.size();
 //
-//			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[lane_ID][last_vehicle_index] = &(vpool_cpu[i]);
-//			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_ID]++;
+//			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[lane_Index][last_vehicle_index] = &(vpool_cpu[i]);
+//			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_Index]++;
 //
 //			total_inserted_vehicles++;
 //		}
@@ -492,9 +513,12 @@
 //bool output_simulated_results(int time_step) {
 //
 //	for (int i = 0; i < LANE_SIZE; i++) {
-//		simulation_results_output_file << time_step << ":lane:" << i << ":(" << gpu_data->lane_pool.vehicle_counts[i] << ":" << gpu_data->lane_pool.flow[i] << ":" << gpu_data->lane_pool.density[i]
+//		int lane_ID = i;
+//		int lane_Index = link_ID_to_link_Index[lane_ID];
+//		simulation_results_output_file << time_step << ":lane:" << lane_ID << ":(" << gpu_data->lane_pool.vehicle_counts[lane_Index] << ":" << gpu_data->lane_pool.flow[lane_Index] << ":"
+//				<< gpu_data->lane_pool.density[lane_Index]
 ////				<< ":" << gpu_data->lane_pool.speed[i] << ":" << gpu_data->lane_pool.queue_length[i] << ":" << gpu_data->lane_pool.empty_space[i] << ")" << endl;
-//				<< ":" << gpu_data->lane_pool.speed[i] << ":" << gpu_data->lane_pool.queue_length[i] << ")" << endl;
+//				<< ":" << gpu_data->lane_pool.speed[lane_Index] << ":" << gpu_data->lane_pool.queue_length[lane_Index] << ":" << gpu_data->lane_pool.empty_space[lane_Index] << ")" << endl;
 //	}
 //
 //	return true;
@@ -511,112 +535,112 @@
 //void supply_simulation_pre_vehicle_passing(int time_step) {
 //	int time_index = time_step;
 //
-//	for (unsigned int lane_id = 0; lane_id < the_network->all_links.size(); lane_id++) {
+//	for (unsigned int lane_index = 0; lane_index < the_network->all_links.size(); lane_index++) {
 //
-//		gpu_data->lane_pool.new_vehicle_join_counts[lane_id] = 0;
+//		gpu_data->lane_pool.new_vehicle_join_counts[lane_index] = 0;
 //
 ////init capacity
-//		gpu_data->lane_pool.input_capacity[lane_id] = LANE_INPUT_CAPACITY_TIME_STEP;
-//		gpu_data->lane_pool.output_capacity[lane_id] = LANE_OUTPUT_CAPACITY_TIME_STEP;
+//		gpu_data->lane_pool.input_capacity[lane_index] = LANE_INPUT_CAPACITY_TIME_STEP;
+//		gpu_data->lane_pool.output_capacity[lane_index] = LANE_OUTPUT_CAPACITY_TIME_STEP;
 //
 ////init for next GPU kernel function
-//		gpu_data->lane_pool.blocked[lane_id] = false;
+//		gpu_data->lane_pool.blocked[lane_index] = false;
 //
 ////load passed vehicles to the back of the lane
-//		for (int i = 0; i < gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id]; i++) {
-//			if (gpu_data->lane_pool.vehicle_counts[lane_id] < gpu_data->lane_pool.max_vehicles[lane_id]) {
-//				gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_id]][lane_id] = gpu_data->lane_pool.vehicle_passed_space[i][lane_id];
-//				gpu_data->lane_pool.vehicle_counts[lane_id]++;
+//		for (int i = 0; i < gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_index]; i++) {
+//			if (gpu_data->lane_pool.vehicle_counts[lane_index] < gpu_data->lane_pool.max_vehicles[lane_index]) {
+//				gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_index]][lane_index] = gpu_data->lane_pool.vehicle_passed_space[i][lane_index];
+//				gpu_data->lane_pool.vehicle_counts[lane_index]++;
 //
 ////				gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
 //			}
 //		}
-//		if (gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] > 0) {
-//			gpu_data->lane_pool.empty_space[lane_id] = std::min(gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS, gpu_data->lane_pool.empty_space[lane_id])
-//					- gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] * VEHICLE_LENGTH;
-//			if (gpu_data->lane_pool.empty_space[lane_id] < 0) gpu_data->lane_pool.empty_space[lane_id] = 0;
+//		if (gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_index] > 0) {
+//			gpu_data->lane_pool.empty_space[lane_index] = std::min(gpu_data->lane_pool.speed[lane_index] * UNIT_TIME_STEPS, gpu_data->lane_pool.empty_space[lane_index])
+//					- gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_index] * VEHICLE_LENGTH;
+//			if (gpu_data->lane_pool.empty_space[lane_index] < 0) gpu_data->lane_pool.empty_space[lane_index] = 0;
 //		}
-//		gpu_data->lane_pool.last_time_empty_space[lane_id] = gpu_data->lane_pool.empty_space[lane_id];
-//		gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_id] = 0;
+//		gpu_data->lane_pool.last_time_empty_space[lane_index] = gpu_data->lane_pool.empty_space[lane_index];
+//		gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[lane_index] = 0;
 //
 ////
 ////load newly generated vehicles to the back of the lane
-//		for (int i = 0; i < gpu_data->new_vehicles_every_time_step[time_index].new_vehicle_size[lane_id]; i++) {
-//			if (gpu_data->lane_pool.vehicle_counts[lane_id] < gpu_data->lane_pool.max_vehicles[lane_id]) {
-//				gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_id]][lane_id] = (gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[lane_id][i]);
-//				gpu_data->lane_pool.vehicle_counts[lane_id]++;
+//		for (int i = 0; i < gpu_data->new_vehicles_every_time_step[time_index].new_vehicle_size[lane_index]; i++) {
+//			if (gpu_data->lane_pool.vehicle_counts[lane_index] < gpu_data->lane_pool.max_vehicles[lane_index]) {
+//				gpu_data->lane_pool.vehicle_space[gpu_data->lane_pool.vehicle_counts[lane_index]][lane_index] = (gpu_data->new_vehicles_every_time_step[time_index].new_vehicles[lane_index][i]);
+//				gpu_data->lane_pool.vehicle_counts[lane_index]++;
 //
-//				gpu_data->lane_pool.new_vehicle_join_counts[lane_id]++;
+//				gpu_data->lane_pool.new_vehicle_join_counts[lane_index]++;
 //			}
 //		}
 //
 ////update speed and density
-//		gpu_data->lane_pool.density[lane_id] = 1.0 * VEHICLE_LENGTH * gpu_data->lane_pool.vehicle_counts[lane_id] / gpu_data->lane_pool.lane_length[lane_id];
+//		gpu_data->lane_pool.density[lane_index] = 1.0 * VEHICLE_LENGTH * gpu_data->lane_pool.vehicle_counts[lane_index] / gpu_data->lane_pool.lane_length[lane_index];
 //
 ////		std::cout << "gpu_data->lane_pool.speed[lane_id]:" << gpu_data->lane_pool.speed[lane_id] << std::endl;
 //
 ////Speed-Density Relationship
-//		if (gpu_data->lane_pool.density[lane_id] < gpu_data->lane_pool.min_density[lane_id]) gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MAX_SPEED[lane_id];
+//		if (gpu_data->lane_pool.density[lane_index] < gpu_data->lane_pool.min_density[lane_index]) gpu_data->lane_pool.speed[lane_index] = gpu_data->lane_pool.MAX_SPEED[lane_index];
 //		else {
-//			gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MAX_SPEED[lane_id]
-//					- gpu_data->lane_pool.MAX_SPEED[lane_id] / (gpu_data->lane_pool.max_density[lane_id] - gpu_data->lane_pool.min_density[lane_id])
-//							* (gpu_data->lane_pool.density[lane_id] - gpu_data->lane_pool.min_density[lane_id]);
+//			gpu_data->lane_pool.speed[lane_index] = gpu_data->lane_pool.MAX_SPEED[lane_index]
+//					- gpu_data->lane_pool.MAX_SPEED[lane_index] / (gpu_data->lane_pool.max_density[lane_index] - gpu_data->lane_pool.min_density[lane_index])
+//							* (gpu_data->lane_pool.density[lane_index] - gpu_data->lane_pool.min_density[lane_index]);
 //		}
 ////		gpu_data->lane_pool.speed[lane_id] = ( gpu_data->lane_pool.MAX_SPEED[lane_id] - gpu_data->lane_pool.MIN_SPEED ) / gpu_data->lane_pool.max_density[lane_id] * ( gpu_data->lane_pool.max_density[lane_id] - 0 );
 //
-//		if (gpu_data->lane_pool.speed[lane_id] < gpu_data->lane_pool.MIN_SPEED[lane_id]) gpu_data->lane_pool.speed[lane_id] = gpu_data->lane_pool.MIN_SPEED[lane_id];
+//		if (gpu_data->lane_pool.speed[lane_index] < gpu_data->lane_pool.MIN_SPEED[lane_index]) gpu_data->lane_pool.speed[lane_index] = gpu_data->lane_pool.MIN_SPEED[lane_index];
 //
 ////		std::cout << "gpu_data->lane_pool.speed[lane_id]:" << gpu_data->lane_pool.speed[lane_id] << std::endl;
 //
 ////update speed history
-//		gpu_data->lane_pool.speed_history[time_index][lane_id] = gpu_data->lane_pool.speed[lane_id];
+//		gpu_data->lane_pool.speed_history[time_index][lane_index] = gpu_data->lane_pool.speed[lane_index];
 //
 ////estimated empty_space
 //		if (time_step < START_TIME_STEPS + 4 * UNIT_TIME_STEPS) {
 ////		gpu_data->lane_pool.predicted_empty_space[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
-//			gpu_data->lane_pool.predicted_queue_length[lane_id] = 0;
-//			gpu_data->lane_pool.predicted_empty_space[lane_id] = std::min(gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS),
+//			gpu_data->lane_pool.predicted_queue_length[lane_index] = 0;
+//			gpu_data->lane_pool.predicted_empty_space[lane_index] = std::min(gpu_data->lane_pool.last_time_empty_space[lane_index] + (gpu_data->lane_pool.speed[lane_index] * UNIT_TIME_STEPS),
 //					1.0f * ROAD_LENGTH);
 //		}
 //		else {
-//			gpu_data->lane_pool.predicted_queue_length[lane_id] = gpu_data->lane_pool.his_queue_length[0][lane_id];
-//			gpu_data->lane_pool.predicted_queue_length[lane_id] += (gpu_data->lane_pool.his_queue_length[0][lane_id] - gpu_data->lane_pool.his_queue_length[1][lane_id])
-//					* gpu_data->lane_pool.his_queue_length_weighting[0][lane_id];
+//			gpu_data->lane_pool.predicted_queue_length[lane_index] = gpu_data->lane_pool.his_queue_length[0][lane_index];
+//			gpu_data->lane_pool.predicted_queue_length[lane_index] += (gpu_data->lane_pool.his_queue_length[0][lane_index] - gpu_data->lane_pool.his_queue_length[1][lane_index])
+//					* gpu_data->lane_pool.his_queue_length_weighting[0][lane_index];
 //
-//			gpu_data->lane_pool.predicted_queue_length[lane_id] += (gpu_data->lane_pool.his_queue_length[1][lane_id] - gpu_data->lane_pool.his_queue_length[2][lane_id])
-//					* gpu_data->lane_pool.his_queue_length_weighting[1][lane_id];
+//			gpu_data->lane_pool.predicted_queue_length[lane_index] += (gpu_data->lane_pool.his_queue_length[1][lane_index] - gpu_data->lane_pool.his_queue_length[2][lane_index])
+//					* gpu_data->lane_pool.his_queue_length_weighting[1][lane_index];
 //
-//			gpu_data->lane_pool.predicted_queue_length[lane_id] += (gpu_data->lane_pool.his_queue_length[2][lane_id] - gpu_data->lane_pool.his_queue_length[3][lane_id])
-//					* gpu_data->lane_pool.his_queue_length_weighting[2][lane_id];
+//			gpu_data->lane_pool.predicted_queue_length[lane_index] += (gpu_data->lane_pool.his_queue_length[2][lane_index] - gpu_data->lane_pool.his_queue_length[3][lane_index])
+//					* gpu_data->lane_pool.his_queue_length_weighting[2][lane_index];
 //
 //			//need improve
 //			//XUYAN, need modify
-//			gpu_data->lane_pool.predicted_empty_space[lane_id] = std::min(gpu_data->lane_pool.last_time_empty_space[lane_id] + (gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS),
-//					(ROAD_LENGTH - gpu_data->lane_pool.predicted_queue_length[lane_id]));
+//			gpu_data->lane_pool.predicted_empty_space[lane_index] = std::min(gpu_data->lane_pool.last_time_empty_space[lane_index] + (gpu_data->lane_pool.speed[lane_index] * UNIT_TIME_STEPS),
+//					(ROAD_LENGTH - gpu_data->lane_pool.predicted_queue_length[lane_index]));
 //
 //		}
 ////			gpu_data->lane_pool.debug_data[lane_id] = gpu_data->lane_pool.predicted_empty_space[lane_id];
 //
-//		gpu_data->lane_pool.debug_data[lane_id] = gpu_data->lane_pool.predicted_empty_space[lane_id];
+//		gpu_data->lane_pool.debug_data[lane_index] = gpu_data->lane_pool.predicted_empty_space[lane_index];
 //
 ////		std::cout << "gpu_data->lane_pool.accumulated_offset[lane_id]:" << gpu_data->lane_pool.accumulated_offset[lane_id] << std::endl;
 //
 ////update Tp
-//		gpu_data->lane_pool.accumulated_offset[lane_id] += gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS; //meter
+//		gpu_data->lane_pool.accumulated_offset[lane_index] += gpu_data->lane_pool.speed[lane_index] * UNIT_TIME_STEPS; //meter
 //
 ////		std::cout << "gpu_data->lane_pool.accumulated_offset[lane_id]:" << gpu_data->lane_pool.accumulated_offset[lane_id] << std::endl;
 ////		std::cout << "gpu_data->lane_pool.speed[lane_id]:" << gpu_data->lane_pool.speed[lane_id] << std::endl;
 //
-//		while (gpu_data->lane_pool.accumulated_offset[lane_id] >= gpu_data->lane_pool.lane_length[lane_id]) {
-//			gpu_data->lane_pool.accumulated_offset[lane_id] -= gpu_data->lane_pool.speed_history[gpu_data->lane_pool.Tp[lane_id]][lane_id] * UNIT_TIME_STEPS;
-//			gpu_data->lane_pool.Tp[lane_id] += UNIT_TIME_STEPS;
+//		while (gpu_data->lane_pool.accumulated_offset[lane_index] >= gpu_data->lane_pool.lane_length[lane_index]) {
+//			gpu_data->lane_pool.accumulated_offset[lane_index] -= gpu_data->lane_pool.speed_history[gpu_data->lane_pool.Tp[lane_index]][lane_index] * UNIT_TIME_STEPS;
+//			gpu_data->lane_pool.Tp[lane_index] += UNIT_TIME_STEPS;
 //		}
 //
 //		//update queue length
-//		int queue_start = gpu_data->lane_pool.queue_length[lane_id] / VEHICLE_LENGTH;
-//		for (int queue_index = queue_start; queue_index < gpu_data->lane_pool.vehicle_counts[lane_id]; queue_index++) {
-//			if (gpu_data->lane_pool.vehicle_space[queue_index][lane_id]->entry_time <= gpu_data->lane_pool.Tp[lane_id]) {
-//				gpu_data->lane_pool.queue_length[lane_id] += VEHICLE_LENGTH;
+//		int queue_start = gpu_data->lane_pool.queue_length[lane_index] / VEHICLE_LENGTH;
+//		for (int queue_index = queue_start; queue_index < gpu_data->lane_pool.vehicle_counts[lane_index]; queue_index++) {
+//			if (gpu_data->lane_pool.vehicle_space[queue_index][lane_index]->entry_time <= gpu_data->lane_pool.Tp[lane_index]) {
+//				gpu_data->lane_pool.queue_length[lane_index] += VEHICLE_LENGTH;
 //			}
 //			else {
 //				break;
@@ -625,7 +649,7 @@
 //	}
 //}
 //
-//GPUVehicle* get_next_vehicle_at_node(int node_id, int* lane_id) {
+//GPUVehicle* get_next_vehicle_at_node(int node_index, int* lane_index) {
 //
 //	int maximum_waiting_time = -1;
 ////	int the_lane_id = -1;
@@ -633,8 +657,8 @@
 //
 //	for (int j = 0; j < MAX_LANE_UPSTREAM; j++) {
 //
-//		int one_lane_id = gpu_data->node_pool.upstream[j][node_id];
-//		if (one_lane_id < 0) continue;
+//		int one_lane_index = gpu_data->node_pool.upstream[j][node_index];
+//		if (one_lane_index < 0) continue;
 //
 //		/*
 //		 * Condition 1: The Lane is not NULL
@@ -644,57 +668,39 @@
 //		 * ---       5: The vehicle can pass
 //		 */
 //
-//		if (gpu_data->lane_pool.output_capacity[one_lane_id] > 0 && gpu_data->lane_pool.blocked[one_lane_id] == false && gpu_data->lane_pool.vehicle_counts[one_lane_id] > 0) {
-//			int time_diff = gpu_data->lane_pool.Tp[one_lane_id] - gpu_data->lane_pool.vehicle_space[0][one_lane_id]->entry_time;
+//		if (gpu_data->lane_pool.output_capacity[one_lane_index] > 0 && gpu_data->lane_pool.blocked[one_lane_index] == false && gpu_data->lane_pool.vehicle_counts[one_lane_index] > 0) {
+//			int time_diff = gpu_data->lane_pool.Tp[one_lane_index] - gpu_data->lane_pool.vehicle_space[0][one_lane_index]->entry_time;
 //			if (time_diff >= 0) {
 //
 //				//if already the final move, then no need for checking next road
-//				if ((gpu_data->lane_pool.vehicle_space[0][one_lane_id]->next_path_index) >= (gpu_data->lane_pool.vehicle_space[0][one_lane_id]->whole_path_length)) {
+//				if ((gpu_data->lane_pool.vehicle_space[0][one_lane_index]->next_path_index) >= (gpu_data->lane_pool.vehicle_space[0][one_lane_index]->whole_path_length)) {
 //					if (time_diff > maximum_waiting_time) {
 //						maximum_waiting_time = time_diff;
-//						*lane_id = one_lane_id;
-//						the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+//						*lane_index = one_lane_index;
+//						the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_index];
 ////						return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
 //					}
 //				}
 //				else {
-//					int next_lane_index = gpu_data->lane_pool.vehicle_space[0][one_lane_id]->path_code[gpu_data->lane_pool.vehicle_space[0][one_lane_id]->next_path_index];
-//					int next_lane_id = gpu_data->node_pool.downstream[next_lane_index][node_id];
+////					int next_lane_index = gpu_data->lane_pool.vehicle_space[0][one_lane_index]->path_code[gpu_data->lane_pool.vehicle_space[0][one_lane_index]->next_path_index];
+////					int next_lane_id = gpu_data->node_pool.downstream[next_lane_index][node_index];
+//					int next_lane_index = gpu_data->lane_pool.vehicle_space[0][one_lane_index]->path_code[gpu_data->lane_pool.vehicle_space[0][one_lane_index]->next_path_index];
 //
 //					/**
 //					 * Condition 6: The Next Lane has input capacity
 //					 * ---       7: The next lane has empty space
 //					 */
-//					std::string key = str_tools->toString(one_lane_id);
-//					key.append(",");
-//					key.append(str_tools->toString(next_lane_id));
-//
-////					if (the_network->road_connect_broken[key] == false) {
-////						if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.empty_space[next_lane_id] > VEHICLE_LENGTH) {
-////							if (time_diff > maximum_waiting_time) {
-////								maximum_waiting_time = time_diff;
-////								*lane_id = one_lane_id;
-////								the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_id];
-//////								return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
-////							}
-////						}
-////						else {
-////							gpu_data->lane_pool.blocked[one_lane_id] = true;
-////						}
-////					}
-////					else {
-//					if (gpu_data->lane_pool.input_capacity[next_lane_id] > 0 && gpu_data->lane_pool.predicted_empty_space[next_lane_id] > VEHICLE_LENGTH) {
+//					if (gpu_data->lane_pool.input_capacity[next_lane_index] > 0 && gpu_data->lane_pool.predicted_empty_space[next_lane_index] >= VEHICLE_LENGTH) {
 //						if (time_diff > maximum_waiting_time) {
 //							maximum_waiting_time = time_diff;
-//							*lane_id = one_lane_id;
-//							the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_id];
+//							*lane_index = one_lane_index;
+//							the_one_veh = gpu_data->lane_pool.vehicle_space[0][one_lane_index];
 ////								return gpu_data->lane_pool.vehicle_space[0][one_lane_id];
 //						}
 //					}
 //					else {
-//						gpu_data->lane_pool.blocked[one_lane_id] = true;
+//						gpu_data->lane_pool.blocked[one_lane_index] = true;
 //					}
-////					}
 //				}
 //			}
 //		}
@@ -704,61 +710,63 @@
 //}
 //
 //void supply_simulation_vehicle_passing(int time_step) {
-//	for (unsigned int node_id = 0; node_id < the_network->all_nodes.size(); node_id++) {
+//	for (unsigned int node_index = 0; node_index < the_network->all_nodes.size(); node_index++) {
 //
-//		for (int i = 0; i < gpu_data->node_pool.MAXIMUM_ACCUMULATED_FLOW[node_id]; i++) {
-//			int lane_id = -1;
+//		for (int i = 0; i < gpu_data->node_pool.MAXIMUM_ACCUMULATED_FLOW[node_index]; i++) {
+//			int lane_index = -1;
 //
 //			//Find A vehicle
-//			GPUVehicle* one_v = get_next_vehicle_at_node(node_id, &lane_id);
+//			GPUVehicle* one_v = get_next_vehicle_at_node(node_index, &lane_index);
 //
-//			if (one_v == NULL || lane_id < 0) {
+//			if (one_v == NULL || lane_index < 0) {
 ////			printf("one_v == NULL\n");
 //				break;
 //			}
 //
-//			if (one_v->entry_time <= gpu_data->lane_pool.Tp[lane_id]) {
-//				gpu_data->lane_pool.queue_length[lane_id] -= VEHICLE_LENGTH;
+//			if (one_v->entry_time <= gpu_data->lane_pool.Tp[lane_index]) {
+//				gpu_data->lane_pool.queue_length[lane_index] -= VEHICLE_LENGTH;
 //			}
+//
 //			//Insert to next Lane
-//			if (gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index >= gpu_data->lane_pool.vehicle_space[0][lane_id]->whole_path_length) {
+//			if (gpu_data->lane_pool.vehicle_space[0][lane_index]->next_path_index >= gpu_data->lane_pool.vehicle_space[0][lane_index]->whole_path_length) {
 //				//the vehicle has finished the trip
 //
 ////			printf("vehicle %d finish trip at node %d,\n", one_v->vehicle_ID, node_id);
 //			}
 //			else {
-//				int next_lane_index = gpu_data->lane_pool.vehicle_space[0][lane_id]->path_code[gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index];
-//				int next_lane_id = gpu_data->node_pool.downstream[next_lane_index][node_id];
-//				gpu_data->lane_pool.vehicle_space[0][lane_id]->next_path_index++;
+////				int next_lane_index = gpu_data->lane_pool.vehicle_space[0][lane_index]->path_code[gpu_data->lane_pool.vehicle_space[0][lane_index]->next_path_index];
+////				int next_lane_index = gpu_data->node_pool.downstream[next_lane_index][node_index];
+//				int next_lane_index = gpu_data->lane_pool.vehicle_space[0][lane_index]->path_code[gpu_data->lane_pool.vehicle_space[0][lane_index]->next_path_index];
+//				gpu_data->lane_pool.vehicle_space[0][lane_index]->next_path_index++;
 //
 //				//it is very critical to update the entry time when passing
-//				gpu_data->lane_pool.vehicle_space[0][lane_id]->entry_time = time_step;
+//				gpu_data->lane_pool.vehicle_space[0][lane_index]->entry_time = time_step;
 //
 //				//add the vehicle
-//				gpu_data->lane_pool.vehicle_passed_space[gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[next_lane_id]][next_lane_id] = one_v;
-//				gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[next_lane_id]++;
+//				gpu_data->lane_pool.vehicle_passed_space[gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[next_lane_index]][next_lane_index] = one_v;
+//				gpu_data->lane_pool.vehicle_passed_to_the_lane_counts[next_lane_index]++;
 //
-//				gpu_data->lane_pool.input_capacity[next_lane_id]--;
-//				gpu_data->lane_pool.predicted_empty_space[next_lane_id] -= VEHICLE_LENGTH;
+//				gpu_data->lane_pool.input_capacity[next_lane_index]--;
+//				gpu_data->lane_pool.predicted_empty_space[next_lane_index] -= VEHICLE_LENGTH;
 //
 ////			printf("time_step=%d,one_v->vehicle_ID=%d,lane_id=%d, next_lane_id=%d, next_lane_index=%d\n", time_step, one_v->vehicle_ID, lane_id, next_lane_id, next_lane_index);
 //			}
 //
 //			//Remove from current Lane
-//			for (int j = 1; j < gpu_data->lane_pool.vehicle_counts[lane_id]; j++) {
-//				gpu_data->lane_pool.vehicle_space[j - 1][lane_id] = gpu_data->lane_pool.vehicle_space[j][lane_id];
+//			for (int j = 1; j < gpu_data->lane_pool.vehicle_counts[lane_index]; j++) {
+//				gpu_data->lane_pool.vehicle_space[j - 1][lane_index] = gpu_data->lane_pool.vehicle_space[j][lane_index];
 //			}
 //
-//			gpu_data->lane_pool.vehicle_counts[lane_id]--;
-//			gpu_data->lane_pool.output_capacity[lane_id]--;
-//			gpu_data->lane_pool.flow[lane_id]++;
+//			gpu_data->lane_pool.vehicle_counts[lane_index]--;
+//			gpu_data->lane_pool.output_capacity[lane_index]--;
+//			gpu_data->lane_pool.flow[lane_index]++;
 //		}
 //	}
 //}
 //
 //void supply_simulation_after_vehicle_passing(int time_step) {
 //
-//	for (unsigned int lane_id = 0; lane_id < the_network->all_links.size(); lane_id++) {
+//	for (unsigned int lane_index = 0; lane_index < the_network->all_links.size(); lane_index++) {
 //
 ////update queue length
 ////	bool continue_loop = true;
@@ -791,9 +799,9 @@
 //
 ////update the queue history
 //		for (int i = 3; i > 0; i--) {
-//			gpu_data->lane_pool.his_queue_length[i][lane_id] = gpu_data->lane_pool.his_queue_length[i - 1][lane_id];
+//			gpu_data->lane_pool.his_queue_length[i][lane_index] = gpu_data->lane_pool.his_queue_length[i - 1][lane_index];
 //		}
-//		gpu_data->lane_pool.his_queue_length[0][lane_id] = gpu_data->lane_pool.queue_length[lane_id];
+//		gpu_data->lane_pool.his_queue_length[0][lane_index] = gpu_data->lane_pool.queue_length[lane_index];
 //
 ////update the empty space
 ////			if (gpu_data->lane_pool.new_vehicle_join_counts[lane_id] > 0) {
@@ -801,8 +809,8 @@
 ////				if (gpu_data->lane_pool.empty_space[lane_id] < 0) gpu_data->lane_pool.empty_space[lane_id] = 0;
 ////			}
 ////			else {
-//		gpu_data->lane_pool.empty_space[lane_id] = gpu_data->lane_pool.empty_space[lane_id] + gpu_data->lane_pool.speed[lane_id] * UNIT_TIME_STEPS;
-//		gpu_data->lane_pool.empty_space[lane_id] = std::min(ROAD_LENGTH - gpu_data->lane_pool.queue_length[lane_id], gpu_data->lane_pool.empty_space[lane_id]);
+//		gpu_data->lane_pool.empty_space[lane_index] = gpu_data->lane_pool.empty_space[lane_index] + gpu_data->lane_pool.speed[lane_index] * UNIT_TIME_STEPS;
+//		gpu_data->lane_pool.empty_space[lane_index] = std::min(ROAD_LENGTH - gpu_data->lane_pool.queue_length[lane_index], gpu_data->lane_pool.empty_space[lane_index]);
 //
 //	}
 //}
