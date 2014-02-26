@@ -22,7 +22,7 @@
 #include "../on_gpu/util/OnGPUData.h"
 
 #define ENABLE_OUTPUT
-//#define ENABLE_CONSTANT_MEMORY
+#define ENABLE_CONSTANT_MEMORY
 #define ENABLE_MORE_REGISTER
 //#define ENABLE_OUTPUT_GPU_BUFFER
 
@@ -50,28 +50,23 @@ vector<Vehicle*> all_vehicles;
  */
 
 //std::string network_file_path = "data/exp1_network/network_10_rank.dat";
-std::string network_file_path = "data/exp1_network/network_10_rank.dat_2";
-std::string demand_file_path = "data/exp1/demand_10_1.dat";
-std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
-std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
+//std::string network_file_path = "data/exp1_network/network_10_rank.dat_2";
+//std::string demand_file_path = "data/exp1/demand_10_1.dat";
+//std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
+//std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
 
 //std::string network_file_path = "data/exp2/network_100_rank.dat";
 //std::string network_file_path = "data/exp2/network_100_congestion_rank.dat";
 
-//std::string network_file_path = "data/exp2/network_100.dat";
-//std::string demand_file_path = "data/exp2/demand_100_100000.dat";
-//std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
-//std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
+std::string network_file_path = "data/exp2_mix_network/network_100_mix.dat_1";
+std::string demand_file_path = "data/exp2/demand_100_100000.dat";
+std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
+std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
 
-//std::string network_file_path = "data/exp2_rank/network_100_GPU_ran_reform.dat";
-//std::string demand_file_path = "data/exp2_rank/demand_100_100000.dat";
-//std::string od_pair_file_path = "data/exp2_rank/od_pair_100_ran.dat";
-//std::string od_pair_paths_file_path = "data/exp2_rank/od_pair_cleaned_paths_100_ran.dat";
-
-//std::string network_file_path = "data/exp2_rank/network_100_GPU_flow_reform.dat";
+//std::string network_file_path = "data/exp2_rank/network_100_GPU_reform.dat";
 //std::string demand_file_path = "data/exp2_rank/demand_100_100000.dat";
 //std::string od_pair_file_path = "data/exp2_rank/od_pair_100.dat";
-//std::string od_pair_paths_file_path = "data/exp2_rank/od_pair_cleaned_paths_100_updated.dat";
+//std::string od_pair_paths_file_path = "data/exp2_rank/od_pair_cleaned_paths_100.dat";
 
 /*
  * All data in GPU
@@ -92,7 +87,7 @@ int *vpool_gpu_index;
 /**
  * Simulation Results
  */
-std::string simulation_output_file_path = "output/test2.txt.compare";
+std::string simulation_output_file_path = "output/test3.txt";
 std::map<int, SimulationResults*> simulation_results_pool;
 ofstream simulation_results_output_file;
 
@@ -177,7 +172,7 @@ __device__ GPUVehicle* get_next_vehicle_at_node(GPUMemory* gpu_data, int node_in
  * Utility Function
  */
 
-__global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool_gpu, int *vpool_gpu_index, GPUSharedParameter* data_setting_gpu);
+__global__ void linkGPUData(GPUMemory *gpu_data, int total_time_step, GPUVehicle *vpool_gpu, int *vpool_gpu_index, GPUSharedParameter* data_setting_gpu);
 
 __device__ float min_device(float one_value, float the_other);
 __device__ float max_device(float one_value, float the_other);
@@ -314,8 +309,12 @@ bool initilizeCPU() {
 	return true;
 }
 
-__global__ void linkGPUData(GPUMemory *gpu_data, GPUVehicle *vpool_gpu, int *vpool_gpu_index, GPUSharedParameter* data_setting_gpu) {
+__global__ void linkGPUData(GPUMemory *gpu_data, int total_time_step, GPUVehicle *vpool_gpu, int *vpool_gpu_index, GPUSharedParameter* data_setting_gpu) {
 	int time_index = threadIdx.x;
+//	int time_index = blockIdx.x * blockDim.x + threadIdx.x;
+//	if(time_index >= total_time_step)
+//		return;
+
 //	printf("time_index: %d\n", time_index);
 
 	int nVehiclePerTick = data_setting_gpu->ON_GPU_VEHICLE_MAX_LOADING_ONE_TIME * data_setting_gpu->ON_GPU_LANE_SIZE;
@@ -403,15 +402,16 @@ bool initilizeGPU() {
 	cudaMemcpy(gpu_data, data_local, data_local->total_size(), cudaMemcpyHostToDevice);
 	cudaMemcpy(parameter_seeting_on_gpu, data_setting_gpu, sizeof(GPUSharedParameter), cudaMemcpyHostToDevice);
 
-	int GRID_SIZE = TOTAL_TIME_STEPS / 192;
-	int BLOCK_SIZE = 192;
+	int GRID_SIZE = 1;
+	int BLOCK_SIZE = TOTAL_TIME_STEPS;
+
 //	int BLOCK_SIZE = 1;
 
 //	std::cout << "linkGPUData starts" << std::endl;
 //	cudaEvent_t GPU_memory_rebuild_done;
 //	cudaEventCreate(&GPU_memory_rebuild_done);
 
-	linkGPUData<<<GRID_SIZE, BLOCK_SIZE>>>(gpu_data, vpool_gpu, vpool_gpu_index, parameter_seeting_on_gpu);
+	linkGPUData<<<GRID_SIZE, BLOCK_SIZE>>>(gpu_data, TOTAL_TIME_STEPS, vpool_gpu, vpool_gpu_index, parameter_seeting_on_gpu);
 //	cudaEventRecord(GPU_memory_rebuild_done);
 //	cudaStreamWaitEvent(NULL, GPU_memory_rebuild_done, 0);
 
@@ -744,7 +744,7 @@ bool start_simulation() {
 			if (to_simulate_time < simulation_end_time) {
 				//step 2
 #ifdef ENABLE_OUTPUT
-//				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
+				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
 #endif
 //				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
 
@@ -956,7 +956,7 @@ bool output_buffered_simulated_results(int time_step) {
 
 	if (speed_ < data_setting_gpu_constant.ON_GPU_MIN_SPEED) speed_ = data_setting_gpu_constant.ON_GPU_MIN_SPEED;
 #else
-	
+
 	if (density_ < data_setting_gpu->ON_GPU_Min_Density) speed_ = data_setting_gpu->ON_GPU_MAX_SPEED;
 	else {
 		speed_ = data_setting_gpu->ON_GPU_MAX_SPEED
@@ -1233,7 +1233,6 @@ __device__ GPUVehicle* get_next_vehicle_at_node(GPUMemory* gpu_data, int node_in
 				}
 				else {
 					int next_lane_index = gpu_data->lane_pool.vehicle_space[0][one_lane_index]->path_code[gpu_data->lane_pool.vehicle_space[0][one_lane_index]->next_path_index];
-//					int next_lane_index = gpu_data->node_pool.downstream[next_lane_index][node_index];
 
 					/**
 					 * Condition 6: The Next Lane has input capacity
@@ -1289,7 +1288,6 @@ __global__ void supply_simulation_vehicle_passing(GPUMemory* gpu_data, int time_
 		}
 		else {
 			int next_lane_index = gpu_data->lane_pool.vehicle_space[0][lane_index]->path_code[gpu_data->lane_pool.vehicle_space[0][lane_index]->next_path_index];
-//			int next_lane_index = gpu_data->node_pool.downstream[next_lane_index][node_index];
 			gpu_data->lane_pool.vehicle_space[0][lane_index]->next_path_index++;
 
 			//it is very critical to update the entry time when passing

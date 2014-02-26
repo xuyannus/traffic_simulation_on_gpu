@@ -9,15 +9,15 @@
 #define SHARED_GPU_DATA_H_
 
 //for small network
-const int LANE_SIZE = 220;
-const int NODE_SIZE = 121;
+//const int LANE_SIZE = 220;
+//const int NODE_SIZE = 121;
 
 //for large network
-//const int LANE_SIZE = 20200;
-//const int NODE_SIZE = 10201;
+const int LANE_SIZE = 20200;
+const int NODE_SIZE = 10201;
 
 const int START_TIME_STEPS = 0;
-const int END_TIME_STEPS = 3600;
+const int END_TIME_STEPS = 1000;
 
 //for exp 1
 //const int END_TIME_STEPS = 3600;

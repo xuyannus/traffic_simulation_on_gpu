@@ -74,6 +74,8 @@ bool Network::load_network(Network* network, string network_file_path) {
 				std::vector<std::string> elems;
 				network_reading_split(line, ':', elems);
 
+				std::cout << "a line: " << line << std::endl;
+
 				assert(elems.size() == 4);
 
 				Link* one_link = new Link();
@@ -91,17 +93,17 @@ bool Network::load_network(Network* network, string network_file_path) {
 			}
 
 			else if (line.compare(0, 6, "LINK_C") == 0) {
-				std::vector<std::string> elems;
-				network_reading_split(line, ':', elems);
+//				std::vector<std::string> elems;
+//				network_reading_split(line, ':', elems);
+//
+//				assert(elems.size() == 4);
+//
+//				string key = elems[1].append(",");
+//				key = key.append(elems[2]);
 
-				assert(elems.size() == 4);
-
-				string key = elems[1].append(",");
-				key = key.append(elems[2]);
-
-				bool value = (atoi(elems[3].c_str()) == 1) ? true : false;
-
-				network->road_connect_broken[key] = value;
+//				bool value = (atoi(elems[3].c_str()) == 1) ? true : false;
+//
+//				network->road_connect_broken[key] = value;
 			}
 		}
 		myfile.close();
