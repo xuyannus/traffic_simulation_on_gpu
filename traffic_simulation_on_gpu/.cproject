@@ -49,8 +49,8 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="data|main|output_exp1|exp_1|util|cpu|testing_idea|special_networks|output_for_debugging|demand|on_cpu|exp2|on_gpu" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="exp_1|exp2" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="data"/>
+						<entry excluding="data|main|output_exp1|exp_1|util|cpu|exp2_old|testing_idea|special_networks|output_for_debugging|demand|on_cpu|on_gpu" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="exp_1|exp2_old" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="data"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="main"/>
 						<entry excluding="util|main_function" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_cpu"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_gpu"/>
@@ -112,8 +112,8 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="data|output_exp1|main|exp_1|util|cpu|testing_idea|special_networks|output_for_debugging|demand|on_cpu|exp2|on_gpu" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="exp_1|exp2" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="data"/>
+						<entry excluding="data|output_exp1|main|exp_1|util|cpu|exp2_old|testing_idea|special_networks|output_for_debugging|demand|on_cpu|on_gpu" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="exp_1|exp2_old" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="data"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="main"/>
 						<entry excluding="network|util|demand|main_function" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_cpu"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="on_cpu/demand"/>

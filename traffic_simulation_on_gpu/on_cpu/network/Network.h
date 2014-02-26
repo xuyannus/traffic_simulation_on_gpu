@@ -74,8 +74,6 @@ bool Network::load_network(Network* network, string network_file_path) {
 				std::vector<std::string> elems;
 				network_reading_split(line, ':', elems);
 
-				std::cout << "a line: " << line << std::endl;
-
 				assert(elems.size() == 4);
 
 				Link* one_link = new Link();

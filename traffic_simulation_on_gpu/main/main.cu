@@ -21,10 +21,10 @@
 #include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 #include "../on_gpu/util/OnGPUData.h"
 
-#define ENABLE_OUTPUT
+//#define ENABLE_OUTPUT
 #define ENABLE_CONSTANT_MEMORY
 #define ENABLE_MORE_REGISTER
-//#define ENABLE_OUTPUT_GPU_BUFFER
+#define ENABLE_OUTPUT_GPU_BUFFER
 
 using namespace std;
 
@@ -58,15 +58,10 @@ vector<Vehicle*> all_vehicles;
 //std::string network_file_path = "data/exp2/network_100_rank.dat";
 //std::string network_file_path = "data/exp2/network_100_congestion_rank.dat";
 
-std::string network_file_path = "data/exp2_mix_network/network_100_mix.dat_1";
+std::string network_file_path = "data/exp2/network_100.dat";
 std::string demand_file_path = "data/exp2/demand_100_100000.dat";
 std::string od_pair_file_path = "data/exp2/od_pair_100.dat";
 std::string od_pair_paths_file_path = "data/exp2/od_pair_cleaned_paths_100.dat";
-
-//std::string network_file_path = "data/exp2_rank/network_100_GPU_reform.dat";
-//std::string demand_file_path = "data/exp2_rank/demand_100_100000.dat";
-//std::string od_pair_file_path = "data/exp2_rank/od_pair_100.dat";
-//std::string od_pair_paths_file_path = "data/exp2_rank/od_pair_cleaned_paths_100.dat";
 
 /*
  * All data in GPU
@@ -689,11 +684,11 @@ bool initGPUData(GPUMemory* data_local) {
 			total_inserted_vehicles++;
 		}
 		else {
-			std::cout << "Loading Vehicles Exceeds The Loading Capacity: Time:" << time_index_covert << ", Lane_ID:" << lane_ID << ",i:" << i << ",ID:" << one_vehicle->vehicle_id << std::endl;
+//			std::cout << "Loading Vehicles Exceeds The Loading Capacity: Time:" << time_index_covert << ", Lane_ID:" << lane_ID << ",i:" << i << ",ID:" << one_vehicle->vehicle_id << std::endl;
 		}
 	}
 
-	std::cout << "init all_vehicles done" << total_inserted_vehicles << std::endl;
+	std::cout << "init all_vehicles:" << total_inserted_vehicles << std::endl;
 
 	return true;
 }
