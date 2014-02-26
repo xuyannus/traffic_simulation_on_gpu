@@ -852,10 +852,10 @@ bool output_simulated_results(int time_step) {
 		int lane_ID = i;
 		int lane_Index = link_ID_to_link_Index[lane_ID];
 
-		simulation_results_output_file << time_step << ":lane:" << lane_ID << ":(" << gpu_data->lane_pool.vehicle_counts[lane_Index] << ":" << gpu_data->lane_pool.flow[lane_Index] << ":"
-				<< gpu_data->lane_pool.density[lane_Index]
+		simulation_results_output_file << time_step << ":lane:" << lane_ID << ":(" << one->counts[lane_Index] << ":" << one->flow[lane_Index] << ":"
+				<< one->density[lane_Index]
 //				<< ":" << gpu_data->lane_pool.speed[i] << ":" << gpu_data->lane_pool.queue_length[i] << ":" << gpu_data->lane_pool.empty_space[i] << ")" << endl;
-				<< ":" << gpu_data->lane_pool.speed[lane_Index] << ":" << gpu_data->lane_pool.queue_length[lane_Index] << ":" << gpu_data->lane_pool.empty_space[lane_Index] << ")" << endl;
+				<< ":" << one->speed[lane_Index] << ":" << one->queue_length[lane_Index] << ")" << endl;
 	}
 
 	return true;
@@ -986,14 +986,12 @@ bool output_buffered_simulated_results(int time_step) {
 				1.0f * data_setting_gpu_constant.ON_GPU_ROAD_LENGTH);
 #else
 		gpu_data->lane_pool.predicted_empty_space[lane_index] = min_device(
-				gpu_data->lane_pool.last_time_empty_space[lane_index] + (gpu_data->lane_pool.speed[lane_index] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS),
-				1.0f * data_setting_gpu->ON_GPU_ROAD_LENGTH);
+				gpu_data->lane_pool.last_time_empty_space[lane_index] + (gpu_data->lane_pool.speed[lane_index] * data_setting_gpu->ON_GPU_UNIT_TIME_STEPS), 1.0f * data_setting_gpu->ON_GPU_ROAD_LENGTH);
 #endif
 	}
 	else {
 		prediction_queue_length_ = gpu_data->lane_pool.his_queue_length[0][lane_index];
-		prediction_queue_length_ += (gpu_data->lane_pool.his_queue_length[0][lane_index] - gpu_data->lane_pool.his_queue_length[1][lane_index])
-				* gpu_data->lane_pool.his_queue_length_weighting[0][lane_index];
+		prediction_queue_length_ += (gpu_data->lane_pool.his_queue_length[0][lane_index] - gpu_data->lane_pool.his_queue_length[1][lane_index]) * gpu_data->lane_pool.his_queue_length_weighting[0][lane_index];
 
 //		prediction_empty_space_ += (gpu_data->lane_pool.his_queue_length[1][lane_index] - gpu_data->lane_pool.his_queue_length[2][lane_index])
 //				* gpu_data->lane_pool.his_queue_length_weighting[1][lane_index];
