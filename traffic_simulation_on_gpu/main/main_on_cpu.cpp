@@ -17,7 +17,7 @@
 //#include "../on_gpu/supply/OnGPUVehicle.h"
 //#include "../on_gpu/supply/OnGPUNewLaneVehicles.h"
 //
-//#define ENABLE_OUTPUT
+////#define ENABLE_OUTPUT
 ////#define SERIALIZED_EXECUTION
 //
 //using namespace std;
@@ -33,10 +33,13 @@
 ///*
 // * Path Input Config
 // */
-////std::string network_file_path = "data/exp1_network/network_10_rank.dat_121";
-////std::string demand_file_path = "data/exp1/demand_10_10000.dat";
+//
+////std::string network_file_path = "data/exp1_network/network_10.dat";
+//////std::string network_file_path = "data/exp1_network/network_10_rank.dat_2";
+////std::string demand_file_path = "data/exp1/demand_10_50000.dat";
 ////std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
 ////std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
+//
 //std::string network_file_path = "data/exp2/network_100_rank.dat";
 //std::string demand_file_path = "data/exp2/demand_100_100000.dat";
 //std::string od_pair_file_path = "data/exp2/od_pair_100.dat";

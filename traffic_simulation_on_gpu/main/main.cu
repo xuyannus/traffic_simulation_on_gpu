@@ -49,9 +49,9 @@ vector<Vehicle*> all_vehicles;
  * Path Input Config
  */
 
-//std::string network_file_path = "data/exp1_network/network_10_rank.dat";
-//std::string network_file_path = "data/exp1_network/network_10_rank.dat_2";
-//std::string demand_file_path = "data/exp1/demand_10_1.dat";
+//std::string network_file_path = "data/exp1_network/network_10.dat";
+////std::string network_file_path = "data/exp1_network/network_10_rank.dat_2";
+//std::string demand_file_path = "data/exp1/demand_10_50000.dat";
 //std::string od_pair_file_path = "data/exp1/od_pair_10.dat";
 //std::string od_pair_paths_file_path = "data/exp1/od_pair_paths_10.dat";
 
