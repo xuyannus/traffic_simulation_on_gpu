@@ -138,18 +138,37 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="ETS_CPU_AND_GPU_Source_Code.com.nvidia.cuda.ide.exe.200138274" name="Executable" projectType="com.nvidia.cuda.ide.exe"/>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/ETS_CPU_AND_GPU_Source_Code"/>
+		</configuration>
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/ETS_CPU_AND_GPU_Source_Code"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+		<buildTargets>
+			<target name="ETSF_GPU" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>make</buildCommand>
+				<buildArguments/>
+				<buildTarget>ETSF_GPU</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+		</buildTargets>
+	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="com.nvidia.cuda.ide.configuration.debug.1553873152;com.nvidia.cuda.ide.configuration.debug.1553873152.;nvcc.compiler.base.1725154146;nvcc.compiler.input.c.533389910">
+		<scannerConfigBuildInfo instanceId="com.nvidia.cuda.ide.configuration.debug.1553873152;com.nvidia.cuda.ide.configuration.debug.1553873152.;nvcc.compiler.base.1725154146;nvcc.compiler.input.cpp.676121692">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.nvidia.cuda.ide.build.NVCCPerProjectProfile"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.nvidia.cuda.ide.configuration.debug.1553873152;com.nvidia.cuda.ide.configuration.debug.1553873152.;nvcc.compiler.base.1725154146;nvcc.compiler.input.cpp.676121692">
+		<scannerConfigBuildInfo instanceId="com.nvidia.cuda.ide.configuration.debug.1553873152;com.nvidia.cuda.ide.configuration.debug.1553873152.;nvcc.compiler.base.1725154146;nvcc.compiler.input.c.533389910">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.nvidia.cuda.ide.build.NVCCPerProjectProfile"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="com.nvidia.cuda.ide.configuration.debug.1553873152;com.nvidia.cuda.ide.configuration.debug.1553873152.;nvcc.compiler.base.1725154146;nvcc.compiler.input.cu.1468839860">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.nvidia.cuda.ide.build.NVCCPerProjectProfile"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
 </cproject>
