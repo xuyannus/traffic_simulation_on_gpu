@@ -220,4 +220,13 @@ main/ETSF_on_gpu.o : ../main/ETSF_on_gpu.cu \
     ../main/../components_on_gpu/supply/on_GPU_node_pool.h \
     ../main/../components_on_gpu/util/shared_gpu_include.h \
     ../main/../components_on_gpu/util/on_gpu_configuration.h \
-    ../main/../components_on_gpu/util/../util/shared_gpu_include.h
+    ../main/../components_on_gpu/util/../util/shared_gpu_include.h \
+    ../main/../components_on_gpu/on_GPU_kernal.cuh \
+    ../main/../components_on_gpu/../components_on_gpu/supply/on_GPU_memory.h \
+    ../main/../components_on_gpu/../components_on_gpu/supply/on_GPU_vehicle.h \
+    ../main/../components_on_gpu/../components_on_gpu/supply/on_GPU_new_lane_vehicles.h \
+    ../main/../components_on_gpu/../components_on_gpu/util/shared_gpu_include.h \
+    ../main/../components_on_gpu/../components_on_gpu/util/on_gpu_configuration.h \
+    ../main/../components_on_gpu/../components_on_gpu/on_GPU_Macro.h \
+    ../main/../components_on_gpu/../components_on_cpu/util/simulation_results.h \
+    ../main/../components_on_gpu/on_GPU_Macro.h

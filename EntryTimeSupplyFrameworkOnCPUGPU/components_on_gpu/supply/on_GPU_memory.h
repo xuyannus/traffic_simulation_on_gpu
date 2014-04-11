@@ -19,7 +19,6 @@ public:
 
 	LanePool lane_pool;
 	NodePool node_pool;
-
 	NewLaneVehicles new_vehicles_every_time_step[kTotalTimeSteps];
 
 public:

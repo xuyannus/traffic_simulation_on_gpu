@@ -5,7 +5,6 @@
 
 class GPUVehicle {
 public:
-
 	int vehicle_ID;
 	int current_lane_ID;
 	int entry_time;
@@ -13,7 +12,6 @@ public:
 	int whole_path_length;
 	int next_path_index;
 	int path_code[kMaxLaneCodingLength];
-
 };
 
 #endif /* GPUVEHICLE_H_ */

@@ -13,9 +13,9 @@
 class NodePool {
 public:
 	int node_ID[kNodeSize];
-	int MAXIMUM_ACCUMULATED_FLOW[kNodeSize];
-	int ACCUMULATYED_UPSTREAM_CAPACITY[kNodeSize];
-	int ACCUMULATYED_DOWNSTREAM_CAPACITY[kNodeSize];
+	int max_acc_flow[kNodeSize];
+	int acc_upstream_capacity[kNodeSize];
+	int acc_downstream_capacity[kNodeSize];
 
 	//if -1, means no such lane
 	int upstream[kMaxLaneUpstream][kNodeSize];
