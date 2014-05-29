@@ -22,6 +22,7 @@ public:
 	std::map<int, Link*> link_mapping;
 
 	std::map<std::string, bool> road_connect_broken;
+
 public:
 	static bool load_network(Network& network, const std::string network_file_path);
 };
