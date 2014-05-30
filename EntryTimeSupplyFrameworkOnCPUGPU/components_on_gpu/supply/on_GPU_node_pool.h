@@ -20,6 +20,7 @@ public:
 	//if -1, means no such lane
 	int upstream[kMaxLaneUpstream][kNodeSize];
 	int downstream[kMaxLaneDownstream][kNodeSize];
+
 };
 
 #endif /* ONGPUNODEPOOL_H_ */

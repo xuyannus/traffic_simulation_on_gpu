@@ -41,14 +41,10 @@ std::vector<Vehicle*> all_vehicles;
 /*
  * Path Input Config
  */
-//std::string network_file_path = "data_inputs/exp1_network/network_10.dat";
-//std::string demand_file_path = "data_inputs/exp1/demand_10_50000.dat";
-//std::string od_pair_file_path = "data_inputs/exp1/od_pair_10.dat";
-//std::string od_pair_paths_file_path = "data_inputs/exp1/od_pair_paths_10.dat";
-std::string network_file_path = "data_inputs/exp2/network_100.dat";
-std::string demand_file_path = "data_inputs/exp2/demand_100_100000.dat";
-std::string od_pair_file_path = "data_inputs/exp2/od_pair_100.dat";
-std::string od_pair_paths_file_path = "data_inputs/exp2/od_pair_cleaned_paths_100.dat";
+std::string network_file_path = "data_inputs/data_sg_expressway/network.dat";
+std::string demand_file_path = "data_inputs/data_sg_expressway/demand_106386.dat";
+std::string od_pair_file_path = "data_inputs/data_sg_expressway/od_1428.dat";
+std::string od_pair_paths_file_path = "data_inputs/data_sg_expressway/path_3349.dat";
 
 /*
  * All data in GPU
