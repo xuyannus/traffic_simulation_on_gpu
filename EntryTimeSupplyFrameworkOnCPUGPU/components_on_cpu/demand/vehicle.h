@@ -16,6 +16,7 @@ public:
 	int od_id;
 	int path_id;
 	int entry_time;
+
 public:
 	static bool load_in_all_vehicles(std::vector<Vehicle*>& all_vehicles, const std::string demand_file_path);
 };

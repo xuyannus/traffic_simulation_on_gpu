@@ -11,7 +11,7 @@ public:
 
 	int whole_path_length;
 	int next_path_index;
-	int path_code[kMaxLaneCodingLength];
+	int path_code[kMaxRouteLength];
 };
 
 #endif /* GPUVEHICLE_H_ */

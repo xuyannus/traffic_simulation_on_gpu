@@ -14,10 +14,14 @@
 class Link {
 public:
 	int link_id;
-	int length; //unit: meters
+	int link_connection_start;
+	int link_connection_end;
+	int vehicle_start;
+	int vehicle_end;
+	int buffered_vehicle_start;
+	int buffered_vehicle_end;
 
-	Node* from_node;
-	Node* to_node;
+	float length; //unit: meters
 };
 
 #endif /* LINK_H_ */

@@ -14,7 +14,6 @@ class LinkConnection {
 public:
 	int from_link_id;
 	int to_link_id;
-	bool is_broken;
 };
 
 #endif /* LinkConnection_ */

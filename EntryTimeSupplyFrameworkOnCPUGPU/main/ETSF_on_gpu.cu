@@ -41,15 +41,16 @@ std::vector<Vehicle*> all_vehicles;
 /*
  * Path Input Config
  */
-std::string network_file_path = "data_inputs/data_sg_expressway/network.dat";
-std::string demand_file_path = "data_inputs/data_sg_expressway/demand_106386.dat";
-std::string od_pair_file_path = "data_inputs/data_sg_expressway/od_1428.dat";
-std::string od_pair_paths_file_path = "data_inputs/data_sg_expressway/path_3349.dat";
+std::string network_file_path = "data_inputs/sg_network/network.dat";
+std::string demand_file_path = "data_inputs/sg_network/demand_106386.dat";
+std::string od_pair_file_path = "data_inputs/sg_network/od_1428.dat";
+std::string od_pair_paths_file_path = "data_inputs/sg_network/path_3349.dat";
 
 /*
  * All data in GPU
  */
 GPUMemory* gpu_data;
+
 GPUSharedParameter* parameter_seeting_on_gpu;
 #ifdef ENABLE_CONSTANT_MEMORY
 __constant__ GPUSharedParameter data_setting_gpu_constant;
@@ -59,8 +60,8 @@ __constant__ GPUSharedParameter data_setting_gpu_constant;
 GPUVehicle *vpool_cpu;
 GPUVehicle *vpool_gpu;
 
-int *vpool_cpu_index;
-int *vpool_gpu_index;
+//int *vpool_cpu_index;
+//int *vpool_gpu_index;
 
 /**
  * Simulation Results
@@ -104,11 +105,10 @@ long to_output_simulation_result_time;
 
 /*
  */
-std::map<int, int> link_ID_to_link_Index;
-std::map<int, int> link_Index_to_link_ID;
-std::map<int, int> node_ID_to_node_Index;
-std::map<int, int> node_index_to_node_ID;
-
+//std::map<int, int> link_ID_to_link_Index;
+//std::map<int, int> link_Index_to_link_ID;
+//std::map<int, int> node_ID_to_node_Index;
+//std::map<int, int> node_index_to_node_ID;
 /*
  * Define Major Functions
  */
@@ -213,11 +213,6 @@ bool InitParams(int argc, char* argv[]) {
 }
 bool LoadInNetwork() {
 	the_network = new Network();
-
-	the_network->all_links.clear();
-	the_network->all_nodes.clear();
-	the_network->node_mapping.clear();
-
 	return Network::load_network(*the_network, network_file_path);
 }
 
@@ -236,7 +231,7 @@ bool LoadInDemand() {
 
 bool InitilizeCPU() {
 	simulation_start_time = kStartTimeSteps;
-	simulation_end_time = kEndTimeSteps; // 2 hours
+	simulation_end_time = kEndTimeSteps; // 1 hour
 	simulation_time_step = kUnitTimeStep;
 
 	assert(simulation_time_step == 1);
@@ -276,10 +271,10 @@ bool InitilizeGPU() {
 		cerr << "cudaMalloc((void**) &vpool_gpu, memory_space_for_vehicles) failed" << endl;
 	}
 
-	size_t memory_space_for_rebuild_index = kTotalTimeSteps * kLaneSize * kVehicleMaxLoadingOneTime * sizeof(int);
-	if (cudaMalloc((void**) &vpool_gpu_index, memory_space_for_rebuild_index) != cudaSuccess) {
-		cerr << "cudaMalloc((void**) &vpool_gpu_index, memory_space_for_rebuild_index) failed" << endl;
-	}
+//	size_t memory_space_for_rebuild_index = kTotalTimeSteps * kLaneSize * kLaneInputCapacityPerTimeStep * sizeof(int);
+//	if (cudaMalloc((void**) &vpool_gpu_index, memory_space_for_rebuild_index) != cudaSuccess) {
+//		cerr << "cudaMalloc((void**) &vpool_gpu_index, memory_space_for_rebuild_index) failed" << endl;
+//	}
 
 	if (cudaMalloc((void**) &gpu_data, data_local->total_size()) != cudaSuccess) {
 		cerr << "cudaMalloc(&gpu_data, sizeof(GPUMemory)) failed" << endl;
@@ -302,19 +297,19 @@ bool InitilizeGPU() {
 	}
 
 	cudaMemcpy(vpool_gpu, vpool_cpu, memory_space_for_vehicles, cudaMemcpyHostToDevice);
-	cudaMemcpy(vpool_gpu_index, vpool_cpu_index, memory_space_for_rebuild_index, cudaMemcpyHostToDevice);
+//	cudaMemcpy(vpool_gpu_index, vpool_cpu_index, memory_space_for_rebuild_index, cudaMemcpyHostToDevice);
 	cudaMemcpy(gpu_data, data_local, data_local->total_size(), cudaMemcpyHostToDevice);
 	cudaMemcpy(parameter_seeting_on_gpu, data_setting_gpu, sizeof(GPUSharedParameter), cudaMemcpyHostToDevice);
 
-	int GRID_SIZE = 1;
-	int BLOCK_SIZE = kTotalTimeSteps;
-
-	LinkGPUData<<<GRID_SIZE, BLOCK_SIZE>>>(gpu_data, kTotalTimeSteps, vpool_gpu, vpool_gpu_index, parameter_seeting_on_gpu);
-
-	//wait for all CUDA related operations to finish;
-	std::cout << "LinkGPUData begins" << std::endl;
-	cudaDeviceSynchronize();
-	std::cout << "LinkGPUData ends" << std::endl;
+//	int GRID_SIZE = 1;
+//	int BLOCK_SIZE = kTotalTimeSteps;
+//
+//	LinkGPUData<<<GRID_SIZE, BLOCK_SIZE>>>(gpu_data, kTotalTimeSteps, vpool_gpu, vpool_gpu_index, parameter_seeting_on_gpu);
+//
+//	//wait for all CUDA related operations to finish;
+//	std::cout << "LinkGPUData begins" << std::endl;
+//	cudaDeviceSynchronize();
+//	std::cout << "LinkGPUData ends" << std::endl;
 
 #ifdef ENABLE_OUTPUT_GPU_BUFFER
 	cudaMallocHost((void **) &one_buffer, sizeof(SimulationResults) * kGPUToCPUSimulationResultsCopyBufferSize);
@@ -336,15 +331,15 @@ bool InitGPUParameterSetting(GPUSharedParameter* data_setting_gpu) {
 	data_setting_gpu->kOnGPUUnitTimeStep = kUnitTimeStep;
 	data_setting_gpu->kOnGPUVehicleLength = kVehicleLength;
 
-	data_setting_gpu->kOnGPURoadLength = kRoadLength;
+//	data_setting_gpu->kOnGPURoadLength = kRoadLength;
 	data_setting_gpu->kOnGPULaneInputCapacityPerTimeStep = kLaneInputCapacityPerTimeStep;
 	data_setting_gpu->kOnGPULaneOutputCapacityPerTimeStep = kLaneOutputCapacityPerTimeStep;
-	data_setting_gpu->kOnGPUMaxLaneCodingLength = kMaxLaneCodingLength;
+//	data_setting_gpu->kOnGPUMaxLaneCodingLength = kMaxLaneCodingLength;
 	data_setting_gpu->kOnGPUMaxlaneDownstream = kMaxLaneDownstream;
 	data_setting_gpu->kOnGPUMaxLaneUpstream = kMaxLaneUpstream;
 	data_setting_gpu->kOnGPUMaxRouteLength = kMaxRouteLength;
-	data_setting_gpu->kOnGPUMaxVehiclePerLane = kMaxVehiclePerLane;
-	data_setting_gpu->kOnGPUVehicleMaxLoadingOneTime = kVehicleMaxLoadingOneTime;
+//	data_setting_gpu->kOnGPUMaxVehiclePerLane = kMaxVehiclePerLane;
+//	data_setting_gpu->kOnGPUVehicleMaxLoadingOneTime = kVehicleMaxLoadingOneTime;
 
 	data_setting_gpu->kOnGPUAlpha = kAlpha;
 	data_setting_gpu->kOnGPUBeta = kBeta;
@@ -355,37 +350,27 @@ bool InitGPUParameterSetting(GPUSharedParameter* data_setting_gpu) {
 
 	data_setting_gpu->kOnGPUGPUToCPUSimulationResultsCopyBufferSize = kGPUToCPUSimulationResultsCopyBufferSize;
 
+	data_setting_gpu->kOnGPUTotalVehicleSpace = kTotalVehicleSpace;
+	data_setting_gpu->kOnGPUTotalBufferedVehicleSpace = kTotalBufferedVehicleSpace;
+
 	return true;
 }
 
 /*
- * Build a GPU data
+ * Build a GPU data from the network data
  */
 bool InitGPUData(GPUMemory* data_local) {
-
-	node_ID_to_node_Index.clear();
-	link_ID_to_link_Index.clear();
-	node_index_to_node_ID.clear();
-	link_Index_to_link_ID.clear();
 
 	/**
 	 * First Part: Lane
 	 */
 
-	for (int i = 0; i < the_network->all_links.size(); i++) {
+	for (int i = 0; i < the_network->link_size; i++) {
 		Link* one_link = the_network->all_links[i];
 
+		//
+		assert(one_link->link_id == i);
 		data_local->lane_pool.lane_ID[i] = one_link->link_id;
-
-		link_ID_to_link_Index[one_link->link_id] = i;
-		link_Index_to_link_ID[i] = one_link->link_id;
-		//make sure assert is working
-//		assert(1 == 0);
-
-//		assert(one_link->link_id == i);
-
-		data_local->lane_pool.from_node_id[i] = one_link->from_node->node_id;
-		data_local->lane_pool.to_node_id[i] = one_link->to_node->node_id;
 
 		data_local->lane_pool.Tp[i] = simulation_start_time - simulation_time_step;
 		data_local->lane_pool.Tq[i] = simulation_start_time - simulation_time_step;
@@ -399,11 +384,11 @@ bool InitGPUData(GPUMemory* data_local) {
 		/*
 		 * for density calculation
 		 */
-		data_local->lane_pool.lane_length[i] = kRoadLength; // meter
-		data_local->lane_pool.max_vehicles[i] = kRoadLength / kVehicleLength; //number of vehicles
+		data_local->lane_pool.lane_length[i] = one_link->length; // meter
+		data_local->lane_pool.max_vehicles[i] = (one_link->vehicle_end - one_link->vehicle_start + 1); //number of vehicles
 		data_local->lane_pool.output_capacity[i] = kLaneOutputCapacityPerTimeStep; //
 		data_local->lane_pool.input_capacity[i] = kLaneInputCapacityPerTimeStep; //
-		data_local->lane_pool.empty_space[i] = kRoadLength;
+		data_local->lane_pool.empty_space[i] = one_link->length;
 
 		/*
 		 * for speed calculation
@@ -418,13 +403,11 @@ bool InitGPUData(GPUMemory* data_local) {
 		data_local->lane_pool.vehicle_counts[i] = 0;
 		data_local->lane_pool.vehicle_passed_to_the_lane_counts[i] = 0;
 
-		for (int c = 0; c < kMaxVehiclePerLane; c++) {
-			data_local->lane_pool.vehicle_space[c][i] = NULL;
-		}
+		data_local->lane_pool.vehicle_start_index[i] = one_link->vehicle_start;
+		data_local->lane_pool.vehicle_end_index[i] = one_link->vehicle_end;
 
-		for (int c = 0; c < kLaneInputCapacityPerTimeStep; c++) {
-			data_local->lane_pool.vehicle_passed_space[c][i] = NULL;
-		}
+		data_local->lane_pool.buffered_vehicle_start_index[i] = one_link->buffered_vehicle_start;
+		data_local->lane_pool.buffered_vehicle_end_index[i] = one_link->buffered_vehicle_end;
 
 		for (int j = 0; j < kTotalTimeSteps; j++) {
 			data_local->lane_pool.speed_history[j][i] = -1;
@@ -454,43 +437,22 @@ bool InitGPUData(GPUMemory* data_local) {
 	 * Second Part: Node
 	 */
 //	NodePool* the_node_pool = data_local->node_pool;
-	for (int i = 0; i < the_network->all_nodes.size(); i++) {
+	for (int i = 0; i < the_network->node_size; i++) {
 		Node* one_node = the_network->all_nodes[i];
-		node_ID_to_node_Index[one_node->node_id] = i;
-		node_index_to_node_ID[i] = one_node->node_id;
 
 		data_local->node_pool.node_ID[i] = one_node->node_id;
 		data_local->node_pool.max_acc_flow[i] = 0;
 		data_local->node_pool.acc_upstream_capacity[i] = 0;
 		data_local->node_pool.acc_downstream_capacity[i] = 0;
 
-		for (int j = 0; j < kMaxLaneUpstream; j++) {
-			data_local->node_pool.upstream[j][i] = -1;
-		}
+		data_local->node_pool.upstream_lane_start_index[i] = one_node->up_lane_start_index;
+		data_local->node_pool.upstream_lane_end_index[i] = one_node->up_lane_end_index;
 
-		for (int j = 0; j < one_node->upstream_links.size(); j++) {
-			int link_index = link_ID_to_link_Index[one_node->upstream_links[j]->link_id];
-			data_local->node_pool.upstream[j][i] = link_index;
+		for (int j = one_node->up_lane_start_index; j <= one_node->up_lane_end_index; j++) {
 			data_local->node_pool.acc_upstream_capacity[i] += kLaneInputCapacityPerTimeStep;
 		}
 
-		for (int j = 0; j < kMaxLaneDownstream; j++) {
-			data_local->node_pool.downstream[j][i] = -1;
-		}
-
-		for (int j = 0; j < one_node->downstream_links.size(); j++) {
-			int link_index = link_ID_to_link_Index[one_node->downstream_links[j]->link_id];
-			data_local->node_pool.downstream[j][i] = link_index;
-			data_local->node_pool.acc_downstream_capacity[i] += kLaneOutputCapacityPerTimeStep;
-		}
-
-		if (data_local->node_pool.acc_upstream_capacity[i] <= 0) {
-			data_local->node_pool.max_acc_flow[i] = data_local->node_pool.acc_downstream_capacity[i];
-		} else if (data_local->node_pool.acc_downstream_capacity[i] <= 0) {
-			data_local->node_pool.max_acc_flow[i] = data_local->node_pool.acc_upstream_capacity[i];
-		} else {
-			data_local->node_pool.max_acc_flow[i] = std::min(data_local->node_pool.acc_upstream_capacity[i], data_local->node_pool.acc_downstream_capacity[i]);
-		}
+		data_local->node_pool.max_acc_flow[i] = data_local->node_pool.acc_upstream_capacity[i];
 	}
 
 	/**
@@ -513,24 +475,17 @@ bool InitGPUData(GPUMemory* data_local) {
 	if (vpool_cpu == NULL)
 		exit(1);
 
-	std::cout << "vpool_cpu_index size:" << kTotalTimeSteps * kLaneSize * kVehicleMaxLoadingOneTime << std::endl;
-	vpool_cpu_index = (int*) malloc(kTotalTimeSteps * kLaneSize * kVehicleMaxLoadingOneTime * sizeof(int));
-	if (vpool_cpu_index == NULL)
-		exit(1);
-
 	for (int i = kStartTimeSteps; i < kEndTimeSteps; i += kUnitTimeStep) {
 		for (int j = 0; j < kLaneSize; j++) {
-			for (int z = 0; z < kVehicleMaxLoadingOneTime; z++) {
-				int index_t = i * kLaneSize * kVehicleMaxLoadingOneTime + j * kVehicleMaxLoadingOneTime + z;
-
-				//-1 means there is no vehicle on the road
-				vpool_cpu_index[index_t] = -1;
+			for (int z = 0; z < kLaneInputCapacityPerTimeStep; z++) {
+				//init as no vehicle
+				data_local->new_vehicles_every_time_step[i].new_vehicles[j][z] = -1;
 			}
 		}
 	}
 
-	int nVehiclePerTick = kVehicleMaxLoadingOneTime * kLaneSize;
-	std::cout << "init all_vehicles" << std::endl;
+//	int nVehiclePerTick = kLaneInputCapacityPerTimeStep * kLaneSize;
+//	std::cout << "init all_vehicles" << std::endl;
 
 	int total_inserted_vehicles = 0;
 
@@ -541,29 +496,26 @@ bool InitGPUData(GPUMemory* data_local) {
 		int time_index = one_vehicle->entry_time;
 		int time_index_covert = TimestepToArrayIndex(time_index);
 		assert(time_index == time_index_covert);
+
 		//try to load vehicles beyond the simulation border
 		if (time_index_covert >= kTotalTimeSteps)
 			continue;
 
 		int lane_ID = all_od_paths[one_vehicle->path_id]->link_ids[0];
-		int lane_Index = link_ID_to_link_Index[lane_ID];
+		int lane_Index = lane_ID; //the same for the SG Expressway case
 
-		if (data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_Index] < kVehicleMaxLoadingOneTime) {
+		if (data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_Index] < kLaneInputCapacityPerTimeStep) {
 			int last_vehicle_index = data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_Index];
-			int idx_vpool = time_index_covert * nVehiclePerTick + lane_Index * kVehicleMaxLoadingOneTime + last_vehicle_index;
-
-			//for gpu to rebuild
-			vpool_cpu_index[idx_vpool] = i;
-//			std::cout << "idx_vpool:" << idx_vpool << " is map to i:" << i << std::endl;
 
 			vpool_cpu[i].vehicle_ID = one_vehicle->vehicle_id;
 			vpool_cpu[i].entry_time = time_index;
 			vpool_cpu[i].current_lane_ID = lane_Index;
+
+			assert(kMaxRouteLength > all_od_paths[one_vehicle->path_id]->link_ids.size());
 			int max_copy_length = kMaxRouteLength > all_od_paths[one_vehicle->path_id]->link_ids.size() ? all_od_paths[one_vehicle->path_id]->link_ids.size() : kMaxRouteLength;
 
 			for (int p = 0; p < max_copy_length; p++) {
-//				vpool_cpu[i].path_code[p] = all_od_paths[one_vehicle->path_id]->route_code[p] ? 1 : 0;
-				vpool_cpu[i].path_code[p] = link_ID_to_link_Index[all_od_paths[one_vehicle->path_id]->link_ids[p]];
+				vpool_cpu[i].path_code[p] = all_od_paths[one_vehicle->path_id]->link_ids[p];
 			}
 
 			//ready for the next lane, so next_path_index is set to 1, if the next_path_index == whole_path_length, it means cannot find path any more, can exit;
@@ -571,7 +523,7 @@ bool InitGPUData(GPUMemory* data_local) {
 			vpool_cpu[i].whole_path_length = all_od_paths[one_vehicle->path_id]->link_ids.size();
 
 			//will be re-writen by GPU
-			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[lane_Index][last_vehicle_index] = &(vpool_cpu[i]);
+			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicles[lane_Index][last_vehicle_index] = vpool_cpu[i].vehicle_ID;
 			data_local->new_vehicles_every_time_step[time_index_covert].new_vehicle_size[lane_Index]++;
 
 			total_inserted_vehicles++;
@@ -606,7 +558,6 @@ bool StartSimulation() {
 	 */
 
 	while (((to_simulate_time >= simulation_end_time) && (to_output_simulation_result_time >= simulation_end_time)) == false) {
-
 		//GPU has done simulation at current time
 		if (to_simulate_time < simulation_end_time && (cudaEventQuery(gpu_supply_one_tick_simulation_done_trigger_event) == cudaSuccess)) {
 			if (first_time_step == true) {
@@ -620,23 +571,37 @@ bool StartSimulation() {
 				CopySimulatedResultsToCPU(to_simulate_time);
 #endif
 
+				cout << "to_simulate_time:" << to_simulate_time << " Copy is done; to_simulate_time++" << endl;
+
 				to_simulate_time += simulation_time_step;
 			}
 
 			if (to_simulate_time < simulation_end_time) {
 #ifdef ENABLE_OUTPUT
-				cout << "to_simulate_time:" << to_simulate_time << ", simulation_end_time:" << simulation_end_time << endl;
+				cout << "to_simulate_time:" << to_simulate_time << ", to_output_simulation_result_time:" << to_output_simulation_result_time << ", to_output_simulation_result_time:"
+						<< to_output_simulation_result_time << ", simulation_end_time:" << simulation_end_time << endl;
 #endif
 
-				SupplySimulationPreVehiclePassing<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, parameter_seeting_on_gpu);
-				SupplySimulationVehiclePassing<<<node_blocks, node_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kNodeSize, parameter_seeting_on_gpu);
-				SupplySimulationAfterVehiclePassing<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, parameter_seeting_on_gpu);
+//				SupplySimulationPreVehiclePassing<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, parameter_seeting_on_gpu, vpool_gpu);
+//
+//				SupplySimulationVehiclePassing<<<node_blocks, node_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kNodeSize, parameter_seeting_on_gpu, vpool_gpu);
+//
+//				SupplySimulationAfterVehiclePassing<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, parameter_seeting_on_gpu);
 
 #ifdef ENABLE_OUTPUT_GPU_BUFFER
 				supply_simulated_results_to_buffer<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, simulation_results_buffer_on_gpu,
 						parameter_seeting_on_gpu);
 #endif
-				cudaEventRecord(gpu_supply_one_tick_simulation_done_trigger_event, stream_gpu_supply);
+
+				if (cudaEventRecord(gpu_supply_one_tick_simulation_done_trigger_event, stream_gpu_supply) != cudaSuccess) {
+					cout << "cudaEventRecord failed at to_simulate_time:" << to_simulate_time << endl;
+				}
+
+//				cudaStreamSynchronize(stream_gpu_supply);
+
+#ifdef ENABLE_OUTPUT
+//				cout << "to_simulate_time:" << to_simulate_time << " is done" << endl;
+#endif
 			}
 		}
 		//GPU is busy, so CPU does something else (I/O)
@@ -646,7 +611,7 @@ bool StartSimulation() {
 			if (to_output_simulation_result_time <= to_simulate_time - kGPUToCPUSimulationResultsCopyBufferSize) {
 
 #ifdef ENABLE_OUTPUT
-				OutputBufferedSimulatedResults(to_output_simulation_result_time);
+//				OutputBufferedSimulatedResults(to_output_simulation_result_time);
 #endif
 				to_output_simulation_result_time += simulation_time_step * kGPUToCPUSimulationResultsCopyBufferSize;
 			}
@@ -659,11 +624,11 @@ bool StartSimulation() {
 		} else {
 
 #ifdef ENABLE_OUTPUT
-			cout << "---------------------" << endl;
-			cout << "CPU nothing to do" << endl;
-			cout << "to_simulate_time:" << to_simulate_time << endl;
-			cout << "to_output_simulation_result_time:" << to_output_simulation_result_time << endl;
-			cout << "---------------------" << endl;
+//			cout << "---------------------" << endl;
+//			cout << "CPU nothing to do" << endl;
+//			cout << "to_simulate_time:" << to_simulate_time << endl;
+//			cout << "to_output_simulation_result_time:" << to_output_simulation_result_time << endl;
+//			cout << "---------------------" << endl;
 #endif
 		}
 	}
@@ -711,7 +676,7 @@ bool OutputSimulatedResults(int time_step) {
 
 	for (int i = 0; i < kLaneSize; i++) {
 		int lane_ID = i;
-		int lane_Index = link_ID_to_link_Index[lane_ID];
+		int lane_Index = lane_ID;
 
 		simulation_results_output_file << time_step << ":lane:" << lane_ID << ":(" << one->counts[lane_Index] << ":" << one->flow[lane_Index] << ":" << one->density[lane_Index]
 //				<< ":" << gpu_data->lane_pool.speed[i] << ":" << gpu_data->lane_pool.queue_length[i] << ":" << gpu_data->lane_pool.empty_space[i] << ")" << endl;

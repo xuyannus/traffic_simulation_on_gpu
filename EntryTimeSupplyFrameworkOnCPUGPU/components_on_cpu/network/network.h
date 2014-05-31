@@ -12,16 +12,21 @@
 
 #include "link.h"
 #include "node.h"
+#include "link_connection.h"
 
 class Network {
 public:
-	std::vector<Node*> all_nodes;
-	std::vector<Link*> all_links;
+	int node_size;
+	Node** all_nodes;
+
+	int link_size;
+	Link** all_links;
+
+	int link_conn_size;
+	LinkConnection** all_link_conn;
 
 	std::map<int, Node*> node_mapping;
 	std::map<int, Link*> link_mapping;
-
-	std::map<std::string, bool> road_connect_broken;
 
 public:
 	static bool load_network(Network& network, const std::string network_file_path);
@@ -39,9 +44,6 @@ std::vector<std::string> &network_reading_split(const std::string &s, char delim
 bool Network::load_network(Network& network, const std::string network_file_path) {
 
 	//clear the data firstly
-	network.all_nodes.clear();
-	network.all_links.clear();
-	network.road_connect_broken.clear();
 	network.node_mapping.clear();
 	network.link_mapping.clear();
 
@@ -54,54 +56,91 @@ bool Network::load_network(Network& network, const std::string network_file_path
 				continue;
 			}
 
-			if (line.compare(0, 5, "NODE:") == 0) {
+			if (line.compare(0, 11, "PARAM_NODE:") == 0) {
 				std::vector<std::string> temp_elems;
 				network_reading_split(line, ':', temp_elems);
 
-				assert(temp_elems.size() == 4);
+				assert(temp_elems.size() == 2);
+
+				network.node_size = atoi(temp_elems[1].c_str());
+				network.all_nodes = new Node*[network.node_size];
+
+			} else if (line.compare(0, 5, "NODE:") == 0) {
+				std::vector<std::string> temp_elems;
+				network_reading_split(line, ':', temp_elems);
+
+//				std::cout << "temp_elems.size():" << temp_elems.size() << std::endl;
+				assert(temp_elems.size() == 8);
 
 				Node* one_node = new Node();
 				one_node->node_id = atoi(temp_elems[1].c_str());
-				one_node->x = atoi(temp_elems[2].c_str());
-				one_node->y = atoi(temp_elems[3].c_str());
+				one_node->up_link_start_index = atoi(temp_elems[2].c_str());
+				one_node->up_link_end_index = atoi(temp_elems[3].c_str());
+				one_node->up_lane_start_index = atoi(temp_elems[6].c_str());
+				one_node->up_lane_end_index = atoi(temp_elems[7].c_str());
 
-				network.all_nodes.push_back(one_node);
+				network.all_nodes[one_node->node_id] = one_node;
 				network.node_mapping[one_node->node_id] = one_node;
-			}
 
-			else if (line.compare(0, 5, "LINK:") == 0) {
+			} else if (line.compare(0, 11, "PARAM_LANE:") == 0) {
 				std::vector<std::string> temp_elems;
 				network_reading_split(line, ':', temp_elems);
 
-				assert(temp_elems.size() == 4);
+				assert(temp_elems.size() == 2);
+
+				network.link_size = atoi(temp_elems[1].c_str());
+				network.all_links = new Link*[network.link_size];
+			}
+
+			else if (line.compare(0, 5, "LANE:") == 0) {
+				std::vector<std::string> temp_elems;
+				network_reading_split(line, ':', temp_elems);
+
+				assert(temp_elems.size() == 9);
 
 				Link* one_link = new Link();
+
 				one_link->link_id = atoi(temp_elems[1].c_str());
-				one_link->from_node = network.node_mapping[atoi(temp_elems[2].c_str())];
-				one_link->to_node = network.node_mapping[atoi(temp_elems[3].c_str())];
 
-				assert(one_link->from_node != NULL);
-				assert(one_link->to_node != NULL);
+				one_link->link_connection_start = atoi(temp_elems[2].c_str());
+				one_link->link_connection_end = atoi(temp_elems[3].c_str());
 
-				one_link->from_node->downstream_links.push_back(one_link);
-				one_link->to_node->upstream_links.push_back(one_link);
+				one_link->vehicle_start = atoi(temp_elems[4].c_str());
+				one_link->vehicle_end = atoi(temp_elems[5].c_str());
 
-				network.all_links.push_back(one_link);
+				one_link->buffered_vehicle_start = atoi(temp_elems[6].c_str());
+				one_link->buffered_vehicle_end = atoi(temp_elems[7].c_str());
+
+				one_link->length = atof(temp_elems[8].c_str());
+
+				network.all_links[one_link->link_id] = one_link;
 				network.link_mapping[one_link->link_id] = one_link;
 			}
 
-			else if (line.compare(0, 6, "LINK_C") == 0) {
-//				std::vector<std::string> temp_elems;
-//				network_reading_split(line, ':', temp_elems);
-//
-//				assert(temp_elems.size() == 4);
-//
-//				string key = temp_elems[1].append(",");
-//				key = key.append(temp_elems[2]);
+			else if (line.compare(0, 20, "PARAM_LANECONNECTION") == 0) {
+				std::vector<std::string> temp_elems;
+				network_reading_split(line, ':', temp_elems);
 
-//				bool value = (atoi(temp_elems[3].c_str()) == 1) ? true : false;
-//
-//				network.road_connect_broken[key] = value;
+				assert(temp_elems.size() == 2);
+
+				network.link_conn_size = atoi(temp_elems[1].c_str());
+				network.all_link_conn = new LinkConnection*[network.link_conn_size];
+			}
+
+			else if (line.compare(0, 14, "LANECONNECTION") == 0) {
+				static int lin_conn_ID = 0;
+
+				std::vector<std::string> temp_elems;
+				network_reading_split(line, ':', temp_elems);
+
+				assert(temp_elems.size() == 3);
+
+				LinkConnection* one_link_conn = new LinkConnection();
+				one_link_conn->from_link_id = atoi(temp_elems[1].c_str());
+				one_link_conn->to_link_id = atoi(temp_elems[2].c_str());
+
+				network.all_link_conn[lin_conn_ID] = one_link_conn;
+				lin_conn_ID++;
 			}
 		}
 		myfile.close();
@@ -111,9 +150,9 @@ bool Network::load_network(Network& network, const std::string network_file_path
 
 	std::cout << "-------------------------------------" << std::endl;
 	std::cout << "Network Loaded" << std::endl;
-	std::cout << "Nodes:" << network.all_nodes.size() << std::endl;
-	std::cout << "Links:" << network.all_links.size() << std::endl;
-	std::cout << "road_connect_broken size:" << network.road_connect_broken.size() << std::endl;
+	std::cout << "Nodes:" << network.node_size << std::endl;
+	std::cout << "Links:" << network.link_size << std::endl;
+	std::cout << "Link Connections:" << network.link_conn_size << std::endl;
 	std::cout << "-------------------------------------" << std::endl;
 
 	return true;

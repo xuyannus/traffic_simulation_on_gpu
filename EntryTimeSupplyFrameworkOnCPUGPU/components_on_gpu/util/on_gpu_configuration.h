@@ -26,10 +26,10 @@ public:
 	int kOnGPUMaxLaneUpstream;
 
 	//Length Related
-	int kOnGPURoadLength; //meter
+//	int kOnGPURoadLength; //meter
 	int kOnGPUVehicleLength; //meter
-	int kOnGPUMaxVehiclePerLane;
-	int kOnGPUVehicleMaxLoadingOneTime;
+//	int kOnGPUMaxVehiclePerLane;
+//	int kOnGPUVehicleMaxLoadingOneTime;
 
 	//Speed Related
 	float kOnGPUAlpha;
@@ -43,8 +43,12 @@ public:
 	int kOnGPULaneOutputCapacityPerTimeStep;
 
 	int kOnGPUMaxRouteLength;
-	int kOnGPUMaxLaneCodingLength;
+//	int kOnGPUMaxLaneCodingLength;
 	int kOnGPUGPUToCPUSimulationResultsCopyBufferSize;
+
+	//additional buffer space
+	int kOnGPUTotalVehicleSpace;
+	int kOnGPUTotalBufferedVehicleSpace;
 
 };
 

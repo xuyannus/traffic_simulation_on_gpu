@@ -16,7 +16,8 @@ class NewLaneVehicles {
 public:
 	int lane_ID[kLaneSize];
 	int new_vehicle_size[kLaneSize];
-	GPUVehicle *new_vehicles[kLaneSize][kVehicleMaxLoadingOneTime];
+	int new_vehicles[kLaneSize][kLaneInputCapacityPerTimeStep];
+
 };
 
 #endif /* ONGPUNEWSEGMENTVEHICLES_H_ */

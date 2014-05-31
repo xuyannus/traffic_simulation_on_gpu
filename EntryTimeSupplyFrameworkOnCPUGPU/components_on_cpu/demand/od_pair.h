@@ -39,12 +39,15 @@ bool ODPair::load_in_all_ODs(std::vector<ODPair*>& all_od_pairs, const std::stri
 			}
 
 			std::vector<std::string> temp_elems;
-			network_reading_split(line, ',', temp_elems);
+			network_reading_split(line, ':', temp_elems);
+
+//			std::cout << "line:" << line << std::endl;
 			assert(temp_elems.size() == 2);
 
 			ODPair* one = new ODPair();
 			one->od_pair_id = od_id;
 			od_id ++;
+
 			one->from_node_id = atoi(temp_elems[0].c_str());
 			one->to_node_id = atoi(temp_elems[1].c_str());
 

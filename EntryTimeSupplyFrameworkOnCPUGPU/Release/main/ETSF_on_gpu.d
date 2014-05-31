@@ -198,6 +198,7 @@ main/ETSF_on_gpu.o : ../main/ETSF_on_gpu.cu \
     /usr/include/c++/4.7/bits/stl_tempbuf.h \
     ../main/../components_on_cpu/network/link.h \
     ../main/../components_on_cpu/network/node.h \
+    ../main/../components_on_cpu/network/link_connection.h \
     ../main/../components_on_cpu/demand/od_pair.h \
     ../main/../components_on_cpu/demand/../util/shared_cpu_include.h \
     ../main/../components_on_cpu/demand/../network/network.h \
@@ -218,6 +219,8 @@ main/ETSF_on_gpu.o : ../main/ETSF_on_gpu.cu \
     ../main/../components_on_gpu/supply/on_GPU_vehicle.h \
     ../main/../components_on_gpu/supply/on_GPU_new_lane_vehicles.h \
     ../main/../components_on_gpu/supply/on_GPU_node_pool.h \
+    ../main/../components_on_gpu/supply/on_GPU_lane_vehicle_pool.h \
+    ../main/../components_on_gpu/supply/on_GPU_lane_buffered_vehicle_pool.h \
     ../main/../components_on_gpu/util/shared_gpu_include.h \
     ../main/../components_on_gpu/util/on_gpu_configuration.h \
     ../main/../components_on_gpu/util/../util/shared_gpu_include.h \

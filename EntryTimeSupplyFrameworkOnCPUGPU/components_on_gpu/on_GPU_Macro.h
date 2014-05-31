@@ -9,9 +9,9 @@
 #ifndef ON_GPU_MACRO_H_
 #define ON_GPU_MACRO_H_
 
-//#define ENABLE_OUTPUT
+#define ENABLE_OUTPUT
 //#define ENABLE_CONSTANT_MEMORY
 #define ENABLE_MORE_REGISTER
-#define ENABLE_OUTPUT_GPU_BUFFER
+//#define ENABLE_OUTPUT_GPU_BUFFER
 
 #endif /* ON_GPU_MACRO_H_ */

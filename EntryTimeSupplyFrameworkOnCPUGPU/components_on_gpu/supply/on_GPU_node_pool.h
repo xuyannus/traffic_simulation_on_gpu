@@ -13,13 +13,14 @@
 class NodePool {
 public:
 	int node_ID[kNodeSize];
+
 	int max_acc_flow[kNodeSize];
 	int acc_upstream_capacity[kNodeSize];
 	int acc_downstream_capacity[kNodeSize];
 
 	//if -1, means no such lane
-	int upstream[kMaxLaneUpstream][kNodeSize];
-	int downstream[kMaxLaneDownstream][kNodeSize];
+	int upstream_lane_start_index[kNodeSize];
+	int upstream_lane_end_index[kNodeSize];
 
 };
 

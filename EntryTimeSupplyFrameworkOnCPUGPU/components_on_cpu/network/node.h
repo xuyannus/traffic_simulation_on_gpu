@@ -16,11 +16,10 @@ class Link;
 class Node {
 public:
 	int node_id;
-	int x;
-	int y;
-public:
-	std::vector<Link*> upstream_links;
-	std::vector<Link*> downstream_links;
+	int up_link_start_index;
+	int up_link_end_index;
+	int up_lane_start_index;
+	int up_lane_end_index;
 };
 
 #endif /* NODE_H_ */

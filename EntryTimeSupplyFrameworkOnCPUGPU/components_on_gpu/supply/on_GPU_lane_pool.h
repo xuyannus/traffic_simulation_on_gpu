@@ -8,8 +8,11 @@ class LanePool {
 public:
 	//network
 	int lane_ID[kLaneSize];
-	int from_node_id[kLaneSize];
-	int to_node_id[kLaneSize];
+//	int from_node_id[kLaneSize];
+//	int to_node_id[kLaneSize];
+
+	int lane_connection_start[kLaneSize];
+	int lane_connection_end[kLaneSize];
 
 	//ETS framework
 	int Tp[kLaneSize];
@@ -29,8 +32,6 @@ public:
 	int input_capacity[kLaneSize];
 	float empty_space[kLaneSize];
 
-	int vehicle_counts[kLaneSize];
-
 	//for speed calculation
 	float alpha[kLaneSize];
 	float beta[kLaneSize];
@@ -40,9 +41,14 @@ public:
 	float MIN_speed[kLaneSize];
 
 	//for access vehicles
-	GPUVehicle* vehicle_space[kMaxVehiclePerLane][kLaneSize];
+	int vehicle_counts[kLaneSize];
+
+	int vehicle_start_index[kLaneSize];
+	int vehicle_end_index[kLaneSize];
+
+	int buffered_vehicle_start_index[kLaneSize];
+	int buffered_vehicle_end_index[kLaneSize];
 	int vehicle_passed_to_the_lane_counts[kLaneSize];
-	GPUVehicle* vehicle_passed_space[kLaneInputCapacityPerTimeStep][kLaneSize];
 
 	//For accumulated length estimation
 	float speed_history[kTotalTimeSteps][kLaneSize];
@@ -61,7 +67,7 @@ public:
 	//Temp Variables
 	bool blocked[kLaneSize];
 
-	//for debug, not used on GPU
+//for debug, not used on GPU
 	float debug_data[kLaneSize];
 
 };
