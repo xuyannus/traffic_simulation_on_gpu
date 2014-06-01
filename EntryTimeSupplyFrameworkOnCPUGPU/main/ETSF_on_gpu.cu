@@ -563,7 +563,9 @@ bool StartSimulation() {
 			if (first_time_step == true) {
 				first_time_step = false;
 			} else {
+
 #ifdef ENABLE_OUTPUT_GPU_BUFFER
+				//
 				if ((to_simulate_time + 1) % kGPUToCPUSimulationResultsCopyBufferSize == 0) {
 					CopyBufferSimulatedResultsToCPU(to_simulate_time);
 				}
@@ -571,22 +573,20 @@ bool StartSimulation() {
 				CopySimulatedResultsToCPU(to_simulate_time);
 #endif
 
-				cout << "to_simulate_time:" << to_simulate_time << " Copy is done; to_simulate_time++" << endl;
-
 				to_simulate_time += simulation_time_step;
 			}
 
 			if (to_simulate_time < simulation_end_time) {
 #ifdef ENABLE_OUTPUT
-				cout << "to_simulate_time:" << to_simulate_time << ", to_output_simulation_result_time:" << to_output_simulation_result_time << ", to_output_simulation_result_time:"
-						<< to_output_simulation_result_time << ", simulation_end_time:" << simulation_end_time << endl;
+				//cout << "to_simulate_time:" << to_simulate_time << ", to_output_simulation_result_time:" << to_output_simulation_result_time << ", to_output_simulation_result_time:"
+				//		<< to_output_simulation_result_time << ", simulation_end_time:" << simulation_end_time << endl;
 #endif
 
-//				SupplySimulationPreVehiclePassing<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, parameter_seeting_on_gpu, vpool_gpu);
-//
-//				SupplySimulationVehiclePassing<<<node_blocks, node_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kNodeSize, parameter_seeting_on_gpu, vpool_gpu);
-//
-//				SupplySimulationAfterVehiclePassing<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, parameter_seeting_on_gpu);
+				SupplySimulationPreVehiclePassing<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, parameter_seeting_on_gpu, vpool_gpu);
+
+				SupplySimulationVehiclePassing<<<node_blocks, node_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kNodeSize, parameter_seeting_on_gpu, vpool_gpu);
+
+				SupplySimulationAfterVehiclePassing<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, parameter_seeting_on_gpu);
 
 #ifdef ENABLE_OUTPUT_GPU_BUFFER
 				supply_simulated_results_to_buffer<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, simulation_results_buffer_on_gpu,
@@ -596,8 +596,6 @@ bool StartSimulation() {
 				if (cudaEventRecord(gpu_supply_one_tick_simulation_done_trigger_event, stream_gpu_supply) != cudaSuccess) {
 					cout << "cudaEventRecord failed at to_simulate_time:" << to_simulate_time << endl;
 				}
-
-//				cudaStreamSynchronize(stream_gpu_supply);
 
 #ifdef ENABLE_OUTPUT
 //				cout << "to_simulate_time:" << to_simulate_time << " is done" << endl;
@@ -611,13 +609,13 @@ bool StartSimulation() {
 			if (to_output_simulation_result_time <= to_simulate_time - kGPUToCPUSimulationResultsCopyBufferSize) {
 
 #ifdef ENABLE_OUTPUT
-//				OutputBufferedSimulatedResults(to_output_simulation_result_time);
+				OutputBufferedSimulatedResults(to_output_simulation_result_time);
 #endif
 				to_output_simulation_result_time += simulation_time_step * kGPUToCPUSimulationResultsCopyBufferSize;
 			}
 #else
 #ifdef ENABLE_OUTPUT
-			OutputSimulatedResults(to_output_simulation_result_time);
+			//OutputSimulatedResults(to_output_simulation_result_time);
 #endif
 			to_output_simulation_result_time += simulation_time_step;
 #endif
@@ -665,6 +663,9 @@ bool CopyBufferSimulatedResultsToCPU(int time_step) {
 }
 
 bool OutputSimulatedResults(int time_step) {
+	//output every a minute
+	if(time_step % 60 != 0) return true;
+
 	if (simulation_results_pool.find(time_step) == simulation_results_pool.end()) {
 		std::cerr << "System Error, Try to output time " << time_step << ", while it is not ready!" << std::endl;
 		return false;

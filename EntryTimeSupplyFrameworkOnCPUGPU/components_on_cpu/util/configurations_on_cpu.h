@@ -17,7 +17,7 @@ const int kLaneSize = 9419;
 const int kNodeSize = 3179;
 
 const int kStartTimeSteps = 0;
-const int kEndTimeSteps = 100;
+const int kEndTimeSteps = 3600;
 
 const int kUnitTimeStep = 1; //sec
 const int kTotalTimeSteps = (kEndTimeSteps - kStartTimeSteps) / kUnitTimeStep;

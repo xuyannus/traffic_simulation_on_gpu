@@ -9,12 +9,13 @@
 #define TIMETOOLS_H_
 
 #include "shared_cpu_include.h"
+
 #ifdef _WIN32
+
+#include <time.h>
+
 class TimeTools {
-	typedef struct timeval {
-		long tv_sec;
-		long tv_usec;
-	}timeval;
+
 public:
 	TimeTools() {
 	}
@@ -23,20 +24,27 @@ public:
 
 public:
 	void start_profiling() {
+		time(&start_time);
 	}
 
 	void end_profiling() {
+		time(&end_time);
 	}
 
 	void output() {
+		double cost = diff_ms(end_time, start_time);
+		std::cout << "===================================" << std::endl;
+		std::cout << "Simulation Time (seconds)" << cost << std::endl;
 	}
 
-	double diff_ms(timeval t1, timeval t2) {
+	//unit is second
+	double diff_ms(time_t t2, time_t t1) {
+		return t2 - t1;
 	}
 
 private:
-	timeval start_time;
-	timeval end_time;
+	time_t  start_time;
+	time_t  end_time;
 };
 #else
 #include <sys/time.h>
