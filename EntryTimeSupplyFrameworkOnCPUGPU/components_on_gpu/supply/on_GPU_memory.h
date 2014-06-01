@@ -10,11 +10,11 @@
 
 #include "../util/shared_gpu_include.h"
 
-#include "../components_on_gpu/supply/on_GPU_lane_pool.h"
-#include "../components_on_gpu/supply/on_GPU_new_lane_vehicles.h"
-#include "../components_on_gpu/supply/on_GPU_node_pool.h"
-#include "../components_on_gpu/supply/on_GPU_lane_vehicle_pool.h"
-#include "../components_on_gpu/supply/on_GPU_lane_buffered_vehicle_pool.h"
+#include "on_GPU_lane_pool.h"
+#include "on_GPU_new_lane_vehicles.h"
+#include "on_GPU_node_pool.h"
+#include "on_GPU_lane_vehicle_pool.h"
+#include "on_GPU_lane_buffered_vehicle_pool.h"
 
 class GPUMemory {
 public:

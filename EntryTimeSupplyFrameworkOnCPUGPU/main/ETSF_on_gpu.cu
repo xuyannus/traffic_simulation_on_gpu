@@ -609,13 +609,13 @@ bool StartSimulation() {
 			if (to_output_simulation_result_time <= to_simulate_time - kGPUToCPUSimulationResultsCopyBufferSize) {
 
 #ifdef ENABLE_OUTPUT
-				OutputBufferedSimulatedResults(to_output_simulation_result_time);
+//				OutputBufferedSimulatedResults(to_output_simulation_result_time);
 #endif
 				to_output_simulation_result_time += simulation_time_step * kGPUToCPUSimulationResultsCopyBufferSize;
 			}
 #else
 #ifdef ENABLE_OUTPUT
-			//OutputSimulatedResults(to_output_simulation_result_time);
+//			OutputSimulatedResults(to_output_simulation_result_time);
 #endif
 			to_output_simulation_result_time += simulation_time_step;
 #endif

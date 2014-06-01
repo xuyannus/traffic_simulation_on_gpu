@@ -4,7 +4,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../main/ETSF_on_cpu.cpp 
+../main/ETSF_on_cpu.cpp \
+../main/ETSF_on_cpu_old.cpp 
 
 CU_SRCS += \
 ../main/ETSF_on_gpu.cu 
@@ -14,10 +15,12 @@ CU_DEPS += \
 
 OBJS += \
 ./main/ETSF_on_cpu.o \
+./main/ETSF_on_cpu_old.o \
 ./main/ETSF_on_gpu.o 
 
 CPP_DEPS += \
-./main/ETSF_on_cpu.d 
+./main/ETSF_on_cpu.d \
+./main/ETSF_on_cpu_old.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
