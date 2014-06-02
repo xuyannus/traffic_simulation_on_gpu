@@ -20,6 +20,8 @@
 //#include "../components_on_gpu/on_GPU_kernal.cuh"
 //#include "../components_on_gpu/on_GPU_Macro.h"
 //
+//#include <cmath>
+//
 //using namespace std;
 //
 ///**
@@ -485,7 +487,8 @@
 //}
 //
 //bool OutputSimulatedResults(int time_step) {
-//	if(time_step % 60 != 0) return true;
+//	if (time_step % 60 != 0)
+//		return true;
 //
 //	for (int i = 0; i < kLaneSize; i++) {
 //		int lane_ID = i;
@@ -596,7 +599,9 @@
 //		if (density_ < kMinDensity)
 //			speed_ = kMaxSpeed;
 //		else {
-//			speed_ = kMaxSpeed - kMaxSpeed / (kMaxDensity - kMinDensity) * (density_ - kMinDensity);
+//			speed_ = kMaxSpeed * pow(1.0 - pow((density_ - kMinDensity) / kMaxDensity, kBeta), kAlpha);
+//
+////			speed_ = kMaxSpeed - kMaxSpeed / (kMaxDensity - kMinDensity) * (density_ - kMinDensity);
 //		}
 //		//		gpu_data->lane_pool.speed[lane_index] = ( gpu_data->lane_pool.MAX_SPEED[lane_index] - gpu_data->lane_pool.MIN_SPEED ) / gpu_data->lane_pool.max_density[lane_index] * ( gpu_data->lane_pool.max_density[lane_index] - 0 );
 //

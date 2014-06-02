@@ -577,10 +577,6 @@ bool StartSimulation() {
 			}
 
 			if (to_simulate_time < simulation_end_time) {
-#ifdef ENABLE_OUTPUT
-				//cout << "to_simulate_time:" << to_simulate_time << ", to_output_simulation_result_time:" << to_output_simulation_result_time << ", to_output_simulation_result_time:"
-				//		<< to_output_simulation_result_time << ", simulation_end_time:" << simulation_end_time << endl;
-#endif
 
 				SupplySimulationPreVehiclePassing<<<road_blocks, road_threads_in_a_block, 0, stream_gpu_supply>>>(gpu_data, to_simulate_time, kLaneSize, parameter_seeting_on_gpu, vpool_gpu);
 
@@ -598,7 +594,7 @@ bool StartSimulation() {
 				}
 
 #ifdef ENABLE_OUTPUT
-//				cout << "to_simulate_time:" << to_simulate_time << " is done" << endl;
+				cout << "to_simulate_time:" << to_simulate_time << " is done" << endl;
 #endif
 			}
 		}
@@ -609,24 +605,24 @@ bool StartSimulation() {
 			if (to_output_simulation_result_time <= to_simulate_time - kGPUToCPUSimulationResultsCopyBufferSize) {
 
 #ifdef ENABLE_OUTPUT
-//				OutputBufferedSimulatedResults(to_output_simulation_result_time);
+				OutputBufferedSimulatedResults(to_output_simulation_result_time);
 #endif
 				to_output_simulation_result_time += simulation_time_step * kGPUToCPUSimulationResultsCopyBufferSize;
 			}
 #else
 #ifdef ENABLE_OUTPUT
-//			OutputSimulatedResults(to_output_simulation_result_time);
+			OutputSimulatedResults(to_output_simulation_result_time);
 #endif
 			to_output_simulation_result_time += simulation_time_step;
 #endif
 		} else {
 
 #ifdef ENABLE_OUTPUT
-//			cout << "---------------------" << endl;
-//			cout << "CPU nothing to do" << endl;
-//			cout << "to_simulate_time:" << to_simulate_time << endl;
-//			cout << "to_output_simulation_result_time:" << to_output_simulation_result_time << endl;
-//			cout << "---------------------" << endl;
+			cout << "---------------------" << endl;
+			cout << "CPU nothing to do" << endl;
+			cout << "to_simulate_time:" << to_simulate_time << endl;
+			cout << "to_output_simulation_result_time:" << to_output_simulation_result_time << endl;
+			cout << "---------------------" << endl;
 #endif
 		}
 	}

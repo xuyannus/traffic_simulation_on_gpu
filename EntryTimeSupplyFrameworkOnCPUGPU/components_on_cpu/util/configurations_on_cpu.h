@@ -37,7 +37,7 @@ const int kVehicleLength = 5; //meter
 const float kAlpha = 1;
 const float kBeta = 0.5;
 const float kMaxDensity = 1.0; //vehicle on road
-const float kMinDensity = 10.0 * kVehicleLength / 1000; //vehicle on road
+const float kMinDensity = 3.0 * kVehicleLength / 1000; //vehicle on road
 
 const int kMaxSpeed = 30;
 const int kMinSpeed = 1;
